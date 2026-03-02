@@ -519,5 +519,68 @@
   },
   "footer.helpCenter": {
     "message": "Help Center"
+  },
+  "homepage.hero.newTitle": {
+    "message": "AI Tool Development · China Export · Market Entry"
+  },
+  "homepage.hero.newSubtitle": {
+    "message": "24 years of e-commerce experience, independent developer, helping businesses achieve measurable growth with AI and localization"
+  },
+  "homepage.hero.contact": {
+    "message": "Contact"
+  },
+  "homepage.hero.viewServices": {
+    "message": "View Services"
+  },
+  "homepage.services.title": {
+    "message": "Services"
+  },
+  "homepage.services.aiTools.name": {
+    "message": "AI Tool Development"
+  },
+  "homepage.services.aiTools.desc": {
+    "message": "Custom AI workflows, automation systems and Agents for enterprises, from requirement analysis to delivery, understanding business not just technology"
+  },
+  "homepage.services.chinaExport.name": {
+    "message": "China Export"
+  },
+  "homepage.services.chinaExport.desc": {
+    "message": "Leverage China's supply chain and platform advantages to help foreign enterprises expand markets at low cost"
+  },
+  "homepage.services.chinaEntry.name": {
+    "message": "China Market Entry"
+  },
+  "homepage.services.chinaEntry.desc": {
+    "message": "Localization promotion and platform operations, helping foreign enterprises truly land in the Chinese market"
+  },
+  "homepage.about.title": {
+    "message": "About"
+  },
+  "homepage.about.achievement1": {
+    "message": "2024: Delivered 13 AI efficiency tools covering customer service, product selection, advertising, copywriting, saving 70% repetitive work"
+  },
+  "homepage.about.achievement2": {
+    "message": "4 months as industrial 1688 operations consultant: 3x sales growth, now #1 in soldering iron tip category"
+  },
+  "homepage.about.cclhub": {
+    "message": "CCLHUB is my continuously developed product ecosystem, a testament to my capabilities."
+  },
+  "homepage.cases.title": {
+    "message": "Featured Projects"
+  },
+  "homepage.cases.viewAll": {
+    "message": "View All Projects"
+  },
+  "homepage.cases.case1.title": {
+    "message": "Turkish Law Firm — Bilingual Strategy & Chinese Website"
+  },
+  "homepage.cases.case1.result": {
+    "message": "All Chinese content approved by client team"
+  },
+  "homepage.cases.case2.title": {
+    "message": "Overseas B2B — China Market Localization & WordPress Migration"
+  },
+  "homepage.cases.case2.result": {
+    "message": "Complete site restructuring and platform migration"
   }
 }
