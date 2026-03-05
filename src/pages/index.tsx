@@ -54,7 +54,7 @@ export default function Home(): React.ReactElement {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
             {/* AI工具开发 */}
             <Link
-              to="/services#ai-tools"
+              to="/services"
               className="group p-6 rounded-2xl bg-gray-50 dark:bg-gray-900 border-2 border-gray-200 dark:border-gray-700 text-inherit block shadow-md hover:shadow-lg hover:-translate-y-1 hover:border-purple-400 transition-all duration-300"
             >
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-600 to-purple-700 flex items-center justify-center mb-4 shadow-md group-hover:rotate-6 transition-all duration-300">
@@ -70,7 +70,7 @@ export default function Home(): React.ReactElement {
 
             {/* 中国出海 */}
             <Link
-              to="/services#china-export"
+              to="/services"
               className="group p-6 rounded-2xl bg-gray-50 dark:bg-gray-900 border-2 border-gray-200 dark:border-gray-700 text-inherit block shadow-md hover:shadow-lg hover:-translate-y-1 hover:border-purple-400 transition-all duration-300"
             >
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-600 to-purple-700 flex items-center justify-center mb-4 shadow-md group-hover:rotate-6 transition-all duration-300">
@@ -86,7 +86,7 @@ export default function Home(): React.ReactElement {
 
             {/* 外企入华 */}
             <Link
-              to="/services#china-entry"
+              to="/services"
               className="group p-6 rounded-2xl bg-gray-50 dark:bg-gray-900 border-2 border-gray-200 dark:border-gray-700 text-inherit block shadow-md hover:shadow-lg hover:-translate-y-1 hover:border-purple-400 transition-all duration-300"
             >
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-600 to-purple-700 flex items-center justify-center mb-4 shadow-md group-hover:rotate-6 transition-all duration-300">

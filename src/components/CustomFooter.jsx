@@ -123,6 +123,27 @@ export default function CustomFooter() {
 
         {/* 分隔线 */}
         <div className="border-t border-gray-800 pt-8">
+          {/* 站点外链 - SEO */}
+          <div className="flex justify-center gap-6 mb-6 text-sm">
+            <a
+              href="https://www.aigent.ren/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-500 dark:text-gray-400 hover:text-white dark:hover:text-gray-200 transition-colors duration-200"
+            >
+              aigent.ren
+            </a>
+            <span className="text-gray-700 dark:text-gray-600">•</span>
+            <a
+              href="https://aidevhub.ai/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-500 dark:text-gray-400 hover:text-white dark:hover:text-gray-200 transition-colors duration-200"
+            >
+              aidevhub.ai
+            </a>
+          </div>
+
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500 dark:text-gray-400">
             {/* 版权信息 */}
             <div>© {currentYear} CC.L. <Translate id="footer.copyright">All rights reserved.</Translate></div>
