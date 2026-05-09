@@ -37,5 +37,8 @@
   },
   "sidebar.tutorialSidebar.category.跨境铺货助手": {
     "message": "Cross-border Listing Assistant"
+  },
+  "sidebar.tutorialSidebar.category.任务栈": {
+    "message": "Task Stack"
   }
 }

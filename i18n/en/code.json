@@ -1053,6 +1053,18 @@
     "message": "Open Source on GitHub · Free Forever",
     "description": "CCLEE Docusaurus Theme CTA text"
   },
+  "homepage.products.taskStack.title": {
+    "message": "Task Stack",
+    "description": "Task Stack product title"
+  },
+  "homepage.products.taskStack.description": {
+    "message": "A task context stack for solo multi-project workflows — push/pop to track where you are, persists across sessions, integrates with Claude Code",
+    "description": "Task Stack product description"
+  },
+  "homepage.products.taskStack.cta": {
+    "message": "Learn More",
+    "description": "Task Stack CTA text"
+  },
   "homepage.products.wordpress.title": {
     "message": "WordPress / WooCommerce Themes & Plugins",
     "description": "WordPress section title"

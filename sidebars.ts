@@ -66,6 +66,11 @@ const sidebars: SidebarsConfig = {
       label: 'WooCommerce 物流',
       items: ['cclee-shipping', 'fedex-registration'],
     },
+    {
+      type: 'category',
+      label: '任务栈',
+      items: ['task-stack'],
+    },
   ],
 };
 

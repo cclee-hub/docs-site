@@ -3,7 +3,7 @@ import Layout from '@theme/Layout';
 import Translate from '@docusaurus/Translate';
 import Link from '@docusaurus/Link';
 import { translate } from '@docusaurus/Translate';
-import { PluginIcon, AIIcon, ZapIcon, TrendIcon, ShieldIcon, LightbulbIcon, MessageCircleIcon, RocketIcon, LayoutIcon, ToolIcon, BuildingIcon, TruckIcon, BookOpenIcon, GlobeIcon } from '@site/src/components/Icons';
+import { PluginIcon, AIIcon, ZapIcon, TrendIcon, ShieldIcon, LightbulbIcon, MessageCircleIcon, RocketIcon, LayoutIcon, ToolIcon, BuildingIcon, TruckIcon, BookOpenIcon, GlobeIcon, LayersIcon } from '@site/src/components/Icons';
 import { HeroBackground } from '@site/src/components/HeroSection';
 import ProductListRow from '@site/src/components/ProductListRow';
 
@@ -181,6 +181,17 @@ export default function Products(): React.ReactElement {
               ctaId="homepage.products.ccleeDocusaurusTheme.cta"
               ctaLink="/docs/cclee-docusaurus-theme"
               animationDelay="0.1s"
+            />
+            <ProductListRow
+              icon={<LayersIcon size={24} className="text-white" />}
+              name="任务栈"
+              nameId="homepage.products.taskStack.title"
+              description="单人多项目任务上下文栈，push/pop 追踪当前进度，跨会话持久化，与 Claude Code 深度集成"
+              descriptionId="homepage.products.taskStack.description"
+              cta="了解更多"
+              ctaId="homepage.products.taskStack.cta"
+              ctaLink="/docs/task-stack"
+              animationDelay="0.2s"
             />
           </div>
 
