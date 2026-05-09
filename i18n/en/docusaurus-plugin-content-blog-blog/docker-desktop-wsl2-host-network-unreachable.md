@@ -1,6 +1,6 @@
 ---
-title: Container Port Unreachable from WSL2? The Docker Desktop network_mode:host Trap
-description: Docker Desktop WSL2 containers with network_mode:host have ports inaccessible from the host. The host mode shares the utility VM's network, not WSL2's. Fix: use bridge mode + external network + port mapping.
+title: "Container Port Unreachable from WSL2? The Docker Desktop network_mode:host Trap"
+description: "Docker Desktop WSL2 containers with network_mode:host have ports inaccessible from the host. The host mode shares the utility VM's network, not WSL2's. Fix: use bridge mode + external network + port mapping."
 date: 2026-05-09
 tags: [Docker, WSL2, Docker Compose]
 authors: [cclee]

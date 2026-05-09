@@ -1,6 +1,6 @@
 ---
-title: Chrome Extension Service Worker Can't Read Login Token? Cross-Context Token Sync
-description: Chrome extension sidepanel stores JWT in localStorage, but Service Worker has no localStorage. Sync tokens across contexts via chrome.runtime.sendMessage and chrome.storage.local.
+title: "Chrome Extension Service Worker Can't Read Login Token? Cross-Context Token Sync"
+description: "Chrome extension sidepanel stores JWT in localStorage, but Service Worker has no localStorage. Sync tokens across contexts via chrome.runtime.sendMessage and chrome.storage.local."
 date: 2026-05-09
 tags: [Chrome Extension, Authentication]
 authors: [cclee]

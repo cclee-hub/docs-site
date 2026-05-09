@@ -1,6 +1,6 @@
 ---
-title: PostgreSQL Authentication Failed in WSL? Docker Is Silently Using Your Port
-description: Docker Desktop silently occupies port 5432 in WSL2, causing SSH tunnels to connect to the wrong PostgreSQL instance.
+title: "PostgreSQL Authentication Failed in WSL? Docker Is Silently Using Your Port"
+description: "Docker Desktop silently occupies port 5432 in WSL2, causing SSH tunnels to connect to the wrong PostgreSQL instance."
 date: 2026-05-09
 tags: [WSL, Docker, PostgreSQL]
 authors: [cclee]

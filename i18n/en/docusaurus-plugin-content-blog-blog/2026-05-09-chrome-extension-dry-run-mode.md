@@ -1,6 +1,6 @@
 ---
-title: Chrome Extension Writing Test Data to Production? Add a DRY-RUN Switch
-description: Prevent Chrome extensions from writing test data to production during development with a 3-layer DRY-RUN mode: env variable, HTTP header, and server-side interception.
+title: "Chrome Extension Writing Test Data to Production? Add a DRY-RUN Switch"
+description: "Prevent Chrome extensions from writing test data to production during development with a 3-layer DRY-RUN mode: env variable, HTTP header, and server-side interception."
 date: 2026-05-09
 tags: [Chrome Extension, Node.js]
 authors: [cclee]
