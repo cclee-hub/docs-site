@@ -28,5 +28,14 @@
   },
   "sidebar.tutorialSidebar.category.WooCommerce 物流": {
     "message": "WooCommerce Shipping"
+  },
+  "sidebar.tutorialSidebar.category.cclee-docusaurus-theme": {
+    "message": "CCLEE Docusaurus Theme"
+  },
+  "sidebar.tutorialSidebar.category.WordPress 生态": {
+    "message": "WordPress Ecosystem"
+  },
+  "sidebar.tutorialSidebar.category.跨境铺货助手": {
+    "message": "Cross-border Listing Assistant"
   }
 }

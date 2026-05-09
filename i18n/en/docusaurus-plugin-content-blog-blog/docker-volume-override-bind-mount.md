@@ -1,5 +1,5 @@
 ---
-title: Docker Container Can't See Host Files? Anonymous Volume Overrides Bind Mount
+title: "Docker Container Can't See Host Files? Anonymous Volume Overrides Bind Mount"
 description: Configured bind mount in docker-compose.yml but container doesn't see host files. WordPress official image's VOLUME declaration creates anonymous volumes that override your mount config.
 date: 2026-04-04
 tags: [Docker, WordPress, Container Deployment]

@@ -1,6 +1,6 @@
 ---
 title: Debugging Frontend Deployment Not Updating on Production
-description: New feature works locally but missing on production? Compare build artifact timestamps to identify outdated server builds
+description: "New feature works locally but missing on production? Compare build artifact timestamps to identify outdated server builds"
 date: 2026-03-07
 tags: [Frontend Deployment, Nginx, Vite, Bug Fix]
 schema: Article

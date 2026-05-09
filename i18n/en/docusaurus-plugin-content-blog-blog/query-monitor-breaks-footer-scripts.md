@@ -1,5 +1,5 @@
 ---
-title: Theme JS Broken After Disabling a Plugin? Check Query Monitor's Footer Scripts Callback
+title: "Theme JS Broken After Disabling a Plugin? Check Query Monitor's Footer Scripts Callback"
 description: Troubleshooting WordPress theme.js loading issues caused by Query Monitor plugin, analyzing hook priority to identify root cause and solutions
 date: 2026-04-04
 tags: [wordpress, debugging, query-monitor, bug-fixing]

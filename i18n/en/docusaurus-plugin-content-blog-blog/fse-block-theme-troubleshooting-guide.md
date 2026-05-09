@@ -1,5 +1,5 @@
 ---
-title: WordPress Block Theme Changes Not Taking Effect? FSE Development Troubleshooting Guide
+title: "WordPress Block Theme Changes Not Taking Effect? FSE Development Troubleshooting Guide"
 description: Five common WordPress FSE theme development issues—file changes not applying, block nesting errors, missing post-content, SVG icons disappearing, and WP-CLI mail failures—with root causes and copy-paste solutions.
 date: 2026-04-17
 tags: [WordPress, FSE, Block Theme, Docker, Bug Fix]

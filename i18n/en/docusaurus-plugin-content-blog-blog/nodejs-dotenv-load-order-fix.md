@@ -1,6 +1,6 @@
 ---
 title: Fix Node.js Environment Variables Reading as undefined
-description: dotenv configured correctly but process.env returns undefined? Likely a module load order issue. Use getter functions for lazy evaluation.
+description: "dotenv configured correctly but process.env returns undefined? Likely a module load order issue. Use getter functions for lazy evaluation."
 date: 2026-03-07
 tags: [Node.js, dotenv, Express, Bug Fix]
 schema: Article

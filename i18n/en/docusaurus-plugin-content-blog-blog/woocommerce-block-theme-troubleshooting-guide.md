@@ -1,5 +1,5 @@
 ---
-title: WooCommerce Blocks Showing core/missing After Upgrade? Block Theme Troubleshooting Guide
+title: "WooCommerce Blocks Showing core/missing After Upgrade? Block Theme Troubleshooting Guide"
 description: Four common WooCommerce Block Theme issues—block rename causing core/missing, shop slug change resulting in 404, template HTML mismatch with Gutenberg save output, and Cart/Checkout templates not auto-assigning—with root causes and solutions.
 date: 2026-04-17
 tags: [WooCommerce, Block Theme, FSE, WordPress]

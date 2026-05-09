@@ -193,7 +193,7 @@ export default function CustomFooter() {
         </div>
 
         {/* 分隔线 */}
-        <div className="border-t border-gray-800 pt-8">
+        <div className="border-t border-gray-800 dark:border-gray-600 pt-8">
           {/* 站点外链 - SEO */}
           <div className="flex justify-center gap-6 mb-6 text-sm">
             <a

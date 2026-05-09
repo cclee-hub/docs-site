@@ -1,5 +1,5 @@
 ---
-title: Embedding a Timeline in SITE123 Event Pages? First Dodge These 5 Platform Limits
+title: "Embedding a Timeline in SITE123 Event Pages? First Dodge These 5 Platform Limits"
 description: "Embedding a timeline into a SITE123 event page hits 5 platform walls: no precise positioning, scripts running before DOM loads, selectors hitting hidden elements, float layout conflicts, and duplicate script injection from cache. Here's what we learned."
 date: 2026-04-10
 tags: [Bug Fix, E-commerce]
