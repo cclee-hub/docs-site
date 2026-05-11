@@ -104,7 +104,18 @@ const config: Config = {
           priority: null,
           changefreq: null,
           filename: 'sitemap.xml',
-          ignorePatterns: ['/blog/page/**', '/blog/tags/**', '/cases/cases-tags/**'],
+          createSitemapItems: async (params) => {
+            const { defaultCreateSitemapItems, ...rest } = params;
+            const items = await defaultCreateSitemapItems(rest);
+            return items.filter((item) => {
+              const url = item.url;
+              return (
+                !/\/blog\/page\/\d+/.test(url) &&
+                !url.includes('/blog/tags/') &&
+                !url.includes('/cases/cases-tags/')
+              );
+            });
+          },
         },
       } satisfies Preset.Options,
     ],
