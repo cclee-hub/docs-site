@@ -18,6 +18,8 @@ Encountered this issue while building an AI data analytics platform (Airflow + P
 
 On Docker Desktop for Windows (WSL2 backend), `network_mode: host` container ports are unreachable from the WSL2 host. The container shows the port listening, but `curl localhost:PORT` returns connection refused. The fix: use `network_mode: !reset` in your override file to remove host mode, then switch to bridge + external network + port mapping.
 
+
+<!-- truncate -->
 ## Problem
 
 A project uses `docker-compose.yml` with host networking for Airflow:

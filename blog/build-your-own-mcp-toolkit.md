@@ -20,6 +20,8 @@ faqs:
 
 用 Python FastMCP 30 分钟搭建自定义 MCP Server，按场景和成本接入任意 OpenAI 兼容 API。本文以豆包视觉模型为例演示完整流程，并提供文本生成、图像生成、语音合成等场景的扩展模板。
 
+
+<!-- truncate -->
 ## MCP 解决什么问题
 
 MCP（Model Context Protocol）是 Anthropic 提出的开放协议，标准化了 AI 应用与外部工具的通信方式。类比 USB-C：不管什么设备，插上就能用。

@@ -22,6 +22,8 @@ Encountered this issue while building an AI Agent platform for a client: needed 
 2. Each provider inherits the base class, implements `search()` method with field mapping
 3. **Key design**: Return `SearchResult` with error info on failure, never raise exceptions
 
+
+<!-- truncate -->
 ## The Problem
 
 Direct calls to different search APIs look like this:

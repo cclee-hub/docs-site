@@ -68,7 +68,7 @@ Having issues? Here's the FAQ and technical support information.
 
 ## Technical Support
 
-- **Website**: [https://app.aigent.ren](https://app.aigent.ren)
+- **Website**: [https://ai.ccleeai.com](https://ai.ccleeai.com)
 - **Feedback**: Submit via website contact form
 
 ---

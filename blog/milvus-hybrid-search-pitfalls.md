@@ -20,6 +20,8 @@ faqs:
 
 Milvus 混合搜索（Dense + Sparse）有四个常见坑：空稀疏向量报错、Collection 未加载、sparse 格式错误、阈值过高。本文给出每个问题的最小修复代码。
 
+
+<!-- truncate -->
 ## 问题现象
 
 ### 坑 1：空稀疏向量插入失败

@@ -9,6 +9,8 @@ tags: [React, GA4, TypeScript, aigent]
 
 Key points for GA4 in React SPA: 1) Set `send_page_view: false` to prevent duplicate counts; 2) Use `useLocation` to track route changes and send pageviews manually; 3) Set `user_id` after login for cross-device tracking.
 
+
+<!-- truncate -->
 ## Problem
 
 Using GA4 default configuration in React SPA causes:

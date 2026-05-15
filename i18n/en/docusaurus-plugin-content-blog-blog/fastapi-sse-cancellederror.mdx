@@ -11,6 +11,8 @@ tags: [FastAPI, SSE, asyncio, ai-agent]
 
 When using FastAPI's `StreamingResponse` for SSE, client disconnection cancels the generator task and raises `asyncio.CancelledError`. Catch it in your generator and **re-raise** to prevent error logs and resource leaks.
 
+
+<!-- truncate -->
 ## Problem
 
 When implementing streaming chat with SSE, server logs get flooded with exceptions after client disconnects:

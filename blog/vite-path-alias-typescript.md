@@ -11,6 +11,8 @@ schema: Article
 
 Vite 路径别名需要**同时配置** `vite.config.ts` 和 `tsconfig.json`，缺一不可：Vite 负责打包时解析，TypeScript 负责类型检查和 IDE 提示。
 
+
+<!-- truncate -->
 ## 问题现象
 
 ### 只配了 vite.config.ts

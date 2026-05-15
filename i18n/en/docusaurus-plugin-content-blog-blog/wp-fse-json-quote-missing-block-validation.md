@@ -16,6 +16,8 @@ faqs:
 
 In WordPress FSE themes, if a JSON attribute in a Pattern/Template HTML comment has a missing closing quote `"`, the brace count remains balanced, but `parse_blocks()` silently sets the block's `attrs` to `null`. Gutenberg's `save` function then produces no inline styles, triggering Block validation failed. Validate JSON with `json.loads()` to catch this.
 
+
+<!-- truncate -->
 ## The Problem
 
 Opening the wishlist template in WordPress Site Editor shows a console error:

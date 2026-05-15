@@ -22,7 +22,7 @@ A lightweight FSE block theme for developers. Clean architecture, customizable d
     <GithubIcon size={16} />
     Download on GitHub
   </a>
-  <a href="https://demo.aigent.ren"
+  <a href="https://ai.ccleeai.com"
      className="button button--secondary button--lg"
      target="_blank">
     <GlobeIcon size={16} />

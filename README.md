@@ -2,7 +2,7 @@
 
 An open-source documentation theme for Docusaurus 3.x with integrated purple branding, dark mode, and Tailwind CSS typography enhancements.
 
-[Live Demo](https://www.aigent.ren) · [English Demo](https://aidevhub.ai)
+[Live Demo](https://ccleeai.com) · [English Demo](https://aidevhub.ai)
 
 ---
 
@@ -50,7 +50,7 @@ Globally registered components in `MDXComponents.tsx` — use directly in any `.
 Native Docusaurus i18n with dual-site routing:
 
 ```bash
-npm run start          # Chinese site → www.aigent.ren
+npm run start          # Chinese site → ccleeai.com
 SITE=ai npm run start  # English site → aidevhub.ai
 ```
 
@@ -147,7 +147,7 @@ docs-site/
 | `npm run start` | Start dev server (Chinese) |
 | `SITE=ai npm run start` | Start dev server (English) |
 | `npm run build` | Build for production |
-| `npm run build:ren` | Build for www.aigent.ren |
+| `npm run build:ren` | Build for ccleeai.com |
 | `npm run build:ai` | Build for aidevhub.ai (Vercel) |
 
 ---
@@ -160,7 +160,7 @@ MIT License. Free for personal and commercial use.
 
 ## About the Author
 
-- [Chinese Site](https://www.aigent.ren/about)
+- [Chinese Site](https://ccleeai.com/about)
 - [English Site](https://aidevhub.ai/about)
 - [Upwork](https://www.upwork.com/freelancers/~010ab5ec29d8f4ff3f)
 - [LinkedIn](https://www.linkedin.com/in/cc-lee-9b0b113bb/)

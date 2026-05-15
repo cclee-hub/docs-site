@@ -53,7 +53,7 @@ const personSchema = {
   "sameAs": [
     "https://www.upwork.com/freelancers/~010ab5ec29d8f4ff3f",
     "https://github.com/cclee-hub",
-    "https://www.aigent.ren"
+    "https://ccleeai.com"
   ]
 };
 

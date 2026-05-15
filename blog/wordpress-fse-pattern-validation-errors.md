@@ -23,6 +23,8 @@ faqs:
 
 块验证失败通常是以下原因之一：**颜色 slug 未定义**、**JSON 重复 key**、**Style Variation 调色板覆盖**、**HTML 属性与块注释不一致**、**全局样式覆盖 theme.json**。逐一排查即可解决。
 
+
+<!-- truncate -->
 ## 问题现象
 
 编辑器中 Pattern 显示红色警告：

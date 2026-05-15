@@ -18,6 +18,8 @@ faqs:
 
 Docker Desktop silently occupies port 5432 in WSL2. An SSH tunnel to `localhost:5432` actually connects to Docker's PostgreSQL instead of the remote server. The `password authentication failed` error is misleading — the password is correct, but you're talking to the wrong instance. Fix: change the tunnel to local port 5433 and isolate the dev config with `.env.local`.
 
+
+<!-- truncate -->
 ---
 
 ## Problem

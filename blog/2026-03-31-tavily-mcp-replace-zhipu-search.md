@@ -20,6 +20,8 @@ faqs:
 
 智谱 GLM 编码套餐内置 `web-search-prime` 和 `web-reader` 两个 MCP 服务，每次搜索/读取消耗对话额度。替换为 Tavily MCP 后，联网搜索使用独立免费额度（1000 次/月），不再挤占编码对话用量。
 
+
+<!-- truncate -->
 ## 问题现象
 
 在一次 WooCommerce 主题上架开发中，频繁使用联网搜索查文档、读网页。开发完成后查看额度：
@@ -119,7 +121,7 @@ Tavily API Key 在 [tavily.com](https://tavily.com) 注册即可获取，免费�
 ## 推荐
 
 <div className="my-8 p-6 rounded-xl border-2 border-purple-200 dark:border-purple-800 bg-purple-50 dark:bg-purple-900/20 text-center">
-  <p className="text-lg font-semibold mb-3">也在用智谱 GLM 编码套餐？</p>
+  <div className="text-lg font-semibold mb-3">也在用智谱 GLM 编码套餐？</div>
   <a href="https://www.bigmodel.cn/glm-coding?ic=BCT362LRE2"
      className="button button--primary button--lg"
      target="_blank" rel="noopener noreferrer">

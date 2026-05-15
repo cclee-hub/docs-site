@@ -9,6 +9,8 @@ tags: [docs-site, Docusaurus, CSS, flex]
 
 To align SVG icons with text in Docusaurus document headings, use `display: flex` + `align-items: center` + `gap`, combined with the `.theme-doc-markdown` selector to target docs pages only without affecting blog.
 
+
+<!-- truncate -->
 ## Problem
 
 When using inline SVG icons as heading decorations in Docusaurus docs:

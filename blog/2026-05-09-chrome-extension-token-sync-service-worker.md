@@ -18,6 +18,8 @@ faqs:
 
 Chrome 扩展使用 sidepanel 作为 UI 入口，用户登录后 token 存入 `localStorage`。但 Service Worker（background script）没有 `localStorage`，调用直接抛 `ReferenceError`。解决方案：sidepanel 登录后通过 `chrome.runtime.sendMessage` 将 token 同步给 Service Worker，由 Service Worker 写入 `chrome.storage.local`。两边各取所需——sidepanel 读 `localStorage`，Service Worker 读 `chrome.storage.local`。
 
+
+<!-- truncate -->
 ---
 
 ## 问题现象

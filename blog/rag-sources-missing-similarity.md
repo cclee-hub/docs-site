@@ -13,6 +13,8 @@ schema: Article
 
 RAG `/query` 接口返回的 `sources` 字段只包含 metadata，没有每条来源的 `similarity` 分数。解决方案：在组装响应时，将 `metadatas` 和 `distances` 合并，计算 `similarity = 1 - distance`。
 
+
+<!-- truncate -->
 ## 问题现象
 
 调用 RAG 查询接口，返回的 `sources` 缺少相似度信息：

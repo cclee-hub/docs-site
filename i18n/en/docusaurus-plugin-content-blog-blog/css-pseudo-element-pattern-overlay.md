@@ -16,6 +16,8 @@ faqs:
 
 When using `::before` pseudo-elements for container background decorations (dots/grid), you must set `opacity`, `pointer-events: none`, and `z-index: -1` together. Missing `opacity` causes 100% opaque patterns; missing `z-index` causes patterns to cover buttons and other child elements.
 
+
+<!-- truncate -->
 ## Problem
 
 An FSE theme's CTA banner section used a `::before` pseudo-element to render decorative dot patterns. The expected effect was a subtle background texture, but the actual result was fully opaque dots covering the button surface:

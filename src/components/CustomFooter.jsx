@@ -197,21 +197,21 @@ export default function CustomFooter() {
           {/* 站点外链 - SEO */}
           <div className="flex justify-center gap-6 mb-6 text-sm">
             <a
-              href="https://www.aigent.ren/"
+              href="https://ccleeai.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-500 dark:text-gray-400 hover:text-white dark:hover:text-gray-200 transition-colors duration-200"
             >
-              aigent.ren
+              ccleeai.com
             </a>
             <span className="text-gray-700 dark:text-gray-600">•</span>
             <a
-              href="https://app.aigent.ren/"
+              href="https://app.ccleeai.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-500 dark:text-gray-400 hover:text-white dark:hover:text-gray-200 transition-colors duration-200"
             >
-              app.aigent.ren
+              app.ccleeai.com
             </a>
             <span className="text-gray-700 dark:text-gray-600">•</span>
             <a

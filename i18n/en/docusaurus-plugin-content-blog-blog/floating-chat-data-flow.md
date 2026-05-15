@@ -57,7 +57,7 @@ fetch(RAG_API_URL, {
 })
 ```
 
-**Endpoint**: `https://rag.aigent.ren/query` (can be overridden via `RAG_API_URL` env variable)
+**Endpoint**: `https://rag.ccleeai.com/query` (can be overridden via `RAG_API_URL` env variable)
 
 ## Request Data
 

@@ -18,6 +18,8 @@ faqs:
 
 WSL2 环境下 Docker Desktop 静默占用 5432 端口。SSH 隧道 `localhost:5432` 实际连接的是 Docker 容器内的 PostgreSQL，而非远程服务器。密码认证失败的报错具有误导性——密码没错，连的实例错了。解决方案：隧道改用本地 5433 端口，配合 `.env.local` 隔离开发配置。
 
+
+<!-- truncate -->
 ---
 
 ## 问题现象

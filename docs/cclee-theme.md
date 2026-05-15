@@ -22,7 +22,7 @@ import StatusTag from '@site/src/components/StatusTag'
     <GithubIcon size={16} />
     GitHub 下载
   </a>
-  <a href="https://demo.aigent.ren"
+  <a href="https://ai.ccleeai.com"
      className="button button--secondary button--lg"
      target="_blank">
     <GlobeIcon size={16} />

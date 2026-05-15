@@ -16,6 +16,8 @@ faqs:
 
 WordPress FSE 主题的 Pattern/Template 文件中，HTML 注释里的 JSON 属性如果某个字符串值缺少闭合引号 `"`，花括号数量仍然平衡，但 `parse_blocks()` 会静默将该块的 `attrs` 置为 `null`。Gutenberg 的 `save` 函数因此不输出 inline style，触发 Block validation failed。用 `json.loads()` 验证 JSON 合法性即可定位。
 
+
+<!-- truncate -->
 ## 问题现象
 
 WordPress Site Editor 打开 wishlist 模板时控制台报错：

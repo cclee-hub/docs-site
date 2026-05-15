@@ -21,6 +21,8 @@ faqs:
 1. Cart Block 必须显式声明 `filled-cart-block` 和 `empty-cart-block` 子块，否则空车时无任何内容输出。
 2. 商品无特色图片时，FSE 的 `post-featured-image` 块渲染为空字符串，导致卡片高度塌陷。通过 `post_thumbnail_html` filter 补上 WooCommerce 占位图。
 
+
+<!-- truncate -->
 ## 问题一：Cart Block 空车白屏
 
 ### 问题现象

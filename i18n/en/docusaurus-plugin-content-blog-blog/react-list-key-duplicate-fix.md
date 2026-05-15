@@ -18,6 +18,8 @@ Encountered this issue while building an AI Agent chat interface. Here's the roo
 
 `Date.now()` millisecond timestamps can duplicate within the same millisecond. When used as React list keys, this causes DOM errors. Fix by adding a random suffix or using `crypto.randomUUID()`.
 
+
+<!-- truncate -->
 ## Problem
 
 When rapidly sending messages in a chat interface, the console shows:

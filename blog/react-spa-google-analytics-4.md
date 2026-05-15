@@ -10,6 +10,8 @@ authors: [cclee]
 
 React SPA 集成 GA4 的关键点：1) 禁用 `send_page_view: false` 避免重复追踪；2) 用 `useLocation` 监听路由变化手动发送 pageview；3) 登录后设置 `user_id` 实现跨设备追踪。
 
+
+<!-- truncate -->
 ## 问题现象
 
 在 React SPA 中直接使用 GA4 默认配置会导致：

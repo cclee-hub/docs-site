@@ -33,6 +33,8 @@ Set-NetFirewallProfile -DisabledInterfaceAliases "vEthernet (WSL)"
 1. **动态 IP 问题**：宿主机 IP 在 WSL/Windows 重启后变化
 2. **配置缓存问题**：`~/.claude.json` 和 `~/.claude/settings.json` 里缓存了旧 API key 导致认证冲突
 
+
+<!-- truncate -->
 ## 问题现象
 
 环境：Windows 10 21H2 + WSL2 2.5.10.0（NAT 模式），宿主机 Clash Verge（端口 7897，Allow LAN 已开启）。

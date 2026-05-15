@@ -145,7 +145,7 @@ export default function Products(): React.ReactElement {
               nameId="homepage.products.agntc.title"
               description="说出来就能做到，不用找开发者。自带 API Key，执行透明，数据自主。"
               descriptionId="homepage.products.agntc.description"
-              cta="访问 app.aigent.ren"
+              cta="访问 app.ccleeai.com"
               ctaId="homepage.products.agntc.cta"
               ctaLink="/agntc"
               animationDelay="0.4s"

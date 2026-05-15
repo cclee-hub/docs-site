@@ -18,6 +18,8 @@ Encountered this issue while building an AI Agent platform. Here's the root caus
 
 Use `page.route()` to intercept all API requests and return predefined mock data. Tests don't depend on real backend, can run stably in any environment, and avoid side effects like creating/deleting data.
 
+
+<!-- truncate -->
 ## Problem
 
 E2E tests calling real API:

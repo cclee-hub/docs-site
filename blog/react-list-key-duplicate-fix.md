@@ -18,6 +18,8 @@ faqs:
 
 `Date.now()` 毫秒级时间戳可能在同一毫秒内重复，作为 React 列表 key 会导致 DOM 报错。解决方案是添加随机后缀，或使用 `crypto.randomUUID()`。
 
+
+<!-- truncate -->
 ## 问题现象
 
 聊天界面快速发送消息时，控制台报错：

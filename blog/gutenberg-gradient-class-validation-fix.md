@@ -18,6 +18,8 @@ faqs:
 
 Gutenberg 升级后，gradient 的 CSS class 命名规则从 `has-{slug}-gradient` 变为 `has-{slug}-gradient-background`。手写 Pattern HTML 中的旧 class 与 Gutenberg 验证逻辑不匹配，导致 Site Editor 报错。解决方案是批量替换 class 名称。
 
+
+<!-- truncate -->
 ## 问题现象
 
 所有历史 Pattern 在 Site Editor 中显示错误：

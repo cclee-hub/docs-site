@@ -16,6 +16,8 @@ faqs:
 
 Chrome 扩展在开发调试时，每次测试采集都会把数据写进生产数据库。用三层 DRY-RUN 开关解决：`.env.development` 设环境变量 → 客户端读取后给请求加 `X-Dry-Run` Header → 服务端拦截该 Header 返回数据预览，不执行写入。生产环境不设该变量，完全不受影响。
 
+
+<!-- truncate -->
 ---
 
 ## 问题现象

@@ -18,6 +18,8 @@ faqs:
 
 使用 Playwright 的 `test.extend()` 创建自定义 fixture，通过 `page.addInitScript()` 在页面加载前注入 auth token 到 localStorage。测试用 `authenticatedPage` 替代 `page`，自动获得登录状态，无需每个测试重复登录。
 
+
+<!-- truncate -->
 ## 问题现象
 
 E2E 测试需要验证登录后才能访问的页面：

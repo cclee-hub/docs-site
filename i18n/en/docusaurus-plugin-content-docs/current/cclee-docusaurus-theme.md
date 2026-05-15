@@ -10,7 +10,7 @@ rag_tags: ["Docusaurus", "Open Source", "Documentation Theme"]
 
 # CCLEE Docusaurus Theme
 
-[Live Demo](https://www.aigent.ren) · [中文](https://www.aigent.ren)
+[Live Demo](https://ccleeai.com) · [中文](https://ccleeai.com)
 
 <FeatureCard title="Out of the Box">
 Based on Docusaurus 3.x with integrated purple theme, dark mode, and Tailwind CSS. Clone and configure to get started.

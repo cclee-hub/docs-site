@@ -18,6 +18,8 @@ faqs:
 
 Chrome extension uses a sidepanel as the UI. User logs in, token goes to `localStorage`. But the Service Worker (background script) has no `localStorage` — calling it throws `ReferenceError`. Fix: after login, send the token to the Service Worker via `chrome.runtime.sendMessage`, which writes it to `chrome.storage.local`. Sidepanel reads `localStorage`, Service Worker reads `chrome.storage.local`.
 
+
+<!-- truncate -->
 ---
 
 ## Problem

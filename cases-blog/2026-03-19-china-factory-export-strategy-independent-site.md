@@ -25,6 +25,8 @@ faqs:
 
 ![全球贸易出口](/img/cases/global-shipping-containers.jpg)
 
+
+<!-- truncate -->
 ## 挑战
 
 - 主流出海路径（阿里国际站、Made-in-China）年费高、平台依赖强、竞价不可控

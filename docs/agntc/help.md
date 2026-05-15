@@ -68,7 +68,7 @@ rag_tags: ["FAQ", "故障排除", "快捷键"]
 
 ## 技术支持
 
-- **网站**： [https://app.aigent.ren](https://app.aigent.ren)
+- **网站**： [https://ai.ccleeai.com](https://ai.ccleeai.com)
 - **问题反馈**： 通过网站联系表单提交
 
 ---

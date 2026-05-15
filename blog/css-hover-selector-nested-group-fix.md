@@ -20,6 +20,8 @@ faqs:
 
 通用卡片 hover 选择器 `.wp-block-columns .wp-block-column > .wp-block-group:hover` 会匹配到卡片**内部嵌套**的文字 group，导致悬浮时内层文字偏移而外层卡片不动。修复方式：用 `.wp-block-post-template` 前缀重置内层 group 的 hover 效果。
 
+
+<!-- truncate -->
 ## 问题现象
 
 博客列表页使用卡片式布局（外层 border group 包裹图片 + 文字 group）。鼠标悬浮卡片时：

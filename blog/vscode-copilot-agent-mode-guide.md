@@ -11,6 +11,8 @@ schema: Article
 
 VSCode Copilot Agent Mode 是实验性功能，能让 AI 自动执行多步骤任务（包括编辑文件、运行终端命令）。在 `settings.json` 中添加 `"github.copilot.chat.agent.enabled": true` 即可启用，适合处理重复性重构、批量文件修改等场景。
 
+
+<!-- truncate -->
 ## 问题现象
 
 传统 Copilot Chat 只能建议代码片段，每次都要：

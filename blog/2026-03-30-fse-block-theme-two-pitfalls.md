@@ -21,6 +21,8 @@ faqs:
 1. Style variation 的 `palette`/`gradients` 是**整体替换**而非合并，只写 1 个颜色会丢失其余全部 -- 必须补全完整列表，只改需要变化的颜色。
 2. `front-page.html` 模板硬编码 pattern 会导致 Site Editor 编辑白屏，且用户无法在编辑器中调整布局 -- 应改为页面内容驱动。
 
+
+<!-- truncate -->
 ## 坑一：Style Variation 风格预览只显示一个颜色块
 
 ### 问题现象

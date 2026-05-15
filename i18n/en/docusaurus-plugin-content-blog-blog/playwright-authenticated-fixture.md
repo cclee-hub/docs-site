@@ -18,6 +18,8 @@ Encountered this issue while building an AI Agent platform. Here's the root caus
 
 Use Playwright's `test.extend()` to create a custom fixture that injects auth token into localStorage via `page.addInitScript()` before page load. Tests use `authenticatedPage` instead of `page`, automatically getting logged-in state without repeating login in each test.
 
+
+<!-- truncate -->
 ## Problem
 
 E2E tests need to verify pages behind authentication:

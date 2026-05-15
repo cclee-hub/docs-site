@@ -25,6 +25,8 @@ While developing a WordPress FSE enterprise theme for a client, I discovered the
 
 **Result**: Contrast ratio improved from 1.05:1 to 15.8:1 (WCAG AAA grade).
 
+
+<!-- truncate -->
 ## Problem
 
 Footer block uses `backgroundColor="contrast"` + `textColor="base"`:

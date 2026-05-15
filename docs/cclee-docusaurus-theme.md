@@ -10,7 +10,7 @@ rag_tags: ["Docusaurus", "开源", "文档主题"]
 
 # CCLEE Docusaurus Theme
 
-[在线演示](https://www.aigent.ren) · [English](https://aidevhub.ai)
+[在线演示](https://ccleeai.com) · [English](https://aidevhub.ai)
 
 <FeatureCard title="开箱即用">
 基于 Docusaurus 3.x，集成紫色主题、深色模式、Tailwind CSS。Clone 下来配置一下即可使用。

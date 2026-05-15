@@ -17,7 +17,7 @@ import StatusTag from '@site/src/components/StatusTag'
 Say it, done. No developers needed.
 
 <div className="text-center my-6">
-  <a href="https://app.aigent.ren"
+  <a href="https://ai.ccleeai.com"
      className="button button--primary button--lg"
      target="_blank"
      rel="noopener noreferrer">
@@ -76,7 +76,7 @@ Say it, done. No developers needed.
 
 ### Quick Start
 
-1. **Visit Platform**: Open [app.aigent.ren](https://app.aigent.ren)
+1. **Visit Platform**: Open [ai.ccleeai.com](https://ai.ccleeai.com)
 2. **Configure API Key**: Add your API Key in settings (supports Claude, GPT-4o, etc.)
 3. **Start Chatting**: Describe what you want in natural language
 4. **Watch in Real-time**: Observe Agent executing each step, correct anytime

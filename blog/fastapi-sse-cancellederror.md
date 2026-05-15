@@ -20,6 +20,8 @@ faqs:
 
 FastAPI 的 `StreamingResponse` 在客户端断开连接时会取消生成器任务，导致 `asyncio.CancelledError`。正确做法是在生成器中捕获该异常并 **re-raise**，否则会导致异常日志污染和资源泄漏。
 
+
+<!-- truncate -->
 ## 问题现象
 
 使用 SSE（Server-Sent Events）实现流式对话时，客户端断开连接后，服务端日志出现大量异常：

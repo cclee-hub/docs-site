@@ -10,6 +10,8 @@ authors: [cclee]
 
 Docusaurus 引入 Tailwind 后，Preflight 的 CSS Reset 会重置 `<ul>` 元素的 `list-style`、`margin`、`padding`，导致面包屑导航样式丢失。解决方法是在 `custom.css` 中添加显式覆盖样式。
 
+
+<!-- truncate -->
 ## 问题现象
 
 在 Docusaurus 项目中引入 Tailwind CSS 后，文档页的面包屑导航（Breadcrumbs）样式异常：

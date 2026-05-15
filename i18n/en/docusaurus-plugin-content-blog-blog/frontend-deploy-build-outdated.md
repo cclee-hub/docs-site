@@ -10,6 +10,8 @@ schema: Article
 
 Frontend code pushed to Git but new feature missing on production? The root cause is usually **outdated build artifacts on the server**. Compare local and server `dist/` directory timestamps to confirm, then run `npm run build` on the server.
 
+
+<!-- truncate -->
 ## Problem
 
 New button/feature works locally (`npm run dev`) but not visible on production:

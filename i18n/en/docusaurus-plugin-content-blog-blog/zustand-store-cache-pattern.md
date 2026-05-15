@@ -18,6 +18,8 @@ Encountered this issue while building an AI Agent platform. Here's the root caus
 
 Add `lastFetchTime` field and TTL constant to Zustand store. Check cache expiration before requesting. Implement effective data caching in ~10 lines of code, avoiding duplicate requests across pages.
 
+
+<!-- truncate -->
 ## Problem
 
 MCP tools list is used by multiple pages (Agent Settings, Tools Marketplace, Chat tool selector). Each page entry triggers an API request:

@@ -13,7 +13,7 @@ const config: Config = {
   // Umami 网站分析
   scripts: [
     {
-      src: 'https://umami.aigent.ren/script.js',
+      src: 'https://tj.ccleeai.com/script.js',
       async: true,
       'data-website-id': '806b27c0-695b-4e07-8b75-89a6b4aefc95',
     },
@@ -168,7 +168,7 @@ const config: Config = {
       { charSet: 'utf-8' },
       {
         'http-equiv': 'Content-Security-Policy',
-        content: "default-src 'self' 'unsafe-inline'; connect-src 'self' https://rag.aigent.ren https://umami.aigent.ren; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://umami.aigent.ren; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.aigent.ren https://oss-cn-shenzhen.aliyuncs.com; font-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests; block-all-mixed-content",
+        content: "default-src 'self' 'unsafe-inline'; connect-src 'self' https://rag.ccleeai.com https://tj.ccleeai.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://tj.ccleeai.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.ccleeai.com https://oss-cn-shenzhen.aliyuncs.com; font-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests; block-all-mixed-content",
       },
     ],
   } satisfies Preset.ThemeConfig,

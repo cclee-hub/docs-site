@@ -25,6 +25,8 @@ faqs:
 
 **结果**：对比度从 1.05:1 提升至 15.8:1（WCAG AAA 级）。
 
+
+<!-- truncate -->
 ## 问题现象
 
 Footer 区块使用 `backgroundColor="contrast"` + `textColor="base"`：

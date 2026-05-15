@@ -21,6 +21,8 @@ Encountered these two issues while developing a WordPress FSE Block Theme for a 
 1. Style variation `palette`/`gradients` **replace** rather than merge -- declaring only 1 color drops all others. You must include the complete list and only change what differs.
 2. Hardcoding patterns in `front-page.html` causes Site Editor blank canvas and prevents users from editing the layout -- switch to content-driven architecture.
 
+
+<!-- truncate -->
 ## Pitfall 1: Style Variation Shows Only One Color Block
 
 ### Problem

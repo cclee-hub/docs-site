@@ -12,6 +12,8 @@ schema: Article
 
 The `sources` field returned by RAG `/query` endpoint only contains metadata, without per-source `similarity` scores. Solution: merge `metadatas` and `distances` when assembling response, calculating `similarity = 1 - distance`.
 
+
+<!-- truncate -->
 ## Problem
 
 RAG query endpoint returns `sources` without similarity information:

@@ -20,6 +20,8 @@ Ran into these four WooCommerce-specific issues while building Block Themes for 
 
 Four common issues in WooCommerce Block Theme development: **block rename causing core/missing** (block names gained -block suffix after upgrade), **product archive 404 after shop slug change** (rewrite cache not flushed), **template HTML mismatch with Gutenberg save** (dynamic block validation failure), and **Cart/Checkout templates not auto-assigning** (manual assignment required). Each scenario includes copy-paste fixes.
 
+
+<!-- truncate -->
 ## Scenario 1: Blocks Show as core/missing After WooCommerce Upgrade
 
 ### Problem

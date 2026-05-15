@@ -20,6 +20,8 @@ faqs:
 
 四个 WooCommerce Block Theme 开发中的常见问题：**块重命名导致 core/missing**（升级后块名加了 -block 后缀）、**修改 shop slug 后产品归档 404**（rewrite 缓存未刷新）、**模板 HTML 与 Gutenberg save 不匹配**（动态块验证失败）、**Cart/Checkout 模板未自动分配**（需要手动指定）。每个场景给出可直接复用的修复方案。
 
+
+<!-- truncate -->
 ## 场景一：WooCommerce 升级后编辑器出现 core/missing
 
 ### 问题现象

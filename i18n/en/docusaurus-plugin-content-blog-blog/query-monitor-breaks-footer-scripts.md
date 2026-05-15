@@ -20,6 +20,8 @@ Encountered this issue while developing a WordPress theme for a client. Here's t
 
 The WordPress theme's navigation scroll effect (`.is-scrolled` class) stopped working after disabling WooCommerce. Investigation revealed that Query Monitor plugin's `action_print_footer_scripts` callback with priority 9999 was prematurely executing and terminating all footer scripts output. Deleting Query Monitor resolved the issue.
 
+
+<!-- truncate -->
 ## Problem
 
 The WordPress theme implements a navigation scroll effect: when users scroll down the page, the header gains the `.is-scrolled` class, triggering a glassmorphism effect and shadow.

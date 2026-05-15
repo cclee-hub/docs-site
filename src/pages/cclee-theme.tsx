@@ -42,7 +42,7 @@ export default function CCLEETheme(): React.ReactElement {
                 <span className="ml-2"><Translate id="ccleetheme.hero.github">View Source on GitHub</Translate></span>
               </Link>
               <Link
-                to="https://demo.aigent.ren"
+                to="https://demo.ccleeai.com"
                 className="button button--secondary button--lg"
                 target="_blank"
               >
@@ -359,7 +359,7 @@ export default function CCLEETheme(): React.ReactElement {
                 <span className="ml-2"><Translate id="ccleetheme.cta.github">View Source on GitHub</Translate></span>
               </Link>
               <Link
-                to="https://demo.aigent.ren"
+                to="https://demo.ccleeai.com"
                 className="button button--secondary button--lg"
                 target="_blank"
               >

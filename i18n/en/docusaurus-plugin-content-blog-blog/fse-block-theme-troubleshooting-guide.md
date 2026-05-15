@@ -20,6 +20,8 @@ Encountered these five issues repeatedly while developing WordPress Block Themes
 
 Five issues ranked by frequency: **file changes not applying** (database cache overrides files), **block nesting errors** (unclosed comments), **child theme content not rendering** (missing post-content block), **SVG icons disappearing** (WP_Filesystem polluted by plugins), and **WP-CLI mail failures** (SMTP plugins don't hook in CLI). Each scenario includes copy-paste diagnostic commands.
 
+
+<!-- truncate -->
 ## Scenario 1: Changed Theme Files, But the Page Looks the Same
 
 ### Problem

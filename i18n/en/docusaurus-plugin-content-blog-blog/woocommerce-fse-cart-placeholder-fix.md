@@ -21,6 +21,8 @@ Encountered these two issues while developing a WooCommerce FSE Block Theme for 
 1. Cart Block requires explicit `filled-cart-block` and `empty-cart-block` inner blocks -- without them, empty cart renders nothing.
 2. FSE's `post-featured-image` block renders an empty string when no thumbnail exists, causing card height collapse. Fix with `post_thumbnail_html` filter to inject WooCommerce placeholder.
 
+
+<!-- truncate -->
 ## Issue 1: Cart Block Blank Page on Empty Cart
 
 ### Symptom
@@ -77,7 +79,7 @@ Correct structure in `cart.html`:
   <div class="wp-block-woocommerce-empty-cart-block">
     <!-- Empty cart message + continue shopping button -->
     <!-- wp:paragraph {"align":"center","textColor":"neutral-500"} -->
-    <p class="has-text-align-center has-neutral-500-color has-text-color">Your cart is currently empty.</p>
+    <p class="has-text-align-center has-neutral-500-color has-text-color">Your cart is currently empty.</div>
     <!-- /wp:paragraph -->
     <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
     <div class="wp-block-buttons">

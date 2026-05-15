@@ -58,7 +58,7 @@ fetch(RAG_API_URL, {
 })
 ```
 
-**端点**: `https://rag.aigent.ren/query` (可通过 `RAG_API_URL` 环境变量覆盖)
+**端点**: `https://rag.ccleeai.com/query` (可通过 `RAG_API_URL` 环境变量覆盖)
 
 ## 请求数据
 

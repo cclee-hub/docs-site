@@ -10,6 +10,8 @@ schema: Article
 
 Vite path aliases require **simultaneous configuration** in both `vite.config.ts` and `tsconfig.json`—neither works alone. Vite handles bundler resolution, TypeScript handles type checking and IDE intellisense.
 
+
+<!-- truncate -->
 ## Problem Symptoms
 
 ### Only Configured vite.config.ts

@@ -13,6 +13,8 @@ schema: Article
 
 Milvus 混合检索的加权融合分数 = `0.7 * dense_score + 0.3 * sparse_score`，理论最大值约 0.7。如果用 `min_similarity=0.7` 过滤，结果几乎全被剔除。解决方案：将阈值降到 0.3，或根据融合策略动态调整。
 
+
+<!-- truncate -->
 ## 问题现象
 
 混合检索返回空结果，即使数据库中明确存在相关文档：

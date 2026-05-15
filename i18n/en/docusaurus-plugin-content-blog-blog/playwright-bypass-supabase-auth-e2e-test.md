@@ -20,6 +20,8 @@ Encountered this issue while building an AI Agent SaaS platform for a client. He
 
 E2E tests shouldn't depend on real OAuth login flows. By detecting localStorage test markers in the `useAuth` hook, you can inject mock auth state directly and skip Supabase initialization. Also change the Zustand store's `loading` default to `false` to prevent AuthGuard from showing an infinite spinner.
 
+
+<!-- truncate -->
 ## Problem
 
 When testing a React SPA with Playwright, pages are protected by `AuthGuard` and require Supabase authentication. After the test starts, the page shows a loading spinner indefinitely and never reaches the business logic.

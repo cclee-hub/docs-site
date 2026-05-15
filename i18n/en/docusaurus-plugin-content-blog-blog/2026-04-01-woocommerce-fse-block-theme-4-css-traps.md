@@ -23,6 +23,8 @@ While developing a WordPress FSE Block Theme with WooCommerce integration, I enc
 3. **Contrast color inversion**: `--wp--preset--color--contrast` is set to a light color (#f8fafc) by WooCommerce, making white text invisible.
 4. **ul.products pseudo-elements**: WooCommerce injects `::before/::after` that break CSS Grid layout. Fix with `display:none`.
 
+
+<!-- truncate -->
 ## Trap 1: Font Size Presets Overridden
 
 ### Symptom
@@ -231,8 +233,8 @@ ul.products::after {
 
 
 <div className="my-8 p-6 rounded-xl border-2 border-purple-200 dark:border-purple-800 bg-purple-50 dark:bg-purple-900/20 text-center">
-  <p className="text-lg font-semibold mb-1">Deploying a WooCommerce Site?</p>
-  <p className="text-sm text-gray-500 mb-4">Recommended cloud hosting providers</p>
+  <div className="text-lg font-semibold mb-1">Deploying a WooCommerce Site?</div>
+  <div className="text-sm text-gray-500 mb-4">Recommended cloud hosting providers</div>
   <div className="flex flex-wrap justify-center gap-4">
     <a href="https://www.aliyun.com/minisite/goods?userCode=fvyejhr0" className="button button--primary button--lg" target="_blank" rel="noopener noreferrer">Aliyun (China)</a>
     <a href="https://www.vultr.com/?ref=9811050" className="button button--secondary button--lg" target="_blank" rel="noopener noreferrer">Vultr (Global)</a>

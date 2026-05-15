@@ -10,6 +10,8 @@ authors: [cclee]
 
 Docusaurus 文档页标题中的 SVG 图标与文字对齐，推荐使用 `display: flex` + `align-items: center` + `gap`，配合 `.theme-doc-markdown` 选择器精准隔离 docs 页面，不影响 blog。
 
+
+<!-- truncate -->
 ## 问题现象
 
 在 Docusaurus 文档中使用内联 SVG 图标作为标题装饰：

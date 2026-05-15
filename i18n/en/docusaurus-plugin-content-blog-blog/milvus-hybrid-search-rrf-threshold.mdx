@@ -12,6 +12,8 @@ schema: Article
 
 Milvus hybrid search weighted fusion score = `0.7 * dense_score + 0.3 * sparse_score`, with theoretical maximum around 0.7. Using `min_similarity=0.7` filters out almost all results. Solution: lower threshold to 0.3, or adjust dynamically based on fusion strategy.
 
+
+<!-- truncate -->
 ## Problem
 
 Hybrid search returns empty results even when relevant documents exist in the database:

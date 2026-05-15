@@ -22,6 +22,8 @@ Encountered this architecture challenge while designing a building renovation le
 
 Feed Google Street View + Satellite images to an LLM, extract structured building attributes (glass type, orientation, facade material, condition), and generate a renovation potential score. The same pipeline — without modification — can produce targeted leads for window film installers and window covering retailers. POC cost for 150 buildings: ~$125.
 
+
+<!-- truncate -->
 ## Why This System
 
 The US commercial building renovation market relies on manual canvassing to identify targets — low efficiency, limited coverage. The window film and solar shading industries face the same problem: no tool exists to identify high-intent buildings based on physical attributes.

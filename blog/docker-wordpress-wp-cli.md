@@ -16,6 +16,8 @@ faqs:
 
 官方 WordPress Docker 镜像不含 WP-CLI。在 `docker-compose.yml` 中添加 command 配置，容器启动时自动下载安装 WP-CLI，无需手动进入容器操作。
 
+
+<!-- truncate -->
 ## 问题现象
 
 在 WordPress Docker 容器内执行 `wp` 命令：

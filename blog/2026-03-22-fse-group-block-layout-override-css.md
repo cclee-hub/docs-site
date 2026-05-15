@@ -18,6 +18,8 @@ faqs:
 
 WordPress FSE Group 块的 `layout` 属性会自动生成 `is-layout-*` CSS 类，这些类的样式优先级高于普通自定义 CSS，导致尺寸设置失效。解决方案：1) 块注释中使用 `"layout":{"type":"default"}` 避免生成额外布局类；2) CSS 中使用 `!important` 强制覆盖；3) **关键**：添加 `padding: 0 !important` 清除 Group 块默认内边距。
 
+
+<!-- truncate -->
 ## 问题现象
 
 Timeline 组件的年份圆点应显示为 80px 正圆，实际却呈现为椭圆：

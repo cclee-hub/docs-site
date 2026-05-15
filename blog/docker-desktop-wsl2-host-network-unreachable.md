@@ -18,6 +18,8 @@ faqs:
 
 Docker Desktop for Windows (WSL2 backend) 下，`network_mode: host` 的容器端口无法从 WSL2 宿主机访问。容器内 `ss` 显示端口在监听，但宿主机 `curl localhost:PORT` connection refused。原因是 host 模式共享的是 Docker 内部工具 VM 的网络，不是 WSL2 的网络。解法：override 文件中用 `network_mode: !reset` 移除 host 模式，改用 bridge + external network + 端口映射。
 
+
+<!-- truncate -->
 ## 问题现象
 
 项目使用 `docker-compose.yml` 部署 Airflow，base 配置：

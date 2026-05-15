@@ -16,6 +16,8 @@ faqs:
 
 Embedding a self-hosted timeline into a SITE123 event page hits 5 platform walls: Custom Code **can't target a page or position**, scripts **run before DOM is ready**, selectors **hit hidden elements**, `float` layout **pushes adjacent blocks out of place**, and platform cache **injects the script twice**. Fix: JS DOM manipulation + horizontal fishbone layout + `DOMContentLoaded` wrapper.
 
+
+<!-- truncate -->
 ---
 
 ## The Problem
@@ -124,10 +126,10 @@ After modifying `routes/script.js`, run `pm2 restart timeline` and it takes effe
 ---
 
 <div className="my-8 p-6 rounded-xl border-2 border-purple-200 dark:border-purple-800 bg-purple-50 dark:bg-purple-900/20 text-center">
-  <p className="text-lg font-semibold mb-3">Self-Hosted Timeline Service—What Server to Use?</p>
-  <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
+  <div className="text-lg font-semibold mb-3">Self-Hosted Timeline Service—What Server to Use?</div>
+  <div className="text-sm text-gray-600 dark:text-gray-300 mb-4">
     This project runs on Express + sql.js deployed on Vultr. A $5/month instance is sufficient. PM2 manages the process. Includes one-command setup script—running in 5 minutes.
-  </p>
+  </div>
   <a href="https://www.vultr.com/?ref=9811050" className="button button--primary button--lg"
      target="_blank" rel="noopener noreferrer">Vultr — From $5/month →</a>
 </div>

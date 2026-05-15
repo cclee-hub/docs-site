@@ -13,6 +13,8 @@ schema: Article
 
 Supabase Auth + FastAPI 集成有三个常见坑：JWKS 路径不是标准路径、ES256 签名需转换为 DER 格式、用户首次登录时本地数据库无记录。本文提供完整解决方案。
 
+
+<!-- truncate -->
 ## 问题现象
 
 ### 坑 1：JWKS 路径 404

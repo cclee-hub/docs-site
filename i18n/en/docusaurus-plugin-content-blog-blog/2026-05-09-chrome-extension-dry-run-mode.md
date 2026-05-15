@@ -16,6 +16,8 @@ faqs:
 
 Chrome extensions submitting collected data via API write directly to the production database — even during development and testing. A 3-layer DRY-RUN switch solves this: set an env variable in `.env.development` → client reads it and adds an `X-Dry-Run` header → server intercepts the header and returns a data preview without writing. Production never sets the variable, so it's completely unaffected.
 
+
+<!-- truncate -->
 ---
 
 ## Problem

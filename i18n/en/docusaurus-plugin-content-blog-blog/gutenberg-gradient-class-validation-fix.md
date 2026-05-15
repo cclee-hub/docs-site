@@ -18,6 +18,8 @@ Encountered this issue while developing a WordPress FSE theme for a client. Here
 
 After a Gutenberg upgrade, the gradient CSS class naming convention changed from `has-{slug}-gradient` to `has-{slug}-gradient-background`. Hand-written Pattern HTML with old classes doesn't match Gutenberg's validation logic, causing Site Editor errors. The fix is to batch replace class names.
 
+
+<!-- truncate -->
 ## Problem
 
 All legacy Patterns show an error in Site Editor:

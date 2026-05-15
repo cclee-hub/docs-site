@@ -186,7 +186,7 @@ npm run build
 | Symptom | Check |
 |---------|-------|
 | Sync failed | `curl http://localhost:3003/health` <br /> `echo $RAG_URL` <br /> frontmatter `rag: true` |
-| Widget unresponsive | Browser CSP errors <br /> `RAG_API_URL` injection <br /> `curl https://rag.aigent.ren/query` |
+| Widget unresponsive | Browser CSP errors <br /> `RAG_API_URL` injection <br /> `curl https://rag.ccleeai.com/query` |
 | Inaccurate answers | Documents synced <br /> Clear heading structure <br /> `rag_tags` contains keywords |
 
 ## Related

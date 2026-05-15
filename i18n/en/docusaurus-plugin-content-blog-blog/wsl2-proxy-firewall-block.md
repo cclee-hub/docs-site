@@ -33,6 +33,8 @@ Additionally, after fixing the firewall, you may encounter **two more pitfalls**
 1. **Dynamic IP Issue**: Host IP changes after WSL/Windows restart
 2. **Config Cache Issue**: Stale API keys in `~/.claude.json` and `~/.claude/settings.json` cause auth conflicts
 
+
+<!-- truncate -->
 ## Problem
 
 Environment: Windows 10 21H2 + WSL2 2.5.10.0 (NAT mode), Clash Verge on host (port 7897, Allow LAN enabled).

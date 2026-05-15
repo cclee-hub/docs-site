@@ -187,7 +187,7 @@ npm run build
 | 症状 | 检查 |
 |------|------|
 | 同步失败 | `curl http://localhost:3003/health` <br /> `echo $RAG_URL` <br /> frontmatter `rag: true` |
-| 浮窗无响应 | 浏览器 CSP 错误 <br /> `RAG_API_URL` 注入 <br /> `curl https://rag.aigent.ren/query` |
+| 浮窗无响应 | 浏览器 CSP 错误 <br /> `RAG_API_URL` 注入 <br /> `curl https://rag.ccleeai.com/query` |
 | 回答不准 | 文档已同步 <br /> 标题结构清晰 <br /> `rag_tags` 包含关键词 |
 
 ## 相关

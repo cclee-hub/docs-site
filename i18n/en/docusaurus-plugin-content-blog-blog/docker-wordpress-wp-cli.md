@@ -16,6 +16,8 @@ faqs:
 
 The official WordPress Docker image doesn't include WP-CLI. Add a `command` configuration in `docker-compose.yml` to auto-install WP-CLI on container startup—no manual container entry required.
 
+
+<!-- truncate -->
 ## Problem
 
 Running `wp` command inside WordPress Docker container:

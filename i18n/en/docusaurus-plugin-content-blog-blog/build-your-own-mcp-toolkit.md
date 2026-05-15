@@ -20,6 +20,8 @@ While building AI Agent systems for clients, we found that different tasks requi
 
 Build a custom MCP Server in 30 minutes with Python FastMCP, connecting any OpenAI-compatible API based on scenario and cost. This article demonstrates the full workflow using the Doubao vision model, with extension templates for text generation, image generation, TTS, and more.
 
+
+<!-- truncate -->
 ## What Problem Does MCP Solve?
 
 MCP (Model Context Protocol) is an open protocol proposed by Anthropic that standardizes communication between AI applications and external tools. Think of it as USB-C: regardless of the device, plug it in and it works.

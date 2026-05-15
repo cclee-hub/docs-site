@@ -10,6 +10,8 @@ schema: Article
 
 Pydantic v2 no longer supports `class Config`. Use `model_config = ConfigDict(from_attributes=True)` instead. If your model has a field named `model_config`, you must rename it to avoid conflict with the reserved attribute.
 
+
+<!-- truncate -->
 ## Problem Symptoms
 
 ### Error 1: class Config Not Working

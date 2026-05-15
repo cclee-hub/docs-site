@@ -20,6 +20,8 @@ faqs:
 
 E2E 测试不应该依赖真实的 OAuth 登录流程。通过在 `useAuth` hook 中检测 `localStorage` 的测试标记，直接注入 mock 认证状态，跳过 Supabase 初始化。同时将 Zustand store 的 `loading` 默认值改为 `false`，避免 AuthGuard 卡在无限 spinner。
 
+
+<!-- truncate -->
 ## 问题现象
 
 使用 Playwright 测试 React SPA 时，页面被 `AuthGuard` 组件保护，需要 Supabase 认证才能访问。测试启动后，页面一直显示 loading spinner，无法进入业务流程。

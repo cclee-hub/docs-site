@@ -28,7 +28,7 @@ export default function AgntcPage(): React.ReactElement {
             </div>
 
             <Link
-              to="https://app.aigent.ren"
+              to="https://app.ccleeai.com"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-lg font-semibold bg-purple-600 hover:bg-purple-700 text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200"
             >
               <ZapIcon size={20} />
@@ -196,7 +196,7 @@ export default function AgntcPage(): React.ReactElement {
               <Translate id="agntc.cta.description">无需复杂配置，说出来就能做到</Translate>
             </p>
             <Link
-              to="https://app.aigent.ren"
+              to="https://app.ccleeai.com"
               className="inline-flex items-center gap-2 px-10 py-4 rounded-xl text-lg font-semibold bg-purple-600 hover:bg-purple-700 text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200"
             >
               <ZapIcon size={20} />

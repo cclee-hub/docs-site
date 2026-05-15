@@ -16,6 +16,8 @@ faqs:
 
 在 SITE123 平台的活动页面嵌入时间轴，踩了 5 类坑：Custom Code **无法精准定位**、脚本在 **DOM 未加载时执行**、选择器命中 **隐藏元素**、`float` 布局冲突导致相邻区块错位、平台缓存造成 **脚本重复注入**。解决方案：JS 动态 DOM 操作 + 横向鱼骨布局 + `DOMContentLoaded` 包裹。
 
+
+<!-- truncate -->
 ---
 
 ## 问题现象
@@ -124,10 +126,10 @@ el.parentNode.insertBefore(test, el);
 ---
 
 <div className="my-8 p-6 rounded-xl border-2 border-purple-200 dark:border-purple-800 bg-purple-50 dark:bg-purple-900/20 text-center">
-  <p className="text-lg font-semibold mb-3">自建 Timeline 服务，服务器怎么选？</p>
-  <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
+  <div className="text-lg font-semibold mb-3">自建 Timeline 服务，服务器怎么选？</div>
+  <div className="text-sm text-gray-600 dark:text-gray-300 mb-4">
     本项目使用 Express + sql.js 部署在 Vultr，最低 $5/月配置足够，支持 PM2 进程管理。附安装脚本，5 分钟搭建完毕。
-  </p>
+  </div>
   <a href="https://www.vultr.com/?ref=9811050" className="button button--primary button--lg"
      target="_blank" rel="noopener noreferrer">Vultr $5/月起 →</a>
 </div>

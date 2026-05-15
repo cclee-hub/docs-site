@@ -18,6 +18,8 @@ faqs:
 
 镜像 Dockerfile 中的 `VOLUME` 声明会创建匿名卷，挂载优先级高于 docker-compose.yml 的 bind mount。解决方案：停止容器 → 删除匿名卷 → 重启。
 
+
+<!-- truncate -->
 ## 问题现象
 
 CI 部署后，新增的静态文件或 PHP 代码在容器内不存在：

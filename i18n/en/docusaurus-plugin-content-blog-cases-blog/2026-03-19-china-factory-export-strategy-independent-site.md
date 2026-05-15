@@ -25,6 +25,8 @@ The client is a Chinese industrial product manufacturer with a proven domestic o
 
 ![Global Trade Shipping](/img/cases/global-shipping-containers.jpg)
 
+
+<!-- truncate -->
 ## Challenges
 
 - Mainstream overseas channels (Alibaba International, Made-in-China) carry high annual fees, strong platform dependency, and uncontrollable bidding costs

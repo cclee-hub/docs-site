@@ -23,6 +23,8 @@ Encountered frequent Block Pattern validation failures while developing a WordPr
 
 Block validation failures are usually caused by one of: **undefined color slugs**, **duplicate JSON keys**, **Style Variation palette override**, **HTML attribute mismatch with block comments**, or **global styles overriding theme.json**. Check each one systematically.
 
+
+<!-- truncate -->
 ## Problem
 
 Patterns show a red warning in the editor:
@@ -44,7 +46,7 @@ Pattern block attributes reference color slugs that don't exist in `theme.json`:
 ```html
 <!-- Error: neutral-text doesn't exist -->
 <!-- wp:paragraph {"textColor":"neutral-text"} -->
-<p class="has-neutral-text-color">...</p>
+<p class="has-neutral-text-color">...</div>
 ```
 
 ### Solution

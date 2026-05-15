@@ -20,6 +20,8 @@ faqs:
 
 WordPress 主题的导航滚动变色功能（`.is-scrolled` 类）在停用 WooCommerce 插件后失效。排查发现是 Query Monitor 插件的 `action_print_footer_scripts` 回调优先级 9999 太低，提前执行并终止了所有 footer scripts 输出。删除 Query Monitor 后问题解决。
 
+
+<!-- truncate -->
 ## 问题现象
 
 WordPress 主题实现了导航滚动变色功能：用户向下滚动页面时，header 添加 `.is-scrolled` 类，触发毛玻璃效果和阴影。

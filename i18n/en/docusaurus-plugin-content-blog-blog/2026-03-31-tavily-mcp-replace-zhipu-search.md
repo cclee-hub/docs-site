@@ -20,6 +20,8 @@ When using [ZhiPu GLM Coding Plan](https://www.bigmodel.cn/glm-coding?ic=BCT362L
 
 Replace ZhiPu's built-in `web-search-prime` and `web-reader` MCP services with Tavily MCP. Result: **free 1000 searches/month** with zero impact on coding quota.
 
+
+<!-- truncate -->
 ## The Problem: Every Search Costs Quota
 
 ZhiPu GLM Coding Plan includes several built-in MCP services:
@@ -109,7 +111,7 @@ claude mcp list
 ## Recommendation
 
 <div className="my-8 p-6 rounded-xl border-2 border-purple-200 dark:border-purple-800 bg-purple-50 dark:bg-purple-900/20 text-center">
-  <p className="text-lg font-semibold mb-3">Also using ZhiPu GLM Coding Plan?</p>
+  <div className="text-lg font-semibold mb-3">Also using ZhiPu GLM Coding Plan?</div>
   <a href="https://www.bigmodel.cn/glm-coding?ic=BCT362LRE2"
      className="button button--primary button--lg"
      target="_blank" rel="noopener noreferrer">

@@ -10,6 +10,8 @@ schema: Article
 
 The key to cascade selection: **when parent changes, reset child to a valid value**. Use `Record<string, Option[]>` for type-safe data mapping, and update child state inside `onValueChange` callback.
 
+
+<!-- truncate -->
 ## Problem
 
 When implementing Provider → Model cascade selection, after switching Provider:

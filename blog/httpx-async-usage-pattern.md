@@ -13,6 +13,8 @@ schema: Article
 
 `httpx.AsyncClient` 不要用 `async with client.post()` 模式，应该先创建 client 再调用方法：`response = await client.post()`。
 
+
+<!-- truncate -->
 ## 问题现象
 
 ```python

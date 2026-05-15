@@ -11,6 +11,8 @@ schema: Article
 
 Pydantic v2 不再支持 `class Config`，需要用 `model_config = ConfigDict(from_attributes=True)`。如果你的模型有 `model_config` 字段，必须重命名避免与保留字冲突。
 
+
+<!-- truncate -->
 ## 问题现象
 
 ### 报错 1：class Config 不生效

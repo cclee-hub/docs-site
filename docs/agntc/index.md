@@ -17,7 +17,7 @@ import StatusTag from '@site/src/components/StatusTag'
 说出来就能做到，不用找开发者
 
 <div className="text-center my-6">
-  <a href="https://app.aigent.ren"
+  <a href="https://ai.ccleeai.com"
      className="button button--primary button--lg"
      target="_blank"
      rel="noopener noreferrer">
@@ -76,7 +76,7 @@ import StatusTag from '@site/src/components/StatusTag'
 
 ### 快速开始
 
-1. **访问平台**：打开 [app.aigent.ren](https://app.aigent.ren)
+1. **访问平台**：打开 [ai.ccleeai.com](https://ai.ccleeai.com)
 2. **配置 API Key**：在设置中添加你的 API Key（支持 Claude、GPT-4o 等）
 3. **开始对话**：用自然语言描述你想做的事
 4. **实时查看**：观察 Agent 执行每一步，随时纠正

@@ -23,6 +23,8 @@ faqs:
 3. **contrast 颜色反转**：`--wp--preset--color--contrast` 被 WooCommerce 改为浅色（#f8fafc），白色文字完全不可见
 4. **ul.products 伪元素**：WooCommerce 注入 `::before/::after` 破坏 CSS Grid 布局，需 `display:none` 清除
 
+
+<!-- truncate -->
 ## 陷阱一：字号预设被覆盖
 
 ### 问题现象
@@ -243,8 +245,8 @@ ul.products::after {
 
 
 <div className="my-8 p-6 rounded-xl border-2 border-purple-200 dark:border-purple-800 bg-purple-50 dark:bg-purple-900/20 text-center">
-  <p className="text-lg font-semibold mb-1">正在部署 WooCommerce 站点？</p>
-  <p className="text-sm text-gray-500 mb-4">推荐以下云服务器，稳定可靠</p>
+  <div className="text-lg font-semibold mb-1">正在部署 WooCommerce 站点？</div>
+  <div className="text-sm text-gray-500 mb-4">推荐以下云服务器，稳定可靠</div>
   <div className="flex flex-wrap justify-center gap-4">
     <a href="https://www.aliyun.com/minisite/goods?userCode=fvyejhr0" className="button button--primary button--lg" target="_blank" rel="noopener noreferrer">阿里云（国内站）</a>
     <a href="https://www.vultr.com/?ref=9811050" className="button button--secondary button--lg" target="_blank" rel="noopener noreferrer">Vultr（海外站）</a>

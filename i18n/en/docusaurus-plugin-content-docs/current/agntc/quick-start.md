@@ -24,7 +24,7 @@ This guide helps you go from registration to your first conversation.
 
 ## 1. Register & Login
 
-1. Visit [https://app.aigent.ren](https://app.aigent.ren)
+1. Visit [https://ai.ccleeai.com](https://ai.ccleeai.com)
 2. Register with email or third-party login (Google/GitHub)
 3. After email verification, login with your email and password
 

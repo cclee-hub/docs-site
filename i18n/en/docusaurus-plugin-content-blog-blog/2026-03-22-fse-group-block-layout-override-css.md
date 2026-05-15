@@ -18,6 +18,8 @@ faqs:
 
 WordPress FSE Group blocks with `layout` property automatically generate `is-layout-*` CSS classes that have higher specificity than custom CSS, causing size settings to be ignored. Solution: 1) Use `"layout":{"type":"default"}` in block annotation to avoid extra layout classes; 2) Use `!important` in CSS to force override; 3) **Key**: Add `padding: 0 !important` to clear the Group block's default padding.
 
+
+<!-- truncate -->
 ## Problem
 
 Timeline component year dots should display as 80px circles, but appear as ellipses:

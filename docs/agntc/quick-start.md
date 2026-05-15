@@ -24,7 +24,7 @@ rag_tags: ["入门", "注册", "API Key", "Agent", "对话"]
 
 ## 1. 注册与登录
 
-1. 访问 [https://app.aigent.ren](https://app.aigent.ren)
+1. 访问 [https://ai.ccleeai.com](https://ai.ccleeai.com)
 2. 使用邮箱注册或第三方登录（Google/GitHub 登录）
 3. 邮箱验证后，即可使用邮箱密码登录
 

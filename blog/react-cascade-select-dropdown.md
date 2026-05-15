@@ -11,6 +11,8 @@ schema: Article
 
 级联选择的核心是：**父级变化时，必须重置子级为有效值**。使用 `Record<string, Option[]>` 类型映射数据，在 `onValueChange` 回调中同步更新子级状态。
 
+
+<!-- truncate -->
 ## 问题现象
 
 实现 Provider → Model 级联选择时，切换 Provider 后：

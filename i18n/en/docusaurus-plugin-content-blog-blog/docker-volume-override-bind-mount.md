@@ -18,6 +18,8 @@ Encountered this issue while deploying a WordPress site for a client. Here's the
 
 The `VOLUME` declaration in an image's Dockerfile creates anonymous volumes with higher mount priority than docker-compose.yml bind mounts. Solution: Stop container → Delete anonymous volume → Restart.
 
+
+<!-- truncate -->
 ## Problem
 
 After CI deployment, new static files or PHP code don't exist inside the container:

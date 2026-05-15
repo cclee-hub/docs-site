@@ -9,6 +9,8 @@ tags: [docs-site, Docusaurus, Tailwind, CSS]
 
 After adding Tailwind CSS to a Docusaurus project, Preflight's CSS Reset strips `<ul>` elements of their `list-style`, `margin`, and `padding`, breaking the breadcrumbs navigation. Fix by adding explicit override styles in `custom.css`.
 
+
+<!-- truncate -->
 ## Problem
 
 After integrating Tailwind CSS into Docusaurus, the breadcrumbs navigation on doc pages displays incorrectly:

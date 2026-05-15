@@ -20,6 +20,8 @@ Encountered this issue while developing a WordPress FSE Block Theme for a client
 
 Generic card hover selector `.wp-block-columns .wp-block-column > .wp-block-group:hover` matches the **inner nested** text group inside cards, causing text-only displacement. Fix: use `.wp-block-post-template` prefix to reset hover effects on inner groups.
 
+
+<!-- truncate -->
 ## Symptom
 
 Blog listing uses card-style layout -- outer bordered group wrapping an image + text group. On hover:
