@@ -1,0 +1,71 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build outputs
+dist/
+build/
+out/
+static/llm.txt
+static/robots.txt
+
+# IDE
+.vscode/
+.idea/
+.claude/
+.memory/
+CLAUDE.md
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment
+.env.local
+.env.*.local
+# .env.production 可提交（包含公开API地址）
+
+# Cache
+.cache/
+.parcel-cache/
+.next/
+.nuxt/
+.vuepress/dist/
+.docusaurus/
+
+# Temporary files
+*.tmp
+.temp/
+
+# Root development docs (keep only README.md)
+AI-INSTRUCTIONS.md
+COLOR_PALETTE.md
+STATUS.md
+DEV.md
+
+# RAG sync cache
+.rag-sync-hashes.json
+
+# CHANGELOG (本地记录，不提交)
+/CHANGELOG.md
+
+# Private docs (不提交)
+drafts/
+
+# AI 开发上下文 (本地开发用，不提交)
+CONTEXT.md
+
+# 临时素材 (不提交)
+临时素材/
+osc-changelog.yaml
