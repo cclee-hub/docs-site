@@ -10,12 +10,16 @@ const config: Config = {
   baseUrl: '/',
   trailingSlash: true,
 
-  // Umami 网站分析
+  // 网站分析：Umami + 百度统计
   scripts: [
     {
       src: 'https://tj.ccleeai.com/script.js',
       async: true,
       'data-website-id': '806b27c0-695b-4e07-8b75-89a6b4aefc95',
+    },
+    {
+      src: '/js/baidu-tongji.js',
+      async: true,
     },
   ],
 
@@ -168,7 +172,7 @@ const config: Config = {
       { charSet: 'utf-8' },
       {
         'http-equiv': 'Content-Security-Policy',
-        content: "default-src 'self' 'unsafe-inline'; connect-src 'self' https://rag.ccleeai.com https://tj.ccleeai.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://tj.ccleeai.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.ccleeai.com https://oss-cn-shenzhen.aliyuncs.com; font-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests; block-all-mixed-content",
+        content: "default-src 'self' 'unsafe-inline'; connect-src 'self' https://rag.ccleeai.com https://tj.ccleeai.com https://hm.baidu.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://tj.ccleeai.com https://hm.baidu.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.ccleeai.com https://oss-cn-shenzhen.aliyuncs.com https://hm.baidu.com; font-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests; block-all-mixed-content",
       },
     ],
   } satisfies Preset.ThemeConfig,
