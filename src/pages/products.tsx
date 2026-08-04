@@ -195,6 +195,27 @@ export default function Products(): React.ReactElement {
             />
           </div>
 
+          {/* 个人应用 */}
+          <div className="mb-8">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-2 text-gray-900 dark:text-white">
+              <Translate id="homepage.products.personal.title">个人应用</Translate>
+            </h2>
+          </div>
+
+          <div className="space-y-3 mb-12">
+            <ProductListRow
+              icon={<TrendIcon size={24} className="text-white" />}
+              name="Life 记账助手"
+              nameId="homepage.products.life.title"
+              description="自然语言记账健康助手。说人话就能记——AI 自动抽取金额、类目、账户；同时追踪情绪与服药，端到端加密保护隐私。"
+              descriptionId="homepage.products.life.description"
+              cta="访问 life.ccleeai.com"
+              ctaId="homepage.products.life.cta"
+              ctaLink="https://life.ccleeai.com"
+              animationDelay="0.1s"
+            />
+          </div>
+
         </div>
       </main>
     </Layout>
