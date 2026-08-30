@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+Disallow: /assets/
+Disallow: /404.html
+
+Sitemap: https://aidevhub.ai/sitemap.xml
+Sitemap: https://aidevhub.ai/zh/sitemap.xml
+
+# llm.txt: https://aidevhub.ai/llm.txt

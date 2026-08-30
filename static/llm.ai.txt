@@ -1,0 +1,41 @@
+# CCLHUB
+
+> AI Tool Development · China Export · Market Entry — 24 years of e-commerce experience, helping businesses achieve measurable growth with AI and localization
+
+## About
+
+CCLHUB is an independent developer platform providing AI tool development, China export services, and foreign market entry support.
+
+- Website: https://aidevhub.ai
+- Organization: CCLHUB
+- Author: CCLEE
+
+## Services
+
+- **AI Tool Development**: Custom AI workflows, automation systems and Agents for enterprises
+- **China Export**: Leverage China's supply chain and platform advantages to help foreign enterprises expand markets
+- **China Market Entry**: Localization promotion and platform operations for foreign enterprises entering Chinese market
+
+## Key Pages
+
+- Homepage: https://aidevhub.ai/
+- Services: https://aidevhub.ai/services
+- Products: https://aidevhub.ai/products
+- About: https://aidevhub.ai/about
+- Blog: https://aidevhub.ai/blog
+- Cases: https://aidevhub.ai/cases
+
+## Documentation
+
+- AI Analytics: https://aidevhub.ai/docs/ai-analytics
+- Browser Plugin: https://aidevhub.ai/docs/browser-plugin
+- AI Customer Service: https://aidevhub.ai/docs/customer-service
+
+## Sitemap
+
+- https://aidevhub.ai/sitemap.xml
+
+## Contact
+
+- GitHub: https://github.com/cclee-hub
+- Email: leecc1531@gmail.com

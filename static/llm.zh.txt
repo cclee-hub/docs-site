@@ -1,0 +1,41 @@
+# CCLHUB
+
+> AI 工具开发 · 中国出海 · 市场进入 — 24 年电商经验，帮助企业用 AI 与本地化实现可衡量的增长
+
+## About
+
+CCLHUB 是独立开发者平台，提供 AI 工具开发、中国出海服务与外国市场进入支持。
+
+- Website: https://ccleeai.com
+- Organization: CCLHUB
+- Author: CCLEE
+
+## Services
+
+- **AI 工具开发**：为企业定制 AI 工作流、自动化系统与 Agents
+- **中国出海**：利用中国供应链与平台优势，帮助外国企业拓展海外市场
+- **市场进入**：为进入中国市场的外国企业提供本地化推广与平台运营
+
+## Key Pages
+
+- Homepage: https://ccleeai.com/
+- Services: https://ccleeai.com/services
+- Products: https://ccleeai.com/products
+- About: https://ccleeai.com/about
+- Blog: https://ccleeai.com/blog
+- Cases: https://ccleeai.com/cases
+
+## Documentation
+
+- AI Analytics: https://ccleeai.com/docs/ai-analytics
+- Browser Plugin: https://ccleeai.com/docs/browser-plugin
+- AI Customer Service: https://ccleeai.com/docs/customer-service
+
+## Sitemap
+
+- https://ccleeai.com/sitemap.xml
+
+## Contact
+
+- GitHub: https://github.com/cclee-hub
+- Email: leecc1531@gmail.com
