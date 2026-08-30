@@ -169,16 +169,32 @@ module.exports = function pluginJsonLd() {
       ? path.resolve(__dirname, '..', i18nEnDirs[dirKey])
       : null;
 
-    const files = fs.readdirSync(dir).filter(f => f.endsWith('.md') || f.endsWith('.mdx'));
+    // 递归收集（子目录产品如 docs/agntc/、docs/life/ 也注入页面级 schema）
+    const files = [];
+    (function walk(d) {
+      for (const entry of fs.readdirSync(d, { withFileTypes: true })) {
+        const p = path.join(d, entry.name);
+        if (entry.isDirectory()) walk(p);
+        else if (entry.name.endsWith('.md') || entry.name.endsWith('.mdx')) files.push(p);
+      }
+    })(dir);
 
-    for (const file of files) {
-      const filePath = path.join(dir, file);
+    for (const filePath of files) {
       const content = fs.readFileSync(filePath, 'utf-8');
       const { data: fm } = matter(content);
 
       if (!fm.schema) continue;
 
-      let slug = fm.slug || file.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.mdx?$/, '');
+      // 相对路径即 URL 子路径（子目录文件 slug 带目录前缀，blog 日期前缀仅剥 basename）
+      const rel = path.relative(dir, filePath).replace(/\\/g, '/');
+      let slug;
+      if (fm.slug) {
+        slug = rel.includes('/') ? rel.slice(0, rel.lastIndexOf('/') + 1) + fm.slug : fm.slug;
+      } else {
+        slug = rel.replace(/\/\d{4}-\d{2}-\d{2}-/, '/').replace(/\.mdx?$/, '');
+      }
+      // index.md 的页面 URL 不含 index 段（/docs/agntc/ 而非 /docs/agntc/index）
+      slug = slug.replace(/(^|\/)index$/, '');
       const urlPath = `${urlPrefix}${slug}`;
 
       // 中文 schema（源文件 frontmatter，注入中文页面）
@@ -186,7 +202,7 @@ module.exports = function pluginJsonLd() {
 
       // 英文 schema（优先 i18n/en/ frontmatter）
       if (enDir) {
-        const enFilePath = path.join(enDir, file);
+        const enFilePath = path.join(enDir, rel);
         if (fs.existsSync(enFilePath)) {
           const enContent = fs.readFileSync(enFilePath, 'utf-8');
           const { data: enFm } = matter(enContent);
