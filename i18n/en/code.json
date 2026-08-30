@@ -1237,5 +1237,119 @@
   },
   "homepage.products.life.cta": {
     "message": "Visit life.ccleeai.com"
+  },
+  "life.title": {
+    "message": "Life — AI Money & Mood Journal"
+  },
+  "life.description": {
+    "message": "Journal by just saying it - track expenses, mood, and medication in one chat-style input, with end-to-end encryption"
+  },
+  "life.hero.title": {
+    "message": "Life — AI Money & Mood Journal"
+  },
+  "life.hero.slogan": {
+    "message": "Just say it — expenses, mood, medication, one sentence at a time"
+  },
+  "life.hero.cta": {
+    "message": "Try It Now"
+  },
+  "life.hero.beta": {
+    "message": "Limited Beta · Invitation Only · Web"
+  },
+  "life.features.title": {
+    "message": "Core Features"
+  },
+  "life.features.subtitle": {
+    "message": "Bookkeeping shouldn’t feel like paperwork, and your wellbeing deserves a gentle record"
+  },
+  "life.features.nl.title": {
+    "message": "Natural-Language Journaling"
+  },
+  "life.features.nl.slogan": {
+    "message": "Say it, and it’s logged"
+  },
+  "life.features.nl.description": {
+    "message": "Amount, date, category, and account extracted automatically — check the confirmation card at a glance, with candidates instead of guesses"
+  },
+  "life.features.currency.title": {
+    "message": "Multi-Currency"
+  },
+  "life.features.currency.slogan": {
+    "message": "Recorded in the currency you mention"
+  },
+  "life.features.currency.description": {
+    "message": "CNY / USD / EUR / JPY / HKD / TWD — stats grouped per currency, never converted"
+  },
+  "life.features.ledger.title": {
+    "message": "Accounts & Lending"
+  },
+  "life.features.ledger.slogan": {
+    "message": "Balances and IOUs at a glance"
+  },
+  "life.features.ledger.description": {
+    "message": "Multi-account balances and transfers; repayments auto-settled, outstanding balances always visible"
+  },
+  "life.features.health.title": {
+    "message": "Mood & Medication"
+  },
+  "life.features.health.slogan": {
+    "message": "Mind and body, cared for together"
+  },
+  "life.features.health.description": {
+    "message": "Long-term mood curve and optional PHQ-9 / GAD-7 self-screening (a reference tool, not a medical diagnosis)"
+  },
+  "life.features.privacy.title": {
+    "message": "End-to-End Encryption"
+  },
+  "life.features.privacy.slogan": {
+    "message": "Only ciphertext in the database"
+  },
+  "life.features.privacy.description": {
+    "message": "A unique key per account; sensitive fields encrypted at rest; deletion means cryptographic erasure"
+  },
+  "life.features.chat.title": {
+    "message": "Chat Mode"
+  },
+  "life.features.chat.slogan": {
+    "message": "Grounded in your real data"
+  },
+  "life.features.chat.description": {
+    "message": "Ask \"how much did I spend this month?\" — answers come from your records, never made up"
+  },
+  "life.privacy.title": {
+    "message": "Your Data Belongs to You"
+  },
+  "life.privacy.subtitle": {
+    "message": "Financial and health data is the most personal kind — we treat protecting it as a design constraint"
+  },
+  "life.privacy.encryption.title": {
+    "message": "Per-Account Key Encryption"
+  },
+  "life.privacy.encryption.description": {
+    "message": "One data key per account, AES-256-GCM at rest — even a leak yields only ciphertext"
+  },
+  "life.privacy.deletion.title": {
+    "message": "Deletion = Erasure"
+  },
+  "life.privacy.deletion.description": {
+    "message": "Self-service deletion removes all data and destroys the key; leftover ciphertext can never be decrypted"
+  },
+  "life.privacy.logs.title": {
+    "message": "Sanitized Logs"
+  },
+  "life.privacy.logs.description": {
+    "message": "Operational logs keep only technical metadata — never your content or amounts"
+  },
+  "life.cta.title": {
+    "message": "Start Taking Care of Yourself with Life"
+  },
+  "life.cta.description": {
+    "message": "No new software to learn — journal like texting a friend"
+  },
+  "life.cta.button": {
+    "message": "Try It Now"
+  },
+  "life.cta.docs": {
+    "message": "Read the Documentation →"
   }
 }

@@ -211,7 +211,7 @@ export default function Products(): React.ReactElement {
               descriptionId="homepage.products.life.description"
               cta="访问 life.ccleeai.com"
               ctaId="homepage.products.life.cta"
-              ctaLink="https://life.ccleeai.com"
+              ctaLink="/life"
               animationDelay="0.1s"
             />
           </div>
