@@ -192,4 +192,4 @@ npm run build
 
 ## 相关
 
-- [浮窗数据流](floating-chat-data-flow.md)
+- [浮窗数据流](/blog/floating-chat-data-flow/)

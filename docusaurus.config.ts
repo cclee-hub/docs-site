@@ -1,12 +1,17 @@
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
+// 双站配置：SITE=zh → 中文站 ccleeai.com；SITE=ai（或未设置）→ 英文站 aidevhub.ai
+const site = process.env.SITE === 'zh' ? 'zh' : 'ai';
+const siteUrl = site === 'zh' ? 'https://ccleeai.com' : 'https://aidevhub.ai';
+const defaultLocale = site === 'zh' ? 'zh' : 'en';
+
 const config: Config = {
   title: 'CCLEE',
   tagline: 'AI驱动的电商运营工具平台',
   favicon: 'img/favicon.ico',
 
-  url: 'https://aidevhub.ai',
+  url: siteUrl,
   baseUrl: '/',
   trailingSlash: true,
 
@@ -45,7 +50,7 @@ const config: Config = {
   },
 
   i18n: {
-    defaultLocale: 'en',
+    defaultLocale,
     locales: ['zh', 'en'],
     localeConfigs: {
       zh: {

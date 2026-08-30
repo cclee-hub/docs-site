@@ -2,7 +2,12 @@ const fs = require('fs');
 const path = require('path');
 const matter = require('gray-matter');
 
-const siteUrl = 'https://aidevhub.ai';
+// 双站配置：SITE=zh → 中文站 ccleeai.com；SITE=ai（或未设置）→ 英文站 aidevhub.ai
+const site = process.env.SITE === 'zh' ? 'zh' : 'ai';
+const siteUrl = site === 'zh' ? 'https://ccleeai.com' : 'https://aidevhub.ai';
+// 页面 URL 前缀：默认语言构建在根路径，非默认语言带语言前缀（zh 站：zh 在根、en 加 /en；ai 站：en 在根、zh 加 /zh）
+const zhUrlPrefix = site === 'zh' ? '' : '/zh';
+const enUrlPrefix = site === 'zh' ? '/en' : '';
 
 // ============ 全局 Schema ============
 
@@ -10,8 +15,8 @@ const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "CCLHUB",
-  "url": "https://aidevhub.ai",
-  "logo": "https://aidevhub.ai/logo.png",
+  "url": siteUrl,
+  "logo": `${siteUrl}/logo.png`,
   "description": "AI-powered e-commerce operations platform — AI automation + e-commerce tools, making operations more efficient",
   "founder": {
     "@type": "Person",
@@ -23,14 +28,14 @@ const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "CCLHUB",
-  "url": "https://aidevhub.ai",
+  "url": siteUrl,
   "description": "AI-powered e-commerce operations platform",
   "publisher": {
     "@type": "Organization",
     "name": "CCLHUB",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://aidevhub.ai/logo.png"
+      "url": `${siteUrl}/logo.png`
     }
   }
 };
@@ -39,7 +44,7 @@ const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "CCLEE",
-  "url": "https://aidevhub.ai",
+  "url": siteUrl,
   "jobTitle": "AI Tool Developer & E-commerce Consultant",
   "description": "Independent developer with 24 years of e-commerce experience, specializing in building AI-powered tools and systems grounded in real business needs — not technology for its own sake.",
   "knowsAbout": [
@@ -53,7 +58,8 @@ const personSchema = {
   "sameAs": [
     "https://www.upwork.com/freelancers/~010ab5ec29d8f4ff3f",
     "https://github.com/cclee-hub",
-    "https://ccleeai.com"
+    // 双向互指：指向另一站点域名
+    site === 'zh' ? 'https://aidevhub.ai' : 'https://ccleeai.com'
   ]
 };
 
@@ -175,8 +181,8 @@ module.exports = function pluginJsonLd() {
       let slug = fm.slug || file.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.mdx?$/, '');
       const urlPath = `${urlPrefix}${slug}`;
 
-      // 中文 schema（源文件，用于 /zh/ 页面）
-      pageSchemaMap[urlPath] = buildSchema(fm, `${siteUrl}/zh${urlPath}`);
+      // 中文 schema（源文件 frontmatter，注入中文页面）
+      pageSchemaMap[urlPath] = buildSchema(fm, `${siteUrl}${zhUrlPrefix}${urlPath}`);
 
       // 英文 schema（优先 i18n/en/ frontmatter）
       if (enDir) {
@@ -185,13 +191,13 @@ module.exports = function pluginJsonLd() {
           const enContent = fs.readFileSync(enFilePath, 'utf-8');
           const { data: enFm } = matter(enContent);
           if (enFm.schema) {
-            enSchemaMap[urlPath] = buildSchema(enFm, `${siteUrl}${urlPath}`);
+            enSchemaMap[urlPath] = buildSchema(enFm, `${siteUrl}${enUrlPrefix}${urlPath}`);
             continue;
           }
         }
       }
       // fallback：英文页面也用源文件 schema
-      enSchemaMap[urlPath] = buildSchema(fm, `${siteUrl}${urlPath}`);
+      enSchemaMap[urlPath] = buildSchema(fm, `${siteUrl}${enUrlPrefix}${urlPath}`);
     }
   }
 
@@ -228,10 +234,17 @@ module.exports = function pluginJsonLd() {
       };
     },
 
-    // 页面级 Schema 注入（Docusaurus 对每个 locale 调用一次 postBuild）
+    // 页面级 Schema 注入（Docusaurus 对每个 locale 调用一次 postBuild；
+    // 非默认语言构建的 outDir 带语言后缀，默认语言构建在根 outDir）
     async postBuild({ outDir }) {
       const cheerio = require('cheerio');
-      const isZhBuild = outDir.replace(/\/+$/, '').endsWith('/zh');
+      const out = outDir.replace(/\/+$/, '');
+      const buildLocale = out.endsWith('/zh')
+        ? 'zh'
+        : out.endsWith('/en')
+          ? 'en'
+          : site === 'zh' ? 'zh' : 'en';
+      const schemaMap = buildLocale === 'zh' ? pageSchemaMap : enSchemaMap;
 
       function injectSchema(htmlPath, schema) {
         if (!fs.existsSync(htmlPath)) return;
@@ -243,16 +256,8 @@ module.exports = function pluginJsonLd() {
         fs.writeFileSync(htmlPath, $.html());
       }
 
-      if (isZhBuild) {
-        // 中文构建：schema url 指向 /zh/ 路径
-        for (const [urlPath, schema] of Object.entries(pageSchemaMap)) {
-          injectSchema(path.join(outDir, urlPath, 'index.html'), schema);
-        }
-      } else {
-        // 英文构建：schema url 指向默认路径
-        for (const [urlPath, schema] of Object.entries(enSchemaMap)) {
-          injectSchema(path.join(outDir, urlPath, 'index.html'), schema);
-        }
+      for (const [urlPath, schema] of Object.entries(schemaMap)) {
+        injectSchema(path.join(outDir, urlPath, 'index.html'), schema);
       }
     },
   };

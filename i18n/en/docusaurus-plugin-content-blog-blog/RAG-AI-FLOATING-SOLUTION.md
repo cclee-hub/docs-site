@@ -191,4 +191,4 @@ npm run build
 
 ## Related
 
-- [Floating Widget Data Flow](floating-chat-data-flow.md)
+- [Floating Widget Data Flow](/blog/floating-chat-data-flow/)
