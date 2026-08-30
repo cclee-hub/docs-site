@@ -1225,5 +1225,17 @@
   },
   "ccleetheme.cta.docs": {
     "message": "Read Docs"
+  },
+  "homepage.products.personal.title": {
+    "message": "Personal Apps"
+  },
+  "homepage.products.life.title": {
+    "message": "Life — AI Money & Mood Journal"
+  },
+  "homepage.products.life.description": {
+    "message": "Say it and it’s logged — AI extracts amounts, categories, and accounts; mood and medication tracked too, all encrypted."
+  },
+  "homepage.products.life.cta": {
+    "message": "Visit life.ccleeai.com"
   }
 }

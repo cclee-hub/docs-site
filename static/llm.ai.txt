@@ -30,6 +30,7 @@ CCLHUB is an independent developer platform providing AI tool development, China
 - AI Analytics: https://aidevhub.ai/docs/ai-analytics
 - Browser Plugin: https://aidevhub.ai/docs/browser-plugin
 - AI Customer Service: https://aidevhub.ai/docs/customer-service
+- Life (AI Money & Mood Journal): https://aidevhub.ai/docs/life
 
 ## Sitemap
 

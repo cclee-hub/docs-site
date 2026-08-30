@@ -40,5 +40,8 @@
   },
   "sidebar.tutorialSidebar.category.任务栈": {
     "message": "Task Stack"
+  },
+  "sidebar.tutorialSidebar.category.Life 记账助手": {
+    "message": "Life"
   }
 }
