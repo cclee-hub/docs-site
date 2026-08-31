@@ -5,7 +5,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'AI运营',
-      items: ['ai-analytics', 'ai-analytics-updates'],
+      items: ['ai-analytics', '1688-ad-optimization-guide', '1688-crowd-premium-guide', 'ai-analytics-updates'],
     },
     {
       type: 'category',
