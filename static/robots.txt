@@ -4,7 +4,7 @@ Allow: /
 Disallow: /assets/
 Disallow: /404.html
 
-Sitemap: https://aidevhub.ai/sitemap.xml
-Sitemap: https://aidevhub.ai/zh/sitemap.xml
+Sitemap: https://ccleeai.com/sitemap.xml
+Sitemap: https://ccleeai.com/en/sitemap.xml
 
-# llm.txt: https://aidevhub.ai/llm.txt
+# llm.txt: https://ccleeai.com/llm.txt
