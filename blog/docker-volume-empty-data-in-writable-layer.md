@@ -117,7 +117,7 @@ docker ps -as | grep etcd                          # 可写层应回落到 KB �
 - 给 stateful 容器（etcd/postgres/redis/minio）做巡检时，把「**可写层大小 vs 卷大小**」当固定对账项：`docker ps -as` 的 SIZE 一栏异常膨胀而卷很空，几乎必然是数据没落卷。
 - 判断「数据在哪」要追**进程实际读写的路径**（`docker top` 看参数、进容器找数据目录），不能只看 compose 有没有 volumes 行——有挂载不等于被使用。
 - 单节点 etcd 的快照 restore 会重建 member 元数据，只适用于单节点场景；多节点集群的迁移请走成员变更流程。
-- 同类排查方法论见 [容器日志吃满服务器磁盘？docker system df 的 reclaimable 是误报](/blog/2026/08/28/docker-writable-layer-logs-disk-full)——`docker ps -as` 可写层观察是同一把刀；挂载路径被覆盖的另一形态见 [Docker Volume 覆盖 Bind Mount](/blog/docker-volume-override-bind-mount)。
+- 同类排查方法论见 [容器日志吃满服务器磁盘？docker system df 的 reclaimable 是误报](/blog/docker-writable-layer-logs-disk-full)——`docker ps -as` 可写层观察是同一把刀；挂载路径被覆盖的另一形态见 [Docker Volume 覆盖 Bind Mount](/blog/docker-volume-override-bind-mount)。
 
 </InfoBox>
 

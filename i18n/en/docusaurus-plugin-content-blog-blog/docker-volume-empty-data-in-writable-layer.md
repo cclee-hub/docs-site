@@ -117,7 +117,7 @@ After this fix: writable layer 385MB → 8KB, 123MB of data living on the volume
 - When auditing stateful containers (etcd/postgres/redis/minio), make "writable layer size vs volume size" a standing check: an inflated SIZE in `docker ps -as` with an empty volume almost always means data isn't on the volume.
 - To find where data actually lives, trace the **path the process really reads and writes** (`docker top` for args, look for data dirs inside the container) — never trust the mere presence of a `volumes:` line; declared is not used.
 - Single-node etcd snapshot restore regenerates member metadata and is only valid for single-node setups; multi-node cluster migrations go through member change procedures instead.
-- The same inspection method appears in [Container Logs Filling Your Server Disk? docker system df 'Reclaimable' Lies](/blog/2026/08/28/docker-writable-layer-logs-disk-full) — `docker ps -as` writable-layer watching is the same knife; and for the other flavor of mount surprise, see [Docker Volume Override Bind Mount](/blog/docker-volume-override-bind-mount).
+- The same inspection method appears in [Container Logs Filling Your Server Disk? docker system df 'Reclaimable' Lies](/blog/docker-writable-layer-logs-disk-full) — `docker ps -as` writable-layer watching is the same knife; and for the other flavor of mount surprise, see [Docker Volume Override Bind Mount](/blog/docker-volume-override-bind-mount).
 
 </InfoBox>
 
