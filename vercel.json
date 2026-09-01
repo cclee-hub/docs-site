@@ -41,13 +41,8 @@
       "permanent": true
     },
     {
-      "source": "/zh",
-      "destination": "https://ccleeai.com/",
-      "permanent": true
-    },
-    {
-      "source": "/zh/:path*",
-      "destination": "https://ccleeai.com/:path*",
+      "regex": "^/zh/(?P<path>.*)$",
+      "destination": "https://ccleeai.com/:path",
       "permanent": true
     }
   ]
