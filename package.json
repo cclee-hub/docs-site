@@ -5,9 +5,9 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start --port 3004",
-    "prebuild": "node scripts/check-blog-filenames.mjs",
-    "prebuild:zh": "node scripts/check-blog-filenames.mjs",
-    "prebuild:ai": "node scripts/check-blog-filenames.mjs",
+    "prebuild": "node scripts/check-blog-filenames.mjs && node scripts/check-blog-en-mirrors.mjs",
+    "prebuild:zh": "node scripts/check-blog-filenames.mjs && node scripts/check-blog-en-mirrors.mjs",
+    "prebuild:ai": "node scripts/check-blog-filenames.mjs && node scripts/check-blog-en-mirrors.mjs",
     "build": "docusaurus build",
     "build:zh": "cp static/robots.zh.txt static/robots.txt && cp static/llm.zh.txt static/llm.txt && SITE=zh docusaurus build",
     "build:ai": "cp static/robots.ai.txt static/robots.txt && cp static/llm.ai.txt static/llm.txt && SITE=ai docusaurus build",
