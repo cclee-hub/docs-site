@@ -1,18 +1,199 @@
 import React from 'react';
 import Layout from '@theme/Layout';
+import Head from '@docusaurus/Head';
 import Translate from '@docusaurus/Translate';
-import Link from '@docusaurus/Link';
 import { translate } from '@docusaurus/Translate';
+import { useLocation } from '@docusaurus/router';
 import { PluginIcon, AIIcon, ZapIcon, TrendIcon, ShieldIcon, LightbulbIcon, MessageCircleIcon, RocketIcon, LayoutIcon, ToolIcon, BuildingIcon, TruckIcon, BookOpenIcon, GlobeIcon, LayersIcon } from '@site/src/components/Icons';
 import { HeroBackground } from '@site/src/components/HeroSection';
 import ProductListRow from '@site/src/components/ProductListRow';
+
+// 双站域名（与 plugins/plugin-json-ld.js 一致）：SITE=zh → ccleeai.com，否则 aidevhub.ai
+const siteUrl =
+  typeof process !== 'undefined' && process.env?.SITE === 'zh'
+    ? 'https://ccleeai.com'
+    : 'https://aidevhub.ai';
+
+// 产品分组数据（唯一来源）：页面渲染与 Product JSON-LD 均由此生成，新增产品只需在此加一行
+const PRODUCT_SECTIONS = [
+  {
+    titleId: 'homepage.products.wordpress.title',
+    title: 'WordPress / WooCommerce 主题 插件',
+    subtitleId: 'homepage.products.wordpress.subtitle',
+    subtitle: '免费开源的 WordPress / WooCommerce 主题与插件',
+    products: [
+      {
+        icon: <LayoutIcon size={24} className="text-white" />,
+        name: 'CCLEE Theme',
+        nameId: 'homepage.products.ccleeTheme.title',
+        description: '免费 WordPress FSE 区块主题。76 行 JS、零依赖、24 区块、5 种风格，开发者与建站者皆宜。',
+        descriptionId: 'homepage.products.ccleeTheme.description',
+        cta: 'GitHub 开源 · 永久免费',
+        ctaId: 'homepage.products.ccleeTheme.cta',
+        ctaLink: '/cclee-theme',
+      },
+      {
+        icon: <ToolIcon size={24} className="text-white" />,
+        name: 'CCLEE Toolkit',
+        nameId: 'homepage.products.ccleeToolkit.title',
+        description: 'WordPress + WooCommerce 增强插件。全系列集成 AI 操作，自动生成 SEO 内容、Product Schema、图片 Alt，显著提升搜索引擎排名。',
+        descriptionId: 'homepage.products.ccleeToolkit.description',
+        cta: 'GitHub 开源 · 永久免费',
+        ctaId: 'homepage.products.ccleeToolkit.cta',
+        ctaLink: '/docs/cclee-toolkit',
+      },
+      {
+        icon: <BuildingIcon size={24} className="text-white" />,
+        name: 'CCLEE B2B',
+        nameId: 'homepage.products.ccleeB2b.title',
+        description: 'WooCommerce B2B 增强插件。企业用户管理、差异化定价、报价系统、批量下单，让批发商和品牌商高效开展线上业务。',
+        descriptionId: 'homepage.products.ccleeB2b.description',
+        cta: 'GitHub 开源 · 永久免费',
+        ctaId: 'homepage.products.ccleeB2b.cta',
+        ctaLink: '/docs/cclee-b2b-general',
+      },
+      {
+        icon: <TruckIcon size={24} className="text-white" />,
+        name: 'CCLEE Shipping',
+        nameId: 'homepage.products.ccleeShipping.title',
+        description: 'WooCommerce 多承运商物流插件。FedEx、顺丰国际实时运费报价，结算页自动显示真实运费。',
+        descriptionId: 'homepage.products.ccleeShipping.description',
+        cta: 'GitHub 开源 · 永久免费',
+        ctaId: 'homepage.products.ccleeShipping.cta',
+        ctaLink: '/docs/cclee-shipping',
+      },
+    ],
+  },
+  {
+    titleId: 'homepage.products.core.title',
+    title: '电子商务运营',
+    products: [
+      {
+        icon: <PluginIcon size={24} className="text-white" />,
+        name: '电商工具箱',
+        nameId: 'homepage.products.toolkit.title',
+        description: '一站式电商运营解决方案，从数据采集到智能分析，全方位提升运营效率',
+        descriptionId: 'homepage.products.toolkit.description',
+        cta: '了解更多',
+        ctaId: 'homepage.products.toolkit.cta',
+        ctaLink: '/docs/browser-plugin',
+      },
+      {
+        icon: <AIIcon size={24} className="text-white" />,
+        name: 'AI运营',
+        nameId: 'homepage.products.aiOps.title',
+        description: '基于大语言模型的智能分析，自动洞察市场趋势、用户行为、销售数据，提供精准运营策略。',
+        descriptionId: 'homepage.products.aiOps.description',
+        cta: '了解更多',
+        ctaId: 'homepage.products.aiOps.cta',
+        ctaLink: '/docs/ai-analytics',
+      },
+      {
+        icon: <MessageCircleIcon size={24} className="text-white" />,
+        name: 'AI客服',
+        nameId: 'homepage.products.aiSupport.title',
+        description: '7×24小时AI客服，快速解答产品使用问题，提供功能指导和最佳实践。',
+        descriptionId: 'homepage.products.aiSupport.description',
+        cta: '了解更多',
+        ctaId: 'homepage.products.aiSupport.cta',
+        ctaLink: '/docs/customer-service',
+      },
+      {
+        icon: <RocketIcon size={24} className="text-white" />,
+        name: 'AI Agent',
+        nameId: 'homepage.products.agntc.title',
+        description: '说出来就能做到，不用找开发者。自带 API Key，执行透明，数据自主。',
+        descriptionId: 'homepage.products.agntc.description',
+        cta: '访问 app.ccleeai.com',
+        ctaId: 'homepage.products.agntc.cta',
+        ctaLink: '/agntc',
+      },
+      {
+        icon: <GlobeIcon size={24} className="text-white" />,
+        name: '跨境铺货助手',
+        nameId: 'homepage.products.aiProductListing.title',
+        description: '一键采集淘宝/1688商品，AI自动生成英文描述和定价，审核后直接上架WooCommerce，支持多店铺管理。',
+        descriptionId: 'homepage.products.aiProductListing.description',
+        cta: '了解更多',
+        ctaId: 'homepage.products.aiProductListing.cta',
+        ctaLink: '/docs/ai-product-listing',
+      },
+    ],
+  },
+  {
+    titleId: 'homepage.products.devtools.title',
+    title: '开发者工具',
+    products: [
+      {
+        icon: <BookOpenIcon size={24} className="text-white" />,
+        name: 'CCLEE Docusaurus Theme',
+        nameId: 'homepage.products.ccleeDocusaurusTheme.title',
+        description: '基于 Docusaurus 3.x 的高级文档主题，紫色主题 + 深色模式 + Tailwind 排版增强，开箱即用的生产级文档站点模板。',
+        descriptionId: 'homepage.products.ccleeDocusaurusTheme.description',
+        cta: 'GitHub 开源 · 永久免费',
+        ctaId: 'homepage.products.ccleeDocusaurusTheme.cta',
+        ctaLink: '/docs/cclee-docusaurus-theme',
+      },
+      {
+        icon: <LayersIcon size={24} className="text-white" />,
+        name: '任务栈',
+        nameId: 'homepage.products.taskStack.title',
+        description: '单人多项目任务上下文栈，push/pop 追踪当前进度，跨会话持久化，与 Claude Code 深度集成',
+        descriptionId: 'homepage.products.taskStack.description',
+        cta: '了解更多',
+        ctaId: 'homepage.products.taskStack.cta',
+        ctaLink: '/docs/task-stack',
+      },
+    ],
+  },
+  {
+    titleId: 'homepage.products.personal.title',
+    title: '个人应用',
+    products: [
+      {
+        icon: <TrendIcon size={24} className="text-white" />,
+        name: 'Life 记账助手',
+        nameId: 'homepage.products.life.title',
+        description: '自然语言记账健康助手。说人话就能记——AI 自动抽取金额、类目、账户；同时追踪情绪与服药，端到端加密保护隐私。',
+        descriptionId: 'homepage.products.life.description',
+        cta: '访问 life.ccleeai.com',
+        ctaId: 'homepage.products.life.cta',
+        ctaLink: '/life',
+      },
+    ],
+  },
+];
 
 export default function Products(): React.ReactElement {
   const title = translate({ id: 'homepage.title', message: 'CCLHUB - AI驱动的电商运营工具平台' });
   const description = translate({ id: 'homepage.description', message: 'CCLHUB 电商运营工具平台 - AI驱动的AI运营与电商工具箱' });
 
+  // 当前 locale 前缀（与 tool.tsx 同款 useLocation 方案）：/en、/zh 带前缀，默认语言在根
+  const { pathname } = useLocation();
+  const localePrefix = pathname.startsWith('/en') ? '/en' : pathname.startsWith('/zh') ? '/zh' : '';
+
+  // Product JSON-LD：与页面渲染同源（translate 取当前 locale 文案，URL 按双站域名 + locale 前缀拼接）
+  const productSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: PRODUCT_SECTIONS.flatMap((section) => section.products).map((product, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      item: {
+        '@type': 'Product',
+        name: translate({ id: product.nameId, message: product.name }),
+        description: translate({ id: product.descriptionId, message: product.description }),
+        url: `${siteUrl}${localePrefix}${product.ctaLink}`,
+        brand: { '@type': 'Brand', name: 'CCLHUB' },
+      },
+    })),
+  };
+
   return (
     <Layout title={title} description={description}>
+      <Head>
+        <script type="application/ld+json">{JSON.stringify(productSchema)}</script>
+      </Head>
       <main>
         <div className="relative min-h-[45vh] flex flex-col items-center justify-center px-5 pt-[80px] pb-[40px] text-center overflow-hidden">
           {/* Particle Background */}
@@ -41,180 +222,37 @@ export default function Products(): React.ReactElement {
 
         <div className="max-w-[1200px] mx-auto px-5 py-20">
 
-          {/* WordPress / WooCommerce 主题插件 */}
-          <div className="mb-8">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-2 text-gray-900 dark:text-white">
-              <Translate id="homepage.products.wordpress.title">WordPress / WooCommerce 主题 插件</Translate>
-            </h2>
-            <p className="text-gray-600 dark:text-gray-400">
-              <Translate id="homepage.products.wordpress.subtitle">免费开源的 WordPress / WooCommerce 主题与插件</Translate>
-            </p>
-          </div>
+          {PRODUCT_SECTIONS.map((section) => (
+            <React.Fragment key={section.titleId}>
+              <div className="mb-8">
+                <h2 className="text-2xl sm:text-3xl font-bold mb-2 text-gray-900 dark:text-white">
+                  <Translate id={section.titleId}>{section.title}</Translate>
+                </h2>
+                {section.subtitle && (
+                  <p className="text-gray-600 dark:text-gray-400">
+                    <Translate id={section.subtitleId}>{section.subtitle}</Translate>
+                  </p>
+                )}
+              </div>
 
-          <div className="space-y-3 mb-12">
-            <ProductListRow
-              icon={<LayoutIcon size={24} className="text-white" />}
-              name="CCLEE Theme"
-              nameId="homepage.products.ccleeTheme.title"
-              description="免费 WordPress FSE 区块主题。76 行 JS、零依赖、24 区块、5 种风格，开发者与建站者皆宜。"
-              descriptionId="homepage.products.ccleeTheme.description"
-              cta="GitHub 开源 · 永久免费"
-              ctaId="homepage.products.ccleeTheme.cta"
-              ctaLink="/cclee-theme"
-              animationDelay="0.1s"
-            />
-            <ProductListRow
-              icon={<ToolIcon size={24} className="text-white" />}
-              name="CCLEE Toolkit"
-              nameId="homepage.products.ccleeToolkit.title"
-              description="WordPress + WooCommerce 增强插件。全系列集成 AI 操作，自动生成 SEO 内容、Product Schema、图片 Alt，显著提升搜索引擎排名。"
-              descriptionId="homepage.products.ccleeToolkit.description"
-              cta="GitHub 开源 · 永久免费"
-              ctaId="homepage.products.ccleeToolkit.cta"
-              ctaLink="/docs/cclee-toolkit"
-              animationDelay="0.2s"
-            />
-            <ProductListRow
-              icon={<BuildingIcon size={24} className="text-white" />}
-              name="CCLEE B2B"
-              nameId="homepage.products.ccleeB2b.title"
-              description="WooCommerce B2B 增强插件。企业用户管理、差异化定价、报价系统、批量下单，让批发商和品牌商高效开展线上业务。"
-              descriptionId="homepage.products.ccleeB2b.description"
-              cta="GitHub 开源 · 永久免费"
-              ctaId="homepage.products.ccleeB2b.cta"
-              ctaLink="/docs/cclee-b2b-general"
-              animationDelay="0.3s"
-            />
-            <ProductListRow
-              icon={<TruckIcon size={24} className="text-white" />}
-              name="CCLEE Shipping"
-              nameId="homepage.products.ccleeShipping.title"
-              description="WooCommerce 多承运商物流插件。FedEx、顺丰国际实时运费报价，结算页自动显示真实运费。"
-              descriptionId="homepage.products.ccleeShipping.description"
-              cta="GitHub 开源 · 永久免费"
-              ctaId="homepage.products.ccleeShipping.cta"
-              ctaLink="/docs/cclee-shipping"
-              animationDelay="0.4s"
-            />
-          </div>
-
-          {/* 电子商务运营 */}
-          <div className="mb-8">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-2 text-gray-900 dark:text-white">
-              <Translate id="homepage.products.core.title">电子商务运营</Translate>
-            </h2>
-          </div>
-
-          <div className="space-y-3 mb-12">
-            <ProductListRow
-              icon={<PluginIcon size={24} className="text-white" />}
-              name="电商工具箱"
-              nameId="homepage.products.toolkit.title"
-              description="一站式电商运营解决方案，从数据采集到智能分析，全方位提升运营效率"
-              descriptionId="homepage.products.toolkit.description"
-              cta="了解更多"
-              ctaId="homepage.products.toolkit.cta"
-              ctaLink="/docs/browser-plugin"
-              animationDelay="0.1s"
-            />
-            <ProductListRow
-              icon={<AIIcon size={24} className="text-white" />}
-              name="AI运营"
-              nameId="homepage.products.aiOps.title"
-              description="基于大语言模型的智能分析，自动洞察市场趋势、用户行为、销售数据，提供精准运营策略。"
-              descriptionId="homepage.products.aiOps.description"
-              cta="了解更多"
-              ctaId="homepage.products.aiOps.cta"
-              ctaLink="/docs/ai-analytics"
-              animationDelay="0.2s"
-            />
-            <ProductListRow
-              icon={<MessageCircleIcon size={24} className="text-white" />}
-              name="AI客服"
-              nameId="homepage.products.aiSupport.title"
-              description="7×24小时AI客服，快速解答产品使用问题，提供功能指导和最佳实践。"
-              descriptionId="homepage.products.aiSupport.description"
-              cta="了解更多"
-              ctaId="homepage.products.aiSupport.cta"
-              ctaLink="/docs/customer-service"
-              animationDelay="0.3s"
-            />
-            <ProductListRow
-              icon={<RocketIcon size={24} className="text-white" />}
-              name="AI Agent"
-              nameId="homepage.products.agntc.title"
-              description="说出来就能做到，不用找开发者。自带 API Key，执行透明，数据自主。"
-              descriptionId="homepage.products.agntc.description"
-              cta="访问 app.ccleeai.com"
-              ctaId="homepage.products.agntc.cta"
-              ctaLink="/agntc"
-              animationDelay="0.4s"
-            />
-            <ProductListRow
-              icon={<GlobeIcon size={24} className="text-white" />}
-              name="跨境铺货助手"
-              nameId="homepage.products.aiProductListing.title"
-              description="一键采集淘宝/1688商品，AI自动生成英文描述和定价，审核后直接上架WooCommerce，支持多店铺管理。"
-              descriptionId="homepage.products.aiProductListing.description"
-              cta="了解更多"
-              ctaId="homepage.products.aiProductListing.cta"
-              ctaLink="/docs/ai-product-listing"
-              animationDelay="0.5s"
-            />
-          </div>
-
-          {/* 开发者工具 */}
-          <div className="mb-8">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-2 text-gray-900 dark:text-white">
-              <Translate id="homepage.products.devtools.title">开发者工具</Translate>
-            </h2>
-          </div>
-
-          <div className="space-y-3 mb-12">
-            <ProductListRow
-              icon={<BookOpenIcon size={24} className="text-white" />}
-              name="CCLEE Docusaurus Theme"
-              nameId="homepage.products.ccleeDocusaurusTheme.title"
-              description="基于 Docusaurus 3.x 的高级文档主题，紫色主题 + 深色模式 + Tailwind 排版增强，开箱即用的生产级文档站点模板。"
-              descriptionId="homepage.products.ccleeDocusaurusTheme.description"
-              cta="GitHub 开源 · 永久免费"
-              ctaId="homepage.products.ccleeDocusaurusTheme.cta"
-              ctaLink="/docs/cclee-docusaurus-theme"
-              animationDelay="0.1s"
-            />
-            <ProductListRow
-              icon={<LayersIcon size={24} className="text-white" />}
-              name="任务栈"
-              nameId="homepage.products.taskStack.title"
-              description="单人多项目任务上下文栈，push/pop 追踪当前进度，跨会话持久化，与 Claude Code 深度集成"
-              descriptionId="homepage.products.taskStack.description"
-              cta="了解更多"
-              ctaId="homepage.products.taskStack.cta"
-              ctaLink="/docs/task-stack"
-              animationDelay="0.2s"
-            />
-          </div>
-
-          {/* 个人应用 */}
-          <div className="mb-8">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-2 text-gray-900 dark:text-white">
-              <Translate id="homepage.products.personal.title">个人应用</Translate>
-            </h2>
-          </div>
-
-          <div className="space-y-3 mb-12">
-            <ProductListRow
-              icon={<TrendIcon size={24} className="text-white" />}
-              name="Life 记账助手"
-              nameId="homepage.products.life.title"
-              description="自然语言记账健康助手。说人话就能记——AI 自动抽取金额、类目、账户；同时追踪情绪与服药，端到端加密保护隐私。"
-              descriptionId="homepage.products.life.description"
-              cta="访问 life.ccleeai.com"
-              ctaId="homepage.products.life.cta"
-              ctaLink="/life"
-              animationDelay="0.1s"
-            />
-          </div>
+              <div className="space-y-3 mb-12">
+                {section.products.map((product, i) => (
+                  <ProductListRow
+                    key={product.nameId}
+                    icon={product.icon}
+                    name={product.name}
+                    nameId={product.nameId}
+                    description={product.description}
+                    descriptionId={product.descriptionId}
+                    cta={product.cta}
+                    ctaId={product.ctaId}
+                    ctaLink={product.ctaLink}
+                    animationDelay={`${((i + 1) / 10).toFixed(1)}s`}
+                  />
+                ))}
+              </div>
+            </React.Fragment>
+          ))}
 
         </div>
       </main>

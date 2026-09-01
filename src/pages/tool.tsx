@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import Layout from '@theme/Layout';
+import Head from '@docusaurus/Head';
 import Translate from '@docusaurus/Translate';
 import { translate } from '@docusaurus/Translate';
 import { useLocation } from '@docusaurus/router';
@@ -46,8 +47,31 @@ export default function ToolPage(): React.ReactElement {
   const title = translate({ id: 'tool.page.title', message: 'AI 工具场景推荐' });
   const description = translate({ id: 'tool.page.description', message: '按使用场景精选 AI 工具' });
 
+  // ItemList JSON-LD：全量工具清单（不随搜索/筛选变化），条目 URL 用外链 affiliateUrl
+  const itemListSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: toolsData.tools
+      .filter((tool) => tool.affiliateUrl)
+      .map((tool, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        item: {
+          '@type': 'SoftwareApplication',
+          applicationCategory: 'WebApplication',
+          operatingSystem: 'Web',
+          name: isZh ? tool.name : tool.nameEn || tool.name,
+          description: isZh ? tool.description : tool.descriptionEn || tool.description,
+          url: tool.affiliateUrl,
+        },
+      })),
+  };
+
   return (
     <Layout title={title} description={description}>
+      <Head>
+        <script type="application/ld+json">{JSON.stringify(itemListSchema)}</script>
+      </Head>
       <main className="max-w-[1400px] mx-auto px-4 py-12">
         {/* 页面标题 */}
         <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-2">
