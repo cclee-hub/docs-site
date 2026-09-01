@@ -153,6 +153,89 @@ function buildSchema(frontmatter, url) {
   }
 }
 
+// ============ Schema 齐全度校验（构建期防遗漏）============
+
+// 全局必备 schema：任何页面缺失即告警（防止 Layout 全局注入被意外绕过/破坏）
+const REQUIRED_GLOBAL_TYPES = ['Organization', 'Person', 'WebSite'];
+
+// 页面类型 → 必备 schema 登记表（唯一登记处，新增营销页时在此加一行）。
+// 缺失只告警不阻断构建；「待补」= 映射表先行、schema 后补，补齐后告警自动消失。
+const PAGE_SCHEMA_REQUIREMENTS = [
+  { test: /^\/services\//, require: ['FAQPage'] },
+  { test: /^\/about\//, require: ['FAQPage'] },
+  // 待补：产品列表每个产品卡需 Product + Offer 标记
+  { test: /^\/products\//, require: ['Product'] },
+  // 待补：AI 工具导航 23 个条目需 ItemList 标记
+  { test: /^\/tool\//, require: ['ItemList'] },
+];
+
+// 提取页面全部 JSON-LD @type（含嵌套，如 Organization.founder / WebSite.publisher）
+function collectSchemaTypes(html) {
+  const cheerio = require('cheerio');
+  const $ = cheerio.load(html);
+  const types = new Set();
+  $('script[type="application/ld+json"]').each((_, el) => {
+    try {
+      (function walk(node) {
+        if (Array.isArray(node)) return node.forEach(walk);
+        if (node && typeof node === 'object') {
+          if (typeof node['@type'] === 'string') types.add(node['@type']);
+          else if (Array.isArray(node['@type'])) node['@type'].forEach((t) => types.add(t));
+          Object.values(node).forEach(walk);
+        }
+      })(JSON.parse($(el).html() || ''));
+    } catch {
+      /* JSON-LD 语法错误视作无类型，由缺失告警兜底 */
+    }
+  });
+  return types;
+}
+
+// 遍历构建产物，校验全局三件套 + 登记表要求，缺失输出 console.warn
+function validateSchemaCoverage(outDir) {
+  const htmlFiles = [];
+  (function walkDir(d) {
+    for (const entry of fs.readdirSync(d, { withFileTypes: true })) {
+      const p = path.join(d, entry.name);
+      if (entry.isDirectory()) walkDir(p);
+      else if (entry.name === 'index.html') htmlFiles.push(p);
+    }
+  })(outDir);
+
+  let globalGapPages = 0;
+  const pageGaps = [];
+
+  for (const filePath of htmlFiles) {
+    const types = collectSchemaTypes(fs.readFileSync(filePath, 'utf-8'));
+
+    if (REQUIRED_GLOBAL_TYPES.some((t) => !types.has(t))) globalGapPages += 1;
+
+    // 归一化 URL：index.html → 目录路径，剥掉非默认语言构建的语言前缀（/zh、/en）
+    const rel = path.relative(outDir, filePath).replace(/\\/g, '/');
+    const urlPath = ('/' + rel.slice(0, -'index.html'.length)).replace(/^\/(zh|en)(?=\/)/, '/');
+
+    const req = PAGE_SCHEMA_REQUIREMENTS.find((r) => r.test.test(urlPath));
+    if (req) {
+      const missing = req.require.filter((t) => !types.has(t));
+      if (missing.length) pageGaps.push(`  - ${urlPath} 缺: ${missing.join(', ')}`);
+    }
+  }
+
+  if (globalGapPages) {
+    console.warn(
+      `[plugin-json-ld] ⚠ ${globalGapPages}/${htmlFiles.length} 页缺全局 schema (${REQUIRED_GLOBAL_TYPES.join('/')})，检查 Layout 注入是否被绕过`
+    );
+  }
+  if (pageGaps.length) {
+    console.warn(
+      `[plugin-json-ld] ⚠ 页面级 schema 缺失（登记表 PAGE_SCHEMA_REQUIREMENTS，补齐后告警消失）:\n${pageGaps.join('\n')}`
+    );
+  }
+  if (!globalGapPages && !pageGaps.length) {
+    console.log(`[plugin-json-ld] ✅ Schema 校验通过：${htmlFiles.length} 页全部齐全`);
+  }
+}
+
 // ============ Docusaurus 插件 ============
 
 module.exports = function pluginJsonLd() {
@@ -275,6 +358,9 @@ module.exports = function pluginJsonLd() {
       for (const [urlPath, schema] of Object.entries(schemaMap)) {
         injectSchema(path.join(outDir, urlPath, 'index.html'), schema);
       }
+
+      // 注入完成后按最终产物校验 schema 齐全度（缺失告警，不阻断构建）
+      validateSchemaCoverage(outDir);
     },
   };
 };
