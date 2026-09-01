@@ -36,13 +36,963 @@
   "redirects": [
     {
       "source": "/(.*)",
-      "has": [{ "type": "host", "value": "www.aidevhub.ai" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "www.aidevhub.ai"
+        }
+      ],
       "destination": "https://aidevhub.ai/$1",
       "permanent": true
     },
     {
-      "regex": "^/zh/(?P<path>.*)$",
+      "source": "/zh/:path(.*)",
       "destination": "https://ccleeai.com/:path",
+      "permanent": true
+    },
+    {
+      "source": "/zh/about/",
+      "destination": "https://ccleeai.com/about/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/agntc/",
+      "destination": "https://ccleeai.com/agntc/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/",
+      "destination": "https://ccleeai.com/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/1688-ads-with-sales-still-pause/",
+      "destination": "https://ccleeai.com/blog/1688-ads-with-sales-still-pause/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/1688-campaign-stop-checklist/",
+      "destination": "https://ccleeai.com/blog/1688-campaign-stop-checklist/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/1688-core-product-protection/",
+      "destination": "https://ccleeai.com/blog/1688-core-product-protection/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/1688-crowd-no-cross-comparison/",
+      "destination": "https://ccleeai.com/blog/1688-crowd-no-cross-comparison/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/1688-crowd-pause-carefully/",
+      "destination": "https://ccleeai.com/blog/1688-crowd-pause-carefully/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/1688-crowd-premium-3-month-trend/",
+      "destination": "https://ccleeai.com/blog/1688-crowd-premium-3-month-trend/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/1688-crowd-premium-platform-rules/",
+      "destination": "https://ccleeai.com/blog/1688-crowd-premium-platform-rules/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/1688-crowd-premium-roi-vs-inquiry-cost/",
+      "destination": "https://ccleeai.com/blog/1688-crowd-premium-roi-vs-inquiry-cost/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/1688-crowd-report-timing/",
+      "destination": "https://ccleeai.com/blog/1688-crowd-report-timing/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/1688-crowd-skip-abnormal-months/",
+      "destination": "https://ccleeai.com/blog/1688-crowd-skip-abnormal-months/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/1688-inquiry-cost-weighted/",
+      "destination": "https://ccleeai.com/blog/1688-inquiry-cost-weighted/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/1688-leads-vs-inquiries/",
+      "destination": "https://ccleeai.com/blog/1688-leads-vs-inquiries/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/1688-lookalike-crowd-pricing/",
+      "destination": "https://ccleeai.com/blog/1688-lookalike-crowd-pricing/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/1688-one-big-order-trap/",
+      "destination": "https://ccleeai.com/blog/1688-one-big-order-trap/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/1688-p4p-ad-data-16-day-settlement/",
+      "destination": "https://ccleeai.com/blog/1688-p4p-ad-data-16-day-settlement/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/1688-paused-campaign-restart/",
+      "destination": "https://ccleeai.com/blog/1688-paused-campaign-restart/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/1688-potential-product-three-gates/",
+      "destination": "https://ccleeai.com/blog/1688-potential-product-three-gates/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/1688-product-issue-tags/",
+      "destination": "https://ccleeai.com/blog/1688-product-issue-tags/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/1688-same-product-two-plans/",
+      "destination": "https://ccleeai.com/blog/1688-same-product-two-plans/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/1688-stop-and-go-ads-trap/",
+      "destination": "https://ccleeai.com/blog/1688-stop-and-go-ads-trap/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/1688-store-efficiency-alert/",
+      "destination": "https://ccleeai.com/blog/1688-store-efficiency-alert/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/2026/03/22/fse-group-block-layout-override-css/",
+      "destination": "https://ccleeai.com/blog/2026/03/22/fse-group-block-layout-override-css/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/2026/03/30/fse-block-theme-two-pitfalls/",
+      "destination": "https://ccleeai.com/blog/2026/03/30/fse-block-theme-two-pitfalls/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/2026/03/31/tavily-mcp-replace-zhipu-search/",
+      "destination": "https://ccleeai.com/blog/2026/03/31/tavily-mcp-replace-zhipu-search/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/2026/04/01/woocommerce-fse-block-theme-4-css-traps/",
+      "destination": "https://ccleeai.com/blog/2026/04/01/woocommerce-fse-block-theme-4-css-traps/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/2026/04/10/site123-embed-timeline-pitfalls/",
+      "destination": "https://ccleeai.com/blog/2026/04/10/site123-embed-timeline-pitfalls/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/2026/05/09/chrome-extension-dry-run-mode/",
+      "destination": "https://ccleeai.com/blog/2026/05/09/chrome-extension-dry-run-mode/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/2026/05/09/chrome-extension-token-sync-service-worker/",
+      "destination": "https://ccleeai.com/blog/2026/05/09/chrome-extension-token-sync-service-worker/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/2026/05/09/wsl-docker-postgresql-port-conflict/",
+      "destination": "https://ccleeai.com/blog/2026/05/09/wsl-docker-postgresql-port-conflict/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/2026/05/18/chrome-extension-postmessage-targetorigin-star/",
+      "destination": "https://ccleeai.com/blog/2026/05/18/chrome-extension-postmessage-targetorigin-star/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/2026/05/18/drizzle-raw-sql-expression-as-parameter/",
+      "destination": "https://ccleeai.com/blog/2026/05/18/drizzle-raw-sql-expression-as-parameter/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/2026/05/18/nodejs-env-loaded-undefined-dotenv-import-order/",
+      "destination": "https://ccleeai.com/blog/2026/05/18/nodejs-env-loaded-undefined-dotenv-import-order/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/2026/05/26/hostinger-cdn-blocks-wp-rest-api-media-upload/",
+      "destination": "https://ccleeai.com/blog/2026/05/26/hostinger-cdn-blocks-wp-rest-api-media-upload/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/2026/06/12/asynclocalstorage-context-lost-eventemitter-callback/",
+      "destination": "https://ccleeai.com/blog/2026/06/12/asynclocalstorage-context-lost-eventemitter-callback/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/2026/06/12/asynclocalstorage-enterwith-concurrency-crosstalk/",
+      "destination": "https://ccleeai.com/blog/2026/06/12/asynclocalstorage-enterwith-concurrency-crosstalk/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/2026/06/12/chrome-alarms-minimum-period-mv3/",
+      "destination": "https://ccleeai.com/blog/2026/06/12/chrome-alarms-minimum-period-mv3/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/2026/06/12/nanoid-v5-err-require-esm-commonjs/",
+      "destination": "https://ccleeai.com/blog/2026/06/12/nanoid-v5-err-require-esm-commonjs/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/2026/06/14/airflow-postgreshook-multistatement-sql-truncated/",
+      "destination": "https://ccleeai.com/blog/2026/06/14/airflow-postgreshook-multistatement-sql-truncated/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/2026/06/14/dotenv-hash-truncation/",
+      "destination": "https://ccleeai.com/blog/2026/06/14/dotenv-hash-truncation/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/2026/07/04/javascript-bare-throw-rethrow-syntax-error/",
+      "destination": "https://ccleeai.com/blog/2026/07/04/javascript-bare-throw-rethrow-syntax-error/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/2026/07/04/milvus-invalid-collection-name-uuid/",
+      "destination": "https://ccleeai.com/blog/2026/07/04/milvus-invalid-collection-name-uuid/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/2026/07/04/postgresql-on-conflict-unique-constraint/",
+      "destination": "https://ccleeai.com/blog/2026/07/04/postgresql-on-conflict-unique-constraint/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/airflow-dagrun-logical-date-unique/",
+      "destination": "https://ccleeai.com/blog/airflow-dagrun-logical-date-unique/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/airflow-delete-dag-metadata-residual/",
+      "destination": "https://ccleeai.com/blog/airflow-delete-dag-metadata-residual/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/airflow-xcom-nan-not-json-compliant/",
+      "destination": "https://ccleeai.com/blog/airflow-xcom-nan-not-json-compliant/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/antd-table-rowkey-duplicate-row-highlight/",
+      "destination": "https://ccleeai.com/blog/antd-table-rowkey-duplicate-row-highlight/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/archive/",
+      "destination": "https://ccleeai.com/blog/archive/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/authors/",
+      "destination": "https://ccleeai.com/blog/authors/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/build-your-own-mcp-toolkit/",
+      "destination": "https://ccleeai.com/blog/build-your-own-mcp-toolkit/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/chrome-extension-cookie-priority-mismatch/",
+      "destination": "https://ccleeai.com/blog/chrome-extension-cookie-priority-mismatch/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/Claude_%E6%8F%90%E7%A4%BA%E8%AF%8D%E6%8C%87%E5%8D%97_%E4%B8%AD%E6%96%87%E7%89%88/",
+      "destination": "https://ccleeai.com/blog/Claude_%E6%8F%90%E7%A4%BA%E8%AF%8D%E6%8C%87%E5%8D%97_%E4%B8%AD%E6%96%87%E7%89%88/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/claude-code-vscode-panel-500-glm-multisession/",
+      "destination": "https://ccleeai.com/blog/claude-code-vscode-panel-500-glm-multisession/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/css-hover-selector-nested-group-fix/",
+      "destination": "https://ccleeai.com/blog/css-hover-selector-nested-group-fix/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/css-pseudo-element-pattern-overlay/",
+      "destination": "https://ccleeai.com/blog/css-pseudo-element-pattern-overlay/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/deepseek-thinking-empty-output-silent-fallback/",
+      "destination": "https://ccleeai.com/blog/deepseek-thinking-empty-output-silent-fallback/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/docker-compose-restart-policy-service-down/",
+      "destination": "https://ccleeai.com/blog/docker-compose-restart-policy-service-down/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/docker-desktop-wsl2-host-network-unreachable/",
+      "destination": "https://ccleeai.com/blog/docker-desktop-wsl2-host-network-unreachable/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/docker-low-server-troubleshoot/",
+      "destination": "https://ccleeai.com/blog/docker-low-server-troubleshoot/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/docker-volume-empty-data-in-writable-layer/",
+      "destination": "https://ccleeai.com/blog/docker-volume-empty-data-in-writable-layer/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/docker-volume-override-bind-mount/",
+      "destination": "https://ccleeai.com/blog/docker-volume-override-bind-mount/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/docker-wordpress-wp-cli/",
+      "destination": "https://ccleeai.com/blog/docker-wordpress-wp-cli/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/docker-writable-layer-logs-disk-full/",
+      "destination": "https://ccleeai.com/blog/docker-writable-layer-logs-disk-full/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/docusaurus-39-translation-format/",
+      "destination": "https://ccleeai.com/blog/docusaurus-39-translation-format/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/docusaurus-heading-icon-flex-align/",
+      "destination": "https://ccleeai.com/blog/docusaurus-heading-icon-flex-align/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/docusaurus-i18n-routing-fix/",
+      "destination": "https://ccleeai.com/blog/docusaurus-i18n-routing-fix/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/docusaurus-image-require/",
+      "destination": "https://ccleeai.com/blog/docusaurus-image-require/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/docusaurus-multiple-blogs/",
+      "destination": "https://ccleeai.com/blog/docusaurus-multiple-blogs/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/docusaurus-node24-fix/",
+      "destination": "https://ccleeai.com/blog/docusaurus-node24-fix/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/docusaurus-rspack-logo-size/",
+      "destination": "https://ccleeai.com/blog/docusaurus-rspack-logo-size/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/docusaurus-scripts-inline-src-only/",
+      "destination": "https://ccleeai.com/blog/docusaurus-scripts-inline-src-only/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/docusaurus-tailwind-preflight-heading/",
+      "destination": "https://ccleeai.com/blog/docusaurus-tailwind-preflight-heading/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/docusaurus-umami-analytics/",
+      "destination": "https://ccleeai.com/blog/docusaurus-umami-analytics/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/esm-dynamic-import-missing-extension/",
+      "destination": "https://ccleeai.com/blog/esm-dynamic-import-missing-extension/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/extension-version-skew-monthly-flag-sync-stop/",
+      "destination": "https://ccleeai.com/blog/extension-version-skew-monthly-flag-sync-stop/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/fastapi-sse-cancellederror/",
+      "destination": "https://ccleeai.com/blog/fastapi-sse-cancellederror/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/floating-chat-config/",
+      "destination": "https://ccleeai.com/blog/floating-chat-config/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/floating-chat-data-flow/",
+      "destination": "https://ccleeai.com/blog/floating-chat-data-flow/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/frontend-deploy-build-outdated/",
+      "destination": "https://ccleeai.com/blog/frontend-deploy-build-outdated/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/fse-block-theme-troubleshooting-guide/",
+      "destination": "https://ccleeai.com/blog/fse-block-theme-troubleshooting-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/fse-theme-wcag-contrast-fix/",
+      "destination": "https://ccleeai.com/blog/fse-theme-wcag-contrast-fix/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/gutenberg-gradient-class-validation-fix/",
+      "destination": "https://ccleeai.com/blog/gutenberg-gradient-class-validation-fix/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/httpx-async-usage-pattern/",
+      "destination": "https://ccleeai.com/blog/httpx-async-usage-pattern/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/life-ai-money-mood-journal-beta/",
+      "destination": "https://ccleeai.com/blog/life-ai-money-mood-journal-beta/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/llm-capacity-gate-all-or-nothing-degradation/",
+      "destination": "https://ccleeai.com/blog/llm-capacity-gate-all-or-nothing-degradation/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/milvus-hybrid-search-pitfalls/",
+      "destination": "https://ccleeai.com/blog/milvus-hybrid-search-pitfalls/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/milvus-hybrid-search-rrf-threshold/",
+      "destination": "https://ccleeai.com/blog/milvus-hybrid-search-rrf-threshold/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/multi-provider-search-abstraction/",
+      "destination": "https://ccleeai.com/blog/multi-provider-search-abstraction/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/nodejs-24-jwt-jose-keyobject/",
+      "destination": "https://ccleeai.com/blog/nodejs-24-jwt-jose-keyobject/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/nodejs-dotenv-load-order-fix/",
+      "destination": "https://ccleeai.com/blog/nodejs-dotenv-load-order-fix/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/nodejs-fetch-wsl2-proxy-not-working/",
+      "destination": "https://ccleeai.com/blog/nodejs-fetch-wsl2-proxy-not-working/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/nodejs-jwt-secret-undefined-import-order/",
+      "destination": "https://ccleeai.com/blog/nodejs-jwt-secret-undefined-import-order/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/npm-audit-multi-package-deploy-attribution/",
+      "destination": "https://ccleeai.com/blog/npm-audit-multi-package-deploy-attribution/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/pipeline-snapshot-slot-drift-empty-segments/",
+      "destination": "https://ccleeai.com/blog/pipeline-snapshot-slot-drift-empty-segments/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/playwright-api-mocking/",
+      "destination": "https://ccleeai.com/blog/playwright-api-mocking/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/playwright-authenticated-fixture/",
+      "destination": "https://ccleeai.com/blog/playwright-authenticated-fixture/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/playwright-bypass-supabase-auth-e2e-test/",
+      "destination": "https://ccleeai.com/blog/playwright-bypass-supabase-auth-e2e-test/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/postgresql-information-schema-audit-orphan-tables/",
+      "destination": "https://ccleeai.com/blog/postgresql-information-schema-audit-orphan-tables/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/puppeteer-anti-bot-chrome-cdp-electron/",
+      "destination": "https://ccleeai.com/blog/puppeteer-anti-bot-chrome-cdp-electron/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/pydantic-v2-orm-mode-migration/",
+      "destination": "https://ccleeai.com/blog/pydantic-v2-orm-mode-migration/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/python-json-dumps-set-default-str/",
+      "destination": "https://ccleeai.com/blog/python-json-dumps-set-default-str/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/python-logging-level-name-contract-mismatch/",
+      "destination": "https://ccleeai.com/blog/python-logging-level-name-contract-mismatch/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/python-try-except-swallow-exception-silent-failure/",
+      "destination": "https://ccleeai.com/blog/python-try-except-swallow-exception-silent-failure/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/query-monitor-breaks-footer-scripts/",
+      "destination": "https://ccleeai.com/blog/query-monitor-breaks-footer-scripts/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/RAG-AI-FLOATING-SOLUTION/",
+      "destination": "https://ccleeai.com/blog/RAG-AI-FLOATING-SOLUTION/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/rag-sources-missing-similarity/",
+      "destination": "https://ccleeai.com/blog/rag-sources-missing-similarity/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/react-cascade-select-dropdown/",
+      "destination": "https://ccleeai.com/blog/react-cascade-select-dropdown/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/react-list-key-duplicate-fix/",
+      "destination": "https://ccleeai.com/blog/react-list-key-duplicate-fix/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/react-spa-google-analytics-4/",
+      "destination": "https://ccleeai.com/blog/react-spa-google-analytics-4/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/redis-systemctl-inactive-but-running/",
+      "destination": "https://ccleeai.com/blog/redis-systemctl-inactive-but-running/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/sql-aggregation-sum-ratio-columns-inflated/",
+      "destination": "https://ccleeai.com/blog/sql-aggregation-sum-ratio-columns-inflated/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/sql-cross-query-granularity-mismatch/",
+      "destination": "https://ccleeai.com/blog/sql-cross-query-granularity-mismatch/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/structure/",
+      "destination": "https://ccleeai.com/blog/structure/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/supabase-auth-fastapi-jwt-pitfalls/",
+      "destination": "https://ccleeai.com/blog/supabase-auth-fastapi-jwt-pitfalls/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/tailwind-darkmode-selector/",
+      "destination": "https://ccleeai.com/blog/tailwind-darkmode-selector/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/tailwind-preflight-docusaurus-breadcrumbs/",
+      "destination": "https://ccleeai.com/blog/tailwind-preflight-docusaurus-breadcrumbs/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/theming/",
+      "destination": "https://ccleeai.com/blog/theming/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/vercel-serverless-api-404-rewrite/",
+      "destination": "https://ccleeai.com/blog/vercel-serverless-api-404-rewrite/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/vite-path-alias-typescript/",
+      "destination": "https://ccleeai.com/blog/vite-path-alias-typescript/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/vscode-copilot-agent-mode-guide/",
+      "destination": "https://ccleeai.com/blog/vscode-copilot-agent-mode-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/vscode-wsl-extension-install-failed-fetch/",
+      "destination": "https://ccleeai.com/blog/vscode-wsl-extension-install-failed-fetch/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/woocommerce-block-theme-troubleshooting-guide/",
+      "destination": "https://ccleeai.com/blog/woocommerce-block-theme-troubleshooting-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/woocommerce-fse-cart-placeholder-fix/",
+      "destination": "https://ccleeai.com/blog/woocommerce-fse-cart-placeholder-fix/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/wordpress-fse-pattern-validation-errors/",
+      "destination": "https://ccleeai.com/blog/wordpress-fse-pattern-validation-errors/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/wp-fse-json-quote-missing-block-validation/",
+      "destination": "https://ccleeai.com/blog/wp-fse-json-quote-missing-block-validation/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/wsl2-proxy-firewall-block/",
+      "destination": "https://ccleeai.com/blog/wsl2-proxy-firewall-block/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/wxt-hmr-duplicate-message-listeners/",
+      "destination": "https://ccleeai.com/blog/wxt-hmr-duplicate-message-listeners/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/zod-strict-llm-output-silent-drop/",
+      "destination": "https://ccleeai.com/blog/zod-strict-llm-output-silent-drop/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/blog/zustand-store-cache-pattern/",
+      "destination": "https://ccleeai.com/blog/zustand-store-cache-pattern/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/cases/",
+      "destination": "https://ccleeai.com/cases/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/cases/2026/03/19/building-renovation-llm-pipeline/",
+      "destination": "https://ccleeai.com/cases/2026/03/19/building-renovation-llm-pipeline/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/cases/2026/03/19/china-factory-export-strategy-independent-site/",
+      "destination": "https://ccleeai.com/cases/2026/03/19/china-factory-export-strategy-independent-site/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/cases/authors/",
+      "destination": "https://ccleeai.com/cases/authors/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/cases/cclee-theme-fse-developer/",
+      "destination": "https://ccleeai.com/cases/cclee-theme-fse-developer/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/cases/cclee-toolkit-b2b-wordpress-plugin/",
+      "destination": "https://ccleeai.com/cases/cclee-toolkit-b2b-wordpress-plugin/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/cases/cclee-toolkit-wordpress-seo-ai-integration/",
+      "destination": "https://ccleeai.com/cases/cclee-toolkit-wordpress-seo-ai-integration/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/cases/china-market-localization-b2b-agency/",
+      "destination": "https://ccleeai.com/cases/china-market-localization-b2b-agency/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/cases/ecommerce-data-collection-tool/",
+      "destination": "https://ccleeai.com/cases/ecommerce-data-collection-tool/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/cases/site123-timeline-embed/",
+      "destination": "https://ccleeai.com/cases/site123-timeline-embed/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/cases/user-manual-translation/",
+      "destination": "https://ccleeai.com/cases/user-manual-translation/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/cases/website-localization-turkey-law-firm/",
+      "destination": "https://ccleeai.com/cases/website-localization-turkey-law-firm/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/cclee-theme/",
+      "destination": "https://ccleeai.com/cclee-theme/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/life/",
+      "destination": "https://ccleeai.com/life/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/privacy/",
+      "destination": "https://ccleeai.com/privacy/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/products/",
+      "destination": "https://ccleeai.com/products/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/services/",
+      "destination": "https://ccleeai.com/services/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/terms/",
+      "destination": "https://ccleeai.com/terms/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/tool/",
+      "destination": "https://ccleeai.com/tool/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/docs/1688-ad-optimization-guide/",
+      "destination": "https://ccleeai.com/docs/1688-ad-optimization-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/docs/1688-crowd-premium-guide/",
+      "destination": "https://ccleeai.com/docs/1688-crowd-premium-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/docs/agntc/",
+      "destination": "https://ccleeai.com/docs/agntc/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/docs/agntc/feature-guide/",
+      "destination": "https://ccleeai.com/docs/agntc/feature-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/docs/agntc/help-support/",
+      "destination": "https://ccleeai.com/docs/agntc/help-support/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/docs/agntc/quick-start/",
+      "destination": "https://ccleeai.com/docs/agntc/quick-start/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/docs/agntc/updates/",
+      "destination": "https://ccleeai.com/docs/agntc/updates/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/docs/ai-analytics-updates/",
+      "destination": "https://ccleeai.com/docs/ai-analytics-updates/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/docs/ai-analytics/",
+      "destination": "https://ccleeai.com/docs/ai-analytics/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/docs/ai-customer-service-updates/",
+      "destination": "https://ccleeai.com/docs/ai-customer-service-updates/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/docs/ai-product-listing/",
+      "destination": "https://ccleeai.com/docs/ai-product-listing/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/docs/browser-plugin-updates/",
+      "destination": "https://ccleeai.com/docs/browser-plugin-updates/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/docs/browser-plugin/",
+      "destination": "https://ccleeai.com/docs/browser-plugin/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/docs/cclee-b2b-ai/",
+      "destination": "https://ccleeai.com/docs/cclee-b2b-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/docs/cclee-b2b-general/",
+      "destination": "https://ccleeai.com/docs/cclee-b2b-general/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/docs/cclee-b2b-pdf/",
+      "destination": "https://ccleeai.com/docs/cclee-b2b-pdf/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/docs/cclee-b2b-pricing/",
+      "destination": "https://ccleeai.com/docs/cclee-b2b-pricing/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/docs/cclee-b2b-product/",
+      "destination": "https://ccleeai.com/docs/cclee-b2b-product/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/docs/cclee-b2b-registration/",
+      "destination": "https://ccleeai.com/docs/cclee-b2b-registration/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/docs/cclee-b2b-rfq/",
+      "destination": "https://ccleeai.com/docs/cclee-b2b-rfq/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/docs/cclee-b2b-updates/",
+      "destination": "https://ccleeai.com/docs/cclee-b2b-updates/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/docs/cclee-docusaurus-theme/",
+      "destination": "https://ccleeai.com/docs/cclee-docusaurus-theme/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/docs/cclee-shipping/",
+      "destination": "https://ccleeai.com/docs/cclee-shipping/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/docs/cclee-theme/",
+      "destination": "https://ccleeai.com/docs/cclee-theme/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/docs/cclee-toolkit-image-alt/",
+      "destination": "https://ccleeai.com/docs/cclee-toolkit-image-alt/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/docs/cclee-toolkit-seo/",
+      "destination": "https://ccleeai.com/docs/cclee-toolkit-seo/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/docs/cclee-toolkit-woo/",
+      "destination": "https://ccleeai.com/docs/cclee-toolkit-woo/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/docs/cclee-toolkit/",
+      "destination": "https://ccleeai.com/docs/cclee-toolkit/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/docs/cclhub-updates/",
+      "destination": "https://ccleeai.com/docs/cclhub-updates/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/docs/customer-service/",
+      "destination": "https://ccleeai.com/docs/customer-service/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/docs/fedex-registration/",
+      "destination": "https://ccleeai.com/docs/fedex-registration/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/docs/life/",
+      "destination": "https://ccleeai.com/docs/life/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/docs/life/faq/",
+      "destination": "https://ccleeai.com/docs/life/faq/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/docs/life/feature-guide/",
+      "destination": "https://ccleeai.com/docs/life/feature-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/docs/life/privacy-security/",
+      "destination": "https://ccleeai.com/docs/life/privacy-security/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/docs/life/quick-start/",
+      "destination": "https://ccleeai.com/docs/life/quick-start/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/docs/life/updates/",
+      "destination": "https://ccleeai.com/docs/life/updates/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/docs/task-stack/",
+      "destination": "https://ccleeai.com/docs/task-stack/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/",
+      "destination": "https://ccleeai.com/",
       "permanent": true
     }
   ]
