@@ -38,6 +38,16 @@
       "has": [{ "type": "host", "value": "www.aidevhub.ai" }],
       "destination": "https://aidevhub.ai/$1",
       "permanent": true
+    },
+    {
+      "source": "/zh",
+      "destination": "https://ccleeai.com/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/:path*",
+      "destination": "https://ccleeai.com/:path*",
+      "permanent": true
     }
   ]
 }

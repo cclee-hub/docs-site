@@ -51,7 +51,9 @@ const config: Config = {
 
   i18n: {
     defaultLocale,
-    locales: ['zh', 'en'],
+    // 单语单域：aidevhub.ai 仅英文、ccleeai.com 仅中文，避免跨域重复内容；
+    // 历史异语 URL 由 301 兜底（ai 站见 vercel.json，zh 站见 cclhub nginx）
+    locales: site === 'zh' ? ['zh'] : ['en'],
     localeConfigs: {
       zh: {
         label: '简体中文',
