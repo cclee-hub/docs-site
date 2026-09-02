@@ -38,7 +38,7 @@ A campaign spending pocket change per week completes no meaningful test. When sp
 
 ### Check three: has it run continuously?
 
-Stop-and-go campaigns can't be evaluated: every gap changes the context, so you can't tell whether delivery is weak or the interruptions broke it. **Discontinuous and underperforming → the first move is restoring continuity**, not stopping. Only after a continuous stretch produces comparable data does the performance verdict mean anything. More in [Stop-and-go advertising is worse than bad performance](/blog/1688-stop-and-go-ads-trap).
+Stop-and-go campaigns can't be evaluated: every gap changes the context, so you can't tell whether delivery is weak or the interruptions broke it. **Discontinuous and underperforming → the first move is restoring continuity**, not stopping. Only after a continuous stretch produces comparable data does the performance verdict mean anything. The full evaluation flow is in the [1688 P4P optimization method](/docs/1688-ad-optimization-guide).
 
 ### Check four: did it get a learning period?
 

@@ -46,7 +46,7 @@ Set the line from **your own record**:
 2. Rank their inquiry costs; the band they form is your normal operating range
 3. That band is the pass line: meaningfully above it is a problem, meaningfully below it deserves budget
 
-A benchmark built from your history makes every month's movement readable. It is the same principle as audience judgment — self-comparison only; see [The Three-Month Trend Rule for B2B Ad Bid Decisions](/blog/1688-crowd-premium-3-month-trend).
+A benchmark built from your history makes every month's movement readable. It is the same principle as audience judgment — self-comparison only.
 
 <InfoBox variant="warning" title="Two steps, in order">
 

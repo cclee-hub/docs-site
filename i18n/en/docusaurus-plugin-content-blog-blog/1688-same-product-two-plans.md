@@ -42,7 +42,7 @@ These gaps are **structural, not luck** — which is precisely why budget follow
 1. **Put the same product's campaigns on one line**: spend, clicks, inquiries/leads per campaign; compute cost per lead (or per inquiry) for each
 2. **Benchmark against the in-group best**: the cheapest campaign for that product is the ruler; every sibling shows its multiple against it
 3. **Shift above the line**: a campaign costing 2×+ the best starts transferring budget to the winner — gradually, keeping a small observation reserve
-4. **Include the full history**: paused campaigns participate. If everything currently running costs more than a paused campaign used to, that's a signal to consider reviving it (evaluated properly, per [Should You Restart a Paused B2B Ad Campaign?](/blog/1688-paused-campaign-restart))
+4. **Include the full history**: paused campaigns participate. If everything currently running costs more than a paused campaign used to, that's a signal to consider reviving it (evaluated properly, per the [P4P optimization method](/docs/1688-ad-optimization-guide))
 
 One detail: compare on **cost per lead or per inquiry**, not cost per click — cheap clicks that never ask a question are not cheap.
 

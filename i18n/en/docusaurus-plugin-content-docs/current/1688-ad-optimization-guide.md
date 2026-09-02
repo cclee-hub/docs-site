@@ -31,7 +31,7 @@ Fix a weekly review slot and walk through in this order:
 3. **Then products**: money-burning products get six issue tags to decide keep, fix, or remove.
 4. **Finally, add**: screen organically selling products as promotion candidates.
 
-One data rule governs everything: **inquiry data is ready early; transaction data must settle.** A 1688 ads cycle takes up to 16 days to finish recording transactions.
+One data rule governs everything: **inquiry data is ready early; transaction data must settle.** A re-collection experiment measured transaction recording running as late as day 29 after week end — see [Is 16 Days Enough for Marketplace Ad Data?](/blog/1688-p4p-ad-data-16-day-settlement).
 
 ## Walkthrough
 
