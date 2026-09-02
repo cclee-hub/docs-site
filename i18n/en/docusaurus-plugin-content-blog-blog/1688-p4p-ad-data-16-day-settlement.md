@@ -18,11 +18,13 @@ faqs:
 
 "Wait 16 days before judging" is not enough. We re-collected five long-settled weeks of B2B marketplace ad data and diffed every row: **value edits keep landing until day 29 after week end**; keywords added late "grow" historical data on re-collection; and the harsher finding is retention — **the platform deletes detail reports after ~6–7 weeks, and past 54 days none of our 6 campaigns could be recovered**. Collect weekly, archive locally — that is the only posture that loses nothing.
 
-## The 16-day rule broke, so we ran the experiment
+## The trigger: 27 new rows on day 29
 
-While reviewing historical ad weeks under the old "settled after 16 days" discipline, one industrial-goods B2B storefront (anonymized) produced a counterexample: 27 new region rows landed 29 days after a week had ended — far past the folk wisdom line.
+During a routine collection on August 10, one industrial-goods B2B storefront (anonymized) wrote 27 new region-detail rows into a week that had ended **29 days earlier** — five campaigns, a +22% row increase. By the folklore timeline, that week had "settled at 16 days" roughly two weeks prior.
 
-This happened while building [AI Operations](/docs/ai-analytics) — LLM-powered analysis that automatically surfaces market trends, user behavior, and sales data to drive strategy. Ad data is the foundation of all of it, and the foundation's semantics had to be measured, not assumed.
+Is 16 days platform fact or folklore? The test is ready-made: re-collect older weeks. If long-settled weeks grow new rows or rewrite old values, 16 days is nowhere near the end — and the same re-collection measures how long the platform keeps detail at all. On August 21 we re-pulled five older weeks, which became the experiment below.
+
+This started while building [AI Operations](/docs/ai-analytics) — LLM-powered analysis that automatically surfaces market trends, user behavior, and sales data to drive strategy. Ad data is the foundation of all of it, and the foundation's semantics had to be measured, not assumed.
 
 ## The design: re-collect five "settled" weeks and diff
 
@@ -42,7 +44,7 @@ The result:
 | Region detail | 405 | 405 | 0 | 0 | 0 |
 | Keyword detail | 94 | 105 | **+11** | 0 | 0 |
 
-The 651 rows the platform re-returned and rewrote were **byte-identical** to the baseline. The only exception: 11 new keyword rows — not a coincidence but a second back-fill mechanism, explained below.
+The net result of the row-level diff across all 1,199 rows: **not a single historical number was revised** (zero value changes, zero removals). The only difference is 11 new keyword rows — not revised values but newly grown entities, a second back-fill mechanism covered in Finding 2; which campaigns' detail the platform re-returned at all is Finding 3.
 
 ![Lifecycle of 1688 P4P data: from routine writes to back-fill events to deletion](/images/blog/1688-p4p-data-timeline-en.png)
 
@@ -51,8 +53,8 @@ The 651 rows the platform re-returned and rewrote were **byte-identical** to the
 The boundary of the claim: "16 days" is both right and wrong.
 
 - **The platform's stated** attribution window is ~15 days — the folk "settle at 16" comes from there;
-- **In measurement**, the latest value back-fill landed on **day 29 after week end** (+27 region rows) — nearly double the stated window;
-- Yet at 40–47 days of age, the re-collection showed **zero value changes across 651 rows** — back-fill does stop, just much later than day 16.
+- **The trigger event** was exactly that counterexample: +27 region rows on day 29, nearly double the window;
+- The experiment supplies the stopping point: re-collection at 40–47 days showed **zero value changes** — back-fill does stop, just much later than day 16.
 
 For operators: 16 days works as a "probably stable" heuristic, not as a definition of final. For irreversible calls like pausing a campaign, wait the full 4–5 weeks so the decision lands past the measured stopping point. The full pre-pause checklist is in [Five checks before you pause a marketplace ad campaign](/blog/1688-campaign-stop-checklist).
 
@@ -60,7 +62,7 @@ For operators: 16 days works as a "probably stable" heuristic, not as a definiti
 
 The 11 extra keyword rows exposed a second mechanism: **entity-level back-fill**.
 
-The reporting API returns history for your **current** keyword list. The test store's whitelist campaign added keywords mid-flight; on re-collection, those keywords' history came back with them — for example the keyword for "solution kit" returned a historical week carrying 11,179 impressions, ¥342.7 spend, 10 inquiries, and 11 orders.
+The reporting API returns history for your **current** keyword list. The test store added keywords to one campaign mid-flight; on re-collection, those keywords' history came back with them — for example the keyword for "solution kit" returned a historical week carrying 11,179 impressions, ¥342.7 spend, 10 inquiries, and 11 orders.
 
 Two consequences people miss:
 
@@ -87,11 +89,12 @@ Put bluntly: **any detail not in your own database within ~6 weeks has been dele
 
 ## For data engineers: leave at least 5 weeks of overlap
 
-If your pipeline collects marketplace ad reports weekly (or models attribution for a similar platform): the stated 15-day window actually back-fills as late as **+29 days**. A strict weekly cadence with a 4-week overlap performs its last rewrite at week-end +22 days — which fails to cover the measured day-29 event (ours survived only because a collection gap happened to stretch). Raise the overlap to **5+ weeks**: ~25% more requests, in exchange for never losing rows.
+If your pipeline collects marketplace ad reports weekly (or models attribution for a similar platform): the stated 15-day window actually back-fills as late as **+29 days**. A strict weekly cadence with a 4-week overlap performs its last rewrite at week-end +22 days — which fails to cover the measured day-29 event (ours survived only because a collection gap happened to stretch). Raise the overlap from 4 weeks to 5: ~20–25% more requests each week — every extra overlap week is one more week of paginated detail to pull — in exchange for never losing rows.
 
-<InfoBox variant="warning" title="One line to remember">
+<InfoBox variant="warning" title="Two weekly habits">
 
-Back-fill runs as late as day 29; the platform deletes detail after 6–7 weeks. **Decide after settlement, archive before deletion** — both are weekly jobs.
+- **Collect**: land this week's detail in your own database, with a 5+ week overlap — archiving is the only defense against deletion;
+- **Wait**: make keep-or-stop calls only on data settled 4–5 weeks — settlement is the only defense against misjudgment.
 
 </InfoBox>
 
