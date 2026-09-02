@@ -1,88 +1,113 @@
 ---
-title: "Why Marketplace Ad Data Needs 16 Days Before You Judge It"
-description: "B2B marketplace ad transactions back-fill for up to 16 days — Monday's report is half a ledger. The settlement-window discipline that stops you pausing campaigns on incomplete data."
-date: 2026-08-31
+title: "Is 16 Days Enough for Marketplace Ad Data? We Re-Collected 5 Weeks to Find Out"
+description: "We re-collected 5 settled weeks of ad data: edits until day 29, +11 late-keyword rows, detail deleted after ~6–7 weeks."
+date: 2026-09-02
 tags: [B2B, E-commerce, Analytics]
 authors: [cclee]
 schema: FAQPage
 faqs:
-  - q: "Why does marketplace ad data need 16 days before judgment?"
-    a: "Buyers click ads and order days or weeks later; the platform credits those orders back to the ad during an attribution window of up to 16 days. Data inside the window is still moving."
-  - q: "A paused campaign keeps getting transactions — is that normal?"
-    a: "Yes. Buyers who clicked before the pause still convert inside the attribution window. That is delayed attribution, not a resurrection — include it when judging the pause decision."
-  - q: "When can I read in-flight campaign data?"
-    a: "Trends anytime; conclusions only after settlement. Clicks and inquiries are same-day facts stable within days — transactions and ROI wait the full 16 days."
+  - q: "How long until marketplace ad data is final?"
+    a: "The platform states a ~15-day attribution window, but the latest back-fill we observed landed on day 29. Wait 4–5 weeks before irreversible keep-or-stop calls."
+  - q: "Can I back-fill ad history I forgot to export?"
+    a: "Usually no. Detail reports survive roughly 6–7 weeks: at 40–47 days only 3 of 6 campaigns still returned data; past 54 days, none. After that it is gone."
+  - q: "Why do new keyword rows appear after re-collection?"
+    a: "The API returns history for your current keyword list. Keywords added late grow historical rows — entity-level back-fill: row counts rise, existing values never change."
 ---
 
 ## TL;DR
 
-Marketplace ad transactions take up to 16 days to finish posting. The Monday-morning report is half a ledger, and stopping campaigns on it is how good campaigns die. Inquiries read early, transactions read late — keep the two lanes separate.
+"Wait 16 days before judging" is not enough. We re-collected five long-settled weeks of B2B marketplace ad data and diffed every row: **value edits keep landing until day 29 after week end**; keywords added late "grow" historical data on re-collection; and the harsher finding is retention — **the platform deletes detail reports after ~6–7 weeks, and past 54 days none of our 6 campaigns could be recovered**. Collect weekly, archive locally — that is the only posture that loses nothing.
 
-## You paused it on Monday; the orders arrived by Friday
+## The 16-day rule broke, so we ran the experiment
 
-Monday: last week's campaign report shows real spend, almost no attributed orders. You kill it.
+While reviewing historical ad weeks under the old "settled after 16 days" discipline, one industrial-goods B2B storefront (anonymized) produced a counterexample: 27 new region rows landed 29 days after a week had ended — far past the folk wisdom line.
 
-Two weeks later the ledger looks very different — orders kept posting to that campaign, day after day, until it looked healthy. You start wondering whether you paused a winner.
+This happened while building [AI Operations](/docs/ai-analytics) — LLM-powered analysis that automatically surfaces market trends, user behavior, and sales data to drive strategy. Ad data is the foundation of all of it, and the foundation's semantics had to be measured, not assumed.
 
-You did neither. The ledger simply wasn't finished when you read it.
+## The design: re-collect five "settled" weeks and diff
 
-## How the ledger actually fills
+The method is plain: **baseline → re-collection → row-level diff.**
 
-A buyer who clicks your ad does not buy the same afternoon — B2B buyers especially: they shortlist, request quotes, route approvals, and order ten-plus days later.
+1. Pick 5 consecutive weeks (2026-06-08 ~ 07-06), already 40–74 days old — settled under any definition;
+2. Export a baseline across 4 detail tables (overview / products / keywords / areas — 1,199 rows);
+3. Trigger a full platform re-collection (range mode), export again;
+4. Diff row by row: additions, value changes, deletions. Re-checked on 2026-09-02; conclusions unchanged.
 
-Marketplaces handle this by retroactive attribution: when an order lands, the platform looks back inside a fixed window — on the order of **16 days** — and credits the order to the ad touches inside it.
+The result:
 
-Consequence: every delivery period drags a **settlement tail**. The week that just ended has recorded only part of its orders; the rest posts over the following days. Only at day 16 does the period's account close and the numbers stop moving.
+| Table | Baseline rows | After | Added | Value changes | Removed |
+|-------|--------------|-------|-------|---------------|---------|
+| Campaign overview | 18 | 18 | 0 | 0 | 0 |
+| Product detail | 682 | 682 | 0 | 0 | 0 |
+| Region detail | 405 | 405 | 0 | 0 | 0 |
+| Keyword detail | 94 | 105 | **+11** | 0 | 0 |
 
-## The three timing disciplines
+The 651 rows the platform re-returned and rewrote were **byte-identical** to the baseline. The only exception: 11 new keyword rows — not a coincidence but a second back-fill mechanism, explained below.
 
-| When | State of the data | What you may do |
-|------|------------------|-----------------|
-| Period just ended (Monday) | Fraction of orders posted | Read spend and clicks; conclude nothing |
-| Campaign in flight | Unsettled, still moving | Watch the trend; no stop decisions |
-| 16 days elapsed | Account closed, numbers final | Make keep-or-stop calls on this |
+![Lifecycle of 1688 P4P data: from routine writes to back-fill events to deletion](/images/blog/1688-p4p-data-timeline-en.png)
 
-One line: **urgent decisions wait; closed ledgers decide.**
+## Finding 1: values blow past 16 days — and truly settle by 40
 
-## The exception: inquiries are same-day facts
+The boundary of the claim: "16 days" is both right and wrong.
 
-Not everything waits 16 days. Clicks and inquiries — buyers actively asking for quotes — are recorded on the day they happen, no retroactive crediting, stable within days.
+- **The platform's stated** attribution window is ~15 days — the folk "settle at 16" comes from there;
+- **In measurement**, the latest value back-fill landed on **day 29 after week end** (+27 region rows) — nearly double the stated window;
+- Yet at 40–47 days of age, the re-collection showed **zero value changes across 651 rows** — back-fill does stop, just much later than day 16.
 
-So read data at two speeds:
+For operators: 16 days works as a "probably stable" heuristic, not as a definition of final. For irreversible calls like pausing a campaign, wait the full 4–5 weeks so the decision lands past the measured stopping point. The full pre-pause checklist is in [Five checks before you pause a marketplace ad campaign](/blog/1688-campaign-stop-checklist).
 
-- **Traffic capability** (are people clicking, are they asking): days-old data is enough
-- **Money capability** (orders, ROI): wait for the closed account
+## Finding 2: keywords added late grow historical data
 
-Most misjudgment is the two speeds colliding: half-finished transaction data condemning a campaign whose inquiry curve is perfectly healthy. Which benchmark should lead for B2B, and why, is in [B2B Ads: Optimize for Inquiry Cost, Not ROAS](/blog/1688-crowd-premium-roi-vs-inquiry-cost).
+The 11 extra keyword rows exposed a second mechanism: **entity-level back-fill**.
 
-## The "ghost orders" after pausing
+The reporting API returns history for your **current** keyword list. The test store's whitelist campaign added keywords mid-flight; on re-collection, those keywords' history came back with them — for example the keyword for "solution kit" returned a historical week carrying 11,179 impressions, ¥342.7 spend, 10 inquiries, and 11 orders.
 
-Stop a campaign and orders still post to it for a week or two. Not a resurrection — the settlement tail: buyers who clicked before the pause converted inside the window.
+Two consequences people miss:
 
-Two mistakes this prevents:
+- **Row counts rise; values never change.** Existing rows were byte-identical after re-collection; only late-added keywords grew new historical rows. When re-collected data grows, separate value revisions from entity additions before drawing conclusions.
+- **Your history is only as complete as your keyword timeline** — and back-fill only works while the platform still retains detail. Which is the third finding.
 
-- Judging the pause decision the day after — meaningless; wait for the tail to finish
-- Auditing a period's overall ROI without its tails — systematically understated, period after period
+## Finding 3: the real cliff is deletion, not settlement
 
-<InfoBox variant="warning" title="Remember the number 16">
+Slow back-fill costs waiting; retention costs everything. We checked, per campaign, whether the platform could still return detail during re-collection:
 
-Every delivery period's transactions finish posting up to 16 days later. Trends in flight, inquiries early, but any keep-or-stop decision waits for the closed account.
+- Weeks aged **40–47 days**: only **3 of 6** campaigns returned complete detail;
+- Weeks aged **54–74 days**: **0 of 6** — not stale, deleted from the platform's side, unrecoverable by any means;
+- 3 more campaigns had already expired at ~40 days (per-campaign retention runs shorter; one sample so far).
+
+![The retention cliff: 3/6 campaigns retrievable at 40–47 days, 0/6 after 54](/images/blog/1688-p4p-retention-cliff-en.png)
+
+Put bluntly: **any detail not in your own database within ~6 weeks has been deleted on your behalf.** "I'll export it later" is not procrastination — it is deletion.
+
+## Three disciplines for operators
+
+1. **Watch trends anytime; wait 4–5 weeks for irreversible calls.** 16 days is the reference line, 29 the safety line.
+2. **Collect or export detail weekly and archive locally.** Platform-side detail is far shorter-lived than assumed; the archive is the asset you own.
+3. **Close the settlement tail before any retro analysis.** Period ROI without its back-fill is systematically understated — and when you cannot tell value revisions from entity additions, diff at row level.
+
+## For data engineers: leave at least 5 weeks of overlap
+
+If your pipeline collects marketplace ad reports weekly (or models attribution for a similar platform): the stated 15-day window actually back-fills as late as **+29 days**. A strict weekly cadence with a 4-week overlap performs its last rewrite at week-end +22 days — which fails to cover the measured day-29 event (ours survived only because a collection gap happened to stretch). Raise the overlap to **5+ weeks**: ~25% more requests, in exchange for never losing rows.
+
+<InfoBox variant="warning" title="One line to remember">
+
+Back-fill runs as late as day 29; the platform deletes detail after 6–7 weeks. **Decide after settlement, archive before deletion** — both are weekly jobs.
 
 </InfoBox>
 
 ## FAQ
 
-### Why does marketplace ad data need 16 days before judgment?
+### How long until marketplace ad data is final?
 
-Buyers click ads and order days or weeks later; the platform credits those orders back to the ad during an attribution window of up to 16 days. Data inside the window is still moving.
+The platform states a ~15-day attribution window, but the latest back-fill we observed landed on day 29. Wait 4–5 weeks before irreversible keep-or-stop calls.
 
-### A paused campaign keeps getting transactions — is that normal?
+### Can I back-fill ad history I forgot to export?
 
-Yes. Buyers who clicked before the pause still convert inside the attribution window. That is delayed attribution, not a resurrection — include it when judging the pause decision.
+Usually no. Detail reports survive roughly 6–7 weeks: at 40–47 days only 3 of 6 campaigns still returned data; past 54 days, none. After that it is gone.
 
-### When can I read in-flight campaign data?
+### Why do new keyword rows appear after re-collection?
 
-Trends anytime; conclusions only after settlement. Clicks and inquiries are same-day facts stable within days — transactions and ROI wait the full 16 days.
+The API returns history for your current keyword list. Keywords added late grow historical rows — entity-level back-fill: row counts rise, existing values never change.
 
 <div className="my-8 p-6 rounded-xl border text-center">
   <p className="text-lg font-semibold mb-2">CCLEE</p>
