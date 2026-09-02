@@ -1,74 +1,87 @@
 ---
-title: "Same Product, Two Campaigns, Twice the Cost per Lead"
-description: "Multi-campaign setups for one product are standard — but almost nobody reconciles them. Compare acquisition cost across campaigns for the same product; shift budget to the winner."
-date: 2026-08-31
+title: "Same Product, 4× the Inquiry Cost: It's the Ad Solution, Not the Product"
+description: "The same product costs ¥17–78 per inquiry across ad solutions. The ranking follows the solution, not the product."
+date: 2026-09-02
 tags: [B2B, E-commerce, Advertising]
 authors: [cclee]
 schema: FAQPage
 faqs:
-  - q: "Can I run one product in multiple marketplace ad campaigns?"
-    a: "Yes — different bids, audiences, and dayparts are a common setup. But reconcile acquisition cost across the campaigns regularly, or the weak one quietly keeps its budget forever."
-  - q: "How big a cost gap between campaigns warrants action?"
-    a: "A practical line: when one campaign's cost per lead reaches twice the best campaign's for the same product, start shifting budget. The wider the gap, the higher the priority."
-  - q: "Do paused campaigns still count in the comparison?"
-    a: "Yes. Historical data from paused campaigns still matters — it may have been the product's best-performing setup, and full-history comparison can catch an early, wrongful stop."
+  - q: "The same product shows very different inquiry costs across ad solutions — is that normal?"
+    a: "Yes. Across three key products we measured ¥17 to ¥78 for the same product, and the ordering was dictated by the solution — the merchant growth program was priciest for all three. Each solution buys different traffic."
+  - q: "Which inquiry cost should I use to judge a product?"
+    a: "The blended one: total spend across all solutions ÷ total inquiries. A single-solution number only says what that channel pays for this traffic — it cannot grade the product."
+  - q: "Can I compare costs across different ad solutions directly?"
+    a: "Only within overlapping time windows. When old and new solutions don't share dates, the gap mixes solution differences with market seasonality — comparing directly misleads."
 ---
 
 ## TL;DR
 
-Running one product across multiple campaigns is standard practice; reconciling them almost never happens. The same product's cost per lead can differ two-fold or more between campaigns — and that difference is structural, so shifting budget to the winner is one of the cheapest optimizations in the account.
+The same product, listed in different marketplace ad solutions, can cost 4× more per inquiry. Weekly ad records for three key products in one store show the same product ranging from ¥17 to ¥78 — and **the ordering is dictated by the solution**: the merchant growth program is the most expensive for all three products, and switching solutions moves one product's cost by up to 4×. Three rules fall out: **grade products on the blended number, grade solutions on same-product same-period comparisons, and never compare solution numbers across non-overlapping time windows.**
 
-## The budget held hostage by the weaker half
+## The situation: the product you're about to pause was wronged by its channel
 
-One product, two campaigns: one bids for prime placement, one covers long-tail time slots. Standard playbook.
+Monday review: a product's inquiry cost in your flagship solution looks terrible, and you're considering pausing it. Hold on — the real ledgers of three key products in one industrial-goods store (anonymized) show **the same product ranging from ¥20 to ¥78 depending on the channel it enters through**. Same product, same page, same price. This reconciliation came out of a weekly-ad-ledger audit while building [AI Operations](/docs/ai-analytics).
 
-Nobody ever lines up their unit economics — until a review shows campaign A paying more than twice campaign B's cost per lead. **Every unit of spend in A produced half the leads it would have produced in B.** That money wasn't testing anything; it was just parked in the worse vehicle.
+## Why: for the same product, the solution sets the price
 
-Cross-campaign cost gaps for the same product are common and commonly invisible — because reports are organized by campaign, and no view ever puts the same product's rows side by side.
+Line up the weekly records of all ad solutions for three key products. Full-history view first (inquiry cost = cumulative spend ÷ cumulative inquiries):
 
-## Why the same product performs so differently across campaigns
+| Ad solution | Delivery window | Product A | Product B | Product C |
+|-------------|-----------------|-----------|-----------|-----------|
+| Whole-store promotion | 2024-04 ~ 2026-06 (68–116 wks) | ¥30 | ¥37 | ¥26 |
+| Site-wide, shop-boosting | 2025-11 ~ 2026-06 (31–33 wks) | ¥25 | ¥25 | ¥17 |
+| Merchant growth program | since 2026-06-29 (8 wks) | ¥77 | ¥78 | ¥49 |
+| New-customer crowd | same period (8 wks) | ¥50 | ¥20 | ¥29 |
+| Cross-border express | same period (7–8 wks) | ¥42 | ¥22 | ¥28 |
 
-Identical listing, identical price, identical product — the difference is all in the delivery configuration:
+Three layers of structure, each more useful than the last:
 
-- **Bid structure**: rank-chasing campaigns pay more per unit of traffic than long-tail campaigns
-- **Audience match**: some targeting configurations simply fit the product's buyer profile better
-- **Daypart mix**: B2B buying has peak windows; off-peak delivery may buy mostly dead impressions
-- **Campaign history**: older campaigns carry delivery weight that platforms reward with better placement
+**1. Full history: priciest vs cheapest is 4×+** — ¥78 against ¥17.
 
-These gaps are **structural, not luck** — which is precisely why budget follows them durably. Move money from the laggard to the leader and the improvement persists.
+**2. The ordering is dictated by the solution.** The "Merchant growth program" is the most expensive for all three products (¥49–78) — three completely different products, uniformly expensive in this one solution. The dominant factor is the **solution** (what traffic it buys), not the product (what it sells).
 
-## The reconciliation, in four steps
+**3. Within the same period: 1.8–3.9×.** The last three solutions share one time window (8 weeks from 2026-06-29), so their comparison is clean: 1.8× for Product A, 3.9× for Product B, 1.8× for Product C.
 
-1. **Put the same product's campaigns on one line**: spend, clicks, inquiries/leads per campaign; compute cost per lead (or per inquiry) for each
-2. **Benchmark against the in-group best**: the cheapest campaign for that product is the ruler; every sibling shows its multiple against it
-3. **Shift above the line**: a campaign costing 2×+ the best starts transferring budget to the winner — gradually, keeping a small observation reserve
-4. **Include the full history**: paused campaigns participate. If everything currently running costs more than a paused campaign used to, that's a signal to consider reviving it (evaluated properly, per the [P4P optimization method](/docs/1688-ad-optimization-guide))
+![Same product, three ad solutions: inquiry cost comparison](/images/blog/1688-same-product-two-plans-en.png)
 
-One detail: compare on **cost per lead or per inquiry**, not cost per click — cheap clicks that never ask a question are not cheap.
+*(Technical note: the first two solutions' data ends on 2026-06-29 and the last three start that very day — the windows don't overlap. So "old ¥25 vs new ¥77" mixes two factors: solution differences and market seasonality; concluding directly misleads. Statistically this is kin to Simpson's paradox — conclusions consistent per layer can flip once merged. Every "n×" claim in this article comes from the same-period window only.)*
 
-## Cadence
+One counter-intuitive detail: **the "Merchant growth program" isn't cold-start expensive — it keeps getting more expensive.** Across its 8 weeks, inquiry cost climbed from ¥26 to ¥107. That retires the "give the new solution time" excuse; money dictated by traffic structure does not arrive with waiting.
 
-Not a daily job. **Once per delivery cycle** is enough: for most catalogs, a full account reconciliation takes half an hour. Bolt it onto the end of the weekly review — minimal cost, and what it finds is free money.
+## What it's worth: two ledgers
 
-<InfoBox variant="warning" title="One sentence to remember">
+**The mis-kill ledger.** Product B runs at ¥20 per inquiry in "New-customer crowd," about a dozen-plus inquiries a month. Pause the product because it shows ¥78 in the growth program, and what you discard is not a bad product — it's a cheap channel still delivering steadily.
 
-Same product, multiple campaigns — the spread can be 2×: reconcile per product every cycle, shift budget from anything above twice the best, and let paused campaigns compete on their history too.
+**The true-cost ledger.** Which of Product B's five numbers (¥37 / ¥25 / ¥78 / ¥20 / ¥22) is real? All of them, and none. Its actual acquisition cost is the blended one: ¥32,265 total spend ÷ 911 inquiries = **¥35**. A single-solution number can overstate or understate a product; only the blend is the product's real price tag — and the stable anchor for budget allocation.
+
+## Disciplines for operators
+
+1. **Grade products on the blend**: total spend ÷ total inquiries. Per-solution numbers answer "is this channel expensive," never "is this product good."
+2. **Grade solutions on same-product, same-period comparisons**: fix a basket of products and a time window; only then does the ordering mean anything.
+3. **Never compare across non-overlapping windows**: solution handover periods are the danger zone — an old solution's historical cost is not the new one's ruler.
+4. **A persistently worsening solution isn't worth waiting for**: cut budget after 4+ weeks of climbing costs; make keep-or-stop calls with the settlement discipline from [Is 16 Days Enough for Marketplace Ad Data?](/blog/1688-p4p-ad-data-16-day-settlement) and the full pre-pause checklist in [Five checks before you pause](/blog/1688-campaign-stop-checklist).
+
+<InfoBox variant="warning" title="One line to remember">
+
+Products get the blend; solutions get the same period. Before comparing costs across windows, align the time.
 
 </InfoBox>
 
 ## FAQ
 
-### Can I run one product in multiple marketplace ad campaigns?
+### The same product shows very different inquiry costs across ad solutions — is that normal?
 
-Yes — different bids, audiences, and dayparts are a common setup. But reconcile acquisition cost across the campaigns regularly, or the weak one quietly keeps its budget forever.
+Yes. Across three key products we measured ¥17 to ¥78 for the same product, and the ranking followed the solution, not the product — each solution buys different traffic.
 
-### How big a cost gap between campaigns warrants action?
+### Which inquiry cost should I use to judge a product?
 
-A practical line: when one campaign's cost per lead reaches twice the best campaign's for the same product, start shifting budget. The wider the gap, the higher the priority.
+The blended one: total spend across all solutions ÷ total inquiries. A single-solution number only says what that channel pays for this traffic — it cannot grade the product.
 
-### Do paused campaigns still count in the comparison?
+### Can I compare costs across different ad solutions directly?
 
-Yes. Historical data from paused campaigns still matters — it may have been the product's best-performing setup, and full-history comparison can catch an early, wrongful stop.
+Only within overlapping time windows. When old and new solutions don't share dates, the gap mixes solution differences with market seasonality — comparing directly misleads.
+
+That "line up every channel for the same product" reconciliation is built into [AI Operations](/docs/ai-analytics) — LLM-powered analysis that automatically surfaces market trends, user behavior, and sales data to drive strategy. Every product's real acquisition cost deserves to be computed once, fully.
 
 <div className="my-8 p-6 rounded-xl border text-center">
   <p className="text-lg font-semibold mb-2">CCLEE</p>
