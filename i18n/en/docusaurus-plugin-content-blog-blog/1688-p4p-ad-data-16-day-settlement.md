@@ -16,7 +16,7 @@ faqs:
 
 ## TL;DR
 
-"Wait 16 days before judging" is not enough. We re-collected five long-settled weeks of B2B marketplace ad data and diffed every row: **value edits keep landing until day 29 after week end**; keywords added late "grow" historical data on re-collection; and the harsher finding is retention — **the platform deletes detail reports after ~6–7 weeks, and past 54 days none of our 6 campaigns could be recovered**. Collect weekly, archive locally — what that buys is twofold: no more mis-calls on irreversible decisions, and ad history that actually belongs to you.
+"Wait 16 days before judging" is not enough. We re-collected five long-settled weeks of B2B marketplace ad data and diffed every row: **finished weeks keep growing new data as late as day 29** (keywords added late reach back and pull their history in), yet past day 40, even a full re-collection changed **not one existing number**; and the harsher finding is retention — **the platform deletes detail reports after ~6–7 weeks, and past 54 days none of our 6 campaigns could be recovered**. Collect weekly, archive locally — what that buys is twofold: no more mis-calls on irreversible decisions, and ad history that actually belongs to you.
 
 ## The trigger: 27 new rows on day 29
 
@@ -32,7 +32,7 @@ The method is plain: **baseline → re-collection → row-level diff.**
 
 1. Pick 5 consecutive weeks (2026-06-08 ~ 07-06), already 40–74 days old — settled under any definition;
 2. Export a baseline across 4 detail tables (overview / products / keywords / areas — 1,199 rows);
-3. Trigger a full platform re-collection (range mode), export again;
+3. Trigger a full platform re-collection over an explicit date range, export again;
 4. Diff row by row: additions, value changes, deletions. Re-checked on 2026-09-02; conclusions unchanged.
 
 The result:
@@ -58,16 +58,15 @@ The boundary of the claim: "16 days" is both right and wrong.
 
 For operators: 16 days works as a "probably stable" heuristic, not as a definition of final. For irreversible calls like pausing a campaign, wait the full 4–5 weeks so the decision lands past the measured stopping point. The full pre-pause checklist is in [Five checks before you pause a marketplace ad campaign](/blog/1688-campaign-stop-checklist).
 
-## Finding 2: keywords added late grow historical data
+## Finding 2: keywords you add later reach back and pull their history in
 
-The 11 extra keyword rows exposed a second mechanism: **entity-level back-fill**.
+Plain version first: **how much "history" you can recover depends on which keywords you are running now.**
 
-The reporting API returns history for your **current** keyword list. The test store added keywords to one campaign mid-flight; on re-collection, those keywords' history came back with them — for example the keyword for "solution kit" returned a historical week carrying 11,179 impressions, ¥342.7 spend, 10 inquiries, and 11 orders.
+The test store added keywords to one campaign mid-flight. On re-collection, the platform returned the campaign's **current** keyword list together with **past** weekly performance — one recovered historical week carried 11,179 impressions, ¥342.7 spend, 10 inquiries, and 11 orders. Those numbers sat on the platform's side all along; they only appear when you come collect.
 
-Two consequences people miss:
+*(Technical note: the mechanism is entity-level back-fill — the API returns history for your **current** keyword list. Row counts rise; existing values never change. So when re-collected data grows, first tell revised values from newly grown rows: the former is a warning, the latter is a gift.)*
 
-- **Row counts rise; values never change.** Existing rows were byte-identical after re-collection; only late-added keywords grew new historical rows. When re-collected data grows, separate value revisions from entity additions before drawing conclusions.
-- **Your history is only as complete as your keyword timeline** — and back-fill only works while the platform still retains detail. Which is the third finding.
+But the gift has a precondition: the platform must still retain the detail. For how long? That is Finding 3.
 
 ## Finding 3: the real cliff is deletion, not settlement
 
@@ -91,7 +90,7 @@ Put bluntly: **any detail not in your own database within ~6 weeks has been dele
 
 1. **Watch trends anytime; wait 4–5 weeks for irreversible calls.** 16 days is the reference line, 29 the safety line.
 2. **Collect or export detail weekly and archive locally.** Platform-side detail is far shorter-lived than assumed; the archive is the asset you own.
-3. **Close the settlement tail before any retro analysis.** Period ROI without its back-fill is systematically understated — and when you cannot tell value revisions from entity additions, diff at row level.
+3. **Close the "settlement tail" (the data each finished period is still quietly back-filling) before any retro analysis.** Period ROI without its back-fill is systematically understated — and when you cannot tell revised values from newly grown rows, use the experiment's move: diff at row level.
 
 ## For data engineers: leave at least 5 weeks of overlap
 
