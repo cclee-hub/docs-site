@@ -24,7 +24,7 @@ During a routine collection on August 10, one industrial-goods B2B storefront (a
 
 Is 16 days platform fact or folklore? The test is ready-made: re-collect older weeks. If long-settled weeks grow new rows or rewrite old values, 16 days is nowhere near the end — and the same re-collection measures how long the platform keeps detail at all. On August 21 we re-pulled five older weeks, which became the experiment below.
 
-This started while building [AI Operations](/docs/ai-analytics) — LLM-powered analysis that automatically surfaces market trends, user behavior, and sales data to drive strategy. Ad data is the foundation of all of it, and the foundation's semantics had to be measured, not assumed.
+The experiment itself came out of a data-semantics check while building [AI Operations](/docs/ai-analytics).
 
 ## The design: re-collect five "settled" weeks and diff
 
@@ -72,9 +72,9 @@ But the gift has a precondition: the platform must still retain the detail. For 
 
 Slow back-fill costs waiting; retention costs everything. We checked, per campaign, whether the platform could still return detail during re-collection:
 
-- Weeks aged **40–47 days**: only **3 of 6** campaigns returned complete detail;
-- Weeks aged **54–74 days**: **0 of 6** — not stale, deleted from the platform's side, unrecoverable by any means;
-- 3 more campaigns had already expired at ~40 days (per-campaign retention runs shorter; one sample so far).
+- Weeks aged **40–47 days**: from the same batch of six campaigns, only **3** still returned complete detail;
+- Weeks aged **54–74 days**: the same six again — **0 of 6**; not stale, deleted from the platform's side, unrecoverable by any means;
+- The 3 campaigns already returning nothing at 40 days run a shorter, per-campaign retention — they hit the cliff earlier; one sample so far.
 
 ![The retention cliff: 3/6 campaigns retrievable at 40–47 days, 0/6 after 54](/images/blog/1688-p4p-retention-cliff-en.png)
 
@@ -116,6 +116,8 @@ Usually no. Detail reports survive roughly 6–7 weeks: at 40–47 days only 3 o
 ### Why do new keyword rows appear after re-collection?
 
 The API returns history for your current keyword list. Keywords added late grow historical rows — entity-level back-fill: row counts rise, existing values never change.
+
+That baseline → re-collection → row-level diff method is built into [AI Operations](/docs/ai-analytics) — LLM-powered analysis that automatically surfaces market trends, user behavior, and sales data to drive strategy. Ad data is the foundation of all of it — and a foundation deserves to be measured.
 
 <div className="my-8 p-6 rounded-xl border text-center">
   <p className="text-lg font-semibold mb-2">CCLEE</p>
