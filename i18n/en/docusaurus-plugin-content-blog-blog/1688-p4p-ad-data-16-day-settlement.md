@@ -16,7 +16,7 @@ faqs:
 
 ## TL;DR
 
-"Wait 16 days before judging" is not enough. We re-collected five long-settled weeks of B2B marketplace ad data and diffed every row: **value edits keep landing until day 29 after week end**; keywords added late "grow" historical data on re-collection; and the harsher finding is retention — **the platform deletes detail reports after ~6–7 weeks, and past 54 days none of our 6 campaigns could be recovered**. Collect weekly, archive locally — that is the only posture that loses nothing.
+"Wait 16 days before judging" is not enough. We re-collected five long-settled weeks of B2B marketplace ad data and diffed every row: **value edits keep landing until day 29 after week end**; keywords added late "grow" historical data on re-collection; and the harsher finding is retention — **the platform deletes detail reports after ~6–7 weeks, and past 54 days none of our 6 campaigns could be recovered**. Collect weekly, archive locally — what that buys is twofold: no more mis-calls on irreversible decisions, and ad history that actually belongs to you.
 
 ## The trigger: 27 new rows on day 29
 
@@ -80,6 +80,12 @@ Slow back-fill costs waiting; retention costs everything. We checked, per campai
 ![The retention cliff: 3/6 campaigns retrievable at 40–47 days, 0/6 after 54](/images/blog/1688-p4p-retention-cliff-en.png)
 
 Put bluntly: **any detail not in your own database within ~6 weeks has been deleted on your behalf.** "I'll export it later" is not procrastination — it is deletion.
+
+## What these findings are worth: two ledgers
+
+**The mis-kill ledger.** The biggest cost of the 16-day folklore is reading "the data hasn't arrived" as "the campaign doesn't work". The keyword whose history grew back in Finding 2 carries 10 inquiries and 11 orders in a single week — pause a ramping campaign early, and that is the weekly loss, before counting the extra settlement weeks it needs to prove itself again. Waiting the full 4–5 weeks buys "no wrong irreversible calls".
+
+**The loss ledger.** The platform deletes detail after ~6–7 weeks, so "I'll back-fill later" is a promise with an expiry date. Which regions fed you inquiries last quarter, which keywords' costs were quietly climbing — only people whose data landed in their own database can answer. A weekly collection run buys "history, always queryable".
 
 ## Three disciplines for operators
 
