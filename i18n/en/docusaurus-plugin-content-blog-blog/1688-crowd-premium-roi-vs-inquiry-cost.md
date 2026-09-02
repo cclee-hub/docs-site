@@ -1,70 +1,69 @@
 ---
-title: "B2B Ads: Optimize for Inquiry Cost, Not ROAS"
-description: "ROAS systematically underprices high-value B2B audiences because the attribution window can't see 60-day deals. Use inquiry cost as your primary benchmark instead."
-date: 2026-08-31
+title: "Inquiry Costs 10% Apart, ROI 4× Apart: Crowd Reports Need Two Rulers"
+description: "Costs of ¥38.9 vs ¥43.0 — 10% apart — carried ROI 5.30 vs 1.25. CPI prices traffic; ROI grades it. You need both."
+date: 2026-09-02
 tags: [B2B, E-commerce, Advertising]
 authors: [cclee]
 schema: FAQPage
 faqs:
-  - q: "Should B2B ad audiences be judged on ROAS or inquiry cost?"
-    a: "Inquiry cost. B2B buyers decide over weeks or months while attribution windows cover days, so ROAS systematically underprices the audiences that bring your most valuable long-cycle customers."
-  - q: "Why does a low-ROAS audience not deserve an immediate bid cut?"
-    a: "Low attributed ROAS may only mean the deals close outside the window. Check inquiry cost and the three-month trend first — that is where the real direction shows."
-  - q: "What is a good inquiry cost benchmark?"
-    a: "Your own history, not industry averages. Set it from your normal months of spend divided by weighted inquiries, and judge every month against that line."
+  - q: "Should audience performance be judged on ROI or inquiry cost?"
+    a: "Both, always: inquiry cost is the price of the traffic, ROI is its quality. Either one alone gets bent out of shape by environment months or single big orders."
+  - q: "Why can similar-cost audiences differ 4× in ROI?"
+    a: "Inquiry cost only says whether the traffic was expensive, not whether the buyers convert. Audiences with different order sizes and paths turn the same inquiry price into very different GMV."
+  - q: "What to do in a month when all crowd costs jumped together?"
+    a: "Call it an environment month — when store-wide crowd spend and costs double together, no cross-audience repricing; return to each crowd's own trend after the environment recovers."
 ---
 
 ## TL;DR
 
-If you run ads on a B2B marketplace, stop using attributed ROAS as the primary benchmark for audience bids. The transaction ledger only sees deals that close inside a short window; your best buyers take one to two months. Optimize for inquiry cost, confirm with trends, and ROAS becomes a reference — not a verdict.
+July data from 18 audience packages in one store: two crowds with inquiry costs just 10% apart (¥38.9 vs ¥43.0) ran **4× apart in ROI** (5.30 vs 1.25). Inquiry cost and ROI answer different questions — **cost per inquiry says whether the traffic was bought expensively; ROI says whether the buyers were worth it** — and either ruler alone, used in an environment month, will mislead you.
 
-## You cut the audience, and the best customer vanished
+## The situation: ranking by one metric produces fiction
 
-A monthly report shows an audience with poor ROAS. You cut its bid to the floor, maybe pause it.
+The comfortable way to read a crowd report is to sort it: by inquiry cost, cut the priciest; by ROI, cut the worst. In July's real data, those two sorts disagree completely. This reconciliation came out of a crowd-report audit while building [AI Operations](/docs/ai-analytics).
 
-Two months later, your largest new account turns out to have first touched you through that exact audience — it just took them fifty days from first click to first order. The 15-day ledger never saw them coming.
+![Similar inquiry costs, ROI 4× apart, within one month](/images/blog/1688-crowd-premium-roi-vs-inquiry-cost-zh.png)
 
-This is not bad luck. It is a systematic bias: **the audiences that bring slow-deciding, high-value B2B buyers will always look worst on attributed ROAS.** Rank audiences by ROAS and cut from the bottom, and you are precisely culling your future best customers.
+## The data: one ruler prices traffic, the other grades it
 
-## Why the ledger lies: window vs. cycle
+**Across crowds (one month, 18 packages)**: inquiry costs spread ¥32–44, yet near-identical costs carried ROI from 1.25 to 5.30 — "store new-buyers" at ¥43.0 cost only 10% more than "cross-border buyers" at ¥38.9, and returned a quarter of the ROI. Inquiry cost measures what it takes to pull in one interested buyer; what those buyers then purchase, and at what value, is invisible to it.
 
-Marketplace ad platforms attribute a transaction to an ad touch only if the purchase happens within a fixed window — commonly two weeks. Consumer purchases fit inside it comfortably.
+**Across months (the same store, seven months)**: January–June crowd inquiry costs held at ¥16–21 with ROI 8.4–18.5; **in July, spend tripled (×3.1), cost doubled to ¥39, and ROI collapsed to 4.0**. All 18 packages breached together — July was an **environment month** (platform competition, market-wide moves), not one crowd suddenly failing.
 
-B2B purchases do not. Sourcing teams compare suppliers, request quotes, sample, and route approvals internally. From first click to first order, one to two months is normal. Any deal closing after the window vanishes from the ad's account — the buyer still came from the ad; the ad just never gets credited.
+*(Technical note: the report's ROI uses 15-day-attributed GMV — while measured attribution back-fill runs as late as day 29 after week end, see [Is 16 Days Enough for Marketplace Ad Data?](/blog/1688-p4p-ad-data-16-day-settlement). That ROI only counts what landed inside 15 days: systematically low for long-cycle B2B buyers, and still drifting between months as the ledger finishes posting.)*
 
-So the metric answers the wrong question. ROAS asks "how much revenue closed inside the window per yuan spent." The question that matters for B2B is "**how much does it cost to bring in one qualified buyer asking to talk?**" That question has a name: inquiry cost — ad spend divided by inquiries (buyers actively reaching out for quotes, samples, prices).
+## What it's worth: the mis-pruning ledger
 
-Inquiries happen on the day of the click, need no attribution window, and stabilize within days. They are the earliest reliable signal of whether an audience works.
+Repricing by a single ruler in an environment month is wrong in both directions: June's good environment (ROI 18.5) inflates every crowd and hides the ones that genuinely need fixing; July's bad environment (ROI 4.0) condemns them all — including crowds that were merely dragged down by the month. Separating "environment" from "crowd" is what makes pruning precise: **what deserves cutting deserves it in good months too; nothing gets cut for the weather.**
 
-## Three disciplines that make inquiry cost actionable
+## Disciplines for operators
 
-**1. Compare each audience only with its own history.** Audiences overlap — the same buyer hits several of them, and organic traffic bleeds into paid numbers. Cross-audience rankings compare noise with noise. The vertical trend of one audience against itself is the only clean signal.
+1. **Read both rulers together**: inquiry cost prices the traffic; ROI grades it. Similar costs with multiples-apart ROI is an audience-selection problem — repricing cannot fix it.
+2. **No rankings in environment months**: when store-wide crowd spend and costs move together (as in July), cross-audience comparisons are void that month.
+3. **Discount the ROI**: 15-day-attributed ROI runs systematically low for B2B and drifts before settlement — it has not earned the "sole benchmark" chair.
+4. **Reprice on consecutive trends**: single months are noise; three months in one direction with real magnitude is a trend. The full monthly procedure lives in [The 1688 Crowd Premium Monthly Method](/docs/1688-crowd-premium-guide).
 
-**2. Act on three months of same-direction movement, not one month.** A single bad month is usually noise. Three consecutive months deteriorating, with meaningful cumulative magnitude (say, over 20%), is a real trend worth a bid cut; three months improving justifies a raise. Anything in between: hold.
+<InfoBox variant="warning" title="One line to remember">
 
-**3. Freeze in abnormal months.** Holidays, mega sales, a change in your hero product — months where the whole store's numbers jump together produce fake signals on every audience. Make no bid decisions that month and skip it in trends.
-
-ROAS still matters — as a reference, read with the window in mind. And the settlement mechanics behind it deserve their own read: see [Why marketplace ad data needs 16 days before you judge it](/blog/1688-p4p-ad-data-16-day-settlement).
-
-<InfoBox variant="warning" title="The benchmark in one line">
-
-Inquiry cost is the compass, ROAS is the rear-view mirror. Judge audiences on their own three-month trends, and never on a single month of attributed revenue.
+Inquiry cost prices the traffic; ROI grades it. No rankings in environment months; reprice on consecutive trends.
 
 </InfoBox>
 
 ## FAQ
 
-### Should B2B ad audiences be judged on ROAS or inquiry cost?
+### Should audience performance be judged on ROI or inquiry cost?
 
-Inquiry cost. B2B buyers decide over weeks or months while attribution windows cover days, so ROAS systematically underprices the audiences that bring your most valuable long-cycle customers.
+Both, always: inquiry cost is the price of the traffic, ROI is its quality. Either one alone gets bent out of shape by environment months or single big orders.
 
-### Why does a low-ROAS audience not deserve an immediate bid cut?
+### Why can similar-cost audiences differ 4× in ROI?
 
-Low attributed ROAS may only mean the deals close outside the window. Check inquiry cost and the three-month trend first — that is where the real direction shows.
+Inquiry cost only says whether the traffic was expensive, not whether the buyers convert. Audiences with different order sizes and paths turn the same inquiry price into very different GMV.
 
-### What is a good inquiry cost benchmark?
+### What to do in a month when all crowd costs jumped together?
 
-Your own history, not industry averages. Set it from your normal months of spend divided by weighted inquiries, and judge every month against that line.
+Call it an environment month — when store-wide crowd spend and costs double together, no cross-audience repricing; return to each crowd's own trend after the environment recovers.
+
+That "two rulers + environment detection" method for crowd reports is built into [AI Operations](/docs/ai-analytics) — LLM-powered analysis that automatically surfaces market trends, user behavior, and sales data to drive strategy. A crowd report deserves more than one sort button.
 
 <div className="my-8 p-6 rounded-xl border text-center">
   <p className="text-lg font-semibold mb-2">CCLEE</p>

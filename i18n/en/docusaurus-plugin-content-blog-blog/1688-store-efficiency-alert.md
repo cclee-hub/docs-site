@@ -1,59 +1,65 @@
 ---
-title: "How to Catch a Store-Wide Ads Efficiency Slide Before It Hurts"
-description: "Every campaign can look fine while the sum quietly sinks. Set a 'normal deviation' band from your own six-month history — consecutive weeks in it, plus worsening spend efficiency, is the alert."
-date: 2026-08-31
+title: "A Real Store-Wide Efficiency Alert, From a 40-Week Ledger"
+description: "Inquiry cost held at ¥25–31 for 29 weeks, then 7 weeks above the band. How to set the band, and a full post-mortem."
+date: 2026-09-02
 tags: [B2B, E-commerce, Analytics]
 authors: [cclee]
 schema: FAQPage
 faqs:
   - q: "What signals a store-wide ads efficiency decline?"
-    a: "Several consecutive weeks of store ROI dipping into the worst band of its own history, while spend-per-revenue in those weeks also worsens — each campaign looks passable alone, the sum is sinking."
-  - q: "How do I set the 'normal deviation' band?"
-    a: "Rank about 26 weeks of store-wide weekly ROI; the worst fifth of weeks is normal operating range. A single week in the band is weather; several consecutive weeks is the alert."
-  - q: "Can a store with little history run this check?"
-    a: "No. The band needs enough weeks to be reliable. Stores with only a few weeks of data have no baseline — accumulate history first; a three-week average is worse than no ruler."
+    a: "Weekly inquiry cost above your own historical band for 3+ consecutive weeks while spend holds — each campaign can look passable alone while the sum is sinking."
+  - q: "How do I set the 'normal band'?"
+    a: "Take your own half-year of weekly inquiry costs, exclude abnormal weeks (holidays, delivery gaps), and use the median ±10% as the band. Stores with thin history should accumulate first."
+  - q: "What is the first move after an alert?"
+    a: "Hunt for an account-level cause before touching campaigns: solution switches, gap-and-restart episodes — store-wide breaches are usually account-level events."
 ---
 
 ## TL;DR
 
-Per-campaign reviews watch individuals; store-wide decay is a different risk — every campaign passable, the total sinking. Build a "normal deviation" band from your own half-year history; consecutive weeks inside it, with spend efficiency also worsening, is the signal to hunt for a common cause.
+A real ledger from one store: across 29 historical weeks, store-wide inquiry cost held a stable band of **¥25–31**. After new ad solutions launched on June 29, it ran at **¥34–49 for 7 consecutive weeks — then hit ¥69 in week eight**. Store-wide decay never announces itself as an incident; it shows up as "every campaign looks fine." So you need a ruler for the sum: **a band set by your own history, and an alert on 3 consecutive weeks above it.** Had the alarm fired in week three, roughly **¥7,400** of the overspend in the following five weeks would have been avoided.
 
-## Every campaign fine, the store sinking
+## The situation: every campaign "fine," the sum deteriorating
 
-The monthly pass: campaign A's ROI matches last month, B is stable, C dipped slightly but acceptable. All clear.
+Per-campaign reviews read as usual: this campaign's numbers match last month's, that one is stable, the new one is still ramping. All passable.
 
-Quarter's totals: store-wide ads efficiency down meaningfully. The post-mortem finds no disaster — just every campaign loosening a little together, and C's "slight dip" was never noise.
+At the store level: every July week sat above ¥40 per inquiry — in the previous 29 weeks, that line had been crossed exactly once (the Spring Festival week). This post-mortem came out of a store-ledger audit while building [AI Operations](/docs/ai-analytics).
 
-Store-wide decline almost never arrives as an incident. It arrives as "every campaign looks fine." Which is why it needs its own instrument, not a sharper look at campaign reports.
+![Store-wide inquiry cost across 40 weeks: historical band and the breach](/images/blog/1688-store-efficiency-alert-en.png)
 
-## Building the ruler: how bad is your normal?
+## The method: set the band from your own history
 
-The baseline is neither the industry nor a target — it is **your own history**:
+The baseline is not the industry and not a target — it is **your own past**:
 
-1. Take roughly 26 weeks (half a year) of store-wide weekly ads ROI
-2. Rank the weeks; mark the worst band — about the bottom fifth. That band is your normal operating range's floor
-3. Pair it with a second indicator: the median spend-per-revenue across those weeks (how much ads money each unit of revenue cost)
+1. Take weekly store-wide inquiry cost (weekly spend ÷ weekly inquiries) for the past six months
+2. **Exclude abnormal weeks**: here, two kinds — the Spring Festival week (¥121, spend collapse masquerading as expensiveness) and a 3-week delivery gap in early June (weekly spend ¥90–281, near-dark)
+3. The remaining 26 weeks land between ¥20–41, concentrated in **¥25–31** — that band is "normal"
+4. Alert condition: **3+ consecutive weeks above the band's top, with spend not shrinking** (cost rising because spend is collapsing is a different problem)
 
-Why the second indicator: ROI alone deceives. A low-ROI week may just be a slow order book — revenue lagging a beat, spend efficiency intact (the settlement lag itself takes days to resolve; see [Why marketplace ad data needs 16 days before you judge it](/blog/1688-p4p-ad-data-16-day-settlement)). **ROI in the band and spend efficiency worsening together** is what distinguishes a real slide from timing noise.
+*(Technical note: why "consecutive 3 weeks" rather than any single week — in the 29 historical weeks, single-week breaches happened 4 times, all noise; consecutive breaches happened zero times. The baseline tells you how strict the threshold should be.)*
 
-## The alert condition
+## The full post-mortem
 
-Two conditions, both required:
+- **June 8–22: a 3-week gap.** Weekly spend fell from ~¥1,900 to ¥90–281 — near-dark
+- **June 29: new ad solutions launched** (the solution-switch details and data are in [Same Product, 4× the Inquiry Cost](/blog/1688-same-product-two-plans))
+- **From June 29: 7 consecutive weeks above the band** — ¥46 / 43 / 40 / 43 / 40 / 49 / 34, every one above the historical top of ¥31
+- **Week of August 17: ¥69**, as spend spiked to ¥5,210 without inquiries following
 
-1. **Recent weeks repeatedly land in the worst band** — one week is weather; three to four consecutive weeks crowding the band is a trend
-2. **Those weeks' spend-per-revenue is meaningfully worse than your historical median** — money working less efficiently than your norm
+A gap-and-restart is not a return to the old normal: the environment changed and the solutions changed — the old cost level no longer applies. That is exactly the kind of account-level shift single-campaign views cannot see, and only the store line exposes.
 
-Both firing means a store-level alert: not a campaign problem, an account-level change — competitive pressure rising, traffic mix shifting, or several campaigns aging simultaneously. The right response is finding the common cause first, not patching campaigns one by one.
+## What it's worth: the overspend ledger
 
-## One discipline on the instrument
+The 7 breached weeks (Jun 29 – Aug 10) spent ¥24,699 for 592 inquiries — ¥41.7 each. At the historical level (¥28), the same inquiries would have cost ¥16,576: **about ¥8,100 of overspend in 7 weeks.** Had the alarm fired in week three and intervention started in week four, roughly **¥7,400** of the last five weeks' overspend was avoidable. That is the price of the ruler: set it once, watch one number.
 
-The ruler demands **history**: half a year of weeks to mark a reliable band. New stores and fresh ad accounts have no baseline — accumulate first. A ruler built from three weeks of data doesn't measure; it hallucinates.
+## Disciplines for operators
 
-And scope the alert correctly: it **triggers the investigation**, it doesn't prescribe the action. Actual moves — pausing, budget shifts — still get made per campaign, with the campaign-level discipline: [Five Checks Before You Kill an Underperforming B2B Ad Campaign](/blog/1688-campaign-stop-checklist).
+1. **The band must come from your own history**: at least six months of weekly data, abnormal weeks excluded. A three-week average as a ruler is worse than no ruler.
+2. **3 consecutive weeks above the top, with spend holding, = alert**: single weeks are noise; consecutive weeks are structure.
+3. **After an alert, hunt the common cause first**: solution switches, gap-and-restarts, category-wide competition shifts are account-level events — fixing campaigns one by one treats symptoms.
+4. **The cost numbers themselves must settle first**: weekly data carries a settlement tail; the discipline is in [Is 16 Days Enough for Marketplace Ad Data? We Re-Collected 5 Weeks to Find Out](/blog/1688-p4p-ad-data-16-day-settlement).
 
-<InfoBox variant="warning" title="One sentence to remember">
+<InfoBox variant="warning" title="One line to remember">
 
-Mark the worst fifth of your own six months as the normal band; consecutive weeks inside it plus worsening spend efficiency equals a store-level alert. The alert starts the investigation — the campaign checklist still runs the decisions.
+Set the band from history (six months, abnormal weeks out); 3 consecutive weeks above it = alert. Alerts trigger a hunt for account-level causes; actions stay at campaign level.
 
 </InfoBox>
 
@@ -61,15 +67,17 @@ Mark the worst fifth of your own six months as the normal band; consecutive week
 
 ### What signals a store-wide ads efficiency decline?
 
-Several consecutive weeks of store ROI dipping into the worst band of its own history, while spend-per-revenue in those weeks also worsens — each campaign looks passable alone, the sum is sinking.
+Weekly inquiry cost above your own historical band for 3+ consecutive weeks while spend holds — each campaign can look passable alone while the sum is sinking.
 
-### How do I set the 'normal deviation' band?
+### How do I set the 'normal band'?
 
-Rank about 26 weeks of store-wide weekly ROI; the worst fifth of weeks is normal operating range. A single week in the band is weather; several consecutive weeks is the alert.
+Take your own half-year of weekly inquiry costs, exclude abnormal weeks (holidays, delivery gaps), and use the median ±10% as the band. Stores with thin history should accumulate first.
 
-### Can a store with little history run this check?
+### What is the first move after an alert?
 
-No. The band needs enough weeks to be reliable. Stores with only a few weeks of data have no baseline — accumulate history first; a three-week average is worse than no ruler.
+Hunt for an account-level cause before touching campaigns: solution switches, gap-and-restart episodes — store-wide breaches are usually account-level events.
+
+That "band from history, watch the store" alerting logic is built into [AI Operations](/docs/ai-analytics) — LLM-powered analysis that automatically surfaces market trends, user behavior, and sales data to drive strategy. Efficiency decay should not wait for a quarterly review to be discovered.
 
 <div className="my-8 p-6 rounded-xl border text-center">
   <p className="text-lg font-semibold mb-2">CCLEE</p>

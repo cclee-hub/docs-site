@@ -1,74 +1,85 @@
 ---
-title: "How One Lucky Order Ruins Your B2B Ad Judgment"
-description: "ROI propped up by a single order is the most dangerous number in ad reporting. Attribution cliffs and two-half-window decay — how to spot luck before you budget for it."
-date: 2026-08-31
+title: "One Week at ROI 61.6, Eight Weeks Under 2: How a Lucky Order Ruins Ad Judgment"
+description: "9 weeks of ledger: 8 weeks at ROI 0–2.1, one week at 61.6 (6 orders, ¥15,143). Budget on inquiries, not on luck."
+date: 2026-09-02
 tags: [B2B, E-commerce, Analytics]
 authors: [cclee]
 schema: FAQPage
 faqs:
-  - q: "How do I tell if a product's ROI is propped up by one big order?"
-    a: "Check attribution distribution: if most attributed revenue clusters in one week, later weeks fall back to near zero, and inquiry volume never changed — the acquisition ability is unchanged; that one order was luck."
-  - q: "Why can't I budget on a big-order-inflated ROI?"
-    a: "The big order is a low-probability event, not a repeatable acquisition rate. Budgeting on it assumes a replay that may never come."
-  - q: "What does strong-early-weak-late ROI across a window mean?"
-    a: "A turning point: the window average still looks respectable, but the recent half is sliding under water. Averages hide inflection points; read windows in halves."
+  - q: "How do I tell if ROI is propped up by a big order?"
+    a: "Split the window and look: attribution clustered in one week, falling back after, with inquiry volume unchanged — the acquisition ability never changed; that week's luck did."
+  - q: "Why can't I budget on a big-order week's ROI?"
+    a: "It doesn't repeat. Measured case: one week at ROI 61.6, the other eight between 0 and 2.1 — scale budgets on 61.6 and the next cycle arrives before the luck does."
+  - q: "What if attributed orders suddenly drop to zero?"
+    a: "Check inquiries first: unchanged inquiries mean the luck receded — decide on normal efficiency; shrinking inquiries mean real decay — entirely different treatment."
 ---
 
 ## TL;DR
 
-The most dangerous number in ad reporting isn't ugly — it's "exactly enough." An ROI that just breaks even often means one lucky order filled the ledger. Learn to see attribution cliffs before you promote luck into a budget line.
+Nine weeks of real ledger for one product in one campaign: **8 weeks at ROI between 0 and 2.1, and one week at 61.6** — 6 orders carrying ¥15,143. If you happened to open the report that week and scaled budget, the next month walked it straight back down. **A big order is a surprise, not a baseline: budgets follow the normal pace of inquiries, not the luck of orders.**
 
-## The product that broke even — once
+## The situation: the weekly report that looked too good to question
 
-The review shows a product at ROI 1.0 — right at break-even. Verdict: viable. Budget up.
+The weekly report pulls up: one product at ROI 61.6 on ¥246 of spend, ¥15,143 in orders. Every operator's pulse quickens — a ten-x signal, worth budgeting, worth replicating.
 
-Next window, same product: 0.2. Nothing changed in the delivery. What changed: last time, a single order in one week covered most of the window's attributed revenue; every other week attributed almost nothing. That wasn't acquisition ability. That was a lottery ticket.
+Lay out nine weeks before touching anything. This drill-down came out of a product-ledger audit while building [AI Operations](/docs/ai-analytics).
 
-## Shape one: the attribution cliff
+## The data: one needle in nine weeks
 
-Three signals identify it:
+Same product, same campaign (whole-store promotion), nine consecutive weekly rows:
 
-1. **Attribution clusters**: the window's attributed revenue concentrates in one week's one or two orders
-2. **Then zero**: every settled week after the big order attributes back to near nothing
-3. **Inquiries unchanged**: the decisive check — quote-request volume before and after the big order is flat
+| Week | Spend | Orders | Order value | ROI |
+|------|-------|--------|-------------|-----|
+| 1 | ¥198 | 3 | ¥24 | 0.1 |
+| 2 | ¥249 | 4 | ¥213 | 0.9 |
+| 3 | ¥196 | 0 | ¥0 | 0.0 |
+| **4** | **¥246** | **6** | **¥15,143** | **61.6** |
+| 5 | ¥233 | 8 | ¥490 | 2.1 |
+| 6 | ¥156 | 3 | ¥228 | 1.5 |
+| 7 | ¥180 | 2 | ¥208 | 1.2 |
+| 8 | ¥180 | 3 | ¥52 | 0.3 |
+| 9 | ¥234 | 0 | ¥0 | 0.0 |
 
-That third point is the verdict. Flat inquiries mean the ad's ability to bring buyers through the door never changed; what changed is whether a buyer happened to place a large order. **The thermometer of daily acquisition ability is inquiries — not one week's attributed revenue.**
+Spend held steady at ¥156–249 all nine weeks. The only variable that moved in week four was order value. The running norm is ROI around 1; the 61.6 fell out of the sky.
 
-All three together, and the "break-even ROI" is a paper figure. The product's real, repeatable efficiency should be estimated from the weeks without the big order.
+## Why it deceives
 
-## Shape two: the slow slide — strong early, weak late
+*(Technical note: weekly granularity cannot see inside the orders. Week four's ¥15,143 across 6 orders averages ¥2,524 per order — dozens of times the neighboring weeks' per-order value. Whether that was one large order or several mid-size ones is only answerable at daily or order level; the weekly report can't say — but it says enough that "something unusual happened; conclude nothing yet.")*
 
-The sneakier version: window ROI looks respectable on average, but split the window in half and **the first half performed while the recent half runs under water** — an early big order or a good stretch propping up an impression that has already expired.
+The big-order week creates three illusions at once: it inflates perceived acquisition ability (inquiry volume never moved), it promises repeatability (big orders are low-probability draws), and it aims your budget at the wrong place (the norm was ROI ≈ 1 — scaling a norm-negative setup scales the loss).
 
-Averages lie by homogenizing "used to be good" and "currently bad" into "about okay." Read windows in halves, not as one number — spotting the inflection matters more than spotting the chronic loser, because the inflection is still actionable.
+## What it's worth: the misallocation ledger
 
-## What to do with big-order distortions
+Budgeting on week four's 61.6 treats the setup as a ten-x machine. Two calculations, two worlds: the 9-week blended ROI is ¥16,358 ÷ ¥1,872 = **8.7**; excluding the big-order week, the 8-week norm is ¥1,215 ÷ ¥1,626 = **0.7**. **The average lies on the big order's behalf** — one number, two lives. A norm of 0.7 means seventy cents back per yuan spent: this setup's ~¥200 weekly burn was already a net loss, and scaling it only scales the loss.
 
-Not ignore the big order — it was real money. Classify it correctly:
+## Disciplines for operators
 
-- A big order is a surprise, not a baseline. Budget against the no-big-order run rate
-- Stretch the observation window for cliff-shaped products: the next order-free window shows you the product swimming without the lifejacket
-- The mirror case matters too: **attributed revenue suddenly at zero while still delivering** deserves a check before a verdict — is it the big order's absence, or are inquiries actually shrinking? The two call for opposite treatments
+1. **Read windows in segments, never as one average**: cut the observation period into 4-week chunks — the average blends "once was good" and "now is not" into a fictitious "okay."
+2. **Inquiries are the thermometer**: flat inquiries across the spike mean acquisition ability never changed, only luck did; inquiries shrinking alongside means real decay — entirely different treatment.
+3. **Book big orders as surprises**: budget decisions run on the no-big-order norm; for setups propped by one, extend observation and look at a cycle without the luck.
+4. **Extreme weeks trigger drill-downs, not decisions**: seeing 61.6 or 0.0, step one is always the daily-level distribution — never the budget slider.
 
-<InfoBox variant="warning" title="One sentence to remember">
+<InfoBox variant="warning" title="One line to remember">
 
-Attribution clustered in one week, then zero, inquiries flat = luck, not ability. First half strong, second half sliding = a turning point. Budget on the inquiry run rate — never on the lottery.
+Attribution clustered in one week, falling back after, inquiries unchanged = big-order illusion. Budget on the norm of inquiries, not the luck of orders; extreme weeks trigger drill-downs, not decisions.
 
 </InfoBox>
 
 ## FAQ
 
-### How do I tell if a product's ROI is propped up by one big order?
+### How do I tell if ROI is propped up by a big order?
 
-Check attribution distribution: if most attributed revenue clusters in one week, later weeks fall back to near zero, and inquiry volume never changed — the acquisition ability is unchanged; that one order was luck.
+Split the window and look: attribution clustered in one week, falling back after, with inquiry volume unchanged — the acquisition ability never changed; that week's luck did.
 
-### Why can't I budget on a big-order-inflated ROI?
+### Why can't I budget on a big-order week's ROI?
 
-The big order is a low-probability event, not a repeatable acquisition rate. Budgeting on it assumes a replay that may never come.
+It doesn't repeat. Measured case: one week at ROI 61.6, the other eight between 0 and 2.1 — scale budgets on 61.6 and the next cycle arrives before the luck does.
 
-### What does strong-early-weak-late ROI across a window mean?
+### What if attributed orders suddenly drop to zero?
 
-A turning point: the window average still looks respectable, but the recent half is sliding under water. Averages hide inflection points; read windows in halves.
+Check inquiries first: unchanged inquiries mean the luck receded — decide on normal efficiency; shrinking inquiries mean real decay — entirely different treatment.
+
+That "segmented windows + inquiry thermometer + daily drill-down" method is built into [AI Operations](/docs/ai-analytics) — LLM-powered analysis that automatically surfaces market trends, user behavior, and sales data to drive strategy. Extremely beautiful numbers deserve verification before belief.
 
 <div className="my-8 p-6 rounded-xl border text-center">
   <p className="text-lg font-semibold mb-2">CCLEE</p>

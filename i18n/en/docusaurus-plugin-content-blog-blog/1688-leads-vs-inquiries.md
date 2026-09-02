@@ -1,75 +1,75 @@
 ---
-title: "Leads vs. Inquiries: Only One Deserves to Be Your B2B Ads KPI"
-description: "Lead counts bundle add-to-carts, favorites, and contact clicks, counted per action — often several times inquiries. Buzz for the vanity dashboard, inquiries for decisions."
-date: 2026-08-31
+title: "4,111 Leads vs 824 Inquiries: Two Acquisition Costs in One B2B Ad Ledger"
+description: "One ledger, two costs: leads ¥8, inquiries ¥41 — 5× apart. Leads count all interactions; budgets run on inquiries only."
+date: 2026-09-02
 tags: [B2B, E-commerce, Analytics]
 authors: [cclee]
 schema: FAQPage
 faqs:
-  - q: "What is the difference between leads and inquiries in B2B marketplace reports?"
-    a: "An inquiry is a buyer actively requesting a quote or sample — one buyer action, one record. Leads bundle shallow behaviors (favorite, add-to-cart, coupon, contact click) and count per action, so one buyer can generate many."
-  - q: "Which should I use to evaluate an ad audience?"
-    a: "Inquiries — ideally as cost per inquiry (spend divided by inquiries). Lead volume measures buzz, not intent, and optimizing against it rewards noisy audiences."
-  - q: "Is a high lead count a good sign at all?"
-    a: "It shows engagement: buyers are stopping and looking. But it sits far from the order; treat it as an early interest signal, never as a result."
+  - q: "What is the difference between leads and inquiries in marketplace reports?"
+    a: "An inquiry is a buyer-initiated quote request — one action, one record. Leads bundle favorites, add-to-carts, coupons, and contact clicks, counted per action. Same account measured: 4,111 leads vs 824 inquiries — 5× apart."
+  - q: "Which cost should reports and budgets use?"
+    a: "Lead cost (¥8) is fine for external wins; budget decisions run on inquiry cost (¥41). Planning on ¥8 builds a 5× hole into the quarter."
+  - q: "What does 'leads but no inquiries' mean?"
+    a: "269 measured keyword-weeks had leads with zero inquiries — engagement that never reached the quote request. Fine for reading buzz; not a result."
 ---
 
 ## TL;DR
 
-Lead counts measure buzz; inquiries measure business. Leads bundle every shallow interaction and count per action, so they run several times higher than inquiries — great for a slide, useless as a decision metric. Decisions run on inquiry cost.
+One and the same ad ledger, two "acquisition costs": **lead cost ¥8, inquiry cost ¥41 — 5× apart**. One store's keyword-week records measured **4,111 leads against 824 inquiries**. Leads are the wide net (favorites, add-to-carts, coupons, contact clicks — all counted per action); inquiries are one thing only: buyer-initiated quote requests. **Read the buzz from leads, build budgets from inquiries** — plan on ¥8 and the shortfall exists from day one.
 
-## The report looked great, the order book didn't move
+## The situation: ¥8 per customer, uplifting enough to scale on
 
-The monthly deck shows the "leads" curve climbing beautifully. Applause in the meeting. Month-end tally: quotes barely moved, orders flat.
+The monthly report's "lead cost" line is beautiful: ¥8 per interested customer. Configuring next quarter's acquisition budget on that number feels like clean logic.
 
-Nobody faked anything. The two metrics simply do not measure the same thing — and only one of them is money.
+Until "inquiry cost" sits down next to it: ¥41. Same account, same spend, same month — two numbers, 5× apart. This metric audit came out of a definitions check while building [AI Operations](/docs/ai-analytics).
 
-## How a lead actually gets counted
+## The data: a 5× gap, and a one-way containment
 
-On most B2B marketplaces, a "lead" is a wide net: favorite, add-to-cart, coupon claim, quote request, contact click — all of it counts, and it counts **per action**. The same buyer who favorites your product today and taps "contact supplier" tomorrow contributes two, three, four leads.
+| Metric | Value |
+|--------|-------|
+| Total leads | **4,111** |
+| Total inquiries | **824** |
+| Ratio | **5.0×** |
+| Lead cost (¥33,417 ÷ 4,111) | ¥8.1 |
+| Inquiry cost (¥33,417 ÷ 824) | ¥40.6 |
+| Keyword-weeks with leads, zero inquiries | **269** |
+| Keyword-weeks with inquiries, zero leads | **0** |
 
-So the real meaning of a lead count is "total interaction events," not "interested companies." It will exceed your inquiry count several times over; on some audiences the gap reaches an order of magnitude.
+The last two rows carry the argument: **inquiries always bring leads; leads almost never guarantee an inquiry.** Leads are a superset — *(technical note: the lead definition counts favorites, add-to-carts, coupons, contact clicks and similar interactions, accumulated per action; one buyer clicking "contact" three times logs three leads. An inquiry is exactly one thing: a buyer-initiated quote request. These are not "two metrics" — they are "all interactions" versus "the most valuable kind.")* — and those 269 lead-without-inquiry records are the distance between buzz and business: engagement happened, the quote request never did.
 
-## Why the inquiry is the unit that matters
+## What it's worth: a 5× budget hole
 
-An inquiry has exactly one form: the buyer actively asks — "what's the price at 500 units," "can we get a sample." Asking that question means they have slotted you into a procurement shortlist. Two properties make it decision-grade:
+Set the budget floor on a ¥8 lead cost and the market spend gets configured as if ¥8 buys a customer; the real denominator is ¥41, so **the gap is 5× from the first day**. That is not optimism — it is systematic misallocation: every downstream decision (quotes, margins, scaling pace) sits on an inflated denominator. The lead metric still has a job, and only one: telling you whether content and campaigns moved the buzz.
 
-- **Hard to inflate.** Asking ten times still shows up as conversations, not a multiplied KPI
-- **Closest to the order.** The inquiry is the last measurable step before negotiation; inquiry volume is the best leading indicator of revenue you can get from ad data
+## Disciplines for operators
 
-That is why audience quality is judged on **inquiry cost** — spend divided by inquiries — never on lead cost. One metric is diluted, the other is money. The full benchmarking logic is in [B2B Ads: Optimize for Inquiry Cost, Not ROAS](/blog/1688-crowd-premium-roi-vs-inquiry-cost).
+1. **Book the two metrics separately, names included**: "lead cost ¥8," "inquiry cost ¥41" — any report that says just "acquisition cost" for both is an accident waiting.
+2. **Budgets, repricing, product P&L run on inquiries only**: quote requests cannot be inflated, sit closest to orders, and are the only denominator that counts.
+3. **Leads are the buzz thermometer**: a lead spike sends you to check creative and campaigns; it was never a scorecard.
+4. **Same rule for audience repricing**: audiences are graded on inquiry cost — the full logic is in [Inquiry Costs 10% Apart, ROI 4× Apart](/blog/1688-crowd-premium-roi-vs-inquiry-cost).
 
-## So what are leads for?
+<InfoBox variant="warning" title="One line to remember">
 
-They keep one job: **an engagement thermometer.**
-
-| Question | Metric |
-|----------|--------|
-| Is this audience engaged? Is the creative landing? | Lead volume |
-| Is this audience worth more or less bid? | Inquiry cost |
-| Is the ad actually producing revenue? | Attributed transactions (after settlement) |
-
-A sudden lead spike is worth investigating — maybe the new banner works. But every decision that moves money (bids, budgets, pauses) waits for inquiries and settled transactions.
-
-<InfoBox variant="warning" title="One sentence to remember">
-
-Leads count actions and measure buzz; inquiries count buyers and measure business. Report the leads line if you like — decide on inquiry cost.
+Leads count per action, wide net, for buzz; inquiries one per request, close to orders, for budgets. ¥8 tells the win; ¥41 is the truth.
 
 </InfoBox>
 
 ## FAQ
 
-### What is the difference between leads and inquiries in B2B marketplace reports?
+### What is the difference between leads and inquiries in marketplace reports?
 
-An inquiry is a buyer actively requesting a quote or sample — one buyer action, one record. Leads bundle shallow behaviors (favorite, add-to-cart, coupon, contact click) and count per action, so one buyer can generate many.
+An inquiry is a buyer-initiated quote request — one action, one record. Leads bundle favorites, add-to-carts, coupons, and contact clicks, counted per action. Same account measured: 4,111 leads vs 824 inquiries — 5× apart.
 
-### Which should I use to evaluate an ad audience?
+### Which cost should reports and budgets use?
 
-Inquiries — ideally as cost per inquiry (spend divided by inquiries). Lead volume measures buzz, not intent, and optimizing against it rewards noisy audiences.
+Lead cost (¥8) is fine for external wins; budget decisions run on inquiry cost (¥41). Planning on ¥8 builds a 5× hole into the quarter.
 
-### Is a high lead count a good sign at all?
+### What does 'leads but no inquiries' mean?
 
-It shows engagement: buyers are stopping and looking. But it sits far from the order; treat it as an early interest signal, never as a result.
+269 measured keyword-weeks had leads with zero inquiries — engagement that never reached the quote request. Fine for reading buzz; not a result.
+
+That "metrics booked by definition" practice is built into [AI Operations](/docs/ai-analytics) — LLM-powered analysis that automatically surfaces market trends, user behavior, and sales data to drive strategy. Two metrics 5× apart should never share a name.
 
 <div className="my-8 p-6 rounded-xl border text-center">
   <p className="text-lg font-semibold mb-2">CCLEE</p>
