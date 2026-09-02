@@ -3,7 +3,7 @@ import Layout from '@theme/Layout';
 import Head from '@docusaurus/Head';
 import Translate from '@docusaurus/Translate';
 import { translate } from '@docusaurus/Translate';
-import { useLocation } from '@docusaurus/router';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import toolsData from '@site/src/data/tools.json';
 
 type Tool = typeof toolsData.tools[0];
@@ -13,9 +13,9 @@ export default function ToolPage(): React.ReactElement {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedScene, setSelectedScene] = useState('all');
 
-  // 获取当前语言（使用 useLocation 避免 SSR hydration mismatch）
-  const { pathname } = useLocation();
-  const isZh = !pathname.startsWith('/en');
+  // 获取当前语言：单语单域下即站点默认语言（aidevhub.ai=en，ccleeai.com=zh）
+  const { i18n } = useDocusaurusContext();
+  const isZh = i18n.defaultLocale === 'zh';
 
   // 筛选逻辑
   const filteredTools = useMemo(() => {

@@ -14,13 +14,16 @@ export default function LocaleSwitch({ currentLocale }) {
 
   const switchLocale = (newLocale) => {
     const currentPath = window.location.pathname
-    // 根据默认语言确定非默认语言的前缀
+    // 兼容历史前缀路径（/en、/zh 已下线，仅旧链接可能残留）
     const nonDefaultPrefix = defaultLocale === 'zh' ? '/en' : '/zh'
-    // 移除现有的非默认语言前缀
     const pathWithoutLocale = currentPath.replace(new RegExp(`^${nonDefaultPrefix}`), '')
-    // 构建新路径：切换到默认语言则无前缀，切换到非默认语言则加前缀
-    const newPath = newLocale === defaultLocale ? pathWithoutLocale : `${nonDefaultPrefix}${pathWithoutLocale}`
-    window.location.href = newPath || '/'
+    if (newLocale === defaultLocale) {
+      window.location.href = pathWithoutLocale || '/'
+    } else {
+      // 单语单域：异语内容在另一域名的同路径（aidevhub.ai 英文根 ↔ ccleeai.com 中文根）
+      const otherDomain = defaultLocale === 'zh' ? 'https://aidevhub.ai' : 'https://ccleeai.com'
+      window.location.href = otherDomain + (pathWithoutLocale || '/')
+    }
   }
 
   useEffect(() => {

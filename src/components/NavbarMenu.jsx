@@ -1,7 +1,8 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Menu, X, Sparkles } from 'lucide-react'
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import ThemeSwitch from './ThemeSwitch'
 import LocaleSwitch from './LocaleSwitch'
 import { useTranslations } from './TranslationProvider'
@@ -10,14 +11,11 @@ import { useLocation } from '@docusaurus/router'
 export default function NavbarMenu() {
   const { t } = useTranslations()
   const location = useLocation()
-  const [locale, setLocale] = useState('zh')
+  const { i18n } = useDocusaurusContext()
+  // 单语单域：当前语言即站点默认语言（ aidevhub.ai=en，ccleeai.com=zh）
+  const locale = i18n.defaultLocale
   const [isOpen, setIsOpen] = useState(false)
   const [hoveredItem, setHoveredItem] = useState(null)
-
-  useEffect(() => {
-    const match = document.cookie.match(/locale=([^;]+)/)
-    setLocale((match?.[1] === 'en' || location.pathname.startsWith('/en')) ? 'en' : 'zh')
-  }, [location.pathname])
 
   const navItems = [
     { href: '/', label: t('nav.home'), icon: Sparkles },
@@ -28,7 +26,7 @@ export default function NavbarMenu() {
 
   const isActive = (href) => {
     if (href === '/') {
-      return location.pathname === '/' || location.pathname === '/en/'
+      return location.pathname === '/'
     }
     return location.pathname.includes(href)
   }
