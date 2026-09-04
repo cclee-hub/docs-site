@@ -7,16 +7,16 @@ authors: [cclee]
 schema: FAQPage
 faqs:
   - q: "How long should a B2B ad campaign run before judging it?"
-    a: "Judgment only reads settled weeks: +16 days after a calendar week ends, and measured back-fill has arrived as late as day 29. The first settled week is judgeable, but a week with fewer than 5 inquiries-plus-leads is protected, not judged."
+    a: "Judgment only reads settled weeks: +16 days after a calendar week ends, and measured back-fill has arrived as late as day 29. The first settled week is judgeable, but sample-poor weeks are protected, not judged."
   - q: "Which failure justifies stopping a campaign immediately?"
-    a: "Accumulated spend past 3x the target cost-per-acquisition with zero total inquiries — the hard-stop tier in the judging code. A closed-but-unsettled week spending past the higher of ¥300 or 3x the weekly average with zero inquiries stops without waiting for settlement either."
+    a: "Accumulated spend past 3x the target cost-per-acquisition with zero total inquiries — the hard-stop tier in the judging code. A closed-but-unsettled week spending several times above its normal level with zero inquiries stops without waiting for settlement either."
   - q: "How do I judge a campaign after a delivery gap?"
     a: "The code gives interrupted campaigns two paths only: stop if cost runs over 25% above benchmark (the model keeps re-learning), or restore continuity first. One measured 3-week gap pushed store-wide inquiry cost from ¥33 to ¥46."
 ---
 
 ## TL;DR
 
-Stopping campaigns is where marketplace ad budgets leak fastest: waiting one extra week on a keeper costs little, while keeping a real underperformer one week costs real money. Five checks — **runtime, spend, continuity, learning period, true zero-inquiry** — are not folklore. They are five rules that actually run inside a production judging codebase, each with a numeric threshold. Four say "wait," one says "stop now." Every case below comes from one store's 40-week ad ledger.
+Stopping campaigns is where marketplace ad budgets leak fastest: waiting one extra week on a keeper costs little, while keeping a real underperformer one week costs real money. Five checks — **runtime, spend, continuity, learning period, true zero-inquiry** — are not folklore. They are five rules that actually run inside a production judging codebase, each with an explicit numeric threshold. Four say "wait," one says "stop now." Every case below comes from one store's 40-week ad ledger.
 
 ## The situation: half the "bad campaigns" on Monday's report were wronged
 
@@ -26,7 +26,7 @@ Monday review: a campaign spent real money last week with zero inquiries, and yo
 
 ### Check 1: Has it run long enough? — only settled data counts
 
-Rule first: the judging code consumes settled weeks only — a calendar week clears the settlement line 16 days after it ends (`attribution_settle_days=16`, enforced in `cn_date.py#is_week_finalized`); nothing unsettled enters a verdict. And measurement shows 16 days is a floor, not the tail: one collection run wrote 27 new region rows into a week that had ended 29 days earlier — see [Is 16 Days Enough for Marketplace Ad Data?](/blog/1688-p4p-ad-data-16-day-settlement).
+Rule first: the judgment consumes settled weeks only — a calendar week clears the settlement line 16 days after it ends, and nothing unsettled enters a verdict. And measurement shows 16 days is a floor, not the tail: one collection run wrote 27 new region rows into a week that had ended 29 days earlier — see [Is 16 Days Enough for Marketplace Ad Data?](/blog/1688-p4p-ad-data-16-day-settlement).
 
 In plain terms: take the new program below — across its 8 weeks, weekly cost per inquiry swung from ¥46 to ¥99, nearly 2.2x. Judge it on unsettled data, or on any single week, and the verdict is wrong either way.
 
@@ -34,15 +34,15 @@ In plain terms: take the new program below — across its 8 weeks, weekly cost p
 
 ### Check 2: Has it spent enough? — thin spend is not judged
 
-Rule first: settled-week average spend under ¥100 files the campaign as "test" — no performance verdict (`ad_performance_processor.py#_decide_one`, step 2, `min_weekly_cost=100`); a first settled week with fewer than 5 inquiries-plus-leads is protected, not judged (`cvr_min_click=5`).
+Rule first: the rules turn "hasn't spent enough" into a hard gate — campaigns whose weekly average spend sits below the level of a meaningful test are filed as "test" and receive no performance verdict; a first settled week with too thin a sample of inquiries and leads is protected, not judged.
 
-In plain terms: one "precision targeting" campaign appeared in the ledger twice — April and July — for 6 weekly rows and a lifetime spend of **¥0**. It held a name on the report without spending a cent, never earning the right to be judged. Another veteran campaign fell to ¥90 a week in June — under a tenth of its peak. At that scale the code files it under "test" too; the word "stop" never comes up. When thin spend looks bad, the finding is "spent too little," not "performs badly."
+In plain terms: one "precision targeting" campaign appeared in the ledger twice — April and July — for 6 weekly rows and a lifetime spend of **¥0**. It held a name on the report without spending a cent, never earning the right to be judged. Another veteran campaign fell to ¥90 a week in June — under a tenth of its peak. At that scale the rules file it under "test" too; the word "stop" never comes up. When thin spend looks bad, the finding is "spent too little," not "performs badly."
 
-*(Technical note: a ¥0 weekly row means the campaign never passed the platform's delivery checks or is budget-throttled; a thin-spend sample is all noise, and noise drowns every ratio computed on it — the threshold exists to block exactly that false signal.)*
+*(Technical note: a ¥0 weekly row means the campaign never passed the platform's delivery checks or is budget-throttled; a thin-spend sample is all noise, and noise drowns every ratio computed on it — the gate exists to block exactly that false signal.)*
 
 ### Check 3: Is delivery continuous? — interrupted campaigns get two paths
 
-Rule first: for an interrupted campaign, effective cost-per-acquisition more than 25% above benchmark means stop, with the reason stated as "the bidding model keeps re-learning"; below the threshold, the file is marked "optimize" and the only action is — restore continuity (`_decide_one` step 3, `diff_stop=0.25`).
+Rule first: an interrupted campaign gets two paths only — if effective cost-per-acquisition runs more than 25% above benchmark, stop, with the reason stated as "the bidding model keeps re-learning"; below the threshold, the file is marked "optimize" and the only action is: restore continuity.
 
 In plain terms: one measured 3-week gap dropped store-wide weekly spend from the ¥1,900 range to ¥281 → ¥90 → ¥281, with inquiries hitting zero in the middle. Once continuous delivery resumed, store-wide cost per inquiry jumped from ¥33 before the gap to ¥46 in the restart week — **restarting after a gap is not starting from where you left off**, which is exactly why the rule restores continuity before judging.
 
@@ -50,27 +50,27 @@ In plain terms: one measured 3-week gap dropped store-wide weekly spend from the
 
 ### Check 4: Was the learning period honored? — protection lasts one extra week at most
 
-Rule first: the learning-period protection in this code is **not a fixed number of weeks**. It fires only when the first settled week is sample-poor (inquiries + leads under 5), and it grants at most one more week; from two settled weeks on, there is no protection at all (`_decide_one` step 4). From there, every week is measured by the same ruler, and two paths lead to the stop tier: effective CPA above benchmark with a gap over 50% (step 5); or a gap over 25% combined with a low inquiry share — or no improvement across a 3-week window, where a week-over-week rise above 12% counts as worsening (step 6; `diff_stop=0.25`, `diff_stop_hard=0.50`, `trend_window=3`, `trend_wow_threshold=0.12`).
+Rule first: the learning-period protection here is **not a fixed number of weeks**. It fires only when the first settled week is sample-poor, and it grants at most one more week; from the second settled week on, there is no protection at all. From there, every week is measured by the same ruler: effective CPA above benchmark by more than 25%, combined with a low inquiry share — or no improvement over a stretch of weeks — means the stop tier; larger gaps with seriously excessive cost are judged even faster.
 
-In plain terms: the same store's new program — the "Merchant growth" plan — got a full 8-week window from its human operators: weekly cost per inquiry ran ¥46–99, **not one week back inside the store's own normal band of ¥25–31**, and the last week was the most expensive (¥99). Over the same 8 weeks, two other new programs in the same store, aimed at the same products, bought inquiries at ¥30 and ¥35 — so neither "the market got expensive" nor "it hadn't started yet" holds. The 8 weeks of patience came from people, not from the rules: under the code, from the second settled week on, this program had no protection and should have been measured every single week.
+In plain terms: the same store's new program — the "Merchant growth" plan — got a full 8-week window from its human operators: weekly cost per inquiry ran ¥46–99, **not one week back inside the store's own normal band of ¥25–31**, and the last week was the most expensive (¥99). Over the same 8 weeks, two other new programs in the same store, aimed at the same products, bought inquiries at ¥30 and ¥35 — so neither "the market got expensive" nor "it hadn't started yet" holds. The 8 weeks of patience came from people, not from the rules: under the judging logic, from the second settled week on, this program had no protection and should have been measured every single week.
 
 ![Eight weeks of learning period, not one week back in the band](/images/blog/1688-campaign-stop-checklist-en.png)
 
-*(Technical note: effective CPA = spend ÷ (quality inquiries + plain inquiries×0.6 + raw leads×0.1) (`_ecpa`, weights `ecpa_weight_inquiry=0.6`, `ecpa_weight_lead=0.1`) — raw leads count at a tenth, so junk leads cannot inflate the denominator. Cumulatively the program read ¥17,541 ÷ 280 inquiries = ¥62.6, 2.2x the store's historical median of ¥28.)*
+*(Technical note: effective CPA = spend ÷ (quality inquiries + plain inquiries + a heavily discounted count of raw leads) — raw leads are worth little, they cannot prop up the denominator, and piles of junk leads cannot buy a cheap cost. Cumulatively the program read ¥17,541 ÷ 280 inquiries = ¥62.6, 2.2x the store's historical median of ¥28.)*
 
 ### Check 5: Is it truly zero-inquiry? — the only stop-now tier
 
-Rule first: accumulated spend above 3× the target cost-per-acquisition (cpa_target) with zero total inquiries is a hard stop (`_decide_one` step 0, `hard_stop_cpa_multiplier=3`); with no target configured, the threshold degrades to 3× the campaign's own settled weekly average spend (`budget_burn_multiplier=3`). One tier fires even earlier: a closed-but-unsettled calendar week spending more than max(¥300, 3× the settled weekly average) with zero inquiries is an early hard stop — it does not wait for settlement (`_early_hard_stop_signal`). And cpa_target is never hand-set — it is the median weighted ECPA of the last 12 settled, ECPA-computable weeks (`cpa_target_window_weeks=12`, `cpa_target_percentile=50`).
+Rule first: accumulated spend above 3× the target cost-per-acquisition with zero total inquiries is a hard stop; when no target is configured, the threshold degrades to a multiple of the campaign's own weekly average spend. One tier fires even earlier: a closed-but-unsettled calendar week spending several times above its normal level with zero inquiries is an early hard stop — it does not wait for settlement. And the target cost is never hand-set — it is the median across a rolling window of computable recent weeks, updated automatically.
 
 In plain terms: this is the one check you never hesitate on. Its real battlefield is the keyword layer: across 46 weeks, 78% of the same store's 1,641 keyword-week records produced no inquiry while absorbing 27% of keyword spend — see [78% of Keywords Never Brought an Inquiry](/blog/1688-inquiry-cost-weighted).
 
-*(Technical note: the early stop dares to skip settlement because spend is real-time billing — fixed once written, zero drift measured on settled weeks — while inquiries are a conversion field that back-fills from zero; the pair of conditions, a high threshold and a closed week, is what bounds the false-kill risk.)*
+*(Technical note: the early stop dares to skip settlement because spend is real-time billing — fixed once written, zero drift measured on settled weeks — while inquiries are a conversion field that back-fills from zero; the pair of conditions, a high bar and a closed week, is what bounds the false-kill risk.)*
 
 ## The experiment and the data
 
 - **Sample**: one industrial B2B store (anonymized), campaign-by-week ad ledger from Nov 2025 to Aug 2026 — 40 weeks; the keyword layer covers 46 weeks and 1,641 keyword-week records of the same store.
 - **Calibers**: inquiry cost = weekly spend ÷ weekly inquiries (store level uses the same form; cumulative uses total spend ÷ total inquiries). The "normal band" is the store's own pre-program median weekly cost — ¥28 across 28 normal weeks (spring-festival week excluded) ±10%, i.e. ¥25–31.
-- **Judging code**: every rule and threshold cited here comes from the production judge — `ai_dag/prompts/processors/1688/ad_performance_processor.py` (the `_decide_one` decision tree, `_early_hard_stop_signal`, the `_ecpa` formula), with thresholds single-sourced in the ad_performance registration block of `ai_dag/prompts/__init__.py`; the settlement line lands in `ai_dag/utils/cn_date.py#is_week_finalized`.
+- **Judging code**: every rule and threshold cited here was verified against the production judge (covering the thin-spend gate, the interrupted-delivery branch, the learning-period sample gate, and the two-tier stop plus hard stop); file- and function-level provenance is an internal record and stays out of the article.
 - **Settlement tail**: all weekly figures cited here are past the settlement window; the back-fill evidence is the day-29 event in Check 1.
 - **Anonymization**: no store or campaign IDs appear; campaigns are referred to by their public platform program names.
 
@@ -83,20 +83,20 @@ In plain terms: this is the one check you never hesitate on. Its real battlefiel
 ## For operators
 
 1. **Runtime**: judge on settled weeks only (+16 days after week end); when single weeks swing hard, only cumulative numbers count.
-2. **Spend**: under ¥100 a week, fund it before judging it; a ¥0 weekly row is a delivery question, not a performance question.
+2. **Spend**: below the level of a meaningful weekly test, fund it before judging it; a ¥0 weekly row is a delivery question, not a performance question.
 3. **Continuity**: restore continuous delivery before judging; after a gap, reset the baseline — never grade the restart against gap weeks.
-4. **Learning period**: protection belongs to sample-poor weeks only (under 5 inquiries-plus-leads, one extra week at most); "give the new program time" stops being an argument at the second settled week.
+4. **Learning period**: protection belongs to sample-poor weeks, one extra week at most; "give the new program time" stops being an argument at the second settled week.
 5. **True zero-inquiry**: accumulated spend past 3x your target cost-per-acquisition with still zero inquiries — stop now, at campaign level and keyword level alike.
 
 ## For developers
 
 1. **Persist both granularities**: campaign-by-week and keyword-by-week are separate tables — the keyword layer is where the stoppage money lives, and campaign-level views never see it.
 2. **Keep collection audit fields**: re-collection rewrites historical weeks (measured: new rows arrived on day 29), so your pipeline must distinguish "what was visible then" from "settled data."
-3. **Single-source thresholds in config**: every threshold lives in the registration block (`min_weekly_cost`, `hard_stop_cpa_multiplier`, …) and the judging functions carry zero literals — tune thresholds without touching code, and version every code change.
+3. **Keep thresholds in one place**: gather every gate into a single configuration and keep the judging logic free of scattered magic numbers — tune thresholds without touching logic, and version every logic change.
 
 <InfoBox variant="warning" title="How to use the five checks">
 
-Data unsettled → wait; under ¥100 a week → fund it first; delivery interrupted → restore it first; sample-poor week → one extra week at most; spend past 3x target cost with zero inquiries → stop now. Four "waits," one "stop."
+Data unsettled → wait; spend too thin → fund it first; delivery interrupted → restore it first; sample-poor week → one extra week at most; spend past 3x target cost with zero inquiries → stop now. Four "waits," one "stop."
 
 </InfoBox>
 
@@ -104,11 +104,11 @@ Data unsettled → wait; under ¥100 a week → fund it first; delivery interrup
 
 ### How long should a B2B ad campaign run before judging it?
 
-Judgment only reads settled weeks: +16 days after a calendar week ends, and measured back-fill has arrived as late as day 29. The first settled week is judgeable, but a week with fewer than 5 inquiries-plus-leads is protected, not judged.
+Judgment only reads settled weeks: +16 days after a calendar week ends, and measured back-fill has arrived as late as day 29. The first settled week is judgeable, but sample-poor weeks are protected, not judged.
 
 ### Which failure justifies stopping a campaign immediately?
 
-Accumulated spend past 3x the target cost-per-acquisition with zero total inquiries — the hard-stop tier in the judging code. A closed-but-unsettled week spending past the higher of ¥300 or 3x the weekly average with zero inquiries stops without waiting for settlement either.
+Accumulated spend past 3x the target cost-per-acquisition with zero total inquiries — the hard-stop tier in the judging code. A closed-but-unsettled week spending several times above its normal level with zero inquiries stops without waiting for settlement either.
 
 ### How do I judge a campaign after a delivery gap?
 
