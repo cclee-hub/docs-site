@@ -7,6 +7,13 @@ const siteUrl = site === 'zh' ? 'https://ccleeai.com' : 'https://aidevhub.ai';
 const defaultLocale = site === 'zh' ? 'zh' : 'en';
 // 百度统计域名仅中文站进入 CSP
 const baiduCsp = site === 'zh' ? ' https://hm.baidu.com' : '';
+// GA4 仅英文站（SITE=ai）启用
+const gaId = site === 'zh' ? null : 'G-Z4Q2RBZNL0';
+const gaScriptCsp = gaId ? ' https://www.googletagmanager.com' : '';
+const gaConnectCsp = gaId
+  ? ' https://*.google-analytics.com https://*.analytics.google.com'
+  : '';
+const gaImgCsp = gaConnectCsp;
 
 const config: Config = {
   title: 'CCLEE',
@@ -17,7 +24,7 @@ const config: Config = {
   baseUrl: '/',
   trailingSlash: true,
 
-  // 网站分析：Umami + 百度统计；中英站各自独立 website-id（Umami: docs-site-en / docs-site-zh）
+  // 网站分析：Umami（中英各自独立 id）+ GA4（仅英文站）+ 百度统计（仅中文站）
   scripts: [
     {
       src: 'https://tj.ccleeai.com/script.js',
@@ -27,6 +34,18 @@ const config: Config = {
           ? '049ab0ce-cd45-4404-8c09-45bd1bd93c94'
           : '806b27c0-695b-4e07-8b75-89a6b4aefc95',
     },
+    // 谷歌分析 GA4 仅英文站（SITE=ai）加载
+    ...(gaId
+      ? [
+          {
+            src: `https://www.googletagmanager.com/gtag/js?id=${gaId}`,
+            async: true,
+          },
+          {
+            content: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${gaId}');`,
+          },
+        ]
+      : []),
     // 百度统计仅中文站（SITE=zh）加载
     ...(site === 'zh' ? [{src: '/js/baidu-tongji.js', async: true}] : []),
   ],
@@ -182,7 +201,7 @@ const config: Config = {
       { charSet: 'utf-8' },
       {
         'http-equiv': 'Content-Security-Policy',
-        content: `default-src 'self' 'unsafe-inline'; connect-src 'self' https://rag.ccleeai.com https://tj.ccleeai.com${baiduCsp}; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://tj.ccleeai.com${baiduCsp}; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.ccleeai.com https://oss-cn-shenzhen.aliyuncs.com${baiduCsp}; font-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests; block-all-mixed-content`,
+        content: `default-src 'self' 'unsafe-inline'; connect-src 'self' https://rag.ccleeai.com https://tj.ccleeai.com${baiduCsp}${gaConnectCsp}; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://tj.ccleeai.com${baiduCsp}${gaScriptCsp}; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.ccleeai.com https://oss-cn-shenzhen.aliyuncs.com${baiduCsp}${gaImgCsp}; font-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests; block-all-mixed-content`,
       },
     ],
   } satisfies Preset.ThemeConfig,
