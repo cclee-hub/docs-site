@@ -5,6 +5,8 @@ import type * as Preset from '@docusaurus/preset-classic';
 const site = process.env.SITE === 'zh' ? 'zh' : 'ai';
 const siteUrl = site === 'zh' ? 'https://ccleeai.com' : 'https://aidevhub.ai';
 const defaultLocale = site === 'zh' ? 'zh' : 'en';
+// 百度统计域名仅中文站进入 CSP
+const baiduCsp = site === 'zh' ? ' https://hm.baidu.com' : '';
 
 const config: Config = {
   title: 'CCLEE',
@@ -25,10 +27,8 @@ const config: Config = {
           ? '049ab0ce-cd45-4404-8c09-45bd1bd93c94'
           : '806b27c0-695b-4e07-8b75-89a6b4aefc95',
     },
-    {
-      src: '/js/baidu-tongji.js',
-      async: true,
-    },
+    // 百度统计仅中文站（SITE=zh）加载
+    ...(site === 'zh' ? [{src: '/js/baidu-tongji.js', async: true}] : []),
   ],
 
   // 静态资源目录，drafts/ 不在此列表中，不参与构建和发布
@@ -182,7 +182,7 @@ const config: Config = {
       { charSet: 'utf-8' },
       {
         'http-equiv': 'Content-Security-Policy',
-        content: "default-src 'self' 'unsafe-inline'; connect-src 'self' https://rag.ccleeai.com https://tj.ccleeai.com https://hm.baidu.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://tj.ccleeai.com https://hm.baidu.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.ccleeai.com https://oss-cn-shenzhen.aliyuncs.com https://hm.baidu.com; font-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests; block-all-mixed-content",
+        content: `default-src 'self' 'unsafe-inline'; connect-src 'self' https://rag.ccleeai.com https://tj.ccleeai.com${baiduCsp}; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://tj.ccleeai.com${baiduCsp}; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.ccleeai.com https://oss-cn-shenzhen.aliyuncs.com${baiduCsp}; font-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests; block-all-mixed-content`,
       },
     ],
   } satisfies Preset.ThemeConfig,
