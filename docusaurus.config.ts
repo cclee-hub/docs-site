@@ -34,18 +34,8 @@ const config: Config = {
           ? '049ab0ce-cd45-4404-8c09-45bd1bd93c94'
           : '806b27c0-695b-4e07-8b75-89a6b4aefc95',
     },
-    // 谷歌分析 GA4 仅英文站（SITE=ai）加载
-    ...(gaId
-      ? [
-          {
-            src: `https://www.googletagmanager.com/gtag/js?id=${gaId}`,
-            async: true,
-          },
-          {
-            content: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${gaId}');`,
-          },
-        ]
-      : []),
+    // 谷歌分析 GA4 仅英文站（SITE=ai）加载（Docusaurus scripts 不支持纯 content 项，走静态文件）
+    ...(gaId ? [{src: '/js/ga4.js', async: true}] : []),
     // 百度统计仅中文站（SITE=zh）加载
     ...(site === 'zh' ? [{src: '/js/baidu-tongji.js', async: true}] : []),
   ],
