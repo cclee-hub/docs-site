@@ -15,12 +15,15 @@ const config: Config = {
   baseUrl: '/',
   trailingSlash: true,
 
-  // 网站分析：Umami + 百度统计
+  // 网站分析：Umami + 百度统计；中英站各自独立 website-id（Umami: docs-site-en / docs-site-zh）
   scripts: [
     {
       src: 'https://tj.ccleeai.com/script.js',
       async: true,
-      'data-website-id': '806b27c0-695b-4e07-8b75-89a6b4aefc95',
+      'data-website-id':
+        site === 'zh'
+          ? '049ab0ce-cd45-4404-8c09-45bd1bd93c94'
+          : '806b27c0-695b-4e07-8b75-89a6b4aefc95',
     },
     {
       src: '/js/baidu-tongji.js',
