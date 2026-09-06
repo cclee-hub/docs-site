@@ -4,16 +4,9 @@ description: Extract structured building attributes from street view images usin
 date: 2026-03-19
 tags: [LLM Vision, FastAPI, Google Maps API, ai-agent, saas-development]
 authors: [cclee]
-schema: FAQPage
+schema: Article
 rag: false
 category: self-initiated
-faqs:
-  - q: "How accurate is LLM Vision at identifying building facade attributes?"
-    a: "UCL 2024 research shows GPT-4 Vision achieves ~39.69% accuracy for coarse-grained building age classification. Glass type recognition has no published benchmark — accuracy must be validated in the POC phase."
-  - q: "How does this system control Google API costs?"
-    a: "Street View Metadata API (free) checks coverage before requesting images. Places Details is only called for top 30% scored buildings. Total cost for 150 buildings is approximately $125."
-  - q: "How can the same pipeline serve multiple industries?"
-    a: "LLM output fields (glass type, orientation, window density) are generic physical attributes. Each industry only needs a different filter condition — no pipeline rebuild required."
 ---
 
 Encountered this architecture challenge while designing a building renovation lead identification system for a client. The same LLM visual pipeline proved reusable across multiple industries with zero additional development cost.

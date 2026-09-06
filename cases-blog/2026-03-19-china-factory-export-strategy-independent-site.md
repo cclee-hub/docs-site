@@ -4,17 +4,10 @@ description: 为国内已跑通的工业品工厂制定海外获客策略，通�
 date: 2026-03-19
 tags: [Google Ads, WordPress, saas-development, ecommerce]
 authors: [cclee]
+schema: Article
 image: /img/cases/china-factory-export-hero.jpg
-schema: FAQPage
 rag: false
 category: client
-faqs:
-  - q: "中国工厂出海，独立站和阿里国际站哪个更适合？"
-    a: "阿里国际站年费高、竞价不可控、ROI依赖平台规则；独立站一次性建站成本低，长期ROI更高，数据完全自主可控，适合有稳定产品线的工厂。"
-  - q: "工厂独立站出海，Google Ads预算怎么规划？"
-    a: "建议首期小额测试投放，根据询盘数据确定主攻地区后再集中预算，避免在未验证市场上过早大量投入。"
-  - q: "工业品B2B独立站选哪个平台搭建？"
-    a: "推荐阿里云（新加坡）自建站，零交易手续费、完全自主可控、支持B2B询盘流程，服务器位置覆盖东南亚与欧美市场。"
 ---
 
 为一家国内业务已跑通、计划海外0到1的工业产品制造商提供出海策略咨询，完成渠道选型分析与建站方案交付。

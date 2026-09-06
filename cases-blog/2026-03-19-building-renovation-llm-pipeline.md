@@ -4,16 +4,9 @@ description: 通过 Google Street View + LLM 视觉感知，从建筑外观提�
 date: 2026-03-19
 tags: [LLM Vision, FastAPI, Google Maps API, ai-agent, saas-development]
 authors: [cclee]
-schema: FAQPage
+schema: Article
 rag: false
 category: self-initiated
-faqs:
-  - q: "用 LLM 识别建筑外观字段，准确率有多高？"
-    a: "UCL 2024 研究显示 GPT-4 Vision 建筑年代分类准确率约 39.69%，玻璃类型无已发表基准，需 POC 阶段人工标注验证。"
-  - q: "这套系统如何控制 Google API 成本？"
-    a: "Street View Metadata 免费检查覆盖率，仅对有效覆盖的建筑请求图像；Places Details 仅对评分 Top 30% 建筑调用，150 栋建筑总成本约 $125。"
-  - q: "同一套 pipeline 怎么复用到不同行业？"
-    a: "LLM 输出的字段（玻璃类型、朝向、窗户密度）是通用物理属性，不同行业只需设置不同的字段过滤条件，无需重新开发 pipeline。"
 ---
 
 在为客户评估建筑翻新线索系统时，发现 LLM 视觉感知提取的建筑字段具有跨行业复用价值，记录完整架构设计与商业延伸逻辑。

@@ -4,17 +4,10 @@ description: Developed an overseas customer acquisition strategy for an establis
 date: 2026-03-19
 tags: [Google Ads, WordPress, saas-development, ecommerce]
 authors: [cclee]
+schema: Article
 image: /img/cases/china-factory-export-hero.jpg
-schema: FAQPage
 rag: false
 category: client
-faqs:
-  - q: "Should a Chinese factory use Alibaba International or an independent website for overseas sales?"
-    a: "Alibaba International has high annual fees and uncontrollable bidding costs with ROI dependent on platform rules. An independent site has a one-time build cost, higher long-term ROI, and full data ownership — better suited for factories with stable product lines."
-  - q: "How should a factory plan Google Ads budget for overseas B2B?"
-    a: "Start with a small test budget, identify high-performing regions based on inquiry data, then concentrate spend. This avoids heavy investment in unvalidated markets."
-  - q: "Which platform is best for building a B2B industrial product website?"
-    a: "Alibaba Cloud Singapore is recommended: zero transaction fees, fully self-controlled, supports B2B inquiry workflows, with server location covering Southeast Asia and Western markets."
 ---
 
 Delivered an overseas market entry strategy for an industrial manufacturer with an established domestic business, covering channel selection analysis and website platform recommendations for a zero-to-one international expansion.
