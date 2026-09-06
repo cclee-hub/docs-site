@@ -70,8 +70,11 @@ Type in the home input box as if sending a message:
 - **Not found**: add a hint below the card, e.g. "是昨天那笔" ("the one from yesterday"), to relocate it
 - **Not recognized**: try a more specific sentence (include time, amount, or the item)
 
-{/* Screenshot slot 1: home input bar with example phrases */}
-{/* Screenshot slot 2: result card (Undo / Change category) */}
+![Home input bar: log with one sentence](/images/docs/life/home-input.jpg)
+
+Type "吃饭46" ("meal 46") and the result card shows what was recognized instantly - nothing is saved before you confirm, and you can undo or change the category anytime:
+
+![One-sentence logging result card](/images/docs/life/quick-log-result.jpg)
 
 ### Batch-log from a photo
 
@@ -83,7 +86,7 @@ Type in the home input box as if sending a message:
 
 Shoot one clear receipt at a time. Non-accounting, non-health images are rejected with a hint - just log those with a sentence instead.
 
-{/* Screenshot slot 3: recognition candidate card with checkboxes */}
+![Photo recognition: check items, then confirm](/images/docs/life/photo-batch.jpg)
 
 ### Dashboard and records
 
@@ -97,6 +100,12 @@ the first 5 can be filtered by **this month / last 3 months / last 6 months / al
 2. Pick one self-check: **Mood Self-Check** (情绪自评), **Stress Self-Check** (压力自评), or **Quick Mood Check** (情绪速测)
 3. One question per screen - answer honestly about "the past two weeks" (完全不会 / 好几天 / 一半以上 / 几乎每天: not at all / several days / more than half the days / nearly every day)
 4. You get the result instantly, e.g. "steady", "slight ups and downs", "elevated stress - consider seeking support"
+
+**Where do the questions come from - are they professional?**
+
+The three self-checks are adapted from internationally standardized questionnaires: **Mood Self-Check** (情绪自评) corresponds to PHQ-9, **Stress Self-Check** (压力自评) to GAD-7, and **Quick Mood Check** (情绪速测, PHQ-4) is a short combination of both. They are widely used for initial self-assessment of mood and stress; scoring and result bands are computed server-side, independent of your device.
+
+![Mood self-check: one question per screen](/images/docs/life/mood-check.jpg)
 
 <InfoBox variant="warning" title="Please read">
 
