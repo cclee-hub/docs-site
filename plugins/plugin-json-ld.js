@@ -274,7 +274,15 @@ module.exports = function pluginJsonLd() {
       if (fm.slug) {
         slug = rel.includes('/') ? rel.slice(0, rel.lastIndexOf('/') + 1) + fm.slug : fm.slug;
       } else {
-        slug = rel.replace(/\/\d{4}-\d{2}-\d{2}-/, '/').replace(/\.mdx?$/, '');
+        slug = rel.replace(/\.mdx?$/, '');
+        // 博客文件名日期前缀 → Docusaurus 路由段 /YYYY/MM/DD/（文件名日期会进 URL，不能剥掉，否则算出的
+        // urlPath 不存在导致 JSON-LD 注入落空）；docs 文件名日期不进路由，仅 blog/cases-blog 适用此规则
+        if (dirKey === 'blog' || dirKey === 'cases-blog') {
+          slug = slug.replace(
+            /(^|\/)(\d{4})-(\d{2})-(\d{2})-/,
+            (_, sep, y, m, d) => `${sep}${y}/${m}/${d}/`
+          );
+        }
       }
       // index.md 的页面 URL 不含 index 段（/docs/agntc/ 而非 /docs/agntc/index）
       slug = slug.replace(/(^|\/)index$/, '');
