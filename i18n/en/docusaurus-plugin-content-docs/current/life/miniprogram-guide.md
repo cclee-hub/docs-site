@@ -43,7 +43,7 @@ and records made on this WeChat account are merged into it.
 
 <InfoBox variant="warning" title="Binding is permanent">
 
-After binding, the WeChat account stays linked to that phone account and cannot be unbound. You can also use Life without binding -
+After binding, the WeChat account stays linked to that phone account and cannot be unbound. If your WeChat is lost or retired, you can take over the account on a new WeChat with your phone number's SMS code - all data is restored (see the FAQ at the bottom). You can also use Life without binding -
 you just won't see your history if you switch devices.
 
 </InfoBox>
@@ -121,8 +121,13 @@ Say "借出100" ("lent out 100") in the home input box to log lending, borrowing
 
 ## FAQ
 
-**How do I see my history on a new phone?**
-Sign in with the same WeChat account; or bind the same phone number again to view all history under that account.
+**Switching phones or WeChat accounts - is my history still there?**
+Yes. Two cases:
+
+- **New phone, same WeChat**: just sign in - everything is there
+- **New WeChat account**: open the mini program (you'll be signed in as a brand-new empty account) → tap "Go Bind" (去绑定) → enter your originally bound phone number and request an SMS code → when told "该手机号已绑定其他微信" ("this phone number is already bound to another WeChat"), tap "**Continue takeover**" (继续接管). All data from the original account is restored on the new WeChat. The old WeChat only ever sees a brand-new empty account afterwards - **none of your data**; other devices (web, etc.) must sign in again
+
+Security boundary: only whoever can receive that phone number's SMS code can take over - the same trust level as web sign-in.
 
 **It logged the wrong thing - now what?**
 Tap "Change category" (改类目) on the card right after logging; for older records, say "删掉××" ("delete ××") and log it again. Life learns from your corrections and gets more accurate over time.
