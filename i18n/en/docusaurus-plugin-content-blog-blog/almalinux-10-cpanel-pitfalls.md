@@ -16,7 +16,7 @@ faqs:
 
 cPanel 138 on AlmaLinux 10 installs smoothly and the panel opens — the real traps cluster in the close-out phase: security hardening, panel asset repairs, and domain mounting, each with counter-intuitive behavior waiting.
 
-Encountered this while [delivering a hardened production server for a global waterpark equipment manufacturer](/cases/waterpark-china-hosting-migration) — all three failure classes showed up during the close-out of the same AlmaLinux 10 machine. This post breaks them down by scenario.
+Encountered this while [hardening a production cPanel server for a client](/cases/waterpark-china-hosting-migration) — all three failure classes showed up during the close-out of the same AlmaLinux 10 machine. This post breaks them down by scenario.
 
 ## TL;DR
 

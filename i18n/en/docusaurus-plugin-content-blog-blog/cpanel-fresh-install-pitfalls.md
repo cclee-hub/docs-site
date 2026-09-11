@@ -16,7 +16,7 @@ faqs:
 
 You provision a fresh server with cPanel, the installer reports "complete" — and then account creation, database setup, or the sites themselves fail one after another. These failures share a trait: the place that errors is not the place that broke.
 
-Encountered this while [building a compliance hosting environment on Aliyun China for a global waterpark equipment manufacturer](/cases/waterpark-china-hosting-migration) — all three failure classes showed up on the same machine during provisioning, and each had to be cleared before the site migration could start.
+Encountered this while [building a compliance hosting environment on Aliyun China for a client](/cases/waterpark-china-hosting-migration) — all three failure classes showed up on the same machine during provisioning, and each had to be cleared before the site migration could start.
 
 ## TL;DR
 

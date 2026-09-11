@@ -16,7 +16,7 @@ faqs:
 
 cPanel 138 装在 AlmaLinux 10 上，安装顺利、面板能开——真正的坑集中在新机收尾阶段：安全硬化、面板资源修复、域名挂载，每一步都有反直觉的行为在等着。
 
-在为客户执行 [水上乐园设备商中国合规托管](/cases/waterpark-china-hosting-migration) 项目时遇到此问题——新生产机按硬化标准交付，收尾阶段三类故障在同一台 AlmaLinux 10 上集齐，本文按场景拆解。
+在为客户执行 [中国合规托管与站点迁移](/cases/waterpark-china-hosting-migration) 项目时遇到此问题——新生产机按硬化标准交付，收尾阶段三类故障在同一台 AlmaLinux 10 上集齐，本文按场景拆解。
 
 ## TL;DR
 

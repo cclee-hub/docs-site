@@ -16,7 +16,7 @@ faqs:
 
 Restoring a cPanel account from a cpmove archive on an Aliyun ECS instance: restorepkg reports success, `httpd -S` shows the namevhosts — and the browser greets every domain with the server's default page.
 
-Encountered this while [migrating two China sites for a global waterpark equipment manufacturer](/cases/waterpark-china-hosting-migration) — a full relocation of both sites into a cPanel environment on Aliyun China, where the very first public verification after the restore ran into this cloud architecture trap.
+Encountered this while [migrating a client's two China sites into a cPanel environment on Aliyun China](/cases/waterpark-china-hosting-migration) — the very first public verification after the restore ran into this cloud architecture trap.
 
 ## TL;DR
 

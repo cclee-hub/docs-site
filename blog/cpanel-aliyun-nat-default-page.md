@@ -16,7 +16,7 @@ faqs:
 
 在阿里云 ECS 上用 cpmove 归档恢复 cPanel 账户，restorepkg 报成功、`httpd -S` 里 namevhost 一目了然——浏览器打开域名，看到的却是服务器的默认页。
 
-在为客户执行 [水上乐园设备商中国合规托管](/cases/waterpark-china-hosting-migration) 项目时遇到此问题——两个中国站点整体搬迁到阿里云中国区的 cPanel 环境，恢复完成后第一次公网验证就命中了这道云架构题。
+在为客户执行 [中国合规托管与站点迁移](/cases/waterpark-china-hosting-migration) 项目时遇到此问题——两个中国站点整体搬迁到阿里云中国区的 cPanel 环境，恢复完成后第一次公网验证就命中了这道云架构题。
 
 ## TL;DR
 
