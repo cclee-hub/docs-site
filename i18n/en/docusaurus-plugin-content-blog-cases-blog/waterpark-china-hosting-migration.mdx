@@ -1,0 +1,58 @@
+---
+title: "Zero-Downtime China Hosting Migration for a Waterpark Maker"
+description: "Migrating a waterpark maker's two China sites into compliant operation: data relocation, hosting environment rebuilt, hardened access, zero-downtime cutover."
+date: 2026-09-12
+tags: [Case Study, China Entry, WordPress Migration, China Compliance, Server Hardening, cPanel]
+authors: [cclee]
+schema: Article
+image: /img/cases/waterpark-china-hosting-hero.jpg
+---
+
+## TL;DR
+
+A global waterpark attractions manufacturer needed its two China websites moved from an overseas hosting environment into China-compliant operation — with the old server having been breached and knocked offline just three months earlier. We delivered a full data relocation with itemized verification, rebuilt the hosting environment on a compliant footing, and upgraded access security. Live traffic switched over with zero interruption, and only after the client had reviewed a preview environment page by page.
+
+<!-- truncate -->
+
+## Background
+
+The client is a global manufacturer of waterpark attractions. Its two online properties — a corporate website and a WordPress site with 289 posts — had been hosted since 2021 under an overseas cloud account.
+
+Three factors drove the move. Compliance first: for the sites to operate in China over the long term, they must meet China's compliant-operation requirements and sit on a compliant account and hosting environment, which an overseas account cannot provide. Security second: the corporate website doubles as the landing page for the client's ad campaigns, bringing roughly 10,000 visitors a day from real ad spend — and a public-facing server is exposed to attackers all the same. The damage range runs from worm intrusions to having the entire site wiped with no trail to follow. In May 2026 the old server was breached and taken offline, and a third party carried out the emergency recovery. The risk was not hypothetical. Third, an operations gap: a US-based team managing a China environment runs into friction over account ownership, time zones, and language — all pointing to the need for one accountable party on the ground in China.
+
+In an earlier engagement we handled [China market localization and a WordPress platform migration](/cases/china-market-localization-b2b-agency) for an overseas B2B organization. That project centered on content and experience; this one was about infrastructure and compliance.
+
+## Solution
+
+The move started with a full inventory of the old environment — machine specs, public entry points, access rules, and backup status — documented and delivered alongside a migration plan and a service comparison, so the client's technical lead could decide against a single source of truth. Everything needed for compliant onboarding was prepared in parallel.
+
+The relocation itself worked like moving a packed container rather than rebuilding piece by piece: both websites' files, databases, and account configurations were bundled and transferred as a whole, checked item by item for completeness, and restored as-is on the new environment in China. The new environment was set up on the same cPanel/WHM hosting panel the client already knew, so day-to-day management habits carried over untouched.
+
+<img src={require('@site/static/images/cases/waterpark-china-hosting/rack-cables.jpg').default} alt="Servers and network cabling in the hosting environment" width="560" loading="lazy" className="rounded-xl shadow-md" />
+
+The cutover followed a preview-first rhythm: the new environment went live as a preview site, the client walked through every page, and only after sign-off did we switch live visitor traffic over. Production and preview ran side by side throughout, and site visitors never noticed a thing.
+
+The security upgrade addressed each gap the May intrusion exposed. Every server on the public internet is scanned automatically, every day, regardless of traffic — and for a site seeing about 10,000 visits a day, a single successful scan can mean a stalled landing page, wiped content, and no way to trace what happened. Remote server access is no longer open to the whole internet; it answers only to fixed networks belonging to us and the client. Signing into the admin panel now takes multiple layers instead of a single password, so a leaked password alone no longer gets anyone in. And the admin entry point moved to a neutral address with no company traces, off the dictionaries automated scanners work through.
+
+Daily off-site backups and the remaining post-cutover work are proceeding on schedule, pending client confirmation — this case documents what has been delivered and verified.
+
+## Results
+
+| Dimension | Before | After |
+| --- | --- | --- |
+| Hosting environment | Overseas account; China compliance gap | China-compliant operation, clear resource ownership |
+| Site trust | Lapsed certificates triggered browser warnings | Valid certificates issued and renewed automatically |
+| Account security | Breached before; single-password protection | Multi-layer access; intrusion-exposed gaps closed |
+| Admin entry | Open to the entire internet | Reachable only from fixed networks of client and ops |
+
+Stability was the headline metric: across the traffic cutover and the parallel-environment period, neither site went down. All 289 posts moved with the bundle and were verified item by item. The engagement left behind a migration inventory, an English migration plan, seven numbered work logs, and an issues log — documentation the client can hand to any third party for acceptance.
+
+## Why Us
+
+This project ran across three tracks at once — compliance, migration, and security. The China-side work (compliant onboarding, cloud account operations, local coordination) and the US-side collaboration (working with the American team, English deliverables) were closed out by one person, with no handoffs in between. International clients to date: zero negative reviews. China-side problems, solved by someone in China.
+
+---
+
+<div className="text-center my-8">
+  <a href="/about" className="button button--primary button--lg">Get in touch</a>
+</div>
