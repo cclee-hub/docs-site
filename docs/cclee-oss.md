@@ -2,6 +2,7 @@
 title: "CCLEE OSS 使用指南：WordPress 媒体库上传同步到阿里云 OSS"
 description: "CCLEE OSS 插件把 WordPress 媒体库上传自动同步到阿里云 OSS，图片 URL 重写为 OSS 或 CDN 域名，缩略图全覆盖，失败自动回退本地；含授权激活与 RAM 子账号配置。"
 project: cclee-oss
+sidebar_label: 使用指南
 schema: HowTo
 steps:
   - name: 安装并激活插件

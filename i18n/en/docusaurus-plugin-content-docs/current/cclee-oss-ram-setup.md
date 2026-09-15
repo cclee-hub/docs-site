@@ -2,6 +2,7 @@
 title: "Alibaba Cloud RAM Setup for CCLEE OSS (Minimal AccessKey)"
 description: "Create a minimal-permission RAM user for CCLEE OSS on Alibaba Cloud International: a bucket-scoped policy JSON, an AccessKey and a grant."
 project: cclee-oss
+sidebar_label: RAM User Setup
 schema: HowTo
 steps:
   - name: Create a policy

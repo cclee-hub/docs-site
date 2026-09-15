@@ -2,6 +2,7 @@
 title: "CCLEE OSS 阿里云 RAM 子账号配置指南：最小权限 AccessKey"
 description: "CCLEE OSS 插件阿里云 RAM 子账号最小权限配置指南：创建仅限指定 Bucket 写入删除的策略并生成 AccessKey，全程约 10 分钟，附策略 JSON 与插件填写对照表。"
 project: cclee-oss
+sidebar_label: RAM 子账号配置
 schema: HowTo
 steps:
   - name: 创建权限策略

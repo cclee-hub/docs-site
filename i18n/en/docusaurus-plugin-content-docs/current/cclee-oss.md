@@ -2,6 +2,7 @@
 title: "CCLEE OSS Guide: Sync WordPress Media to Alibaba Cloud OSS"
 description: "Upload WordPress media to Alibaba Cloud OSS with CCLEE OSS: URLs rewritten to OSS/CDN, all sizes covered, silent fallback to local, license and RAM setup."
 project: cclee-oss
+sidebar_label: User Guide
 schema: HowTo
 steps:
   - name: Install and activate the plugin
