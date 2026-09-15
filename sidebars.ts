@@ -58,6 +58,11 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
+      label: 'CCLEE OSS',
+      items: ['cclee-oss', 'cclee-oss-ram-setup'],
+    },
+    {
+      type: 'category',
       label: '跨境铺货助手',
       items: ['ai-product-listing'],
     },
