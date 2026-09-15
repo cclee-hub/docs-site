@@ -3,6 +3,7 @@ import {
   BarChart3,
   Bot,
   Building2,
+  CloudUpload,
   Globe,
   Headset,
   ListChecks,
@@ -36,6 +37,7 @@ register(Palette, 'cclee-docusaurus-theme', 'CCLEE Docusaurus Theme');
 register(Globe, 'WordPress 生态', 'WordPress Ecosystem');
 register(Wrench, 'CCLEE Toolkit');
 register(Building2, 'CCLEE B2B');
+register(CloudUpload, 'CCLEE OSS');
 register(Package, '跨境铺货助手', 'Cross-border Listing Assistant');
 register(Truck, 'WooCommerce 物流', 'WooCommerce Shipping');
 register(ListChecks, '任务栈', 'Task Stack');
