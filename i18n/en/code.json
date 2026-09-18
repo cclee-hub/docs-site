@@ -1065,6 +1065,22 @@
     "message": "Learn More",
     "description": "Task Stack CTA text"
   },
+  "homepage.products.serverops.title": {
+    "message": "Server Operations",
+    "description": "Server operations section title"
+  },
+  "homepage.products.serverSentinel.title": {
+    "message": "CCLee Server Sentinel",
+    "description": "CCLee Server Sentinel product title"
+  },
+  "homepage.products.serverSentinel.description": {
+    "message": "Monitoring & alerting for Linux servers: performance, availability, security and backup. Alerts arrive as conclusions with next steps, and backups are proven restorable by monthly real-restore drills. Fully-managed or self-serve.",
+    "description": "CCLee Server Sentinel product description"
+  },
+  "homepage.products.serverSentinel.cta": {
+    "message": "Learn More",
+    "description": "CCLee Server Sentinel CTA text"
+  },
   "homepage.products.wordpress.title": {
     "message": "WordPress / WooCommerce Themes & Plugins",
     "description": "WordPress section title"

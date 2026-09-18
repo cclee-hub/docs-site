@@ -147,6 +147,22 @@ const PRODUCT_SECTIONS = [
     ],
   },
   {
+    titleId: 'homepage.products.serverops.title',
+    title: '服务器运维',
+    products: [
+      {
+        icon: <ShieldIcon size={24} className="text-white" />,
+        name: 'CCLee 服务器哨兵',
+        nameId: 'homepage.products.serverSentinel.title',
+        description: 'Linux 服务器监控预警托管：性能、可用性、安全、备份四类监控，告警归并成结论并附处置指引，每月真实恢复演练验证备份可用，全链路托管或自助授权。',
+        descriptionId: 'homepage.products.serverSentinel.description',
+        cta: '了解更多',
+        ctaId: 'homepage.products.serverSentinel.cta',
+        ctaLink: '/docs/server-sentinel',
+      },
+    ],
+  },
+  {
     titleId: 'homepage.products.personal.title',
     title: '个人应用',
     products: [
