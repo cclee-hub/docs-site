@@ -1,5 +1,6 @@
 ---
 title: "CCLee 服务器哨兵 — Linux 服务器监控托管：四类监控与两种形态"
+sidebar_label: 产品说明
 description: "CCLee 服务器哨兵为 Linux 服务器提供性能、可用性、安全、备份四类监控：常见运行环境自动识别适配，告警归并成事件给结论，每月真实恢复演练，全链路托管或自助授权。"
 project: server-sentinel
 schema: Article
