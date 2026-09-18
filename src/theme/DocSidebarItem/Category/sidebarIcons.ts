@@ -10,6 +10,7 @@ import {
   Package,
   Palette,
   Puzzle,
+  ShieldCheck,
   Truck,
   Wallet,
   Wrench,
@@ -42,6 +43,7 @@ register(Package, '跨境铺货助手', 'Cross-border Listing Assistant');
 register(Truck, 'WooCommerce 物流', 'WooCommerce Shipping');
 register(ListChecks, '任务栈', 'Task Stack');
 register(Wallet, 'Life 记账助手', 'Life');
+register(ShieldCheck, 'CCLee 服务器哨兵', 'CCLee Server Sentinel');
 
 /** 仅一级分类返回图标；子级分类与文档条目不配图标 */
 export function getCategoryIcon(

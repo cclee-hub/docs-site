@@ -43,5 +43,8 @@
   },
   "sidebar.tutorialSidebar.category.Life 记账助手": {
     "message": "Life"
+  },
+  "sidebar.tutorialSidebar.category.CCLee 服务器哨兵": {
+    "message": "CCLee Server Sentinel"
   }
 }
