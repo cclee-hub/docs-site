@@ -16,7 +16,7 @@ faqs:
 
 While delivering a Go + Fyne desktop login tool for a client, we hit one pitfall in each phase: config parsing, SSH handshake, cross-platform packaging, and GUI verification. All five are solved, and every fix is reusable.
 
-The tool was built for the [China-compliant hosting migration of a water park equipment maker](/cases/waterpark-china-hosting-migration) — after the WHM entrance was upgraded from a single password to layered gates, the team needed a way to log in without ever touching the root password. This small tool is the client side of that channel: click one button, get a one-time link into WHM. Small tool, but "small" does not mean pitfall-free.
+The tool was built for the [China-compliant hosting migration of a multinational manufacturer](/cases/waterpark-china-hosting-migration) — after the WHM entrance was upgraded from a single password to layered gates, the team needed a way to log in without ever touching the root password. This small tool is the client side of that channel: click one button, get a one-time link into WHM. Small tool, but "small" does not mean pitfall-free.
 
 ## TL;DR
 

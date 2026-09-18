@@ -78,6 +78,11 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
+      label: 'CCLee 服务器哨兵',
+      items: ['server-sentinel'],
+    },
+    {
+      type: 'category',
       label: 'Life 记账助手',
       items: [
         {
