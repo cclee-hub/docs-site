@@ -781,3 +781,8 @@ a.badge:hover,
   margin-right: 0.5rem;
 }
 
+/* 子条目相对分类缩进一档：视觉承载「分类给归属、条目给差异」的分层（嵌套层级递进继承） */
+.menu__list .menu__list {
+  padding-inline-start: 0.75rem;
+}
+
