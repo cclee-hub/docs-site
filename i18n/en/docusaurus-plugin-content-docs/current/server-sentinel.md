@@ -87,7 +87,7 @@ Daily backup status checks, cross-checked against the object-storage bucket (whe
 
 Both tracks run on the same operational pipeline:
 
-![CCLee Server Sentinel monitoring architecture diagram: signals from the server probe and external probes report to the monitoring center, are consolidated into events, and delivered via the fully-managed or self-serve track](/images/docs/server-sentinel/architecture.png)
+![CCLee Server Sentinel monitoring architecture diagram: signals from the server probe and external probes report to the monitoring center, are consolidated into events, and delivered via the fully-managed or self-serve track](/images/docs/server-sentinel/architecture-en.png)
 
 <!-- Screenshot slot: /images/docs/server-sentinel/alert-email.png | Sample alert email (with conclusion, severity and handling guidance) | A real alert email, screenshot redacted -->
 
