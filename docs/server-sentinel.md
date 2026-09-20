@@ -87,7 +87,7 @@ CPU、内存、磁盘、负载每 5 分钟采集一轮，指标连续多轮超�
 
 两条线路背后是同一套运作流程：
 
-![CCLee 服务器哨兵监控体系示意图：服务器探针与外部探针的信号统一上报监控中心，归并成事件后按全链路托管或自助授权送达](/images/docs/server-sentinel/architecture.png)
+<img src="/images/docs/server-sentinel/architecture.png" alt="CCLee 服务器哨兵监控体系示意图：服务器探针与外部探针的信号统一上报监控中心，归并成事件后按全链路托管或自助授权送达" width="560" loading="lazy" />
 
 <!-- 截图位: /images/docs/server-sentinel/alert-email.png | 告警邮件样例（含结论、紧要程度与处置指引） | 一封真实告警邮件，脱敏后截图 -->
 
