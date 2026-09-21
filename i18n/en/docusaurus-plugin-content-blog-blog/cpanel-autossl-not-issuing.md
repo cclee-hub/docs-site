@@ -16,7 +16,7 @@ faqs:
 
 You open your own website hosted on a cPanel server, and the browser warns "Your connection is not private" — the certificate details show an issuer that is a temporary hostname generated during the cPanel installation, with no relation to your domain.
 
-Encountered this while [migrating a client's two China sites into a compliance hosting environment](/cases/waterpark-china-hosting-migration) — long-expired certificates and browser security warnings were among the legacy issues we had to clear before sign-off.
+Encountered this while [migrating a client's two China sites into their fully managed hosting environment](/cases/waterpark-china-hosting-migration) — long-expired certificates and browser security warnings were among the legacy issues we had to clear before sign-off.
 
 ## TL;DR
 

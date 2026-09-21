@@ -103,7 +103,7 @@ The client is a globally operating, industry-leading manufacturer whose products
 
 Their business site runs on the fully-managed model — zero action after signing; monitoring onboarding and verification were completed by us; the first real restore drill was completed after the backup chain went live; weekly check reports and monthly reports have arrived on schedule ever since.
 
-There is also a more complete hands-on case: [A multinational manufacturer: managed rebuild and security hardening after a server intrusion](/cases/waterpark-china-hosting-migration).
+There is also a more complete hands-on case: [An industry-leading manufacturer: post-intrusion rebuild and fully managed hosting](/cases/waterpark-china-hosting-migration).
 
 ## Want to know the actual state of your server right now?
 

@@ -1,8 +1,8 @@
 ---
-title: "China Hosting Migration for a Multinational Manufacturer"
-description: "Migrating a multinational manufacturer's two China sites to compliant hosting: data relocation, environment rebuilt, hardened access, zero-downtime cutover."
+title: "China Managed Hosting: Rebuild and Zero-Downtime Migration"
+description: "Server breach took two China sites offline; rebuilt and migrated with zero downtime, now fully managed: daily backups, CDN, monitoring, ~60% lower cost."
 date: 2026-09-12
-tags: [Case Study, China Entry, WordPress Migration, China Compliance, Server Hardening, cPanel]
+tags: [Case Study, China Entry, Managed Hosting, Server Hardening, Aliyun, WordPress Migration]
 authors: [cclee]
 schema: Article
 image: /img/cases/waterpark-china-hosting-hero.jpg
@@ -10,46 +10,49 @@ image: /img/cases/waterpark-china-hosting-hero.jpg
 
 ## TL;DR
 
-A multinational manufacturer needed its two China websites moved from an overseas hosting environment into China-compliant operation — with the old server having been breached and knocked offline just three months earlier. We delivered a full data relocation with itemized verification, rebuilt the hosting environment on a compliant footing, and upgraded access security. Live traffic switched over with zero interruption, and only after the client had reviewed a preview environment page by page.
+Two China websites of an industry-leading manufacturer went down in a May server breach — and the recovery showed the survival was pure luck: 3 days of panel license left, zero snapshots, zero account balance. We rebuilt the hosting and migrated both sites with zero interruption; they now run as a fully managed service with daily backups, real restore drills, and 42-metric automated monitoring, at about 60% lower resource cost.
 
 <!-- truncate -->
 
 ## Background
 
-The client is a multinational manufacturer. Its two online properties — a corporate website and a WordPress site with 289 posts — had been hosted since 2021 under an overseas cloud account.
+The client is an industry-leading manufacturer whose products run on landmark projects worldwide — and its corporate site doubles as the landing page for live ad campaigns, so downtime is lost money by the minute. The corporate site and a 289-post WordPress site had been hosted since 2021 on a single server under an overseas cloud account, maintained remotely by the US team across time zones.
 
-Three factors drove the move. Compliance first: for the sites to operate in China over the long term, they must meet China's compliant-operation requirements and sit on a compliant account and hosting environment, which an overseas account cannot provide. Security second: the corporate website doubles as the landing page for the client's ad campaigns, bringing roughly 10,000 visitors a day from real ad spend — and a public-facing server is exposed to attackers all the same. The damage range runs from worm intrusions to having the entire site wiped with no trail to follow. In May 2026 the old server was breached and taken offline, and a third party carried out the emergency recovery. The risk was not hypothetical. Third, an operations gap: a US-based team managing a China environment runs into friction over account ownership, time zones, and language — all pointing to the need for one accountable party on the ground in China.
-
-In an earlier engagement we handled [China market localization and a WordPress platform migration](/cases/china-market-localization-b2b-agency) for an overseas B2B organization. That project centered on content and experience; this one was about infrastructure and compliance.
+In May 2026 the server was breached and knocked offline; a third party restored the data. The inventory that followed was the scarier part: the panel license had 3 days left (expiring May 24, 2026), the server had no snapshots at all, and the cloud account balance was zero — one bill away from a second outage, with nothing to restore anything from. The setup could not support long-term operation either: no CDN, no media cloud storage, and comparable resources cost about 60% more billed through an overseas account.
 
 ## Solution
 
-The move started with a full inventory of the old environment — machine specs, public entry points, access rules, and backup status — documented and delivered alongside a migration plan and a service comparison, so the client's technical lead could decide against a single source of truth. Everything needed for compliant onboarding was prepared in parallel.
+The client decided to stop patching and hand its China assets to one locally accountable team. The plan went straight from inventory to design: the old box was an 8-core/32GB machine running nearly idle with its disk 90% empty, so the new one was sized at 4-core/16GB — the 60% saving was calculated, not negotiated by cutting specs. Storage was designed the same way: media and backups live in separate buckets, none open to the public; each bucket has its own independent key, so a leak stays contained; and the storage layout mirrors the site's existing media folders, so not one image URL in the articles had to change.
 
-The relocation itself worked like moving a packed container rather than rebuilding piece by piece: both websites' files, databases, and account configurations were bundled and transferred as a whole, checked item by item for completeness, and restored as-is on the new environment in China. The new environment was set up on the same cPanel/WHM hosting panel the client already knew, so day-to-day management habits carried over untouched.
+<img src={require('@site/static/images/cases/waterpark-china-hosting/architecture-before-after-en.png').default} alt="Hosting architecture before and after: an overseas single-box setup versus a fully managed system in China" width="560" loading="lazy" className="rounded-xl shadow-md" />
 
-<img src={require('@site/static/images/cases/waterpark-china-hosting/rack-cables.jpg').default} alt="Servers and network cabling in the hosting environment" width="560" loading="lazy" className="rounded-xl shadow-md" />
+The move itself was a container move, not a rebuild: both sites' files, databases, and account configurations were bundled as one and compared file by file across both ends, with all 2,862 media files verified after sync. The client held the switch rhythm: production and preview ran side by side, the corporate site went through a page-by-page review on its own preview domain, and live traffic moved only after sign-off — with the old server kept on standby, one DNS record away from an instant rollback. Across the DNS switch and both cutovers, visitors never noticed a thing.
 
-The cutover followed a preview-first rhythm: the new environment went live as a preview site, the client walked through every page, and only after sign-off did we switch live visitor traffic over. Production and preview ran side by side throughout, and site visitors never noticed a thing.
+Every gap the May intrusion exposed was closed one by one: dual allowlists at the cloud and server layers, remote management reachable only from fixed networks belonging to the client and us; automatic banning of repeated login failures plus brute-force protection on the admin panel; two-step verification enforced on top-level access; and an ops account that, even if stolen, can run exactly one pre-approved command. Team members who don't live in a terminal got a Windows/macOS desktop app — one click for a one-time link into the admin panel, never touching top-level credentials, and the app's own key can do only that one thing.
 
-The security upgrade addressed each gap the May intrusion exposed. Every server on the public internet is scanned automatically, every day, regardless of traffic — and for a site seeing about 10,000 visits a day, a single successful scan can mean a stalled landing page, wiped content, and no way to trace what happened. Remote server access is no longer open to the whole internet; it answers only to fixed networks belonging to us and the client. Signing into the admin panel now takes multiple layers instead of a single password, so a leaked password alone no longer gets anyone in. And the admin entry point moved to a neutral address with no company traces, off the dictionaries automated scanners work through.
+The filing change required for long-term operation in China was submitted by the client's own entity with our technical materials in support; the production cutover was scheduled after the approval landed.
 
-Daily off-site backups and the remaining post-cutover work are proceeding on schedule, pending client confirmation — this case documents what has been delivered and verified.
+Media moved to the cloud through our in-house WordPress plugin: originals and every generated size sync into cloud storage, page images point to the CDN automatically, and any failure falls back to the site's local files — the site never loses images because of the cloud. HTTPS certificates for the CDN and the buckets renew themselves; the long-self-signed certificates we inherited were traced to [two AutoSSL misconfigurations](/blog/cpanel-autossl-not-issuing).
+
+And the luck-driven cycle of May was replaced with a system: our in-house [Server Sentinel](/docs/server-sentinel) now keeps watch — 42 health and security metrics checked automatically, key ones every 5 minutes; brute-force attempts, suspicious logins, persistence backdoors, and cryptomining processes inspected daily; backups verified every day and validated by a first real restore drill on September 16 — all 76 database tables restored and compared, every one a match. The old server is still on standby, demoted from "life raft" to "last resort".
+
+<!-- 截图位: /images/cases/waterpark-china-hosting/sentinel-report.png | Server Sentinel monitoring/report UI | to be captured and replaced -->
 
 ## Results
 
-| Dimension | Before | After |
+| Dimension | Before handover | After handover |
 | --- | --- | --- |
-| Hosting environment | Overseas account; China compliance gap | China-compliant operation, clear resource ownership |
-| Site trust | Lapsed certificates triggered browser warnings | Valid certificates issued and renewed automatically |
-| Account security | Breached before; single-password protection | Multi-layer access; intrusion-exposed gaps closed |
-| Admin entry | Open to the entire internet | Reachable only from fixed networks of client and ops |
+| Hosting | Single server, overseas account; license expiring, zero snapshots | Hosted in China, clear resource ownership, ~60% lower cost at equal resources |
+| Site trust | Self-signed certificates, browser warnings | Certificates issued and renewed automatically, full CDN coverage |
+| Account security | Breached before; single-password protection | Five access layers, admin entrances off the public internet |
+| Data assets | No snapshots, no off-site backups | Daily off-site backups; restore drill passed, all 76 tables match |
+| Observability | Found out when it broke | 42 metrics auto-checked; monthly patching ~3 minutes, zero incidents |
 
-Stability was the headline metric: across the traffic cutover and the parallel-environment period, neither site went down. All 289 posts moved with the bundle and were verified item by item. The engagement left behind a migration inventory, an English migration plan, seven numbered work logs, and an issues log — documentation the client can hand to any third party for acceptance.
+Efficiency and stability: across the DNS switch and both cutovers, neither site went down; three server-side optimizations (transfer protocol, code caching, compression) brought the homepage from 172 KB down to 33 KB — about 5× smaller. The engagement left behind a migration inventory, bilingual migration plans, seven numbered work logs, and an issues log — all in the client's hands, ready for any third-party review.
 
 ## Why Us
 
-This project ran across three tracks at once — compliance, migration, and security. The China-side work (compliant onboarding, cloud account operations, local coordination) and the US-side collaboration (working with the American team, English deliverables) were closed out by one person, with no handoffs in between. International clients to date: zero negative reviews. China-side problems, solved by someone in China.
+You hand your China environment to one locally accountable team: the monitoring, the cloud-offload plugin, and the login tool are all built in-house — no black boxes. Numbered logs and bilingual monthly reports mean you don't have to take our word for anything; any third party can audit the work.
 
 ---
 
