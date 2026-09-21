@@ -24,7 +24,7 @@ In May 2026 the server was breached and knocked offline; a third party restored 
 
 The client decided to stop patching and hand its China assets to one locally accountable team. The plan went straight from inventory to design: the old box was an 8-core/32GB machine running nearly idle with its disk 90% empty, so the new one was sized at 4-core/16GB — the 60% saving was calculated, not negotiated by cutting specs. Storage was designed the same way: media and backups live in separate buckets, none open to the public; each bucket has its own independent key, so a leak stays contained; and the storage layout mirrors the site's existing media folders, so not one image URL in the articles had to change.
 
-<img src={require('@site/static/images/cases/waterpark-china-hosting/architecture-before-after-en.png').default} alt="Hosting architecture before and after: an overseas single-box setup versus a fully managed system in China" width="560" loading="lazy" className="rounded-xl shadow-md" />
+<img src={require('@site/static/images/cases/waterpark-china-hosting/architecture-before-after-en.webp').default} alt="Hosting architecture before and after: an overseas single-box setup versus a fully managed system in China" width="560" loading="lazy" className="rounded-xl shadow-md" />
 
 The move itself was a container move, not a rebuild: both sites' files, databases, and account configurations were bundled as one and compared file by file across both ends, with all 2,862 media files verified after sync. The client held the switch rhythm: production and preview ran side by side, the corporate site went through a page-by-page review on its own preview domain, and live traffic moved only after sign-off — with the old server kept on standby, one DNS record away from an instant rollback. Across the DNS switch and both cutovers, visitors never noticed a thing.
 
@@ -35,8 +35,6 @@ The filing change required for long-term operation in China was submitted by the
 Media moved to the cloud through our in-house WordPress plugin: originals and every generated size sync into cloud storage, page images point to the CDN automatically, and any failure falls back to the site's local files — the site never loses images because of the cloud. HTTPS certificates for the CDN and the buckets renew themselves; the long-self-signed certificates we inherited were traced to [two AutoSSL misconfigurations](/blog/cpanel-autossl-not-issuing).
 
 And the luck-driven cycle of May was replaced with a system: our in-house [Server Sentinel](/docs/server-sentinel) now keeps watch — 42 health and security metrics checked automatically, key ones every 5 minutes; brute-force attempts, suspicious logins, persistence backdoors, and cryptomining processes inspected daily; backups verified every day and validated by a first real restore drill on September 16 — all 76 database tables restored and compared, every one a match. The old server is still on standby, demoted from "life raft" to "last resort".
-
-<!-- 截图位: /images/cases/waterpark-china-hosting/sentinel-report.png | Server Sentinel monitoring/report UI | to be captured and replaced -->
 
 ## Results
 
