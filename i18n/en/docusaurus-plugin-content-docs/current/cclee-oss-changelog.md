@@ -1,5 +1,6 @@
 ---
 title: "CCLEE OSS Changelog: WordPress Media Offload Release Notes"
+sidebar_label: Changelog
 description: "CCLEE OSS changelog tracks new features and improvements in the WordPress media offload plugin, covering media sync, URL rewrite, and local copy management."
 project: cclee-oss
 schema: Article

@@ -1,5 +1,6 @@
 ---
 title: "CCLEE OSS 更新日志：WordPress 媒体库同步插件的版本发布记录"
+sidebar_label: 更新日志
 description: "CCLEE OSS 更新日志按版本倒序记录新增功能与能力改进，覆盖媒体库同步、URL 重写、本地副本管理与授权行为；授权站点可在后台一键更新到最新版本。"
 project: cclee-oss
 schema: Article
