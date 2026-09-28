@@ -101,6 +101,8 @@ ls -lat ~/.claude/projects/<工作区目录slug>/*.jsonl
 
 日志里看到 `API error (attempt N/11): 500 overloaded_error` 连续出现，就是本文的这个问题；记录错误里的 `错误id`（即 request_id），提交工单时是对方排查的直接凭证。
 
+这类「症状像随机故障、根因在机制层」的 Claude Code 坑不止一处——如果你还遇到 [Hook 把正常命令当危险操作误拦](/blog/claude-code-bash-hook-guard)，判据设计的关键同样是穿过表象看机制。
+
 <InfoBox variant="warning" title="注意事项">
 
 - `API_TIMEOUT_MS` 若设为很大值（如 3000000 = 50 分钟），卡住的请求会长时间转圈而不是报错，排障时容易被误导为"无响应"而非"被拒绝"
