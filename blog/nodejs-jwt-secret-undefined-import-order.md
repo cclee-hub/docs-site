@@ -64,7 +64,7 @@ server.ts 的 import 解析开始
 → 执行 app.listen(...)
 ```
 
-「值整个缺失」只是环境变量静默失败的一种形态，另一种是值存在却被削短：密码里含 `#` 时，dotenv 把 `#` 后内容当行内注释截断，进程拿着半截密码去鉴权，报的同样是 401，排查经历见 [.env 密码含 # 被 dotenv 静默截断](/blog/dotenv-hash-truncates-env-password)。
+「值整个缺失」只是环境变量静默失败的一种形态，另一种是值存在却被削短：密码里含 `#` 时，dotenv 把 `#` 后内容当行内注释截断，进程拿着半截密码去鉴权，报的同样是 401，排查经历见 [.env 密码含 # 被 dotenv 静默截断](/blog/2026/06/14/dotenv-hash-truncation)。
 
 如果你也遇到过 Node.js 中环境变量加载顺序的问题，可以参考 [Node.js dotenv 加载顺序导致环境变量 undefined 的修复](/blog/2026/05/18/nodejs-env-loaded-undefined-dotenv-import-order)。
 
