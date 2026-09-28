@@ -43,6 +43,8 @@ npm audit 摘要行只有「found X vulnerabilities」，不带目录信息；�
 
 前端仓库根装的是 Vite + React + Ant Design Pro 全家桶，包树大；`@ant-design/pro-components → @ant-design/pro-layout` 引用了旧版 `path-to-regexp`，这正是 3 个 high 的来源。后端 `server/` 是 Express + tsx 的精简依赖树，唯一的问题是 `tsx → @esbuild-kit/core-utils → 旧版 esbuild` 这条 moderate 链。
 
+「报错位置与真因错位」在部署排查里不止一例：另一次是 [.env 密码含 # 被 dotenv 静默截断](/blog/dotenv-hash-truncates-env-password)——鉴权 401 把矛头指向凭据，真因却藏在 dotenv 的解析规则里。
+
 ## 解决方案
 
 ### 步骤 1：按 audited N 对目录
