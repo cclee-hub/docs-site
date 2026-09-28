@@ -59,7 +59,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'CCLEE OSS',
-      items: ['cclee-oss', 'cclee-oss-ram-setup'],
+      items: ['cclee-oss', 'cclee-oss-ram-setup', 'cclee-oss-changelog'],
     },
     {
       type: 'category',
