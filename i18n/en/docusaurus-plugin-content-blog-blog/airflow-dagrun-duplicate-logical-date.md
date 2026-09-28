@@ -1,6 +1,6 @@
 ---
 title: "Airflow trigger no dag_run_id? duplicate logical_date 409"
-description: "Re-triggering with the same logical_date gets a 409 from Airflow — the DAG never runs and the response has no dag_run_id. Use a fresh logical_date per trigger and assert dag_run_id in the response."
+description: "Same logical_date twice gets a 409 from Airflow — the DAG never runs, no dag_run_id in the response. Use a fresh logical_date per trigger and always assert dag_run_id."
 date: 2026-09-28
 tags: [Airflow, API, debugging]
 authors: [cclee]
