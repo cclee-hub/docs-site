@@ -15,7 +15,7 @@ faqs:
 
 While writing a Playwright E2E check script for a signed-in app, we opened a page with `waitUntil: 'networkidle'` — and 30 seconds later got a TimeoutError, even though the page opens instantly in a browser. The same day, another check script that filters records by date returned nothing for "today", with no error at all.
 
-I hit this while building [Life](/life), an AI bookkeeping and health assistant — capture expenses by natural language, track mood and medication, end-to-end encrypted. Both pitfalls surfaced in its automated E2E check scripts.
+The app under check: a React + Node.js + Prisma full-stack web app — both pitfalls surfaced in its automated E2E check scripts.
 
 **TL;DR**
 
@@ -125,7 +125,7 @@ The signature of this class of bug: zero errors, reproducible, and it looks like
 
 ## The common thread: zero-error silent failures
 
-Neither pitfall raised an error — one "just timed out", one "just found nothing", and both got blamed on the environment first. The general-purpose move for this class of failure is to give the emptiness a witness: a 401 probe, a printed comparison key — make the fault show its hand at the scene instead of guessing.
+Neither pitfall raised an error — one "just timed out", one "just found nothing", and both got blamed on the environment first. Both fixes are now permanent parts of the automated checks at [Life](/life), an AI bookkeeping and health assistant — capture expenses by natural language, track mood and medication, end-to-end encrypted. This class of silent failure had shown up before: [Zod .strict() silently dropping entire LLM outputs](/blog/zod-strict-llm-output-silent-drop), and [a WeChat mini-program image check failing silently](/blog/wx-promise-wrapper-object-object) — a Promise wrapper `String()`-ing the whole result object into `[object Object]`, again zero errors, just an empty result. The general-purpose move for this class of failure is to give the emptiness a witness: a 401 probe, a printed comparison key — make the fault show its hand at the scene instead of guessing.
 
 ## Frequently asked questions
 
