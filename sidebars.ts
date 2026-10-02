@@ -79,7 +79,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'CCLee 服务器哨兵',
-      items: ['server-sentinel'],
+      items: ['server-sentinel', 'server-sentinel-updates'],
     },
     {
       type: 'category',
