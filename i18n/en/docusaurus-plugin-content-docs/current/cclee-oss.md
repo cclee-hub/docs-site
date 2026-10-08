@@ -1,6 +1,6 @@
 ---
 title: "CCLEE OSS Guide: Sync WordPress Media to Alibaba Cloud OSS"
-description: "Upload WordPress media to Alibaba Cloud OSS with CCLEE OSS: URLs rewritten to OSS/CDN, all sizes covered, silent fallback to local, license and RAM setup."
+description: "Offload WordPress media to Alibaba Cloud OSS: URLs rewritten to your CDN, pure-cloud mode frees server disk, stored-URL replacement with rollback."
 project: cclee-oss
 sidebar_label: User Guide
 schema: HowTo
@@ -46,8 +46,13 @@ The plugin is commercially licensed: your license token is bound to your site do
 | Feature | What it does |
 |---------|--------------|
 | Upload-and-sync | Media uploaded in wp-admin (images, PDFs, videos, all types) is pushed to OSS automatically — no manual migration |
+| Backfill existing media | One-click batch push for media that predates activation — with progress, pause/resume, and failed items listed for a clean retry |
 | All sizes covered | Originals plus every generated thumbnail; sizes rebuilt by regenerate-thumbnails are covered too |
+| Large-file support | Files over 10 MB (videos, archives) upload in parts automatically — reliable even on modest servers |
 | Automatic URL rewrite | Original, srcset, and sized-image URLs point to your CDN domain (or the bucket's public domain if none is set); attachment download links are rewritten too |
+| Stored-URL replacement (optional) | Batch-convert media URLs already saved in the database to your OSS/CDN domain — backed up first, with one-click rollback |
+| Local copy management | Pure-cloud mode removes local copies once sync is confirmed, and existing media can be offloaded in bulk; files are fetched on demand when an operation needs them |
+| One-click migration back | Pull everything from OSS back onto the server when leaving the plugin or moving sites |
 | Delete sync (optional) | Optionally delete the OSS objects when a media attachment is deleted |
 | Silent fallback | Any OSS failure falls back to local storage without breaking native WordPress behavior |
 | Licensed updates | Update packages come from the CCLEE update server with sha256 verification — valid licenses only |
@@ -132,12 +137,30 @@ License status travels with the plugin's update check (about every 12 hours). A 
 
 | Toggle | Default | What it does |
 |--------|---------|--------------|
-| Keep Local Copy | On | Keep local copies after sync. The current version always keeps local files (as a safety net); the toggle is reserved for a future release |
+| Keep Local Copy | On | Keep local copies after sync. Switching off requires backfill and stored-URL replacement first; once off, new uploads are removed locally as soon as their sync is confirmed |
 | Sync Delete to OSS | Off | When an attachment is deleted, also delete the OSS objects (original + all thumbnails) |
 
 <InfoBox variant="info" title="Local files are the safety net">
 If upload, delete, or URL rewriting fails at any point, the plugin silently falls back to native WordPress behavior (files stay local) — an OSS outage never takes your site down.
 </InfoBox>
+
+## Pure-Cloud Mode: Media Lives Only in OSS
+
+Short on disk space? Stop keeping media copies on your server altogether. Three steps, in order — the plugin's safety guards keep the sequence from being broken:
+
+1. **Backfill existing media**: click "Backfill" on the settings page to push everything that existed before activation (with progress, pause/resume)
+2. **Run the stored-URL replacement**: batch-convert the media links saved in your database to your bucket/CDN domain — everything is backed up first, and deletion tasks stay locked until the replacement is verified
+3. **Remove the local copies**: switch "Keep Local Copy" off — from then on, new uploads are removed locally as soon as their sync is confirmed; use the "Offload existing media" task to clear existing media in bulk (edit history stays on the server)
+
+Two guards run through the whole flow: before removing anything, the plugin checks every cloud copy and re-pushes any that don't match; and as long as any database link hasn't been replaced and verified, every deletion task refuses to start — images won't break no matter what order you do things in.
+
+### Operations that need a local file keep working
+
+Regenerating thumbnails, cropping or rotating in the image editor, PDF thumbnails — anything that needs the actual file automatically fetches it from the bucket for the duration of the operation and cleans up afterwards. Nothing to do by hand.
+
+### Want to move back to local storage?
+
+The "Restore media from OSS" task pulls every bucket file back onto your server (safe to run repeatedly); if you have run the URL replacement, the "URL rollback" task restores your database links to local URLs. After those two steps you can deactivate the plugin — this is also the way out when moving sites or switching buckets.
 
 ## FAQ
 
@@ -148,6 +171,10 @@ Two parts: the plugin license is purchased from CCLEE, while storage and traffic
 ### Do non-image files (PDFs, videos, attachments) get synced too?
 
 Yes. Every file uploaded through the media library is synced to OSS, and attachment download links are rewritten to OSS/CDN automatically. Thumbnail sub-sizes and srcset coverage are an extra layer that applies to images only.
+
+### Will large files (videos) sync without problems?
+
+Yes. Files over 10 MB are automatically uploaded in parts, so even a modestly configured server pushes big media through reliably; anything that fails to push shows up in the failures list on the settings page — just work through the list and re-push.
 
 ### Are thumbnails (sub-sizes) uploaded to OSS too?
 
@@ -167,7 +194,19 @@ Tokens are bound to the site domain. After a domain change the old token will fa
 
 ### Can I delete local copies and keep only OSS?
 
-The current version always keeps local copies (that is the stability safety net). The "Keep Local Copy" toggle is already in place, and local-copy deletion is planned for a future release.
+Yes. After completing "Backfill existing media" and the stored-URL replacement on the settings page, switch "Keep Local Copy" off to enter pure-cloud mode: new uploads are removed locally once their sync is confirmed, and existing media is cleared in bulk with the "Offload existing media" task. Before removing anything the plugin verifies every cloud copy, and deletion tasks refuse to start while database links are still unfinished; to come back, the "Restore media from OSS" task migrates everything to local again.
+
+### Is stored-URL replacement required?
+
+No — it's optional. In the default mode the database always stores local links and the frontend rewrites them on the fly, so everything works without replacement. It only becomes a prerequisite when you enter pure-cloud mode (removing local copies): stored links then correspond directly to the cloud files, and legacy links the on-the-fly rewrite can't reach (old http:// links, links inside page-builder data) get converted too. Everything is backed up before replacement, with one-click rollback anytime.
+
+### Do I need to change the database when switching bucket or CDN domain?
+
+In the default mode, **no**: the database always stores local links, the frontend rewrites them to your OSS/CDN domain on the fly, and switching domains is a single setting change. If you have run the stored-URL replacement, run "URL rollback" first to restore local links, switch the domain, and re-run the replacement if needed.
+
+### How do I move everything back to local storage and stop using the plugin?
+
+Two steps: run "Restore media from OSS" to pull every bucket file back onto the server, then — if you have run the URL replacement — run "URL rollback" to restore local links in the database. After that you can deactivate the plugin with your data fully intact.
 
 ### Should the endpoint be public or internal?
 

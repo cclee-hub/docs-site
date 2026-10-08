@@ -1,21 +1,41 @@
 ---
 title: "CCLEE OSS Changelog: WordPress Media Offload Release Notes"
 sidebar_label: Changelog
-description: "CCLEE OSS changelog tracks new features and improvements in the WordPress media offload plugin, covering media sync, URL rewrite, and local copy management."
+description: "CCLEE OSS changelog, newest first: media sync, URL rewrite, local copy management, stored-URL replacement with rollback, and licensing."
 project: cclee-oss
 schema: Article
-date: 2026-09-28
+date: 2026-10-08
 rag: true
 rag_tags: ["WordPress", "Alibaba Cloud OSS", "Object Storage", "Media Library", "CDN"]
 ---
 
-CCLEE OSS keeps evolving. This page lists the new features and improvements in every version, newest first. The latest release is **0.3.0**.
+CCLEE OSS keeps evolving. This page lists the new features and improvements in every version, newest first. The latest release is **0.4.4**.
 
 ## How to Update to the Latest Version
 
 Licensed sites receive the update notice automatically on the WordPress "Plugins" page — just click "Update". Update packages are distributed by the CCLEE update server and only reach sites with an active license. Your current version number is shown on the CCLEE OSS entry in the "Plugins" list. For first-time installation and setup, see the [CCLEE OSS guide](/docs/cclee-oss).
 
-## 0.3.0: Local Copy Management and One-Click Migration Back (2026-09-29, current version)
+## 0.4.2: Large Files Upload Reliably, Failed Pushes in Plain Sight (2026-10-08)
+
+### New
+
+- **Videos and other large files upload without a hitch**: files over 10 MB are automatically uploaded in parts, so even a modestly sized server pushes big media through reliably
+- **See at a glance what didn't make it**: files that failed to push are collected in a failures list on the settings page (also available via `wp cclee-oss push-failures`) — no more guessing which file didn't reach the cloud; just work through the list
+- **Local copies are verified before removal**: the offload task checks every cloud copy before deleting local files and re-pushes any that don't match — delete freely knowing a complete copy always remains in OSS
+
+## 0.4.0: Switch Every Stored Media URL to Your Cloud Domain — Reversible Anytime (2026-10-08)
+
+### New
+
+- **Replace every stored media link with your OSS/CDN domain in one click**: links inside posts, pages, term descriptions, comments, and site settings — including data saved by page builders — all switch over in a single run. It's the finishing step for sites that want media fully in the cloud with nothing left on the server
+- **Roll back anytime**: every changed link is backed up before replacement; one click on Rollback restores the originals, and content you edited after the replacement is left untouched
+- **Old-domain links are verified first — skip rather than mis-replace**: legacy links pointing to a previous domain are checked against the media library and the cloud copies before replacement; anything that can't be verified is skipped and listed for your review, and those attachments keep their local copies
+- **Local files are never deleted while links are unfinished**: as long as any stored link hasn't been replaced and verified, every local-copy deletion task refuses to start — images won't break no matter what order you do things in
+- **Live progress you can pause**: the settings page gains replacement and rollback task cards with progress and verification status at a glance; entries needing your review are listed one by one — confirm each and watch the list shrink
+- **The same jobs from the command line**: `wp cclee-oss url-report` runs the health check first (a full census of stored links, each checked against the cloud), and replace, rollback, and backup each have a matching command — bulk operations without clicking through wp-admin
+- **Sites that changed domains get a clean sweep too**: the new "Extra Source Hosts" setting takes one legacy domain per line and folds them into the same replacement run
+
+## 0.3.0: Local Copy Management and One-Click Migration Back (2026-09-29)
 
 ### New
 
