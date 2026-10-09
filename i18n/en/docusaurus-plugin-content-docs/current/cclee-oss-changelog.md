@@ -1,19 +1,27 @@
 ---
 title: "CCLEE OSS Changelog: WordPress Media Offload Release Notes"
 sidebar_label: Changelog
-description: "CCLEE OSS changelog, newest first: media sync, URL rewrite, local copy management, stored-URL replacement with rollback, and licensing."
+description: "CCLEE OSS changelog, newest first: media sync, image and video URL rewriting, local copy management, one-click URL replacement with rollback, and licensing."
 project: cclee-oss
 schema: Article
-date: 2026-10-08
+date: 2026-10-09
 rag: true
 rag_tags: ["WordPress", "Alibaba Cloud OSS", "Object Storage", "Media Library", "CDN"]
 ---
 
-CCLEE OSS keeps evolving. This page lists the new features and improvements in every version, newest first. The latest release is **0.4.4**.
+CCLEE OSS keeps evolving. This page lists the new features and improvements in every version, newest first. The latest release is **0.4.10**.
 
 ## How to Update to the Latest Version
 
 Licensed sites receive the update notice automatically on the WordPress "Plugins" page — just click "Update". Update packages are distributed by the CCLEE update server and only reach sites with an active license. Your current version number is shown on the CCLEE OSS entry in the "Plugins" list. For first-time installation and setup, see the [CCLEE OSS guide](/docs/cclee-oss).
+
+## 0.4.5: Video Blocks Join the Cloud, Replacement Scope Extends as Needed (2026-10-09)
+
+### New
+
+- **Video blocks get rewritten too**: video blocks in posts, templates, and block widgets now have their video files, poster images, and caption tracks rewritten to your OSS/CDN domain, with the same rewrite behavior as images — the database still stores local links, so changing domains later requires no migration
+- **Custom tables can join the one-click replacement**: if another plugin stores media links in its own database tables, a single-line declaration through the `cclee_oss_url_replace_tables` hook folds those tables into one-click replacement and rollback; if the declaration changes while a task is running, the task pauses — correct the declaration to resume, or restart under the current scope
+- **A clear way out for the few entries that can't be handled automatically**: the replacement task card now explains that entries which can't be processed on their own can be excluded individually through a hook and the task rerun — no need to shelve an entire replacement over a few entries
 
 ## 0.4.2: Large Files Upload Reliably, Failed Pushes in Plain Sight (2026-10-08)
 
