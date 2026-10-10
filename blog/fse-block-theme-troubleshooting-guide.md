@@ -1,6 +1,6 @@
 ---
-title: 修改 WordPress Block Theme 不生效？FSE 开发 5 大难题排查指南
-description: WordPress FSE 主题修改 theme.json 或模板不生效、块注释未关闭导致嵌套错乱、子主题内容不渲染、SVG 图标消失、WP-CLI 邮件失败，5 个高频难题的根因与解决方案。
+title: 修改 WordPress Block Theme 不生效？FSE 开发 6 大难题排查指南
+description: WordPress FSE 主题六大高频难题：文件改了不生效、块嵌套错乱、子主题内容不渲染、SVG 消失、CLI 邮件失败、画廊图片不加载，附根因与排查命令。
 date: 2026-04-17
 tags: [WordPress, FSE, Block Theme, Docker, Bug修复]
 authors: [cclee]
@@ -14,11 +14,11 @@ faqs:
     a: "子主题模板必须包含 <!-- wp:post-content /--> 块，否则 WordPress 无法渲染页面编辑器中的内容。"
 ---
 
-在为客户开发 WordPress Block Theme 时反复遇到这五个问题，每次排查都花了不少时间。整理成指南，帮助同样在做 FSE 开发的同学快速定位。
+在为客户开发 WordPress Block Theme 时反复遇到这六个问题，每次排查都花了不少时间。整理成指南，帮助同样在做 FSE 开发的同学快速定位。
 
 ## TL;DR
 
-五个问题按频率排序：**文件修改不生效**（数据库缓存覆盖文件）、**块嵌套错乱**（注释未关闭）、**子主题内容不渲染**（缺少 post-content 块）、**SVG 图标消失**（WP_Filesystem 被插件污染）、**WP-CLI 邮件失败**（SMTP 插件在命令行不生效）。每个场景都给出可直接复用的排查命令。
+六个问题按频率排序：**文件修改不生效**（数据库缓存覆盖文件）、**块嵌套错乱**（注释未关闭）、**子主题内容不渲染**（缺少 post-content 块）、**SVG 图标消失**（WP_Filesystem 被插件污染）、**WP-CLI 邮件失败**（SMTP 插件在命令行不生效）、**画廊图片不加载**（lazy loading 与滑块冲突）。每个场景都给出可直接复用的排查命令。
 
 
 <!-- truncate -->
@@ -259,6 +259,36 @@ docker exec wp_cli wp eval-file /tmp/test-smtp.php --allow-root
 生产环境中，邮件发送验证应通过 Web 请求测试。WP-CLI 适合定时任务和批量操作，但不适合验证依赖完整 WordPress Hook 链的功能（如邮件、缓存预热等）。
 
 </InfoBox>
+
+## 场景六：商品画廊后面的图片不加载
+
+### 问题现象
+
+商品画廊前几张正常，往后翻到某一张开始主图持续空白。DevTools 里 `<img>` 有 src、挂着 `loading="lazy"`，Network 面板却没有对应请求——不是加载失败，是浏览器压根没发起下载。
+
+### 根因
+
+WordPress 5.5 起自动给内容图片注入 `loading="lazy"`，而 WooCommerce 商品画廊用的 FlexSlider 把非当前帧用 CSS transform 移出视口，浏览器懒加载依赖的 IntersectionObserver 永不触发。排位靠后的画廊图片一个请求都不会发出。
+
+### 解决方案
+
+用 `wp_get_attachment_image_attributes` 过滤器对 `woocommerce_single` 尺寸移除 `loading` 属性，让画廊图片回到默认立即加载：
+
+```php
+add_filter(
+	'wp_get_attachment_image_attributes',
+	function ( $attr, $attachment, $size ) {
+		if ( 'woocommerce_single' === $size ) {
+			unset( $attr['loading'] );
+		}
+		return $attr;
+	},
+	10,
+	3
+);
+```
+
+完整的机制分析与注意事项见专题文：[WooCommerce 画廊图片不加载？lazy loading 与 FlexSlider 冲突](/blog/woocommerce-gallery-lazy-loading-flexslider)。
 
 ---
 

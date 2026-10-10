@@ -1,6 +1,6 @@
 ---
-title: "WordPress Block Theme Changes Not Taking Effect? FSE Development Troubleshooting Guide"
-description: Five common WordPress FSE theme development issues—file changes not applying, block nesting errors, missing post-content, SVG icons disappearing, and WP-CLI mail failures—with root causes and copy-paste solutions.
+title: "WordPress Block Theme Changes Not Taking Effect? FSE Guide"
+description: "Six WordPress FSE pitfalls: changes not applying, nesting errors, missing post-content, vanishing SVGs, CLI mail failures, gallery images not loading."
 date: 2026-04-17
 tags: [WordPress, FSE, Block Theme, Docker, Bug Fix]
 authors: [cclee]
@@ -14,11 +14,11 @@ faqs:
     a: "Your child theme template must include <!-- wp:post-content /-->, otherwise WordPress cannot render content from the page editor."
 ---
 
-Encountered these five issues repeatedly while developing WordPress Block Themes for clients. Each one took significant debugging time. This guide covers the root causes and provides ready-to-use solutions.
+Encountered these six issues repeatedly while developing WordPress Block Themes for clients. Each one took significant debugging time. This guide covers the root causes and provides ready-to-use solutions.
 
 ## TL;DR
 
-Five issues ranked by frequency: **file changes not applying** (database cache overrides files), **block nesting errors** (unclosed comments), **child theme content not rendering** (missing post-content block), **SVG icons disappearing** (WP_Filesystem polluted by plugins), and **WP-CLI mail failures** (SMTP plugins don't hook in CLI). Each scenario includes copy-paste diagnostic commands.
+Six issues ranked by frequency: **file changes not applying** (database cache overrides files), **block nesting errors** (unclosed comments), **child theme content not rendering** (missing post-content block), **SVG icons disappearing** (WP_Filesystem polluted by plugins), **WP-CLI mail failures** (SMTP plugins don't hook in CLI), and **gallery images not loading** (lazy loading conflicts with the slider). Each scenario includes copy-paste diagnostic commands.
 
 
 <!-- truncate -->
@@ -259,6 +259,36 @@ docker exec wp_cli wp eval-file /tmp/test-smtp.php --allow-root
 In production, always test email sending through web requests. WP-CLI is great for cron jobs and batch operations, but not for verifying features that depend on the full WordPress hook chain (email, cache warming, etc.).
 
 </InfoBox>
+
+## Scenario 6: Gallery Images Past the First Few Never Load
+
+### Symptom
+
+The first few product gallery images render fine; from a certain slide onward the main image stays blank. DevTools shows the `<img>` with a src and `loading="lazy"`, yet the Network panel has no matching request — the browser never started the download.
+
+### Root Cause
+
+WordPress 5.5+ automatically injects `loading="lazy"` into content images, while WooCommerce's FlexSlider gallery moves non-active slides off-screen with CSS transforms — the IntersectionObserver behind native lazy loading never fires. Later slides send no request at all.
+
+### Fix
+
+Remove the `loading` attribute for the `woocommerce_single` size with a `wp_get_attachment_image_attributes` filter, returning gallery images to default eager loading:
+
+```php
+add_filter(
+	'wp_get_attachment_image_attributes',
+	function ( $attr, $attachment, $size ) {
+		if ( 'woocommerce_single' === $size ) {
+			unset( $attr['loading'] );
+		}
+		return $attr;
+	},
+	10,
+	3
+);
+```
+
+For the full mechanism analysis and cautions, see the dedicated post: [WooCommerce Gallery Images Not Loading? FlexSlider Conflict](/blog/woocommerce-gallery-lazy-loading-flexslider).
 
 ---
 

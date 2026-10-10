@@ -152,5 +152,7 @@ add_filter( 'post_thumbnail_html', function ( $html, $post_id ) {
 - `object-fit: cover` ensures the placeholder matches the cropping behavior of regular featured images
 - Only applies to `product` post type, does not affect blog posts or other post types
 
+One more trap hides at the template layer: a theme template manually assigned to the Cart/Checkout page can be fully displaced by WooCommerce's plugin template — the body class reports the assignment while the render shows the plugin's structure. See [WooCommerce Checkout Template Not Applied? Plugin Override](/blog/woocommerce-checkout-template-overridden-by-plugin).
+
 ---
 **Interested in similar solutions? [Get in touch](/about)**

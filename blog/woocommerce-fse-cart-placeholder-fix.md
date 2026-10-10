@@ -152,5 +152,7 @@ add_filter( 'post_thumbnail_html', function ( $html, $post_id ) {
 - `object-fit: cover` 确保占位图和正常特色图片的裁剪行为一致
 - 只针对 `product` 类型生效，不影响博客文章等其他 post type
 
+Cart/Checkout 模板还有一处更容易隐身的坑：手动给页面分配的主题模板可能被 WooCommerce 的插件模板整个顶掉——body class 显示分配已生效，渲染出来的却是插件结构。排查与处理见 [WooCommerce Checkout 模板不生效？模板优先级被插件覆盖](/blog/woocommerce-checkout-template-overridden-by-plugin)。
+
 ---
 **对类似需求感兴趣？[联系合作](/about)**
