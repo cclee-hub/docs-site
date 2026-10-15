@@ -158,12 +158,12 @@ cat ~/.claude/settings.json | grep -A2 '"env"'
 ```bash
 python3 -c "
 import json
-with open('/home/aptop/.claude/settings.json') as f:
+with open('/Users/cc/.claude/settings.json') as f:
     d = json.load(f)
 d['env'].pop('ANTHROPIC_API_KEY', None)
 d['env'].pop('HTTPS_PROXY', None)
 d['env'].pop('HTTP_PROXY', None)
-with open('/home/aptop/.claude/settings.json', 'w') as f:
+with open('/Users/cc/.claude/settings.json', 'w') as f:
     json.dump(d, f, indent=2)
 "
 ```
