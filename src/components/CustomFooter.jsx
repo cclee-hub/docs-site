@@ -7,8 +7,39 @@ import { Zap, Shield, Rocket, Github, MessageCircle } from 'lucide-react'
 
 export default function CustomFooter() {
   const currentYear = new Date().getFullYear()
-  const { i18n } = useDocusaurusContext()
+  const { i18n, siteConfig } = useDocusaurusContext()
   const isEn = i18n.currentLocale === 'en'
+  // 备案审核模式（BEIAN_ONLY=1）：footer 只渲染两个备案号
+  const beianOnly = siteConfig.customFields?.beianOnly
+
+  if (beianOnly) {
+    return (
+      <footer className="bg-gray-900 dark:bg-gray-950 text-gray-400">
+        <div className="max-w-[1200px] mx-auto px-5 py-10">
+          <div className="flex flex-wrap items-center justify-center gap-3 text-xs text-gray-500">
+            <a
+              href="https://beian.miit.gov.cn/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors duration-200"
+            >
+              粤ICP备2026015835号
+            </a>
+            <span className="text-gray-700 dark:text-gray-500">•</span>
+            <a
+              href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44200102445864"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors duration-200 flex items-center gap-1.5"
+            >
+              <img src="/images/beian.png" alt="公安备案" className="w-4 h-4" />
+              粤公网安备44200102445864号
+            </a>
+          </div>
+        </div>
+      </footer>
+    )
+  }
 
   const features = isEn
     ? [

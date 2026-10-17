@@ -14,6 +14,8 @@ const gaConnectCsp = gaId
   ? ' https://*.google-analytics.com https://*.analytics.google.com'
   : '';
 const gaImgCsp = gaConnectCsp;
+// 备案审核模式：BEIAN_ONLY=1 → 隐藏导航、首页跳 /blog、footer 只留备案号（中文站临时遮挡用）
+const beianOnly = process.env.BEIAN_ONLY === '1';
 
 const config: Config = {
   title: 'CCLEE',
@@ -45,6 +47,8 @@ const config: Config = {
 
   organizationName: 'CCLHUB',
   projectName: 'docs-site',
+
+  customFields: { beianOnly },
 
   onBrokenLinks: 'throw',
   onBrokenAnchors: 'warn',

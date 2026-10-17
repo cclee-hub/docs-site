@@ -2,11 +2,26 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import Translate from '@docusaurus/Translate';
 import Link from '@docusaurus/Link';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { translate } from '@docusaurus/Translate';
 import { ArrowRightIcon, ZapIcon, GlobeIcon, BuildingIcon } from '@site/src/components/Icons';
 import { HeroBackground } from '@site/src/components/HeroSection';
 
 export default function Home(): React.ReactElement {
+  const { siteConfig } = useDocusaurusContext();
+  // 备案审核模式（BEIAN_ONLY=1）：首页 meta refresh 跳转博客（无 JS 也可生效）
+  if ((siteConfig.customFields as { beianOnly?: boolean } | undefined)?.beianOnly) {
+    return (
+      <Layout title="博客" description="技术博客">
+        {/* meta refresh 在 body 内同样生效，审核端禁 JS 也能跳转 */}
+        <meta httpEquiv="refresh" content="0; url=/blog/" />
+        <main style={{ padding: '4rem 1rem', textAlign: 'center' }}>
+          <a href="/blog/">前往博客 →</a>
+        </main>
+      </Layout>
+    );
+  }
+
   const title = translate({ id: 'homepage.title', message: 'CCLHUB - AI工具开发与本地化服务' });
   const description = translate({ id: 'homepage.description', message: 'AI工具开发、中国出海、外企入华服务' });
 
