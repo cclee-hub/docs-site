@@ -2,7 +2,7 @@
 title: Vite 路径别名配置：改了两处才生效
 description: Vite + TypeScript 项目配置 @ 路径别名，只配 vite.config.ts 或 tsconfig.json 都不生效，必须双重配置。
 date: 2026-03-15
-tags: [Vite, TypeScript, 前端工程化, aigent, frontend]
+tags: [Vite, TypeScript, 前端工程化, frontend]
 authors: [cclee]
 schema: Article
 ---

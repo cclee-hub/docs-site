@@ -2,7 +2,7 @@
 title: Complete Guide to Google Analytics 4 in React SPA
 description: "Properly integrate GA4 in React SPA: disable auto page_view, manually track route changes with useLocation, and set User-ID for cross-device tracking."
 date: 2026-03-16
-tags: [React, GA4, TypeScript, aigent]
+tags: [React, GA4, TypeScript]
 ---
 
 ## TL;DR

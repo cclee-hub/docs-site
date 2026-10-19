@@ -2,7 +2,7 @@
 title: 解决 Pydantic v2 ORM mode 报错 model_config 被覆盖
 description: 迁移到 Pydantic v2 时，class Config 报错、model_config 字段冲突的完整解决方案。
 date: 2026-03-15
-tags: [Python, Pydantic, FastAPI, aigent, 迁移]
+tags: [Python, Pydantic, FastAPI, 迁移]
 authors: [cclee]
 schema: Article
 ---

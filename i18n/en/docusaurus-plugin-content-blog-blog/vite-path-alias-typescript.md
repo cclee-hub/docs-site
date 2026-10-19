@@ -2,7 +2,7 @@
 title: Vite Path Alias Configuration - Why You Need Two Configs
 description: Vite + TypeScript path alias (@) requires configuration in both vite.config.ts and tsconfig.json. One won't work without the other.
 date: 2026-03-15
-tags: [Vite, TypeScript, Frontend, aigent]
+tags: [Vite, TypeScript, Frontend]
 schema: Article
 ---
 

@@ -2,7 +2,7 @@
 title: React SPA 集成 Google Analytics 4 完整指南
 description: 在 React 单页应用中正确集成 GA4，包括禁用自动 page_view、手动追踪路由变化、设置 User-ID 实现跨设备用户追踪。
 date: 2026-03-16
-tags: [React, GA4, TypeScript, aigent, analytics]
+tags: [React, GA4, TypeScript, analytics]
 authors: [cclee]
 ---
 

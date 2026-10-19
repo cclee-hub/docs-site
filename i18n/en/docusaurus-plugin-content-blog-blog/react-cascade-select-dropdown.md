@@ -2,7 +2,7 @@
 title: Implementing Cascade Select Dropdowns in React
 description: Fix the issue where child select shows blank or incorrect value when parent selection changes, using Radix UI Select for cascading dropdowns.
 date: 2026-03-14
-tags: [React, TypeScript, aigent, UI Component]
+tags: [React, TypeScript, UI Component]
 schema: Article
 ---
 

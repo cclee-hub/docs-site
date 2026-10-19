@@ -2,7 +2,7 @@
 title: Fix Pydantic v2 ORM Mode model_config Override Error
 description: Complete solution for class Config deprecation and model_config field conflicts when migrating to Pydantic v2.
 date: 2026-03-15
-tags: [Python, Pydantic, FastAPI, aigent, Migration]
+tags: [Python, Pydantic, FastAPI, Migration]
 schema: Article
 ---
 

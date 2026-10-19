@@ -2,7 +2,7 @@
 title: 实现 React 级联选择下拉框
 description: 解决切换父级选项后子级下拉框显示为空或值错误的问题，使用 Radix UI Select 实现级联联动。
 date: 2026-03-14
-tags: [React, TypeScript, aigent, UI组件, ui-component]
+tags: [React, TypeScript, UI组件, ui-component]
 authors: [cclee]
 schema: Article
 ---
