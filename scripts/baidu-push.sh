@@ -8,7 +8,7 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PUSH_URL_FILE="$SCRIPT_DIR/../../credentials/baidu-push-url.txt"
+PUSH_URL_FILE="$SCRIPT_DIR/../.claude/baidu-push-url.txt"
 PUSH_URL="$(head -1 "$PUSH_URL_FILE" | tr -d '[:space:]')"
 [ -n "$PUSH_URL" ] || { echo "::ERROR:: $PUSH_URL_FILE 为空或不存在"; exit 1; }
 
