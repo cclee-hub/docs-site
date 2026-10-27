@@ -69,3 +69,6 @@ CONTEXT.md
 # 临时素材 (不提交)
 临时素材/
 osc-changelog.yaml
+
+# 本地截图（文档配图工作件，不入库）
+docs/screenshots/
