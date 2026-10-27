@@ -4,7 +4,7 @@
 #   baidu-push.sh <url> [<url>...]     推送指定 URL
 #   cat urls.txt | baidu-push.sh       从 stdin 批量推送（每行一条）
 # 响应: {"remain":N,"success":M} — remain 为今日剩余配额（新站配额有限，只推新文章）
-# 接口地址（含 token）存于 cclee 根 credentials/ 目录，不进 git
+# 接口地址（含 token）存于 {SECRETS}/shared/docs-site/baidu-push-url.env，不进 git
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
