@@ -17,11 +17,11 @@ faqs:
 
 In a Node.js + TypeScript backend calling DeepSeek through an OpenAI-compatible endpoint for structured extraction, input costs stayed high — a single request carried 40.8k input tokens with only 28% cache hits, while cached tokens are billed at roughly 1/50 of the miss price. More than 70% of our input was paying full price.
 
-The conventional way to build such a service is to stuff system instructions, recalled reference content, and user context into the system segment. That is exactly where the problem lives.
+The conventional way to build such a service is to stuff system instructions, recalled reference content, and user context into the system segment. That is exactly where the problem lives — and the problem is not DeepSeek-specific: prefix caching is standard across LLM APIs, same mechanism with vendor-specific parameters. This piece is measured on DeepSeek; a cross-provider translation table closes the article.
 
 ## TL;DR
 
-- Measured with real requests, the render order is **system → tools → messages**, and cache matching walks that order as a sequential prefix. A single per-request-changing byte in the system segment invalidates the roughly 23.7k tokens of tool definitions behind it.
+- Measured with real requests, the render order is **system → tools → messages**, and cache matching walks that order as a sequential prefix. A single per-request-changing byte in the system segment invalidates the roughly 23.7k tokens of tool definitions behind it. The law is provider-independent — changing content goes last; only the render order differs (translation table at the end).
 - Moving dynamic content into messages and putting static content first recovers the hit rate. But prompt layout is also a **behavior surface**: our purely "cache-motivated" reorder pushed output regression dirty cases from 0 to 2.25 per round; a directed A/B confirmed causality and we rolled everything back.
 - Bottom line: segment order and instruction placement are not pure performance knobs. Freeze a behavioral baseline before you touch them.
 
@@ -99,6 +99,22 @@ This "every prompt-surface change must pass the behavioral gates first" process 
 </InfoBox>
 
 LLM output is uncontrollable at the best of times; our notes on [silent Function Calling failures](/blog/llm-tool-calling-silent-failures) cover the same family of problems — enum drift and prompt bloat that never crash, just quietly degrade.
+
+## Boundary: does this hold beyond DeepSeek?
+
+The mechanism and the discipline transfer; the parameter table does not — "per-request-changing content goes last" is the only rule that survives untouched.
+
+| | DeepSeek (measured here) | OpenAI | Anthropic | Gemini |
+|---|---|---|---|---|
+| Activation | automatic | automatic, ≥1024 tokens | explicit `cache_control` breakpoints, ≤4 | automatic (2.5 series+), ≥2048 tokens |
+| Usage field | `prompt_cache_hit_tokens` | `prompt_tokens_details.cached_tokens` | `cache_read_input_tokens` | `usage.total_cached_tokens` |
+| Hit discount | ≈1/50 (measured) | up to 90%, ≈1/10 | 1/10 | automatic savings on hits |
+
+Three spots where blind copying bites:
+
+- **Render order is per-provider.** The system→tools→messages order here is only measured on DeepSeek: Anthropic's docs state the cached prefix is assembled tools → system → messages, and OpenAI's structured outputs schema also renders ahead of the system message. Whichever segment renders first is the one that must stay byte-static — per-request content in the leading segment breaks everything behind it on every provider, but which segment leads differs.
+- **Activation gates and breakpoints.** DeepSeek, OpenAI, and Gemini cache automatically; Anthropic requires manual breakpoints, with dynamic content placed after the last one — without a breakpoint there is nothing to hit.
+- **Caching doesn't change output; reordering does.** OpenAI's and Anthropic's docs both state that output stays identical on a cache hit. No conflict with this article: what changes behavior is the reorder made to earn hits — the token sequence itself moves, and the model follows. Charge the bill to the reorder, not the cache.
 
 ## FAQ
 

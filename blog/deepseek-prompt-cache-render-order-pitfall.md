@@ -17,11 +17,11 @@ faqs:
 
 在一个 Node.js + TypeScript 的后端服务里，通过 OpenAI 兼容端点调用 DeepSeek 做结构化抽取时，输入成本居高不下——单次请求输入 40.8k token，缓存命中只有 28%，而命中部分的计价约为未命中的 1/50。也就是说，七成以上的输入在按全价付费。
 
-这类服务的常规写法，是把系统指令、召回的参考内容、用户上下文统统拼进 system 段。问题就出在这里。
+这类服务的常规写法，是把系统指令、召回的参考内容、用户上下文统统拼进 system 段。问题就出在这里——而且问题不专属 DeepSeek：前缀缓存是各家大模型 API 的标配，机制相同、参数各异；本文实测在 DeepSeek，文末给出换厂商的换算表。
 
 ## TL;DR
 
-- 用真实请求实测，DeepSeek 的渲染顺序是 **system → tools → messages**，缓存按这个顺序做前缀逐序匹配。system 段里任何一个每请求变化的字节，都会让排在它后面的约 23.7k token 工具定义缓存全部失效。
+- 用真实请求实测，DeepSeek 的渲染顺序是 **system → tools → messages**，缓存按这个顺序做前缀逐序匹配。system 段里任何一个每请求变化的字节，都会让排在它后面的约 23.7k token 工具定义缓存全部失效。这条定律跨厂商成立——变的放最后，只是各家渲染顺序不同（文末有换算表）。
 - 把动态内容迁到 messages、静态内容前置，命中率能救回来。但 prompt 布局同时是**行为面**：我们的一次纯「缓存重排」让输出回归的脏例从 0 涨到每轮 2.25 个，定向 A/B 证实因果后全量回滚。
 - 结论：prompt 段序与指令位置不是纯性能参数。动它之前，先冻结行为判据基线。
 
@@ -98,6 +98,22 @@ DeepSeek 的结构化调用还有一记闷棍——[调用成功却返回空](/b
 </InfoBox>
 
 LLM 的输出本质不可控，我们在 [Function Calling 静默失败](/blog/llm-tool-calling-silent-failures) 里另有一份踩坑清单——枚举漂移与 prompt 膨胀，同样属于「不报错、只 quietly 变坏」的问题族。
+
+## 边界：换一家厂商还成立吗？
+
+机制与纪律跨厂商成立，参数表必须按厂商文档换算——「每请求变化的内容放最后」是唯一不需要改写的定律。
+
+| | DeepSeek（本文实测） | OpenAI | Anthropic | Gemini |
+|---|---|---|---|---|
+| 触发方式 | 自动 | 自动，≥1024 token | 显式 `cache_control` 断点，≤4 个 | 自动（2.5 系起），≥2048 token |
+| 观测字段 | `prompt_cache_hit_tokens` | `prompt_tokens_details.cached_tokens` | `cache_read_input_tokens` | `usage.total_cached_tokens` |
+| 命中折扣 | ≈1/50（实测） | 最高 90%，≈1/10 | 1/10 | 自动按命中省差价 |
+
+三条最容易被照搬出错的：
+
+- **渲染序各管各的。** 本文的 system→tools→messages 只对 DeepSeek 负责：Anthropic 文档明写缓存前缀按 tools → system → messages 排列，OpenAI 的 structured outputs schema 也渲染在 system 之前。谁排在最前，谁就是必须逐字节静态的那段——把动态内容写进最前段，在哪家都是同样的灾难，但「最前段是哪段」各家不同。
+- **触发门槛与断点。** DeepSeek、OpenAI、Gemini 全自动；Anthropic 要手动打断点，动态内容放在最后一个断点之后，否则命中无从谈起。
+- **缓存不影响输出，重排才影响。** OpenAI 与 Anthropic 的文档都写着「缓存命中时输出不变」。这与本文结论不矛盾：改变行为的是为命中而做的重排——token 序列本身变了，模型输出跟着变。账算在重排头上，不算在缓存头上。
 
 ## 常见问题
 
