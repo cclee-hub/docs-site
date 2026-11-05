@@ -49,7 +49,7 @@ New users get example prompts to start with - and every write goes through a con
 
 </InfoBox>
 
-<img src="/images/docs/life/web-home-empty.png" alt="Web home: welcome empty state with example prompts" width="560" loading="lazy" />
+<img src="/images/docs/life/web-home-empty.webp" alt="Web home: welcome empty state with example prompts" width="560" loading="lazy" />
 
 ## Logging and Queries (Home)
 
@@ -76,7 +76,7 @@ and recent records (with a to-do completion badge, e.g. 待办 3/5).
 - **Not found**: tap "补充" (add a hint) and write what you originally meant
 - **Wrong recognition**: tap "识别错了" and tell it what it should have been - Life learns and gets more accurate (see [Corrections](#corrections))
 
-<img src="/images/docs/life/web-result-card.png" alt="Result card: 1 entry logged, with Undo and Change category" width="560" loading="lazy" />
+<img src="/images/docs/life/web-result-card.webp" alt="Result card: 1 entry logged, with Undo and Change category" width="560" loading="lazy" />
 
 ## Chat Mode
 
@@ -95,7 +95,7 @@ This reminder is always active and not affected by any setting.
 
 </InfoBox>
 
-<img src="/images/docs/life/web-chat.png" alt="Chat page: companion styles, input modes, and history" width="560" loading="lazy" />
+<img src="/images/docs/life/web-chat.webp" alt="Chat page: companion styles, input modes, and history" width="560" loading="lazy" />
 
 ## Stats and Budgets
 
@@ -128,7 +128,7 @@ Enter via the "账户转账" shortcut on the home page:
 - Transfer / adjustment entries can be deleted (account balance rolls back accordingly)
 - **Lending**: say "借出100" ("lent out 100") or "还了 50" ("paid back 50") to log loans and repayments; ask "某某还欠多少" ("how much does X still owe") anytime
 
-<img src="/images/docs/life/web-stats.png" alt="Stats page: expense trends and spending categories" width="480" loading="lazy" />
+<img src="/images/docs/life/web-stats.webp" alt="Stats page: expense trends and spending categories" width="480" loading="lazy" />
 
 ## Mood and Stress Self-Checks
 
@@ -152,7 +152,7 @@ If you are in distress or having thoughts of harming yourself: you don't have to
 
 </InfoBox>
 
-<img src="/images/docs/life/web-screening.png" alt="Mood self-check: one question per screen" width="560" loading="lazy" />
+<img src="/images/docs/life/web-screening.webp" alt="Mood self-check: one question per screen" width="560" loading="lazy" />
 
 ## Templates and Batch Backfill
 

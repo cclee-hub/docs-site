@@ -5,7 +5,7 @@ date: 2026-03-19
 tags: [Google Ads, WordPress, saas-development, ecommerce]
 authors: [cclee]
 schema: Article
-image: /img/cases/china-factory-export-hero.jpg
+image: /img/cases/china-factory-export-hero.webp
 rag: false
 category: client
 ---
@@ -16,7 +16,7 @@ Delivered an overseas market entry strategy for an industrial manufacturer with 
 
 The client is a Chinese industrial product manufacturer with a proven domestic operation. Competitors were still spending heavily to figure out overseas channels. B2B overseas customers represent significantly higher order values than domestic ones. The timing was right — the client needed a low-dependency, controllable, long-term viable overseas acquisition strategy.
 
-![Global Trade Shipping](/img/cases/global-shipping-containers.jpg)
+![Global Trade Shipping](/img/cases/global-shipping-containers.webp)
 
 
 <!-- truncate -->

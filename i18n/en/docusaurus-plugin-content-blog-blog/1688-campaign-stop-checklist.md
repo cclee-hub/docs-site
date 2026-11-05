@@ -54,7 +54,7 @@ Rule first: the learning-period protection here is **not a fixed number of weeks
 
 In plain terms: the same store's new program — the "Merchant growth" plan — launched in late June, and its human operators kept waiting: by press time it had 8 delivery weeks on the books, 7 of them settled. Weekly cost per inquiry ran ¥46–65 across the settled weeks — **not one week back inside the store's own normal band of ¥25–31**, with the cheapest week still nearly 50% above the band's ceiling. Over the same stretch, two other new programs in the same store, aimed at the same products — the "potential-customer harvest pack" and the "cross-border express program" — bought inquiries at ¥30 and ¥35 across the same 7 settled weeks. So neither "the market got expensive" nor "it hadn't started yet" holds. The 8 weeks of patience came from people, not from the rules: under the judging logic, from the second settled week on, this program had no protection and should have been measured every single week.
 
-![Eight weeks of learning period, not one week back in the band](/images/blog/1688-campaign-stop-checklist-en.png)
+![Eight weeks of learning period, not one week back in the band](/images/blog/1688-campaign-stop-checklist-en.webp)
 
 *(Technical note: effective CPA = spend ÷ (quality inquiries + plain inquiries × 0.6 + raw leads × 0.1) — raw leads are worth little, they cannot prop up the denominator, and piles of junk leads cannot buy a cheap cost. Across the 7 settled weeks the program read ¥15,188 ÷ 236 inquiries = ¥64.4, 2.3× the store's historical median of ¥28.)*
 

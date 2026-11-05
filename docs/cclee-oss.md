@@ -98,7 +98,7 @@ CCLEE OSS 是 WordPress 阿里云 OSS 插件：后台媒体库上传的文件—
 | Endpoint | Bucket 所在地域的公网 endpoint（见 Bucket 概览页），如 `oss-cn-hangzhou.aliyuncs.com`；与 Bucket 同地域的阿里云 ECS 优先填内网 endpoint |
 | CDN 域名 | 可选。已给 Bucket 绑定 CDN 加速域名则填写，媒体 URL 将使用该域名；留空使用 Bucket 公网域名 |
 
-<img src="/images/docs/cclee-oss/settings-overview.png" width="560" alt="CCLEE OSS 设置页：授权状态与 OSS 配置表单" loading="lazy" />
+<img src="/images/docs/cclee-oss/settings-overview.webp" width="560" alt="CCLEE OSS 设置页：授权状态与 OSS 配置表单" loading="lazy" />
 
 填完点击**保存**。
 

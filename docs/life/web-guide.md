@@ -46,7 +46,7 @@ Life 当前开放注册：任意手机号验证短信即可登录使用，无需
 
 </InfoBox>
 
-<img src="/images/docs/life/web-home-empty.png" alt="网页版首页：欢迎空态与示例说法" width="560" loading="lazy" />
+<img src="/images/docs/life/web-home-empty.webp" alt="网页版首页：欢迎空态与示例说法" width="560" loading="lazy" />
 
 ## 记录与查询（首页）
 
@@ -72,7 +72,7 @@ Life 当前开放注册：任意手机号验证短信即可登录使用，无需
 - **没找到**：点「补充」写下你本来的意思，帮它重新定位
 - **识别错了**：点「识别错了」告诉它本该是什么——AI 会记住，越用越准（详见[纠正示例](#纠正示例)）
 
-<img src="/images/docs/life/web-result-card.png" alt="一句话记账结果卡：已记 1 笔，可撤销或改类目" width="560" loading="lazy" />
+<img src="/images/docs/life/web-result-card.webp" alt="一句话记账结果卡：已记 1 笔，可撤销或改类目" width="560" loading="lazy" />
 
 ## 聊天模式
 
@@ -91,7 +91,7 @@ Life 当前开放注册：任意手机号验证短信即可登录使用，无需
 
 </InfoBox>
 
-<img src="/images/docs/life/web-chat.png" alt="聊天页：陪伴角色、输入模式与历史回看" width="560" loading="lazy" />
+<img src="/images/docs/life/web-chat.webp" alt="聊天页：陪伴角色、输入模式与历史回看" width="560" loading="lazy" />
 
 ## 统计与预算
 
@@ -124,7 +124,7 @@ Life 当前开放注册：任意手机号验证短信即可登录使用，无需
 - 转账 / 调整流水可删除（删除后账户余额相应回退）
 - **借贷**：对首页或聊天说「借出100」「还了 50」即可记录借款、还款，随时问「某某还欠多少」
 
-<img src="/images/docs/life/web-stats.png" alt="统计页：收支趋势与支出分类" width="480" loading="lazy" />
+<img src="/images/docs/life/web-stats.webp" alt="统计页：收支趋势与支出分类" width="480" loading="lazy" />
 
 ## 情绪与压力自评
 
@@ -149,7 +149,7 @@ Life 当前开放注册：任意手机号验证短信即可登录使用，无需
 
 </InfoBox>
 
-<img src="/images/docs/life/web-screening.png" alt="情绪自评：一屏一题作答" width="560" loading="lazy" />
+<img src="/images/docs/life/web-screening.webp" alt="情绪自评：一屏一题作答" width="560" loading="lazy" />
 
 ## 模板与批量补录
 

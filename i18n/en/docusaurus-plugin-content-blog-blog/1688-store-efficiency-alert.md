@@ -24,7 +24,7 @@ Per-campaign reviews read as usual: this campaign's numbers match last month's, 
 
 At the store level: every July week sat above ¥40 per inquiry — in the previous 29 weeks, that line had been crossed exactly once (the Spring Festival week). This post-mortem came out of a store-ledger audit while building [AI Operations](/docs/ai-analytics).
 
-![Store-wide inquiry cost across 40 weeks: historical band and the breach](/images/blog/1688-store-efficiency-alert-en.png)
+![Store-wide inquiry cost across 40 weeks: historical band and the breach](/images/blog/1688-store-efficiency-alert-en.webp)
 
 ## The method: set the band from your own history
 

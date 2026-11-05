@@ -17,7 +17,7 @@ Using `/images/xxx.png` directly in Docusaurus components works in dev but may r
 Images display normally in development:
 
 ```jsx
-<img width="560" src="/images/plugin-sidebar-ecommerce.png" alt="screenshot" />
+<img width="560" src="/images/plugin-sidebar-ecommerce.webp" alt="screenshot" />
 ```
 
 But return 404 after deployment because files in the `static/` directory are handled differently.
@@ -37,7 +37,7 @@ Use require to import images:
 
 ```jsx
 <img width="560"
-  src={require('@site/static/images/plugin-sidebar-ecommerce.png').default}
+  src={require('@site/static/images/plugin-sidebar-ecommerce.webp').default}
   alt="screenshot"
   className="w-full h-full object-cover"
 />

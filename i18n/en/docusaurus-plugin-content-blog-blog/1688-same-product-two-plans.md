@@ -42,7 +42,7 @@ Three layers of structure, each more useful than the last:
 
 **3. Within the same period: 1.8–3.9×.** The last three solutions share one time window (8 weeks from 2026-06-29), so their comparison is clean: 1.8× for Product A, 3.9× for Product B, 1.8× for Product C.
 
-![Same product, three ad solutions: inquiry cost comparison](/images/blog/1688-same-product-two-plans-en.png)
+![Same product, three ad solutions: inquiry cost comparison](/images/blog/1688-same-product-two-plans-en.webp)
 
 *(Technical note: the first two solutions' data ends on 2026-06-29 and the last three start that very day — the windows don't overlap. So "old ¥25 vs new ¥77" mixes two factors: solution differences and market seasonality; concluding directly misleads. Statistically this is kin to Simpson's paradox — conclusions consistent per layer can flip once merged. Every "n×" claim in this article comes from the same-period window only.)*
 

@@ -18,7 +18,7 @@ schema: Article
 开发环境下图片正常显示：
 
 ```jsx
-<img width="560" src="/images/plugin-sidebar-ecommerce.png" alt="screenshot" />
+<img width="560" src="/images/plugin-sidebar-ecommerce.webp" alt="screenshot" />
 ```
 
 但构建部署后图片返回 404，因为 `static/` 目录下的文件路径处理方式不同。
@@ -38,7 +38,7 @@ Docusaurus 基于 Webpack/Rspack 构建：
 
 ```jsx
 <img width="560"
-  src={require('@site/static/images/plugin-sidebar-ecommerce.png').default}
+  src={require('@site/static/images/plugin-sidebar-ecommerce.webp').default}
   alt="screenshot"
   className="w-full h-full object-cover"
 />

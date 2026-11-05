@@ -147,7 +147,7 @@ const config: Config = {
   themes: ['./themes/image-zoom', '@docusaurus/theme-mermaid'],
 
   themeConfig: {
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'img/docusaurus-social-card.webp',
     navbar: {
       title: '',
       logo: {

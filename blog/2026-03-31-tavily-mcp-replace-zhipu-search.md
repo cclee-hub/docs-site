@@ -26,13 +26,13 @@ faqs:
 
 在一次 WooCommerce 主题上架开发中，频繁使用联网搜索查文档、读网页。开发完成后查看额度：
 
-<img src="/images/blog/tavily-replace-zhipu-quota.png" width="560" alt="智谱编码套餐额度使用情况" loading="lazy" />
+<img src="/images/blog/tavily-replace-zhipu-quota.webp" width="560" alt="智谱编码套餐额度使用情况" loading="lazy" />
 
 5 小时周期内已用 16%，主要消耗来自 MCP 工具调用而非编码对话本身。
 
 查看 MCP 调用统计更直观：
 
-<img src="/images/blog/tavily-replace-zhipu-mcp-usage.png" width="560" alt="MCP 工具调用量统计" loading="lazy" />
+<img src="/images/blog/tavily-replace-zhipu-mcp-usage.webp" width="560" alt="MCP 工具调用量统计" loading="lazy" />
 
 网页搜索和网页读取占了 MCP 调用的大部分。这些调用完全可以不消耗编码套餐额度。
 

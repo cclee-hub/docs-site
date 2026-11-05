@@ -70,11 +70,11 @@ Type in the home input box as if sending a message:
 - **Not found**: add a hint below the card, e.g. "是昨天那笔" ("the one from yesterday"), to relocate it
 - **Not recognized**: try a more specific sentence (include time, amount, or the item)
 
-<img src="/images/docs/life/home-input.jpg" alt="Home input bar: log with one sentence" width="400" loading="lazy" />
+<img src="/images/docs/life/home-input.webp" alt="Home input bar: log with one sentence" width="400" loading="lazy" />
 
 Type "吃饭46" ("meal 46") and the result card shows what was recognized instantly - nothing is saved before you confirm, and you can undo or change the category anytime:
 
-<img src="/images/docs/life/quick-log-result.jpg" alt="One-sentence logging result card" width="400" loading="lazy" />
+<img src="/images/docs/life/quick-log-result.webp" alt="One-sentence logging result card" width="400" loading="lazy" />
 
 ### Batch-log from a photo
 
@@ -86,7 +86,7 @@ Type "吃饭46" ("meal 46") and the result card shows what was recognized instan
 
 Shoot one clear receipt at a time. Non-accounting, non-health images are rejected with a hint - just log those with a sentence instead.
 
-<img src="/images/docs/life/photo-batch.jpg" alt="Photo recognition: check items, then confirm" width="400" loading="lazy" />
+<img src="/images/docs/life/photo-batch.webp" alt="Photo recognition: check items, then confirm" width="400" loading="lazy" />
 
 ### Dashboard and records
 
@@ -105,7 +105,7 @@ the first 5 can be filtered by **this month / last 3 months / last 6 months / al
 
 The three self-checks are adapted from internationally standardized questionnaires: **Mood Self-Check** (情绪自评) corresponds to PHQ-9, **Stress Self-Check** (压力自评) to GAD-7, and **Quick Mood Check** (情绪速测, PHQ-4) is a short combination of both. They are widely used for initial self-assessment of mood and stress; scoring and result bands are computed server-side, independent of your device.
 
-<img src="/images/docs/life/mood-check.jpg" alt="Mood self-check: one question per screen" width="400" loading="lazy" />
+<img src="/images/docs/life/mood-check.webp" alt="Mood self-check: one question per screen" width="400" loading="lazy" />
 
 <InfoBox variant="warning" title="Please read">
 

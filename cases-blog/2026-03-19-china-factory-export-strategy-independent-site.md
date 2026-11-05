@@ -5,7 +5,7 @@ date: 2026-03-19
 tags: [Google Ads, WordPress, saas-development, ecommerce]
 authors: [cclee]
 schema: Article
-image: /img/cases/china-factory-export-hero.jpg
+image: /img/cases/china-factory-export-hero.webp
 rag: false
 category: client
 ---
@@ -16,7 +16,7 @@ category: client
 
 客户为国内某工业产品制造商，国内渠道稳健，同行仍在高成本摸索阶段。海外B2B客户单笔金额远高于国内，出海时机成熟。客户需要一套低依赖、可控、长期ROI合理的海外获客方案。
 
-![全球贸易出口](/img/cases/global-shipping-containers.jpg)
+![全球贸易出口](/img/cases/global-shipping-containers.webp)
 
 
 <!-- truncate -->

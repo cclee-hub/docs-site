@@ -46,7 +46,7 @@ The result:
 
 The net result of the row-level diff across all 1,199 rows: **not a single historical number was revised** (zero value changes, zero removals). The only difference is 11 new keyword rows — not revised values but newly grown entities, a second back-fill mechanism covered in Finding 2; which campaigns' detail the platform re-returned at all is Finding 3.
 
-![Lifecycle of 1688 P4P data: from routine writes to back-fill events to deletion](/images/blog/1688-p4p-data-timeline-en.png)
+![Lifecycle of 1688 P4P data: from routine writes to back-fill events to deletion](/images/blog/1688-p4p-data-timeline-en.webp)
 
 ## Finding 1: values blow past 16 days — and truly settle by 40
 
@@ -76,7 +76,7 @@ Slow back-fill costs waiting; retention costs everything. We checked, per campai
 - Weeks aged **54–74 days**: the same six again — **0 of 6**; not stale, deleted from the platform's side, unrecoverable by any means;
 - The 3 campaigns already returning nothing at 40 days run a shorter, per-campaign retention — they hit the cliff earlier; one sample so far.
 
-![The retention cliff: 3/6 campaigns retrievable at 40–47 days, 0/6 after 54](/images/blog/1688-p4p-retention-cliff-en.png)
+![The retention cliff: 3/6 campaigns retrievable at 40–47 days, 0/6 after 54](/images/blog/1688-p4p-retention-cliff-en.webp)
 
 Put bluntly: **any detail not in your own database within ~6 weeks has been deleted on your behalf.** "I'll export it later" is not procrastination — it is deletion.
 

@@ -70,7 +70,7 @@ export default function AboutPage(): React.ReactElement {
         <div className="text-center mb-16">
           <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden shadow-lg ring-4 ring-purple-500/20">
             <img
-              src={require('@site/static/images/avatar.jpg').default}
+              src={require('@site/static/images/avatar.webp').default}
               alt="CCLEE"
               className="w-full h-full object-cover"
             />
@@ -194,7 +194,7 @@ export default function AboutPage(): React.ReactElement {
           <div className="flex flex-col sm:flex-row items-center gap-6">
             <div className="w-32 h-32 rounded-xl overflow-hidden bg-white dark:bg-gray-800 shadow-sm flex items-center justify-center">
               <img
-                src={require('@site/static/images/wechat-qr.jpg').default}
+                src={require('@site/static/images/wechat-qr.webp').default}
                 alt="微信二维码"
                 className="w-full h-full object-contain"
               />

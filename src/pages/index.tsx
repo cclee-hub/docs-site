@@ -145,7 +145,7 @@ export default function Home(): React.ReactElement {
               >
                 <div className="h-56 rounded-xl overflow-hidden mb-4 bg-white dark:bg-gray-800 flex items-center justify-center p-4">
                   <img
-                    src={require('@site/static/images/cases/website-localization-turkey-law-firm/cover.png').default}
+                    src={require('@site/static/images/cases/website-localization-turkey-law-firm/cover.webp').default}
                     alt="LegitLaw 介绍册"
                     className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-lg"
                   />
@@ -168,7 +168,7 @@ export default function Home(): React.ReactElement {
               >
                 <div className="h-56 rounded-xl overflow-hidden mb-4 bg-white dark:bg-gray-800 flex items-center justify-center p-4">
                   <img
-                    src={require('@site/static/images/cases/china-market-localization-b2b-agency/mobile.png').default}
+                    src={require('@site/static/images/cases/china-market-localization-b2b-agency/mobile.webp').default}
                     alt="Linkexis 莱客策略咨询"
                     className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-lg"
                   />

@@ -20,7 +20,7 @@ You say a sentence, and it records it for you: "Took a taxi today, spent 23, fee
 Scan the QR code on WeChat to open it directly:
 
 <p align="center">
-  <img src="/images/docs/life/product-qrcode.jpg" alt="CCL.AI记账 mini program code" width="180" loading="lazy" />
+  <img src="/images/docs/life/product-qrcode.webp" alt="CCL.AI记账 mini program code" width="180" loading="lazy" />
 </p>
 
 <InfoBox variant="info" title="To be clear upfront">
@@ -45,7 +45,7 @@ In one sentence: **you speak, it takes notes; only after you confirm does it act
 | Crisis-signal safeguard | When a self-assessment crosses a concern threshold, a mental health hotline is offered quietly, without judgment or intrusion |
 | Cross-platform, same data | WeChat Mini Program + web app (life.ccleeai.com) share the same account and the same data |
 
-<img src="/images/docs/life/product-home.jpg" alt="Life mini program home (dark mode): one-sentence input bar, spending KPIs, mood & stress entry, recent records" width="400" loading="lazy" />
+<img src="/images/docs/life/product-home.webp" alt="Life mini program home (dark mode): one-sentence input bar, spending KPIs, mood & stress entry, recent records" width="400" loading="lazy" />
 
 ## Why We Built Life: One Person's Story
 
@@ -114,17 +114,17 @@ Structured mood and medication records carry a second kind of value: something c
 **One sentence, one entry**
 > Say "lunch 46," and a candidate card shows a 46-yuan dining expense — tap confirm and it's logged, the whole thing takes about 3 seconds. The resulting bubble can be undone or recategorized.
 
-<img src="/images/docs/life/product-record-confirm.jpg" alt="One-sentence logging: AI parses and records; the result bubble can be undone or re-categorized" width="400" loading="lazy" />
+<img src="/images/docs/life/product-record-confirm.webp" alt="One-sentence logging: AI parses and records; the result bubble can be undone or re-categorized" width="400" loading="lazy" />
 
 **Photograph a receipt for bulk entry**
 > Take a photo of a grocery receipt and upload it → the AI reads it character by character and splits it into 4 line items → check them off and confirm to write them all in at once. "Multiple entries at once" also supports bulk text backfilling for past days.
 
-<img src="/images/docs/life/product-ocr-receipt.jpg" alt="Photo logging: one receipt split into multiple line items, check each then confirm" width="400" loading="lazy" />
+<img src="/images/docs/life/product-ocr-receipt.webp" alt="Photo logging: one receipt split into multiple line items, check each then confirm" width="400" loading="lazy" />
 
 **Periodic self-assessment and medication tracking**
 > Take a mood self-assessment every so often and watch your trend line move; check off medication doses as you take them. When an entry crosses the concern threshold, a hotline card appears quietly.
 
-<img src="/images/docs/life/product-screening.jpg" alt="Mood & stress self-checks: neutrally named scales, results visible only to you" width="400" loading="lazy" />
+<img src="/images/docs/life/product-screening.webp" alt="Mood & stress self-checks: neutrally named scales, results visible only to you" width="400" loading="lazy" />
 
 **Evidence to bring to a follow-up appointment**
 > Mood trends, self-assessment history, and medication records are all structured, objective data you can summarize periodically and bring to a conversation with your doctor. What you say in the moment inevitably gets colored by your current state and by memory bias — "I've been okay lately" or "it's been rough the whole time" are both just subjective impressions. A record backed by real data lets your actual state be seen more accurately.

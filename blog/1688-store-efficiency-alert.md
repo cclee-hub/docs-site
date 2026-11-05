@@ -24,7 +24,7 @@ faqs:
 
 整店层面：7 月的每一周，询盘成本都站在 ¥40 以上——而之前 29 周里，这个数字只在春节周越过年门槛一次。本次复盘来自开发 [AI 运营](/docs/ai-analytics) 过程中的整店周账核查。
 
-![整店询盘成本 40 周走势：历史区间与越线段](/images/blog/1688-store-efficiency-alert-zh.png)
+![整店询盘成本 40 周走势：历史区间与越线段](/images/blog/1688-store-efficiency-alert-zh.webp)
 
 ## 方法：用自己的历史定线
 

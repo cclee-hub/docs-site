@@ -20,7 +20,7 @@ import InfoBox from '@site/src/components/InfoBox'
 微信扫码，直接打开：
 
 <p align="center">
-  <img src="/images/docs/life/product-qrcode.jpg" alt="CCL.AI记账小程序码" width="180" loading="lazy" />
+  <img src="/images/docs/life/product-qrcode.webp" alt="CCL.AI记账小程序码" width="180" loading="lazy" />
 </p>
 
 <InfoBox variant="info" title="先说清楚">
@@ -45,7 +45,7 @@ Life 是自我管理工具，不是医疗工具：自评结果仅供自我评估
 | 危机信号守护   | 自评触发关注阈值时，安静地提供心理援助热线，不评判不打扰                       |
 | 双端同源     | 微信小程序 + 网页版（life.ccleeai.com）同一账号、同一份数据            |
 
-<img src="/images/docs/life/product-home.jpg" alt="Life 小程序首页（深色模式）：一句话记账输入条、收支柱 KPI、情绪与压力入口、最近记录" width="400" loading="lazy" />
+<img src="/images/docs/life/product-home.webp" alt="Life 小程序首页（深色模式）：一句话记账输入条、收支柱 KPI、情绪与压力入口、最近记录" width="400" loading="lazy" />
 
 ## 为什么做 Life：一个亲历者的故事
 
@@ -114,17 +114,17 @@ Life 就是这么来的，我自己作为亲历者真正想要、也敢放心用
 **一句话记一笔**
 > 说「吃饭46」，候选卡显示一笔 46 元餐饮支出，点确认落账——全程 3 秒；结果气泡可撤销、可改类目。
 
-<img src="/images/docs/life/product-record-confirm.jpg" alt="一句话记账：AI 拆解落账，结果气泡可撤销、可改类目" width="400" loading="lazy" />
+<img src="/images/docs/life/product-record-confirm.webp" alt="一句话记账：AI 拆解落账，结果气泡可撤销、可改类目" width="400" loading="lazy" />
 
 **拍小票批量记**
 > 超市购物小票一张，拍照上传 → AI 逐字识别并拆成 4 条明细 → 勾选确认一次写入。「一次记多条」也支持文字批量补录过去的日子。
 
-<img src="/images/docs/life/product-ocr-receipt.jpg" alt="拍照识记：一张小票拆成多笔待录入明细，逐条勾选确认后写入" width="400" loading="lazy" />
+<img src="/images/docs/life/product-ocr-receipt.webp" alt="拍照识记：一张小票拆成多笔待录入明细，逐条勾选确认后写入" width="400" loading="lazy" />
 
 **定期自评与服药**
 > 每隔一段时间做一次情绪自评，趋势图看自己的状态走向；服药记录按次打勾；触发关注条目时，热线卡片安静出现。
 
-<img src="/images/docs/life/product-screening.jpg" alt="情绪与压力自评：中性命名的自评量表，结果仅自己可见" width="400" loading="lazy" />
+<img src="/images/docs/life/product-screening.webp" alt="情绪与压力自评：中性命名的自评量表，结果仅自己可见" width="400" loading="lazy" />
 
 **复诊沟通有据可依**
 > 情绪趋势、自评历史、服药记录都是结构化的客观数据，可以不定期汇总，带去与医生交流。就诊时的描述难免受当下状态和回忆偏差影响——「最近还好」或「一直很差」都只是主观感受，一段有数据支撑的记录，让自己的真实状态被更准确地看见。

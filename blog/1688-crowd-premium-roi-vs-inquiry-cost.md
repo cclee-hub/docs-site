@@ -22,7 +22,7 @@ faqs:
 
 人群月报最顺手的用法是排个序：按询盘成本排，砍最贵的；按 ROI 排，砍最差的。7 月的真实数据里，这两种排法给出的结论完全不同。本次对账来自开发 AI 运营过程中的人群月报核查。
 
-![同一个月里，询盘成本相近的人群 ROI 差 4 倍](/images/blog/1688-crowd-premium-roi-vs-inquiry-cost-zh.png)
+![同一个月里，询盘成本相近的人群 ROI 差 4 倍](/images/blog/1688-crowd-premium-roi-vs-inquiry-cost-zh.webp)
 
 ## 数据：一把尺子管采购价，一把管质量
 

@@ -22,7 +22,7 @@ July data from 18 audience packages in one store: two crowds with inquiry costs 
 
 The comfortable way to read a crowd report is to sort it: by inquiry cost, cut the priciest; by ROI, cut the worst. In July's real data, those two sorts disagree completely. This reconciliation came out of a crowd-report audit while building AI Operations.
 
-![Similar inquiry costs, ROI 4× apart, within one month](/images/blog/1688-crowd-premium-roi-vs-inquiry-cost-zh.png)
+![Similar inquiry costs, ROI 4× apart, within one month](/images/blog/1688-crowd-premium-roi-vs-inquiry-cost-zh.webp)
 
 ## The data: one ruler prices traffic, the other grades it
 

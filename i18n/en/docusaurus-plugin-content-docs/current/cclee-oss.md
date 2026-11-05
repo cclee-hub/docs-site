@@ -98,7 +98,7 @@ Back on **Settings → CCLEE OSS**, fill in:
 | Endpoint | The public endpoint of the bucket's region (see the bucket overview page), e.g. `oss-ap-southeast-1.aliyuncs.com` (Singapore); on an ECS instance in the same region, prefer the internal endpoint |
 | CDN Domain | Optional. If your bucket has a CDN acceleration domain, enter it and media URLs will use it; leave empty to use the bucket's public domain |
 
-<img src="/images/docs/cclee-oss/settings-overview.png" width="560" alt="CCLEE OSS settings page: license status and OSS configuration form" loading="lazy" />
+<img src="/images/docs/cclee-oss/settings-overview.webp" width="560" alt="CCLEE OSS settings page: license status and OSS configuration form" loading="lazy" />
 
 Then click **Save Changes**.
 
