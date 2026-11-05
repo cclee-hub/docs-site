@@ -50,6 +50,8 @@ Variable 产品的价格存储是分层的：父产品 meta 里的 `regular_pric
 
 于是一个三层读取体系里，只有最不重要的那一层被更新了。整条链路没有任何「variation 未同步」的提示，这是它排查成本高的原因：每一步看起来都成功了。
 
+缓存层持有旧值、绕过正常更新链路的形态不止 WooCommerce 这一处——Yoast SEO 的 og:image 直出 indexable 缓存字符串、绕过附件 API 是同型根因，见 [Yoast og:image 不跟随 CDN 域名](/blog/yoast-og-image-indexable-cache-cdn-domain)。
+
 ## 解决方案：逐个更新 variation
 
 先按父产品查出全部 variation：

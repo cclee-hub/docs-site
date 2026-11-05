@@ -119,6 +119,7 @@ def upload_image(url, image_bytes, filename, auth, max_retries=3):
 - 关闭 CDN 后 DNS 缓存可能需要几分钟刷新，不要立刻重试
 - 如果你的站点在 Hostinger 且使用 REST API 做批量操作，上线前务必测试 CDN 是否会拦截
 - WooCommerce 的 WC API (`/wc/v3/products`) 走的是不同的认证机制（Consumer Key），通常不受此影响；受影响的主要是 WP REST API (`/wp-json/wp/v2/*`) 的写操作
+- CDN 接管后的隐蔽行为不止拦截请求一类，输出侧还有缓存直出旧域的案例：[Yoast og:image 不跟随 CDN 域名](/blog/yoast-og-image-indexable-cache-cdn-domain)
 
 </InfoBox>
 

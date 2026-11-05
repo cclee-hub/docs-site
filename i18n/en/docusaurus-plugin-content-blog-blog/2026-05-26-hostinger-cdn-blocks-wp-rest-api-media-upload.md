@@ -119,6 +119,7 @@ The turning point was using `curl -v` and spotting `server: hcdn` — only then 
 - After disabling CDN, DNS cache may take a few minutes to refresh — don't retry immediately
 - If your site is on Hostinger and uses REST API for batch operations, test CDN behavior before going live
 - WooCommerce WC API (`/wc/v3/products`) uses different authentication (Consumer Key) and is typically unaffected; this mainly impacts WP REST API (`/wp-json/wp/v2/*`) write operations
+- Request interception is not the only quiet CDN behavior — on the output side, cached strings can serve old domains too: [Yoast og:image Not Following CDN](/blog/yoast-og-image-indexable-cache-cdn-domain)
 
 </InfoBox>
 

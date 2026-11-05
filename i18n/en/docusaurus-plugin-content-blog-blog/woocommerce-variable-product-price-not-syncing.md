@@ -50,6 +50,8 @@ A Variable product's price storage is layered: the parent's `regular_price` in m
 
 Of a three-layer read system, only the least important layer got updated. Nothing along the chain ever says "variations not synced" — which is what makes this expensive to diagnose: every step looks like success.
 
+A cache layer holding stale values and bypassing the normal update chain is not unique to WooCommerce — Yoast SEO's og:image serves an indexable cache string directly, bypassing the attachment API; same-shaped root cause, see [Yoast og:image Not Following CDN](/blog/yoast-og-image-indexable-cache-cdn-domain).
+
 ## Fix: Update the Variations One by One
 
 First list every variation under the parent:
