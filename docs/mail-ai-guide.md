@@ -30,7 +30,7 @@ Mail-AI 是面向外贸的 AI 邮件助手：收询盘、读信、回信在一�
 2. 点顶部「邮箱」，添加你的阿里企业邮（需要三方客户端安全密码，见下文）。
 3. 回到收件箱：最近 90 天的邮件会自动同步进来，点开就能读、翻译、回信。
 
-<img src="/images/docs/mail-ai/inbox.png" width="560" loading="lazy" />
+<img src="/images/docs/mail-ai/inbox.webp" width="560" loading="lazy" />
 
 ## 使用指南
 
@@ -41,7 +41,7 @@ Mail-AI 是面向外贸的 AI 邮件助手：收询盘、读信、回信在一�
 3. iPhone 建议把它装到桌面：用 Safari 打开后点分享按钮，往下滑选「添加到主屏幕」，之后像 App 一样点开就用。
 4. Android 同样可以：用 Chrome 打开后点右上角「⋮」菜单，选「添加到主屏幕」或「安装应用」。
 
-<img src="/images/docs/mail-ai/login.png" width="480" loading="lazy" />
+<img src="/images/docs/mail-ai/login.webp" width="480" loading="lazy" />
 
 ### 如何添加邮箱
 
@@ -56,7 +56,7 @@ Mail-AI 是面向外贸的 AI 邮件助手：收询盘、读信、回信在一�
 
 5. 点「添加并测试连接」，提示成功后等待同步——首次自动同步最近 90 天的邮件，之后新邮件通常 1 分钟内自动出现。
 
-<img src="/images/docs/mail-ai/add-account.png" width="480" loading="lazy" />
+<img src="/images/docs/mail-ai/add-account.webp" width="480" loading="lazy" />
 
 #### 添加 Gmail 邮箱
 
@@ -76,7 +76,7 @@ Mail-AI 是面向外贸的 AI 邮件助手：收询盘、读信、回信在一�
 2. 选中的邮箱会一直保持：删除邮件、返回列表、刷新页面之后都不会变回默认邮箱。
 3. 每个邮箱的收件箱独立，切到哪个就显示哪个的邮件。
 
-<img src="/images/docs/mail-ai/account-switch.png" width="480" loading="lazy" />
+<img src="/images/docs/mail-ai/account-switch.webp" width="480" loading="lazy" />
 
 ### 如何阅读邮件
 
@@ -101,7 +101,7 @@ Mail-AI 是面向外贸的 AI 邮件助手：收询盘、读信、回信在一�
 4. 点生成，等待几秒（最长不超过 1 分钟）——AI 会参考本会话最近 5 封往来，写出一封可直接编辑的回复。
 5. 改好后直接发送即可。
 
-<img src="/images/docs/mail-ai/ai-panel.png" width="560" loading="lazy" />
+<img src="/images/docs/mail-ai/ai-panel.webp" width="560" loading="lazy" />
 
 ### 如何发送邮件和附件
 
@@ -110,7 +110,7 @@ Mail-AI 是面向外贸的 AI 邮件助手：收询盘、读信、回信在一�
 3. 添加附件，所有附件合计不超过 18MB。
 4. 点发送，成功后这封信自动存入邮箱的「已发送」。
 
-<img src="/images/docs/mail-ai/compose.png" width="560" loading="lazy" />
+<img src="/images/docs/mail-ai/compose.webp" width="560" loading="lazy" />
 
 ### 如何在列表里直接删除邮件
 
@@ -121,7 +121,7 @@ Mail-AI 是面向外贸的 AI 邮件助手：收询盘、读信、回信在一�
 3. 删除是逐封进行的：连续删多封时，它们会按顺序一封封消失，条目半透明表示正在处理。
 4. 底部会提示「已移入已删除」；删错了到「已删除」标签页打开该邮件，点「恢复」就能收回件箱。
 
-<img src="/images/docs/mail-ai/list-delete.png" width="480" loading="lazy" />
+<img src="/images/docs/mail-ai/list-delete.webp" width="480" loading="lazy" />
 
 ### 如何搜索邮件
 
