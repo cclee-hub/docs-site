@@ -126,6 +126,14 @@ Reflection sidesteps REST's permission checks and context gaps, exposing exactly
 - **Third-party libraries' default-path assumptions**: mPDF is not the only composer package that defaults writable paths inside vendor/. Any library touching the disk (temp files, cache, logs) deserves a check before containerized deployment: does the default path's owner match the runtime UID? If not, move it to `sys_get_temp_dir()` explicitly at construction/configuration time.
 - **rsync owner preservation**: `--copy-links` keeps source owners. When the deploy host and the container disagree on UID schemes, vendor directories end up wrongly owned as a rule — rather than fixing ownership directory by directory, make the code independent of deploy-directory writability.
 
+## Deploy checklist
+
+One rule per layer — a single pass before go-live intercepts all three failure classes in this post:
+
+- Post-deploy smoke: `wp eval 'echo class_exists("Mpdf\\Mpdf") ? "OK" : "MISSING";' --allow-root` — a missing vendor/ surfaces in seconds
+- REST-facing code: guard everything under `wp-admin/includes/` with `function_exists` first (`wp_tempnam`, `get_file_description`, …)
+- Any composer library writing to disk: when the default path's owner ≠ the runtime UID, pass an explicit `tempDir` under `sys_get_temp_dir()` at construction
+
 <InfoBox variant="warning" title="Things to watch">
 
 - "It runs in wp eval" is not acceptance for a REST endpoint; the two boot different file sets. Accept by hitting the real endpoint.

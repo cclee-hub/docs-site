@@ -126,6 +126,14 @@ docker exec -i wp_cli wp eval-file - --allow-root < check-pdf.php
 - **第三方库的默认路径假设**：mPDF 不是唯一一个把可写路径默认到 vendor 内的库。凡 composer 库涉及磁盘写入（临时文件、缓存、日志），容器化部署前先确认默认路径的属主与运行 UID 是否一致，不一致就在构造/配置处显式改到 `sys_get_temp_dir()`。
 - **rsync 属主保留**：`--copy-links` 会保留源文件属主。如果部署机与容器 UID 体系不一致，vendor 目录整体错属主是常态——与其逐目录修属主，不如让代码不依赖部署目录的可写性。
 
+## 部署核对速查
+
+三层核对各一条规则，上线前过一遍即可拦住本文全部三类故障：
+
+- 部署后冒烟：`wp eval 'echo class_exists("Mpdf\\Mpdf") ? "OK" : "MISSING";' --allow-root`——vendor 缺失秒级暴露
+- REST 代码：`wp-admin/includes/` 下的函数一律 `function_exists` 先行（`wp_tempnam`、`get_file_description` 等）
+- composer 库涉及磁盘写入：默认路径属主 ≠ 运行 UID 时，构造处显式 `tempDir` 到 `sys_get_temp_dir()`
+
 <InfoBox variant="warning" title="注意事项">
 
 - 「wp eval 跑通」不是 REST 端点的验收依据，两者启动加载的文件集不同；验收要打真实端点。
