@@ -32,7 +32,7 @@ image: /img/cases/waterpark-china-hosting-hero.jpg
 
 站点长期落在中国区的备案变更由客户主体提交，我方备齐技术资料协同推进，正式切换安排在批复到位之后。
 
-图片上云由自研 WordPress 插件收口：原件与网站自动生成的各种尺寸同步进云存储，页面图片地址自动指向 CDN 加速域名，故障自动退回本地图片，站点不因上云断图；HTTPS 证书到期自动续期，不需要人工盯守——迁移前证书长期自签的根因，后来定位为 [AutoSSL 的两处配置缺陷](/blog/cpanel-autossl-not-issuing)。
+图片上云由自研 WordPress 插件收口：原件与网站自动生成的各种尺寸同步进云存储，页面图片地址自动指向 CDN 加速域名，故障自动退回本地图片，站点不因上云断图；HTTPS 证书到期自动续期，不需要人工盯守——迁移前证书长期自签的根因，后来定位为 [AutoSSL 的两处配置缺陷](/blog/cpanel-autossl-not-issuing)。换域收尾验证还抓出两类隐蔽漏网：分享卡片的 [og:image 缓存直出旧域](/blog/yoast-og-image-indexable-cache-cdn-domain) 与轮播 JSON 里的 [转义形态 URL](/blog/url-rewrite-misses-json-escape-forms)，均已收口成文。
 
 5 月那次「救回来靠运气」的循环，最终被一套体系替换：自研的[服务器哨兵](/docs/server-sentinel)接管值守，42 项健康与安全指标自动巡检、关键项每 5 分钟一轮，密码爆破、可疑登录、后门植入、挖矿程序逐日检测；备份每天自动核对，9 月 16 日通过首次真实恢复演练——整个数据库 76 张表逐一恢复比对，全部一致。旧服务器仍在后台待命，只是从「救命稻草」变成了「最后保险」。
 
