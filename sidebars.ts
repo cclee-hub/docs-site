@@ -19,6 +19,11 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
+      label: 'AI 邮件助手',
+      items: ['mail-ai-guide'],
+    },
+    {
+      type: 'category',
       label: 'AI Agent',
       items: [
         {
