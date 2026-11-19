@@ -64,6 +64,8 @@ Derived names open a second door: the `-scaled` suffix for large images ([image.
 
 One confounding note from our investigation: keep=1 sites (local files retained) accidentally survive, because disk dedup still has real data to scan. That is why many offloaded sites run for years without symptoms — the gap only opens once local deletion is enabled.
 
+Nor is this our first run-in with "a channel quietly sticking to the old rules after offloading": the [Yoast og:image cache that ignored the CDN domain](/blog/yoast-og-image-indexable-cache-cdn-domain) belongs to the same family of undocumented branch behavior.
+
 ## Fix: three-face dedup at upload time
 
 The idea is direct: widen the dedup surface from "the disk" back to "disk + all attachment keys + the bucket". Hook `wp_unique_filename` (fired at [functions.php:2832](https://github.com/WordPress/wordpress-develop/blob/6.8/src/wp-includes/functions.php#L2832) before the final name is returned) with priority 999 so late-registered third-party filters cannot overwrite the guarded result:
@@ -122,6 +124,8 @@ The fix (0.6.1) went through three layers, all reproducible:
 <InfoBox variant="warning" title="Three doors the guard does not close">
 Concurrent same-name uploads are still a race: both requests check before either pushes, so neither sees the other (core's disk check has the same race, but with local files deleted the damage is permanent and hard to notice). Direct writes that bypass `wp_handle_upload` (archive imports, FTP/object-level uploads) never pass through `wp_unique_filename` and are unprotected. And keep=1 sites pay up to 3 extra read-only HEAD requests per upload — the price of also closing the derived-key vectors, which we consider worth paying.
 </InfoBox>
+
+For the same family of silent URL-channel misses, see [WordPress URL rewrite misses JSON-escaped forms](/blog/url-rewrite-misses-json-escape-forms) — escaped JSON slipping past the rewrite matcher, the same "thought it was rewritten, actually wasn't" silence.
 
 ## FAQ
 

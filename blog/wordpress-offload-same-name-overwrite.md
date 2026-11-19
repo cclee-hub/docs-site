@@ -66,6 +66,8 @@ while ( file_exists( $_dir . $filename ) || ( $lc_filename && file_exists( $_dir
 
 顺带一提排查时的干扰项：keep=1 站点（本地保留文件）磁盘去重恰好兜底，同类上传不触发——这也是大量 offload 站点长期带着这个缺口无症状运行的原因，缺口只在「删本地」之后暴露。
 
+这也不是我们第一次撞见「上云之后，某条通道还在静默走旧规则」——此前 [Yoast og:image 不跟随 CDN 域名](/blog/yoast-og-image-indexable-cache-cdn-domain) 的缓存直出同属此族，都是文档没有记载的分支行为。
+
 ## 解决方案：上传时补三面查重
 
 思路直接：把去重面从「磁盘」扩回「磁盘 + 全站附件键 + 云端桶」。挂进 `wp_unique_filename` 过滤器（核心在 [functions.php:2832](https://github.com/WordPress/wordpress-develop/blob/6.8/src/wp-includes/functions.php#L2832) 输出最终名字前触发），优先级给到 999，防第三方晚挂的过滤器把查重结果再改掉：
@@ -124,6 +126,8 @@ $likes  = $wpdb->get_col( $wpdb->prepare(
 <InfoBox variant="warning" title="三面查重管不到的三个口子">
 并发同名上传仍是竞态：两个请求的查重都发生在对方推送之前，检查时点桶里都查不到对方（核心磁盘检查有同样竞态，删本地后损害持久且难发现）。绕过 `wp_handle_upload` 的直写（解包导入、FTP/对象直传）不经 `wp_unique_filename`，天然不受保护。另外 keep=1 站点每次上传会多 3 次只读 HEAD 请求——换来的是派生键向量一并封死，这个代价我们认为值得。
 </InfoBox>
+
+同类「URL 输出通道漏检」的完整排查与收口方法，另见 [WordPress 换域后轮播大图仍回源主域](/blog/url-rewrite-misses-json-escape-forms)——JSON 转义形态躲过重写匹配面，与本篇同属「以为改了、实际没改」的静默家族。
 
 ## 常见问题
 
