@@ -128,6 +128,8 @@ done
 
 The trade-off: why not keep drizzle-kit migrate? What a deploy needs is not "let the tool decide" but "the applied result is verifiable, and any failure stops the run". Per-file application turns every action into an assertable atomic step, and the ledger reconciliation turns "silently skipped" into an explicit failure. Local development keeps using the package.json `db:migrate` script (drizzle-kit migrate plus policy application) — what retired is the deploy usage, not the tool.
 
+That owner pipeline guards against the journal and the schema diverging — but the ledger itself can be corrupted: hand-edited future timestamps in `_journal.json` inflate the watermark `max(created_at)` and pin every later migration below it, and a raw SQL file without journal registration never enters the pending list. Both shapes and their fixes are in the companion post [drizzle migration skipped silently? Check the journal first](/blog/drizzle-journal-future-timestamp-silent-skip).
+
 The same family of "the migration looked done" exists on the SQLAlchemy side: [three Alembic migration pitfalls](/blog/alembic-migration-three-pitfalls) (async engine misuse, broken revision chains, model changes without migrations). To systematize existence and ownership checks, see [auditing orphan tables with information_schema](/blog/postgresql-information-schema-audit-orphan-tables).
 
 <InfoBox variant="warning" title="Watch out">

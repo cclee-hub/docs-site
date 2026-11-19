@@ -167,6 +167,8 @@ SELECT count(DISTINCT task_id) FROM task_assignees;           -- 去重任务数
 
 数据库写入路径上的坑往往不是语法错，是部署顺序与约束语义的错位——[ON CONFLICT 唯一约束匹配](/blog/2026/07/04/postgresql-on-conflict-unique-constraint)那一篇是同一家族：SQL 对了，migration 与写入端的时序错了照样全线报错。
 
+同一条 FORCE RLS 静默链还有备份侧的形态：用 owner 角色跑 `pg_dump` 会得到一份只有结构的空备份，数据动作分通道与恢复演练判据怎么设计，见姊妹篇 [pg_dump 备份没有数据？FORCE RLS 连 owner 也拦](/blog/postgres-pg-dump-empty-backup-force-rls)。
+
 ## 注意事项
 
 FORCE RLS 表上的运维动作，判据要从「命令成功」换成「行数对账」。四条都从这次事故里来：

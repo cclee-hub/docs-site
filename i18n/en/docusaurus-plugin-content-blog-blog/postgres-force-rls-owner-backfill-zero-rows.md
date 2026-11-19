@@ -167,6 +167,8 @@ In this incident, it was exactly the "baseline 23 = landed 23" check failing to 
 
 Pitfalls on database write paths are rarely syntax errors — they are deployment-order and constraint-semantics mismatches. [ON CONFLICT unique-constraint matching](/blog/2026/07/04/postgresql-on-conflict-unique-constraint) is the same family: the SQL is right, and a mismatched migration/deploy ordering still breaks everything.
 
+The same FORCE RLS chain has a backup-side shape too: running `pg_dump` as the owner produces a structure-only backup with zero rows. Which channel each data action should take, and how to design restore-drill checks that catch it, is in the companion post [pg_dump backup empty? FORCE RLS blocks the table owner too](/blog/postgres-pg-dump-empty-backup-force-rls).
+
 ## Gotchas
 
 On FORCE-RLS tables, the acceptance criterion for ops actions shifts from "command succeeded" to "row counts reconcile". All four points come straight from this incident:

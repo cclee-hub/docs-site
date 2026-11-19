@@ -128,6 +128,8 @@ done
 
 取舍：为什么不留着 drizzle-kit migrate？部署要的不是「工具替我判断」，而是「应用结果可核对、任何一步失败就停」。逐文件直灌把每个动作变成可断言的原子操作，账本核对把「静默跳过」变成显式失败。本地开发仍然用 package.json 里的 `db:migrate`（drizzle-kit migrate 加 policy 应用），退役的只是部署用法，不是工具本身。
 
+这条 owner 通道防的是「账本 vs 表结构」脱节；账本自身也会被改坏——`_journal.json` 的 `when` 被手改成未来时间戳后，账本水位 `max(created_at)` 把后续迁移永久压在下面，裸 SQL 文件不登记 journal 就永远不进 pending 名单。两个形态与修复见姊妹篇 [drizzle 迁移报成功却没执行？journal 水位与漏登记两个静默坑](/blog/drizzle-journal-future-timestamp-silent-skip)。
+
 同样的「迁移看似完成」家族，SQLAlchemy 那边有 [Alembic 三个迁移坑](/blog/alembic-migration-three-pitfalls)（async 引擎误用、版本链断链、改模型不建迁移）；表存在性、属主这类核对想系统化，可以看 [information_schema 审计孤儿表的思路](/blog/postgresql-information-schema-audit-orphan-tables)。
 
 <InfoBox variant="warning" title="注意事项">
