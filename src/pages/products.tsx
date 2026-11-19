@@ -4,7 +4,7 @@ import Head from '@docusaurus/Head';
 import Translate from '@docusaurus/Translate';
 import { translate } from '@docusaurus/Translate';
 import { useLocation } from '@docusaurus/router';
-import { PluginIcon, AIIcon, ZapIcon, TrendIcon, ShieldIcon, LightbulbIcon, MessageCircleIcon, RocketIcon, LayoutIcon, ToolIcon, BuildingIcon, TruckIcon, BookOpenIcon, GlobeIcon, LayersIcon } from '@site/src/components/Icons';
+import { PluginIcon, AIIcon, ZapIcon, TrendIcon, ShieldIcon, LightbulbIcon, MessageCircleIcon, RocketIcon, LayoutIcon, ToolIcon, BuildingIcon, TruckIcon, BookOpenIcon, GlobeIcon, LayersIcon, ImageIcon } from '@site/src/components/Icons';
 import { HeroBackground } from '@site/src/components/HeroSection';
 import ProductListRow from '@site/src/components/ProductListRow';
 
@@ -61,6 +61,16 @@ const PRODUCT_SECTIONS = [
         cta: 'GitHub 开源 · 永久免费',
         ctaId: 'homepage.products.ccleeShipping.cta',
         ctaLink: '/docs/cclee-shipping',
+      },
+      {
+        icon: <ImageIcon size={24} className="text-white" />,
+        name: 'CCLEE OSS',
+        nameId: 'homepage.products.ccleeOss.title',
+        description: 'WordPress 阿里云 OSS 插件。媒体库上传自动同步自有 Bucket，URL 重写 OSS/CDN 域名，纯云模式释放服务器空间，数据库 URL 替换一键回滚。',
+        descriptionId: 'homepage.products.ccleeOss.description',
+        cta: '商用授权 · 离线验签',
+        ctaId: 'homepage.products.ccleeOss.cta',
+        ctaLink: '/docs/cclee-oss',
       },
     ],
   },

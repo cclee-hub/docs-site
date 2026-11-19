@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="660" viewBox="0 0 1200 660">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "Helvetica","Arial","Noto Sans","Noto Sans CJK SC","PingFang SC","Microsoft YaHei",sans-serif; fill: #1f2933; }
+    .t { font-size: 24px; font-weight: 700; }
+    .s { font-size: 22px; }
+    .lbl { font-size: 22px; fill: #475569; }
+    .box { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 2; rx: 12; }
+    .arr { stroke: #64748b; stroke-width: 2.5; fill: none; marker-end: url(#arr); }
+  </style>
+
+  <!-- input -->
+  <rect class="box" x="450" y="36" width="300" height="64" rx="12"/>
+  <text class="t" x="600" y="76" text-anchor="middle">Upload candidate: hero.jpg</text>
+
+  <!-- fork arrows -->
+  <path class="arr" d="M 600 100 L 600 118 L 220 118 L 220 148"/>
+  <path class="arr" d="M 600 100 L 600 148"/>
+  <path class="arr" d="M 600 100 L 600 118 L 980 118 L 980 148"/>
+
+  <!-- three faces -->
+  <rect class="box" x="50" y="150" width="340" height="140" rx="12"/>
+  <text class="t" x="220" y="192" text-anchor="middle">① Local disk</text>
+  <text class="s" x="220" y="232" text-anchor="middle">Directory family-name scan</text>
+
+  <rect class="box" x="430" y="150" width="340" height="140" rx="12"/>
+  <text class="t" x="600" y="192" text-anchor="middle">② Database</text>
+  <text class="s" x="600" y="232" text-anchor="middle">_wp_attached_file</text>
+  <text class="s" x="600" y="264" text-anchor="middle">family-prefix match</text>
+
+  <rect class="box" x="810" y="150" width="340" height="140" rx="12"/>
+  <text class="t" x="980" y="192" text-anchor="middle">③ Cloud bucket</text>
+  <text class="s" x="980" y="232" text-anchor="middle">per-key HEAD</text>
+  <text class="s" x="980" y="264" text-anchor="middle">base · -scaled · -rotated × ext set</text>
+
+  <!-- merge arrows -->
+  <path class="arr" d="M 220 290 L 220 350 L 540 350"/>
+  <path class="arr" d="M 600 290 L 600 340"/>
+  <path class="arr" d="M 980 290 L 980 350 L 660 350"/>
+
+  <!-- decision diamond -->
+  <polygon points="600,340 740,385 600,430 460,385" fill="#fff7ed" stroke="#fdba74" stroke-width="2.5"/>
+  <text class="t" x="600" y="394" text-anchor="middle">Occupied on any face?</text>
+
+  <!-- outcomes -->
+  <path class="arr" d="M 460 385 L 330 385 L 330 498"/>
+  <text class="lbl" x="382" y="374">No</text>
+  <rect class="box" x="150" y="500" width="360" height="96" rx="12"/>
+  <text class="t" x="330" y="540" text-anchor="middle">Allow</text>
+  <text class="s" x="330" y="576" text-anchor="middle">upload as-is (or renamed candidate)</text>
+
+  <path class="arr" d="M 740 385 L 940 385 L 940 498"/>
+  <text class="lbl" x="760" y="374">Yes</text>
+  <rect class="box" x="690" y="500" width="460" height="96" rx="12"/>
+  <text class="t" x="920" y="540" text-anchor="middle">Occupied → rename and retest</text>
+  <text class="s" x="920" y="576" text-anchor="middle">hero-1.jpg … (max 20 rounds)</text>
+
+  <!-- retest dashed arrow -->
+  <path d="M 1000 500 L 1000 296" stroke="#94a3b8" stroke-width="2" stroke-dasharray="7 6" fill="none" marker-end="url(#arr)"/>
+  <text class="lbl" x="1012" y="470">retest</text>
+</svg>

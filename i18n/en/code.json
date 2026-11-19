@@ -1041,6 +1041,18 @@
     "message": "Open Source on GitHub · Free Forever",
     "description": "CCLEE Shipping CTA text"
   },
+  "homepage.products.ccleeOss.title": {
+    "message": "CCLEE OSS",
+    "description": "CCLEE OSS product title"
+  },
+  "homepage.products.ccleeOss.description": {
+    "message": "WordPress media offload to Alibaba Cloud OSS. Uploads sync to your own bucket, URLs rewrite to the OSS/CDN domain, cloud-only mode frees server space, and database URL replacement rolls back in one click.",
+    "description": "CCLEE OSS product description"
+  },
+  "homepage.products.ccleeOss.cta": {
+    "message": "Commercial License · Offline Verification",
+    "description": "CCLEE OSS CTA text"
+  },
   "homepage.products.ccleeDocusaurusTheme.title": {
     "message": "CCLEE Docusaurus Theme",
     "description": "CCLEE Docusaurus Theme product title"
