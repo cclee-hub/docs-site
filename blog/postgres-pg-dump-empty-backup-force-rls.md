@@ -37,7 +37,7 @@ $ echo $?
 
 这之前还有一次同根因的预演。一批数据动作迁移（把某列的旧值清空）走 owner 通道直灌，部署记账全绿；事后用超级用户一查，目标列还剩 2 行没清掉——`UPDATE` 实际改了 0 行。更反直觉的是在 owner 会话里直接 `SELECT count(*)` 这张表：返回 **0**；换超级用户查：**6**。owner 连读都读不到行，而它明明是这张表的 owner。
 
-两件事隔了几周、发生在不同环节（一次是迁移、一次是备份演练），根因是同一条。
+两件事隔了几周、发生在不同环节（一次是迁移、一次是备份演练），根因是同一条。迁移侧还有一类与 RLS 无关的静默坑：[UPDATE FROM 里 lateral 引用目标表被拒、drizzle-kit 吞错零输出](/blog/postgres-update-from-lateral-invalid-reference)——解法是横向引用一律改 CTE 形态。
 
 ## 根因：FORCE RLS 为什么连 owner 和 pg_dump 都拦
 

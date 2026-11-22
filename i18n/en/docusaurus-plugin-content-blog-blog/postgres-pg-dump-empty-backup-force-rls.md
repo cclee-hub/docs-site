@@ -37,7 +37,7 @@ Those lines look like warnings. The file exists and is not empty. The problem su
 
 A few weeks earlier, the same root cause had shown up on the migration side. A data-action migration (nulling out a legacy column) ran through the owner channel; deployment bookkeeping stayed green. A later superuser check found 2 rows the `UPDATE` had missed — it had silently modified 0 rows. Stranger still, running `SELECT count(*)` on one of those tables from the owner session returned **0**, while the superuser saw **6**. The owner could not read rows from a table it owned.
 
-Two incidents, weeks apart, in different parts of the pipeline — one root cause.
+Two incidents, weeks apart, in different parts of the pipeline — one root cause. The migration side has another silent failure family unrelated to RLS: [UPDATE FROM laterals can't reference the target table, and drizzle-kit swallows the error](/blog/postgres-update-from-lateral-invalid-reference) — the fix is to rewrite correlated reads as a CTE.
 
 ## Root cause: why FORCE RLS stops the owner and pg_dump too
 
