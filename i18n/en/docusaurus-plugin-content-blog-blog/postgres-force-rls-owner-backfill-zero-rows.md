@@ -16,8 +16,6 @@ faqs:
     a: "No. RLS evaluates row access only — visibility of SELECT and legality of writes. CREATE TABLE, ALTER TABLE, and index builds never touch policies, which is why the same migration run shows all-green DDL next to a silently empty DML backfill."
 ---
 
-<!-- Source-note placeholder: backfill this paragraph once the product row exists in products.tsx (low-sensitivity template: product name + link + value in one sentence) -->
-
 While running a one-off data backfill against a multi-tenant table, the command finished normally and returned `INSERT 0 0` — the baseline had 23 rows to migrate, and not one of them landed. In the same deployment, every CREATE TABLE and ADD COLUMN migration had succeeded.
 
 ## TL;DR
