@@ -93,7 +93,7 @@ ServerAlias test.xxx
 
 命中验证：`httpd -S` 看别名落在哪个 vhost，再对比各 vhost 的 domlog 是否进了请求。
 
-一个衔接提醒：用 ServerAlias 挂进来的域名不归 AutoSSL 管理，证书不会自动签发——处理方式见 [cPanel AutoSSL 不签发证书？排除列表与 vhost 证书路径](/blog/cpanel-autossl-not-issuing)。
+一个衔接提醒：用 ServerAlias 挂进来的域名不归 AutoSSL 管理，证书不会自动签发——处理方式见 [cPanel AutoSSL 不签发证书？排除列表与 vhost 证书路径](/blog/cpanel-autossl-not-issuing)。域名证书之外，面板自己的服务证书是另一条线——格式装错会让面板整站打不开，见 [cPanel 面板打不开反复崩溃？mycpanel.pem 必须是证书+私钥合体](/blog/cpanel-mycpanel-pem-crash-loop)。
 
 <InfoBox variant="warning" title="注意事项">
 

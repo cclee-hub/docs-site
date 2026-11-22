@@ -138,6 +138,8 @@ A per-account list of domains that AutoSSL deliberately skips. Beyond manual exc
 
 "already optimal" in the AutoSSL panel only means no renewal is due — it does not confirm coverage. Domains on the exclusion list are skipped silently, so nothing is ever issued or renewed, and Let's Encrypt certificates expire after 90 days. Verify the live SAN with openssl s_client from an external machine, clean the exclusion list, and trigger issuance manually; the daily task takes over renewal afterwards.
 
+The monitoring side has its own certificate trap: the shortest remaining-days figure in an expiry alert is not necessarily the live certificate — cPanel keeps accumulating past generations in the certs directory; see [Cert Alert Every Day? cPanel Keeps Stale Cert Generations](/blog/cpanel-cert-expiry-alert-stale-generations).
+
 <div className="my-8 p-6 rounded-xl border text-center">
   <p className="text-lg font-semibold mb-2">CCLEE</p>
   <p className="text-sm mb-4">Independent developer, 24 years in e-commerce, focused on grounding AI in real business scenarios.</p>

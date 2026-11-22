@@ -73,6 +73,8 @@ stat -c %Y /tmp/samples.csv
 
 </InfoBox>
 
+「返回信号不可全信」在云助手侧是成套的：CLI 报错走 stderr 且 exit 0，jq 兜底默认值会把失败洗成空结果——判读与规避见 [aliyun CLI exit 0 假成功？错误走 stderr，jq 兜底遮住报错](/blog/aliyun-cli-exit-zero-false-success)。
+
 ## 常见问题
 
 ### nohup 启动的进程为什么还是没了？

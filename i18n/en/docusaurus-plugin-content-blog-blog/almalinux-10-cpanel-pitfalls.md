@@ -93,7 +93,7 @@ Then `/scripts/rebuildhttpdconf`. **A wrong directory name leaves the include li
 
 Confirm routing with `httpd -S` and by watching which vhost's domlog receives the requests.
 
-One linkage note: domains attached via ServerAlias are not managed by AutoSSL, so no certificate is issued for them automatically — see [cPanel AutoSSL Not Issuing? The Exclusion List and vhost Paths](/blog/cpanel-autossl-not-issuing).
+One linkage note: domains attached via ServerAlias are not managed by AutoSSL, so no certificate is issued for them automatically — see [cPanel AutoSSL Not Issuing? The Exclusion List and vhost Paths](/blog/cpanel-autossl-not-issuing). Beyond domain certificates, the panel's own service certificate is a separate track — a wrong file format takes the whole panel down, see [cPanel Crash Loop? mycpanel.pem Needs Cert + Key in One File](/blog/cpanel-mycpanel-pem-crash-loop).
 
 <InfoBox variant="warning" title="Warnings">
 

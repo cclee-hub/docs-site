@@ -138,6 +138,8 @@ already optimal 只表示该账户无需补签，不等于覆盖完整。先查�
 
 分两步：先在服务器外的机器用 openssl s_client 确认公网实际拿到的证书；再到 `/var/cpanel/logs/autossl/` 按时间戳翻签发日志定位卡点。注意本机验证要连实际业务 IP，连 127.0.0.1 会命中默认 vhost 造成误判。签发链路打通后，90 天有效期的证书由每日任务自动续期，不需要人工干预。
 
+另一个方向的证书坑在监控侧：到期告警里的最短剩余天数未必是现役证书——cPanel 会向证书目录累积历史代次，判读与处置见 [证书告警天天报？cPanel 累积历史代次，最短天数未必现役](/blog/cpanel-cert-expiry-alert-stale-generations)。
+
 <div className="my-8 p-6 rounded-xl border text-center">
   <p className="text-lg font-semibold mb-2">CCLEE</p>
   <p className="text-sm mb-4">独立开发者，24年电商行业实战经验，专注将AI能力落地于真实商业场景。</p>

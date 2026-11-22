@@ -73,6 +73,8 @@ The verified form is `setsid nohup cmd < /dev/null &`, and each piece does one j
 
 </InfoBox>
 
+Untrustworthy signals come in sets on Cloud Assistant: CLI errors go to stderr with exit 0, and a jq fallback default launders the failure into an empty result — see [Aliyun CLI Exit 0 but Failed? jq Default Values Hide Errors](/blog/aliyun-cli-exit-zero-false-success).
+
 ## FAQ
 
 ### Why did my nohup process disappear anyway?
