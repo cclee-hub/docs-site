@@ -4,7 +4,7 @@ import Head from '@docusaurus/Head';
 import Translate from '@docusaurus/Translate';
 import { translate } from '@docusaurus/Translate';
 import { useLocation } from '@docusaurus/router';
-import { PluginIcon, AIIcon, ZapIcon, TrendIcon, ShieldIcon, LightbulbIcon, MessageCircleIcon, RocketIcon, LayoutIcon, ToolIcon, BuildingIcon, TruckIcon, BookOpenIcon, GlobeIcon, LayersIcon, ImageIcon } from '@site/src/components/Icons';
+import { PluginIcon, AIIcon, ZapIcon, TrendIcon, ShieldIcon, LightbulbIcon, MessageCircleIcon, RocketIcon, LayoutIcon, ToolIcon, BuildingIcon, TruckIcon, BookOpenIcon, GlobeIcon, LayersIcon, ImageIcon, ClockIcon } from '@site/src/components/Icons';
 import { HeroBackground } from '@site/src/components/HeroSection';
 import ProductListRow from '@site/src/components/ProductListRow';
 
@@ -127,6 +127,22 @@ const PRODUCT_SECTIONS = [
         cta: '了解更多',
         ctaId: 'homepage.products.aiProductListing.cta',
         ctaLink: '/docs/ai-product-listing',
+      },
+    ],
+  },
+  {
+    titleId: 'homepage.products.manufacturing.title',
+    title: '生产制造',
+    products: [
+      {
+        icon: <ClockIcon size={24} className="text-white" />,
+        name: '开物智造',
+        nameId: 'homepage.products.flowtrack.title',
+        description: '装在企业微信里的工厂生产进度与交期管理工具：工序、工艺路线、工单交期一眼看清，预警提前知道会晚几天，生产人员两步报工。',
+        descriptionId: 'homepage.products.flowtrack.description',
+        cta: '了解更多',
+        ctaId: 'homepage.products.flowtrack.cta',
+        ctaLink: '/docs/flowtrack',
       },
     ],
   },

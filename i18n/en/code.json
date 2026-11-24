@@ -1077,6 +1077,22 @@
     "message": "Learn More",
     "description": "Task Stack CTA text"
   },
+  "homepage.products.manufacturing.title": {
+    "message": "Manufacturing",
+    "description": "Manufacturing section title"
+  },
+  "homepage.products.flowtrack.title": {
+    "message": "FlowTrack",
+    "description": "FlowTrack product title"
+  },
+  "homepage.products.flowtrack.description": {
+    "message": "Delivery-date keeper for make-to-order factories: processes, routings and work-order deadlines at a glance, early warnings when an order will be late, two-step progress reporting for operators.",
+    "description": "FlowTrack product description"
+  },
+  "homepage.products.flowtrack.cta": {
+    "message": "Learn More",
+    "description": "FlowTrack CTA text"
+  },
   "homepage.products.serverops.title": {
     "message": "Server Operations",
     "description": "Server operations section title"
