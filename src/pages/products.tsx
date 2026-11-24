@@ -142,7 +142,7 @@ const PRODUCT_SECTIONS = [
         descriptionId: 'homepage.products.flowtrack.description',
         cta: '了解更多',
         ctaId: 'homepage.products.flowtrack.cta',
-        ctaLink: '/docs/flowtrack',
+        ctaLink: '/flowtrack',
       },
     ],
   },
