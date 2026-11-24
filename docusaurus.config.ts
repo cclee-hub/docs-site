@@ -4,7 +4,6 @@ import type * as Preset from '@docusaurus/preset-classic';
 // 双站配置：SITE=zh → 中文站 ccleeai.com；SITE=ai（或未设置）→ 英文站 aidevhub.ai
 const site = process.env.SITE === 'zh' ? 'zh' : 'ai';
 const siteUrl = site === 'zh' ? 'https://ccleeai.com' : 'https://aidevhub.ai';
-const defaultLocale = site === 'zh' ? 'zh' : 'en';
 // 百度统计域名仅中文站进入 CSP
 const baiduCsp = site === 'zh' ? ' https://hm.baidu.com' : '';
 // GA4 仅英文站（SITE=ai）启用
@@ -82,18 +81,23 @@ const config: Config = {
   },
 
   i18n: {
-    defaultLocale,
-    // 单语单域：aidevhub.ai 仅英文、ccleeai.com 仅中文，避免跨域重复内容；
-    // 历史异语 URL 由 301 兜底（ai 站见 vercel.json，zh 站见 cclhub nginx）
-    locales: site === 'zh' ? ['zh'] : ['en'],
+    // 双 locale 声明 + 每 locale 跨域 url：AlternateLangHeaders 据此原生输出
+    // zh-CN/en-US/x-default 互指（x-default 统一指 en 站），替代构建后注入脚本；
+    // defaultLocale 固定 en，构建必须显式 --locale（两 locale baseUrl 均 '/'，裸构建会互相覆盖产物）
+    defaultLocale: 'en',
+    locales: ['en', 'zh'],
     localeConfigs: {
       zh: {
         label: '简体中文',
         htmlLang: 'zh-CN',
+        url: 'https://ccleeai.com',
+        baseUrl: '/',
       },
       en: {
         label: 'English',
         htmlLang: 'en-US',
+        url: 'https://aidevhub.ai',
+        baseUrl: '/',
       },
     },
   },

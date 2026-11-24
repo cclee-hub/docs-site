@@ -642,6 +642,24 @@
   "about.contact.copied": {
     "message": "Copied"
   },
+  "about.faq.q1": {
+    "message": "Who is CCLEE?"
+  },
+  "about.faq.a1": {
+    "message": "CCLEE is an independent developer with 24 years of hands-on e-commerce experience, focused on bringing AI capabilities to real business scenarios. Led multi-platform e-commerce operations with annual sales exceeding 8 million RMB, and deployed 13 AI efficiency tools in 2024, saving 70% of repetitive manual work."
+  },
+  "about.faq.q2": {
+    "message": "What services does CCLEE provide?"
+  },
+  "about.faq.a2": {
+    "message": "Three service categories: 1) AI tool development - custom AI tools such as customer service automation, data collection, copywriting, and product selection analysis; 2) China going-global - full-channel operations across 1688, AliExpress, and independent sites; 3) Foreign enterprises entering China - China market strategy, platform selection, and localized promotion."
+  },
+  "about.faq.q3": {
+    "message": "How to contact CCLEE?"
+  },
+  "about.faq.a3": {
+    "message": "Email: leecc1531@gmail.com, or scan the WeChat QR code on the website to add WeChat."
+  },
   "services.page.title": {
     "message": "Services"
   },

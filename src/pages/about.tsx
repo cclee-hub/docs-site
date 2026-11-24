@@ -35,26 +35,26 @@ export default function AboutPage(): React.ReactElement {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "CCLEE 是谁？",
+        "name": translate({ id: 'about.faq.q1', message: 'CCLEE 是谁？' }),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "CCLEE 是拥有24年电商行业实战经验的独立开发者，专注将AI能力落地于真实商业场景。主导过多平台电商运营年销售额突破800万元，2024年落地13个AI增效工具节省70%重复性人力工作。"
+          "text": translate({ id: 'about.faq.a1', message: 'CCLEE 是拥有24年电商行业实战经验的独立开发者，专注将AI能力落地于真实商业场景。主导过多平台电商运营年销售额突破800万元，2024年落地13个AI增效工具节省70%重复性人力工作。' })
         }
       },
       {
         "@type": "Question",
-        "name": "CCLEE 提供哪些服务？",
+        "name": translate({ id: 'about.faq.q2', message: 'CCLEE 提供哪些服务？' }),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "提供三类服务：1) AI工具开发 - 客服自动化、数据采集、文案生成、选品分析等定制化AI工具；2) 中国出海 - 1688、速卖通、独立站全渠道运营；3) 外企入华 - 中国市场策略、平台选择、本地化推广。"
+          "text": translate({ id: 'about.faq.a2', message: '提供三类服务：1) AI工具开发 - 客服自动化、数据采集、文案生成、选品分析等定制化AI工具；2) 中国出海 - 1688、速卖通、独立站全渠道运营；3) 外企入华 - 中国市场策略、平台选择、本地化推广。' })
         }
       },
       {
         "@type": "Question",
-        "name": "如何联系 CCLEE？",
+        "name": translate({ id: 'about.faq.q3', message: '如何联系 CCLEE？' }),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "邮箱：leecc1531@gmail.com，或扫描网站上的微信二维码添加微信联系。"
+          "text": translate({ id: 'about.faq.a3', message: '邮箱：leecc1531@gmail.com，或扫描网站上的微信二维码添加微信联系。' })
         }
       }
     ]

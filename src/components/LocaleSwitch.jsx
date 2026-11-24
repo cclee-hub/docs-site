@@ -10,20 +10,13 @@ export default function LocaleSwitch({ currentLocale }) {
   const [isOpen, setIsOpen] = useState(false)
   const dropdownRef = useRef(null)
   const { i18n } = useDocusaurusContext()
-  const defaultLocale = i18n.defaultLocale
 
   const switchLocale = (newLocale) => {
     const currentPath = window.location.pathname
     // 兼容历史前缀路径（/en、/zh 已下线，仅旧链接可能残留）
-    const nonDefaultPrefix = defaultLocale === 'zh' ? '/en' : '/zh'
-    const pathWithoutLocale = currentPath.replace(new RegExp(`^${nonDefaultPrefix}`), '')
-    if (newLocale === defaultLocale) {
-      window.location.href = pathWithoutLocale || '/'
-    } else {
-      // 单语单域：异语内容在另一域名的同路径（aidevhub.ai 英文根 ↔ ccleeai.com 中文根）
-      const otherDomain = defaultLocale === 'zh' ? 'https://aidevhub.ai' : 'https://ccleeai.com'
-      window.location.href = otherDomain + (pathWithoutLocale || '/')
-    }
+    const pathWithoutLocale = currentPath.replace(/^\/(en|zh)(?=\/|$)/, '')
+    // 目标域名唯一权威来源：localeConfigs.<locale>.url（双站跨域互指同源配置）
+    window.location.href = i18n.localeConfigs[newLocale].url + (pathWithoutLocale || '/')
   }
 
   useEffect(() => {
