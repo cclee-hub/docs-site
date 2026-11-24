@@ -1,6 +1,6 @@
 ---
-title: "Kaiwu Setup: Process Management, Routings & Team Roles"
-description: "Kaiwu setup guide: add processes, chain them into a routing with durations, assign team roles — three steps to better process management on the shop floor."
+title: "FlowTrack Setup: Process Management, Routings & Team Roles"
+description: "FlowTrack setup guide: add processes, chain them into a routing with durations, assign team roles — three steps to better process management for your shop."
 project: flowtrack
 schema: HowTo
 steps:
@@ -11,16 +11,16 @@ steps:
   - name: Assign roles
     text: Under Members & Permissions, assign pending teammates as Merchandiser or Operator
 rag: true
-rag_tags: ["Kaiwu", "process management", "production routing", "team roles", "manufacturing"]
+rag_tags: ["FlowTrack", "process management", "production routing", "team roles", "manufacturing"]
 ---
 
-# Kaiwu Setup Guide
+# FlowTrack Setup Guide
 
 Before production starts, set up three things: **add processes → build a routing → assign team roles**. Everything runs in the browser, on desktop or phone, in about 10 minutes.
 
 The screenshots below show the product's Chinese interface — follow the step text; the layout and icons match.
 
-## Which channels does Kaiwu support?
+## Which channels does FlowTrack support?
 
 | Channel | Availability |
 |---------|-------------|
@@ -33,7 +33,7 @@ Deployment region is optional — data is stored in the region where the custome
 
 ## Quick start
 
-1. Open Kaiwu and go to **Me → Settings**
+1. Open FlowTrack and go to **Me → Settings**
 2. Under **Processes**, add each step in your workshop (example: cutting, machining, welding, assembly, inspection — 5 processes)
 3. Under **Routings**, create a routing, chain the processes in order, and set a duration for each
 4. Under **Members & Permissions**, assign a role to every teammate
@@ -75,7 +75,7 @@ A routing is the fixed path a product follows from start to finish: which proces
 
 <img src="/images/docs/flowtrack/07-route-pick-process.webp" width="480" loading="lazy" />
 
-4. With a node selected, tap **＋** to append the next process and keep chaining. Select each process and set its duration in days on the panel below. The example routing has 5 processes totalling 7 days — Kaiwu adds them up automatically.
+4. With a node selected, tap **＋** to append the next process and keep chaining. Select each process and set its duration in days on the panel below. The example routing has 5 processes totalling 7 days — FlowTrack adds them up automatically.
 
 <img src="/images/docs/flowtrack/08-route-canvas-built.webp" width="480" loading="lazy" />
 
@@ -116,15 +116,15 @@ Setup is done. Back on the home page, tap **＋ New work order** — once a prod
 
 ### What is production routing?
 
-The fixed path a product follows through your shop: the sequence of processes and the days each takes. Example: cutting (1 day) → machining (2) → welding (1) → assembly (2) → inspection (1) — 5 processes, 7 days total. In Kaiwu you build a routing once and reuse it on every work order. Conclusion: if you make the same product repeatedly, one routing covers it.
+The fixed path a product follows through your shop: the sequence of processes and the days each takes. Example: cutting (1 day) → machining (2) → welding (1) → assembly (2) → inspection (1) — 5 processes, 7 days total. In FlowTrack you build a routing once and reuse it on every work order. Conclusion: if you make the same product repeatedly, one routing covers it.
 
 ### What is routing in production management?
 
-It is the backbone that turns an order into day-by-day work: pick a routing on a work order, and every process and deadline follows from it. Each routing step in Kaiwu carries a duration in days, and the 5-step example route totals 7 days automatically. Conclusion: without a routing, progress tracking has no baseline.
+It is the backbone that turns an order into day-by-day work: pick a routing on a work order, and every process and deadline follows from it. Each routing step in FlowTrack carries a duration in days, and the 5-step example route totals 7 days automatically. Conclusion: without a routing, progress tracking has no baseline.
 
 ### Why can't my teammates see any data?
 
-New teammates stay **Pending** until you assign a role — Kaiwu has 4 roles (Owner, Merchandiser, Operator, Pending), and Pending deliberately sees nothing. Go to **Settings → Members & Permissions**, tap Pending, and pick a role from the dropdown; it takes effect immediately, no re-login. Conclusion: assigning a role fixes it.
+New teammates stay **Pending** until you assign a role — FlowTrack has 4 roles (Owner, Merchandiser, Operator, Pending), and Pending deliberately sees nothing. Go to **Settings → Members & Permissions**, tap Pending, and pick a role from the dropdown; it takes effect immediately, no re-login. Conclusion: assigning a role fixes it.
 
 ### Can I delete a process?
 
