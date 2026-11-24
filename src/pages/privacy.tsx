@@ -2,9 +2,12 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import Translate from '@docusaurus/Translate';
 import { translate } from '@docusaurus/Translate';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { ShieldIcon } from '@site/src/components/Icons';
 
 export default function PrivacyPage(): React.ReactElement {
+  const { siteConfig } = useDocusaurusContext();
+  const lastUpdated = String(siteConfig.customFields?.lastUpdatedZh ?? '');
   const title = translate({ id: 'privacy.title', message: '隐私政策' });
   const description = translate({ id: 'privacy.description', message: 'CCLEE 隐私政策' });
 
@@ -68,7 +71,7 @@ export default function PrivacyPage(): React.ReactElement {
 
             {/* 更新时间 */}
             <div className="text-center text-sm text-gray-500 dark:text-gray-400 pt-4">
-              <Translate id="privacy.lastUpdate">最后更新</Translate>: {new Date().getFullYear()}年{new Date().getMonth() + 1}月{new Date().getDate()}日
+              <Translate id="privacy.lastUpdate">最后更新</Translate>: {lastUpdated}
             </div>
           </div>
         </div>

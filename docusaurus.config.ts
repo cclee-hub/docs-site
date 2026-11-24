@@ -46,12 +46,32 @@ const config: Config = {
   organizationName: 'CCLHUB',
   projectName: 'docs-site',
 
+  // 构建期常量（config 加载时求值一次）：SSR HTML 与客户端 bundle 烘入同一值，
+  // 避免组件内 new Date() 在 hydration 期与构建期漂移（跨年即触发 #425 文本不匹配）
+  customFields: {
+    buildYear: new Date().getFullYear(),
+    lastUpdatedZh: `${new Date().getFullYear()}年${new Date().getMonth() + 1}月${new Date().getDate()}日`,
+  },
+
   onBrokenLinks: 'throw',
   onBrokenAnchors: 'warn',
 
   future: {
     v4: true,
-    experimental_faster: true,
+    // 显式列全 8 键（对象形态下未列键回落 false，勿简写）：仅关 swcHtmlMinimizer。
+    // 根因：SWC HTML minifier 会压缩 FloatingChat 在 React root 内渲染的 <style> 文本子节点
+    // （opacity: 0.8 → opacity:.8、去空白），React 18.3 hydration 文本比对失败 → #425/#418/#423。
+    // 关闭后回落 terser minifier（官方 hydration-safe 选项：保留引号/空白/style 原文，不设 minifyCSS）。
+    experimental_faster: {
+      swcJsLoader: true,
+      swcJsMinimizer: true,
+      swcHtmlMinimizer: false,
+      lightningCssMinimizer: true,
+      mdxCrossCompilerCache: true,
+      rspackBundler: true,
+      rspackPersistentCache: true,
+      ssgWorkerThreads: true,
+    },
   },
 
   markdown: {

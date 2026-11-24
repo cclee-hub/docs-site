@@ -2,9 +2,12 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import Translate from '@docusaurus/Translate';
 import { translate } from '@docusaurus/Translate';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { FileIcon } from '@site/src/components/Icons';
 
 export default function TermsPage(): React.ReactElement {
+  const { siteConfig } = useDocusaurusContext();
+  const lastUpdated = String(siteConfig.customFields?.lastUpdatedZh ?? '');
   const title = translate({ id: 'terms.title', message: '服务条款' });
   const description = translate({ id: 'terms.description', message: 'CCLEE 服务条款' });
 
@@ -100,7 +103,7 @@ export default function TermsPage(): React.ReactElement {
 
             {/* 更新时间 */}
             <div className="text-center text-sm text-gray-500 dark:text-gray-400 pt-4">
-              <Translate id="terms.lastUpdate">最后更新</Translate>: {new Date().getFullYear()}年{new Date().getMonth() + 1}月{new Date().getDate()}日
+              <Translate id="terms.lastUpdate">最后更新</Translate>: {lastUpdated}
             </div>
           </div>
         </div>

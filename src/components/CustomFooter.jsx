@@ -6,9 +6,10 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import { Zap, Shield, Rocket, Github, MessageCircle } from 'lucide-react'
 
 export default function CustomFooter() {
-  const currentYear = new Date().getFullYear()
-  const { i18n } = useDocusaurusContext()
+  const { i18n, siteConfig } = useDocusaurusContext()
   const isEn = i18n.currentLocale === 'en'
+  // 构建期常量（docusaurus.config customFields.buildYear），禁止 new Date()——hydration 期与构建期跨年会文本不匹配
+  const currentYear = siteConfig.customFields?.buildYear ?? 2026
 
   const features = isEn
     ? [
@@ -67,7 +68,7 @@ export default function CustomFooter() {
                   </div>
                   <div className="absolute top-full left-0 mt-2 w-[136px] p-3 bg-white dark:bg-gray-800 rounded-lg shadow-xl z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                     <img
-                      src="/images/wechat-qr.jpg"
+                      src="/images/wechat-qr.webp"
                       alt="微信二维码"
                       className="w-full aspect-square rounded"
                     />
