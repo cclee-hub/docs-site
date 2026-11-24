@@ -99,7 +99,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: '开物智造',
-      items: ['flowtrack-setup-guide'],
+      items: ['flowtrack', 'flowtrack-setup-guide'],
     },
   ],
 };
