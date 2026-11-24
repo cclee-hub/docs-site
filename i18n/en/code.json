@@ -1395,5 +1395,278 @@
   },
   "life.cta.docs": {
     "message": "Read the Documentation →"
+  },
+  "flowtrackLp.kicker": {
+    "message": "A customer asks about their order — do you walk the shop floor to find out?"
+  },
+  "flowtrackLp.h1a": {
+    "message": "Know it'll be late days ahead —"
+  },
+  "flowtrackLp.h1b": {
+    "message": "in time to fix it"
+  },
+  "flowtrackLp.sub": {
+    "message": "See which process every order is on and how many days are left, at a glance. Orders likely to slip raise an alert on your phone early — time to move people, reschedule, or give the customer a call."
+  },
+  "flowtrackLp.ctaPrimary": {
+    "message": "Get started now"
+  },
+  "flowtrackLp.ctaSecondary": {
+    "message": "See the product overview"
+  },
+  "flowtrackLp.trustA": {
+    "message": "To-dos pushed straight to the person responsible · Workers report by scanning"
+  },
+  "flowtrackLp.trustB": {
+    "message": "Set up in 10 minutes · Nothing to install"
+  },
+  "flowtrackLp.cardOrder": {
+    "message": "Order GD-2603-014"
+  },
+  "flowtrackLp.chipOk": {
+    "message": "On track"
+  },
+  "flowtrackLp.chipWarn": {
+    "message": "Late risk"
+  },
+  "flowtrackLp.cardProduct": {
+    "message": "Bracket assembly"
+  },
+  "flowtrackLp.cardStepPre": {
+    "message": "step"
+  },
+  "flowtrackLp.cardStepPost": {
+    "message": ""
+  },
+  "flowtrackLp.cardNow": {
+    "message": "now"
+  },
+  "flowtrackLp.daysUnit": {
+    "message": "days to due date"
+  },
+  "flowtrackLp.warnLine": {
+    "message": "Est. 1 day late · 2 days left, 3 days of work"
+  },
+  "flowtrackLp.warnHint": {
+    "message": "There's still time to move people"
+  },
+  "flowtrackLp.actA": {
+    "message": "Re-estimate finish"
+  },
+  "flowtrackLp.actB": {
+    "message": "Change due date"
+  },
+  "flowtrackLp.legend": {
+    "message": "The moment remaining days can no longer cover the remaining work, the alert hits your home screen — while moving people, rescheduling, or resetting the date with your customer is still possible."
+  },
+  "flowtrackLp.heroAria": {
+    "message": "Animation: a shop order advances along its route; when remaining days can no longer cover the remaining work, a due-date alert appears"
+  },
+  "flowtrackLp.stageCap": {
+    "message": "10-second loop: reporting advances the order → countdown drops to 2 days → remaining work needs 3 days → the alert appears; reschedule on the spot."
+  },
+  "flowtrackLp.stageCapStatic": {
+    "message": "At step 3, remaining days can no longer cover the remaining work — the alert appears on the home screen."
+  },
+  "flowtrackLp.dayUnit": {
+    "message": "d"
+  },
+  "flowtrackLp.toolbarUnit": {
+    "message": " days"
+  },
+  "flowtrackLp.dimHero": {
+    "message": "Total 7 days · start + 7 days = due date"
+  },
+  "flowtrackLp.tagHero": {
+    "message": "FT-LP-01 · Standard machining route"
+  },
+  "flowtrackLp.pCut": {
+    "message": "Cutting"
+  },
+  "flowtrackLp.pMac": {
+    "message": "Machining"
+  },
+  "flowtrackLp.pWeld": {
+    "message": "Welding"
+  },
+  "flowtrackLp.pAsm": {
+    "message": "Assembly"
+  },
+  "flowtrackLp.pInsp": {
+    "message": "Inspection"
+  },
+  "flowtrackLp.pHeat": {
+    "message": "Heat treat"
+  },
+  "flowtrackLp.cvH2a": {
+    "message": "Draw the route once —"
+  },
+  "flowtrackLp.cvH2b": {
+    "message": "no rescheduling for every new order"
+  },
+  "flowtrackLp.cvSub": {
+    "message": "Serial and parallel steps, each with its duration, wired once. Pick a route on a new order and the due date comes out automatically. When a rush order lands, change one duration and see which orders slip."
+  },
+  "flowtrackLp.routeName": {
+    "message": "Standard machining route"
+  },
+  "flowtrackLp.cvMeta": {
+    "message": "6 steps · 1 parallel split"
+  },
+  "flowtrackLp.cvTotalPre": {
+    "message": "Total"
+  },
+  "flowtrackLp.cvTotalPost": {
+    "message": "· summed automatically"
+  },
+  "flowtrackLp.cvAria": {
+    "message": "Route canvas: Cutting, Machining, then Welding and Heat treat in parallel, followed by Assembly and Inspection — 7 days total"
+  },
+  "flowtrackLp.cvDim": {
+    "message": "Total 7 days: 1 + 2 + longest parallel (1 day) + 2 + 1"
+  },
+  "flowtrackLp.cvTag": {
+    "message": "FT-LP-02 · Route canvas (rebuilt)"
+  },
+  "flowtrackLp.cvCap": {
+    "message": "Parallel branches take the longest path into the total; loops are rejected on the spot. Pick this route on an order and the due date comes with it."
+  },
+  "flowtrackLp.featsH2": {
+    "message": "The shop floor, watchable from your phone"
+  },
+  "flowtrackLp.feat1t": {
+    "message": "Every order's progress, live"
+  },
+  "flowtrackLp.feat1s": {
+    "message": "No more walking the floor when a customer asks"
+  },
+  "flowtrackLp.feat2t": {
+    "message": "Due dates worked out for you"
+  },
+  "flowtrackLp.feat2s": {
+    "message": "Rush orders without redoing the schedule"
+  },
+  "flowtrackLp.feat3t": {
+    "message": "Alerts before an order slips"
+  },
+  "flowtrackLp.feat3s": {
+    "message": "Time to move people and reschedule"
+  },
+  "flowtrackLp.feat4t": {
+    "message": "Issues pushed to the person responsible"
+  },
+  "flowtrackLp.feat4s": {
+    "message": "To-dos find people — no chasing, no relying on memory"
+  },
+  "flowtrackLp.feat5t": {
+    "message": "Workers report by scanning"
+  },
+  "flowtrackLp.feat5s": {
+    "message": "No new software to install, nothing to learn"
+  },
+  "flowtrackLp.feat6t": {
+    "message": "Watch the factory from your phone"
+  },
+  "flowtrackLp.feat6s": {
+    "message": "Progress visible even when you're off-site"
+  },
+  "flowtrackLp.cmpH2": {
+    "message": "What changes isn't just the spreadsheet — it's the chasing"
+  },
+  "flowtrackLp.cmp1o": {
+    "message": "A customer asks about progress — you walk the shop floor"
+  },
+  "flowtrackLp.cmp1n": {
+    "message": "The home screen shows where every order is"
+  },
+  "flowtrackLp.cmp2o": {
+    "message": "A late order is discovered on its due day"
+  },
+  "flowtrackLp.cmp2n": {
+    "message": "Alerts days ahead — time to adjust"
+  },
+  "flowtrackLp.cmp3o": {
+    "message": "A rush order lands — who does it affect? Unknown"
+  },
+  "flowtrackLp.cmp3n": {
+    "message": "Change one duration, see which orders slip"
+  },
+  "flowtrackLp.cmp4o": {
+    "message": "Chasing, shouting, relying on memory"
+  },
+  "flowtrackLp.cmp4n": {
+    "message": "To-dos find the person responsible"
+  },
+  "flowtrackLp.costSetup": {
+    "message": "-minute setup"
+  },
+  "flowtrackLp.costRoute": {
+    "message": "Draw one route and it runs"
+  },
+  "flowtrackLp.costPhone": {
+    "message": "Works on your phone, nothing to install"
+  },
+  "flowtrackLp.chEn1": {
+    "message": "Available now: Web browser · Email (critical-alert fallback)"
+  },
+  "flowtrackLp.chEn2": {
+    "message": "Integration supported: Microsoft Teams · Slack · Lark · Google Chat · Telegram"
+  },
+  "flowtrackLp.chEn3": {
+    "message": "Notifications: WhatsApp · LINE"
+  },
+  "flowtrackLp.boundary": {
+    "message": "Progress and due dates only. Inventory, costing, payroll and approvals stay with your ERP and finance. Progress follows processes, not piece counts."
+  },
+  "flowtrackLp.faqH2": {
+    "message": "Six things factory owners ask before starting"
+  },
+  "flowtrackLp.faq1q": {
+    "message": "Will workers struggle with it?"
+  },
+  "flowtrackLp.faq1a": {
+    "message": "Scan a code to report. Nothing to install, no training."
+  },
+  "flowtrackLp.faq2q": {
+    "message": "Can we start without complete process docs?"
+  },
+  "flowtrackLp.faq2a": {
+    "message": "Start with a single process and add routes as you go."
+  },
+  "flowtrackLp.faq3q": {
+    "message": "Who owns the data? Can we export it?"
+  },
+  "flowtrackLp.faq3a": {
+    "message": "The factory owns it. Orders and progress export to spreadsheets."
+  },
+  "flowtrackLp.faq4q": {
+    "message": "How does it sit with our ERP?"
+  },
+  "flowtrackLp.faq4a": {
+    "message": "Progress and due dates only; your ERP keeps inventory and costing."
+  },
+  "flowtrackLp.faq5q": {
+    "message": "What happens when someone leaves?"
+  },
+  "flowtrackLp.faq5a": {
+    "message": "The roster syncs automatically, so handovers follow."
+  },
+  "flowtrackLp.faq6q": {
+    "message": "Can we change processes and durations later?"
+  },
+  "flowtrackLp.faq6a": {
+    "message": "Yes. New orders recalculate due dates from the updated route."
+  },
+  "flowtrackLp.cta2H2": {
+    "message": "Try it with one real order"
+  },
+  "flowtrackLp.cta2Sub": {
+    "message": "Set up in 10 minutes, nothing to install, your data exports anytime."
+  },
+  "flowtrackLp.seoTitle": {
+    "message": "FlowTrack — production progress & due-date management for make-to-order factories"
+  },
+  "flowtrackLp.seoDesc": {
+    "message": "See which process every order is on and how many days are left, at a glance. Orders likely to slip raise an alert early — time to move people, reschedule, or call the customer. Draw a route once, due dates come out automatically, setup in 10 minutes."
   }
 }

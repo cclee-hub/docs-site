@@ -1,0 +1,255 @@
+/* FlowTrack 落地页（开物智造）—— 方向 A 深色工程感
+   全部选择器挂 .ftlp 前缀，不污染站点主题；CSP 禁外链字体，走系统字体栈 */
+
+.ftlp {
+  /* token：深墨蓝 / 面板两档 / 线两档 / 前景两档 / 功能四色（蓝=进行中 琥珀=预警 红=逾期 绿=完成） */
+  --bg: #0d1621;
+  --panel: #111d2b;
+  --panel-2: #15202d;
+  --line: #233447;
+  --line-strong: #3a4e66;
+  --fg: #e3ebf4;
+  --muted: #8da0b5;
+  --accent: #4d94ff;
+  --accent-ink: #0a1522;
+  --warn: #ffa04d;
+  --alert: #f0655c;
+  --ok: #43b860;
+  --grid: rgba(141, 160, 181, 0.09);
+
+  background: var(--bg);
+  color: var(--fg);
+  color-scheme: dark;
+  font-family: -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei',
+    'Segoe UI', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.ftlp * { box-sizing: border-box; }
+.ftlp a { color: inherit; text-decoration: none; }
+.ftlp :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.ftlp .mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+  font-variant-numeric: tabular-nums;
+}
+.ftlp .wrap { max-width: 1120px; margin: 0 auto; padding: 48px 20px 72px; }
+
+/* 按钮 */
+.ftlp .btn {
+  display: inline-block; font-size: 15px; font-weight: 500; border-radius: 8px;
+  padding: 11px 22px; border: 1px solid transparent; cursor: pointer;
+  transition: filter 0.15s ease, border-color 0.15s ease;
+}
+.ftlp .btn-primary { background: var(--accent); color: var(--accent-ink); font-weight: 600; }
+.ftlp .btn-primary:hover { filter: brightness(1.1); }
+.ftlp .btn-ghost { border-color: var(--line-strong); color: var(--fg); }
+.ftlp .btn-ghost:hover { border-color: var(--muted); }
+
+/* ============ Hero 文案区 ============ */
+.ftlp .kicker { font-size: 13.5px; color: var(--muted); margin: 24px 0 18px; }
+.ftlp h1.ft-h1 {
+  font-size: clamp(34px, 6vw, 58px); font-weight: 700; line-height: 1.22;
+  letter-spacing: 0.01em; margin: 0 0 20px; max-width: 26ch;
+}
+.ftlp h1.ft-h1 span { display: block; }
+.ftlp .sub { max-width: 56ch; font-size: 16.5px; color: var(--muted); margin: 0 0 30px; }
+.ftlp .cta-row { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+.ftlp .trust { margin-top: 18px; font-size: 12.5px; color: var(--muted); }
+.ftlp .trust span:not(:first-child)::before { content: ' · '; }
+@media (max-width: 560px) {
+  .ftlp .trust span { display: block; }
+  .ftlp .trust span:not(:first-child)::before { content: ''; }
+}
+
+/* ============ Hero 动画舞台 ============ */
+.ftlp .stage {
+  margin-top: 46px; border: 1px solid var(--line); border-radius: 12px;
+  background-color: var(--panel);
+  background-image: linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 26px 26px;
+  padding: 22px 22px 12px;
+}
+.ftlp .stage-top { display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; margin-bottom: 8px; }
+
+.ftlp .wocard {
+  width: 340px; max-width: 100%; background: var(--panel-2);
+  border: 1px solid var(--line-strong); border-radius: 10px;
+  padding: 14px 16px 12px; transition: border-color 0.4s ease, opacity 0.45s ease;
+}
+.ftlp .wocard.warn { border-color: var(--warn); }
+.ftlp .wo-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.ftlp .wo-no { font-size: 13px; color: var(--fg); }
+.ftlp .chip { font-size: 12px; font-weight: 500; border-radius: 4px; padding: 2px 9px; white-space: nowrap; }
+.ftlp .chip-ok { color: var(--ok); background: color-mix(in srgb, var(--ok) 13%, transparent); }
+.ftlp .chip-warn { color: var(--warn); background: color-mix(in srgb, var(--warn) 14%, transparent); }
+.ftlp .wo-name { font-size: 13px; color: var(--muted); margin-top: 4px; }
+.ftlp .wo-count { display: flex; align-items: baseline; gap: 8px; margin-top: 10px; }
+.ftlp .wo-count b { font-size: 30px; font-weight: 600; line-height: 1; color: var(--fg); transition: color 0.3s ease; }
+.ftlp .wocard.warn .wo-count b { color: var(--warn); }
+.ftlp .wo-count span { font-size: 12.5px; color: var(--muted); }
+.ftlp .wo-warnrow {
+  overflow: hidden; max-height: 0; opacity: 0;
+  transition: max-height 0.45s ease, opacity 0.45s ease, margin 0.45s ease;
+}
+.ftlp .wocard.warn .wo-warnrow { max-height: 130px; opacity: 1; margin-top: 12px; }
+.ftlp .wo-warnline { font-size: 12.5px; color: var(--alert); border-top: 1px dashed var(--line-strong); padding-top: 10px; }
+.ftlp .wo-hint { font-size: 12px; color: var(--muted); margin-top: 6px; }
+.ftlp .wo-actions { display: flex; gap: 8px; margin-top: 10px; }
+.ftlp .wo-act {
+  font-size: 12px; color: var(--fg); border: 1px solid var(--line-strong);
+  border-radius: 5px; padding: 4px 10px; background: none; cursor: pointer;
+}
+.ftlp .wo-act:hover { border-color: var(--accent); color: var(--accent); }
+
+.ftlp .stage-legend { flex: 1; min-width: 220px; align-self: flex-end; padding-bottom: 6px; }
+.ftlp .stage-legend p { margin: 0; font-size: 13px; color: var(--muted); max-width: 42ch; }
+
+.ftlp .scroller { overflow-x: auto; }
+.ftlp .scroller svg { display: block; width: 100%; min-width: 860px; height: auto; }
+.ftlp .stage-cap { font-size: 12.5px; color: var(--muted); margin: 10px 2px 8px; }
+
+/* 路线节点状态（JS 切换） */
+.ftlp .n-ok-fill, .ftlp .n-cur-fill, .ftlp .n-tick { visibility: hidden; }
+.ftlp .node.is-ok .n-ok-fill, .ftlp .node.is-ok .n-tick { visibility: visible; }
+.ftlp .node.is-cur .n-cur-fill { visibility: visible; }
+.ftlp .ring { display: none; }
+.ftlp .node.is-cur .ring { display: block; }
+.ftlp .ring {
+  animation: ft-ring 2s ease-out infinite; transform-origin: center; transform-box: fill-box;
+}
+@keyframes ft-ring {
+  0% { transform: scale(0.6); opacity: 0.9; }
+  75% { transform: scale(1.9); opacity: 0; }
+  100% { transform: scale(1.9); opacity: 0; }
+}
+.ftlp .propline {
+  transform-origin: left center; transform-box: fill-box;
+  transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.ftlp .flowdot { transition: transform 1.3s cubic-bezier(0.45, 0, 0.2, 1); }
+.ftlp .dot-halo {
+  animation: ft-halo 2s ease-out infinite; transform-origin: center; transform-box: fill-box;
+}
+@keyframes ft-halo {
+  0% { transform: scale(0.8); opacity: 0.5; }
+  75% { transform: scale(1.6); opacity: 0; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+/* ============ 通用章节头 ============ */
+.ftlp section.ft-sec { margin-top: 84px; }
+.ftlp .sec-head { max-width: 60ch; margin-bottom: 24px; }
+.ftlp .sec-head h2 {
+  font-size: clamp(22px, 3.4vw, 30px); font-weight: 700; line-height: 1.3;
+  margin: 0 0 12px; color: var(--fg);
+}
+.ftlp .sec-head h2 span { display: block; }
+.ftlp .sec-head p { color: var(--muted); font-size: 15.5px; margin: 0; }
+
+/* ============ 画布 ============ */
+.ftlp .canvas-panel {
+  border: 1px solid var(--line); border-radius: 12px; background: var(--panel); overflow: hidden;
+}
+.ftlp .cv-toolbar {
+  display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
+  padding: 14px 18px; border-bottom: 1px solid var(--line);
+}
+.ftlp .cv-name { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.ftlp .cv-name b {
+  font-size: 15px; font-weight: 600; border: 1px solid var(--line-strong);
+  border-radius: 6px; padding: 5px 14px; white-space: nowrap;
+}
+.ftlp .cv-total { font-size: 12.5px; color: var(--muted); white-space: nowrap; }
+.ftlp .cv-total b { color: var(--accent); font-weight: 600; }
+.ftlp .cv-body { padding: 10px 12px 6px; }
+.ftlp .cv-body .scroller svg { min-width: 920px; }
+.ftlp .canvas-cap { font-size: 12.5px; color: var(--muted); margin: 12px 2px 0; }
+
+.ftlp .cv-node, .ftlp .cv-day, .ftlp .cv-dim, .ftlp .cv-tag {
+  opacity: 0; transform: translateY(7px); transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.ftlp .cv-wire { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 0.7s ease; }
+.ftlp .canvas-panel.in .cv-wire { stroke-dashoffset: 0; }
+.ftlp .canvas-panel.in .cv-node,
+.ftlp .canvas-panel.in .cv-day,
+.ftlp .canvas-panel.in .cv-dim,
+.ftlp .canvas-panel.in .cv-tag { opacity: 1; transform: none; }
+.ftlp .canvas-panel.in .cv-node { transition-delay: 0.45s; }
+.ftlp .canvas-panel.in .cv-day { transition-delay: 0.6s; }
+.ftlp .canvas-panel.in .cv-dim { transition-delay: 0.85s; }
+.ftlp .canvas-panel.in .cv-tag { transition-delay: 1s; }
+
+/* ============ 功能条 ============ */
+.ftlp .feats { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 44px; }
+.ftlp .feat { border-top: 1px solid var(--line); padding: 14px 0 4px; min-width: 0; }
+.ftlp .feat b { display: block; font-size: 15.5px; font-weight: 600; color: var(--fg); }
+.ftlp .feat span { display: block; font-size: 13.5px; color: var(--muted); margin-top: 4px; }
+@media (max-width: 640px) { .ftlp .feats { grid-template-columns: 1fr; gap: 10px; } }
+
+/* ============ 以前 / 现在 ============ */
+.ftlp .cmp {
+  border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--panel);
+}
+.ftlp .cmp-head, .ftlp .cmp-row { display: grid; grid-template-columns: 1fr 1fr; }
+.ftlp .cmp-head { background: var(--panel-2); font-size: 12.5px; color: var(--muted); }
+.ftlp .cmp-head span, .ftlp .cmp-row span { padding: 12px 18px; min-width: 0; }
+.ftlp .cmp-row { border-top: 1px solid var(--line); font-size: 14.5px; }
+.ftlp .cmp-row span:first-child { color: var(--muted); }
+.ftlp .cmp-row span:last-child {
+  color: var(--fg); font-weight: 500; background: color-mix(in srgb, var(--accent) 5%, transparent);
+}
+@media (max-width: 640px) {
+  .ftlp .cmp-head { display: none; }
+  .ftlp .cmp-row { grid-template-columns: 1fr; }
+  .ftlp .cmp-row span:first-child { padding-bottom: 2px; }
+  .ftlp .cmp-row span::before {
+    display: block; font-size: 11px; color: var(--muted); font-weight: 400; margin-bottom: 2px;
+  }
+  .ftlp .cmp-row span:first-child::before { content: '以前'; }
+  .ftlp .cmp-row span:last-child::before { content: '现在'; }
+}
+/* 英文站的移动端标签（.ftlp--en 由页面按 SITE 输出） */
+.ftlp--en .cmp-row span:first-child::before { content: 'Before' !important; }
+.ftlp--en .cmp-row span:last-child::before { content: 'Now' !important; }
+
+/* ============ 成本条 / 渠道 / 边界句 ============ */
+.ftlp .costbar {
+  display: flex; flex-wrap: wrap; gap: 10px 30px; justify-content: center; align-items: center;
+  font-size: 13.5px; color: var(--fg); border: 1px solid var(--line); border-radius: 10px;
+  padding: 16px 20px; background: var(--panel);
+}
+.ftlp .costbar b { font-size: 22px; font-weight: 600; color: var(--accent); line-height: 1; }
+.ftlp .channels { margin-top: 16px; font-size: 12.5px; color: var(--muted); display: grid; gap: 7px; }
+.ftlp .channels p { margin: 0; }
+.ftlp .dot {
+  display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+  border: 1.5px solid var(--muted); margin-right: 9px;
+}
+.ftlp .dot-on { background: var(--accent); border-color: var(--accent); }
+.ftlp .boundary {
+  margin-top: 28px; border-left: 2px solid var(--accent); padding: 4px 0 4px 18px;
+  font-size: 15px; color: var(--fg); max-width: 60ch;
+}
+
+/* ============ FAQ ============ */
+.ftlp .faq { display: grid; grid-template-columns: 1fr 1fr; gap: 0 44px; }
+.ftlp .qa { border-top: 1px solid var(--line); padding: 14px 0 8px; min-width: 0; }
+.ftlp .qa b { font-size: 14.5px; font-weight: 600; display: block; color: var(--fg); }
+.ftlp .qa p { font-size: 13.5px; color: var(--muted); margin: 6px 0 0; line-height: 1.75; }
+@media (max-width: 640px) { .ftlp .faq { grid-template-columns: 1fr; } }
+
+/* ============ 二次 CTA ============ */
+.ftlp .final-cta { text-align: center; padding: 44px 0 10px; border-top: 1px solid var(--line); }
+.ftlp .final-cta p { color: var(--muted); margin: 10px 0 26px; font-size: 15px; }
+
+/* ============ 动效降级 ============ */
+@media (prefers-reduced-motion: reduce) {
+  .ftlp .ring, .ftlp .dot-halo { animation: none; }
+  .ftlp .flowdot, .ftlp .propline, .ftlp .wo-warnrow { transition: none; }
+  .ftlp .cv-node, .ftlp .cv-day, .ftlp .cv-dim, .ftlp .cv-tag {
+    opacity: 1; transform: none; transition: none;
+  }
+  .ftlp .cv-wire { stroke-dashoffset: 0; transition: none; }
+}
