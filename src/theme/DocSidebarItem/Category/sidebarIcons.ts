@@ -4,6 +4,7 @@ import {
   Bot,
   Building2,
   CloudUpload,
+  Factory,
   Globe,
   Headset,
   ListChecks,
@@ -44,6 +45,7 @@ register(Truck, 'WooCommerce 物流', 'WooCommerce Shipping');
 register(ListChecks, '任务栈', 'Task Stack');
 register(Wallet, 'Life 记账助手', 'Life');
 register(ShieldCheck, 'CCLee 服务器哨兵', 'CCLee Server Sentinel');
+register(Factory, '开物智造', 'FlowTrack');
 
 /** 仅一级分类返回图标；子级分类与文档条目不配图标 */
 export function getCategoryIcon(

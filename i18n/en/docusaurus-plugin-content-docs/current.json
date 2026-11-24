@@ -46,5 +46,8 @@
   },
   "sidebar.tutorialSidebar.category.CCLee 服务器哨兵": {
     "message": "CCLee Server Sentinel"
+  },
+  "sidebar.tutorialSidebar.category.开物智造": {
+    "message": "FlowTrack"
   }
 }
