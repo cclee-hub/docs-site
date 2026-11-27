@@ -278,6 +278,77 @@ export default function FlowTrackLp(): React.ReactElement {
     ],
   ];
 
+  // 价格两套：zh 年付人民币（单列年价）/ en 月付为主 + 年付角标（结构不同，按站渲染）。
+  // 公开口径：只放不开票价（开票口径留合同环节）；杂项对接/实施不入价格表，进备注行。
+  const plans: ReadonlyArray<{
+    readonly name: string;
+    readonly amount: string;
+    readonly per: string;
+    readonly annual?: string;
+    readonly badge?: string;
+    readonly feat: string;
+    readonly cta: string;
+  }> = isZh
+    ? [
+        {
+          name: t('flowtrackLp.plan1Name', '免费版'),
+          amount: '¥0',
+          per: '',
+          feat: t('flowtrackLp.plan1Feat', '1 条工艺路线 · ≤10 张在途订单'),
+          cta: t('flowtrackLp.plan1Cta', '免费开始'),
+        },
+        {
+          name: t('flowtrackLp.plan2Name', '标准版'),
+          amount: '¥2,980',
+          per: t('flowtrackLp.planPerYear', '/年'),
+          feat: t('flowtrackLp.plan2Feat', '不限路线和订单 · 扫码报工 · 交期自动算 · 逾期预警'),
+          cta: t('flowtrackLp.plan2Cta', '开通标准版'),
+        },
+        {
+          name: t('flowtrackLp.plan3Name', '专业版'),
+          amount: '¥6,980',
+          per: t('flowtrackLp.planPerYear', '/年'),
+          feat: t(
+            'flowtrackLp.plan3Feat',
+            '标准版全部 · 多车间看板 · 多级权限 · 含 1 个协作平台对接（企业微信/钉钉/飞书/Teams/Slack/Lark 任选其一）',
+          ),
+          cta: t('flowtrackLp.plan3Cta', '开通专业版'),
+        },
+      ]
+    : [
+        {
+          name: t('flowtrackLp.plan1Name', 'Free'),
+          amount: '$0',
+          per: '',
+          feat: t('flowtrackLp.plan1Feat', '1 route · ≤10 open orders · 1 admin'),
+          cta: t('flowtrackLp.plan1Cta', 'Start free'),
+        },
+        {
+          name: t('flowtrackLp.plan2Name', 'Standard'),
+          amount: '$79',
+          per: t('flowtrackLp.planPerMo', '/mo'),
+          annual: t('flowtrackLp.plan2Annual', 'or $790/yr'),
+          badge: t('flowtrackLp.annualBadge', '2 months free'),
+          feat: t(
+            'flowtrackLp.plan2Feat',
+            'Unlimited routes & orders · scan reporting · auto due dates · overdue alerts · 3 admins',
+          ),
+          cta: t('flowtrackLp.plan2Cta', 'Start Standard'),
+        },
+        {
+          name: t('flowtrackLp.plan3Name', 'Pro'),
+          amount: '$179',
+          per: t('flowtrackLp.planPerMo', '/mo'),
+          annual: t('flowtrackLp.plan3Annual', 'or $1,790/yr'),
+          badge: t('flowtrackLp.annualBadge', '2 months free'),
+          feat: t(
+            'flowtrackLp.plan3Feat',
+            'Everything in Standard · multi-line dashboard · role permissions · 10 admins · 1 collaboration integration (Teams/Slack/Lark/Google Chat)',
+          ),
+          cta: t('flowtrackLp.plan3Cta', 'Start Pro'),
+        },
+      ];
+
   return (
     <Layout
       title={t(
@@ -763,6 +834,61 @@ export default function FlowTrackLp(): React.ReactElement {
               {t(
                 'flowtrackLp.boundary',
                 '只管进度和交期。库存、成本、工资、审批留给 ERP 和财务；进度按工序走，不按件数追。',
+              )}
+            </p>
+          </section>
+
+          {/* ===== 价格 ===== */}
+          <section className="ft-sec">
+            <div className="sec-head">
+              <h2>
+                <span>{t('flowtrackLp.priceH2a', '按工厂收，一年一付')}</span>
+                <span>{t('flowtrackLp.priceH2b', '续费同价')}</span>
+              </h2>
+              <p>
+                {t(
+                  'flowtrackLp.priceSub',
+                  '按工厂收费，车间工人账号不限。先免费用，不够了再升级。',
+                )}
+              </p>
+            </div>
+            <div className="plans">
+              {plans.map((p) => (
+                <div className="plan" key={p.name}>
+                  <div className="plan-name">{p.name}</div>
+                  <div className="plan-price mono">
+                    <b>{p.amount}</b>
+                    {p.per !== '' && <span className="plan-per">{p.per}</span>}
+                  </div>
+                  {p.annual && (
+                    <div className="plan-annual">
+                      {p.annual}
+                      {p.badge && <i className="plan-badge">{p.badge}</i>}
+                    </div>
+                  )}
+                  <p className="plan-feat">{p.feat}</p>
+                  <a className="btn btn-ghost plan-btn" href={guideHref}>
+                    {p.cta}
+                  </a>
+                </div>
+              ))}
+            </div>
+            <p className="price-note">
+              {isZh ? (
+                <>
+                  {t(
+                    'flowtrackLp.priceNote',
+                    '续费同价，不做首年低价。ERP 对接（金蝶/用友）、上门实施按项目报价 → ',
+                  )}
+                  <a className="price-contact" href="mailto:leecc1531@gmail.com">
+                    {t('flowtrackLp.priceContact', '联系我们')}
+                  </a>
+                </>
+              ) : (
+                t(
+                  'flowtrackLp.priceNoteEn',
+                  'Accounting/ERP integration (QuickBooks, Xero) from $990 one-time · Remote training $149/h · Prices exclude sales tax / VAT.',
+                )
               )}
             </p>
           </section>

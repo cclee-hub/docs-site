@@ -1686,5 +1686,65 @@
   },
   "flowtrackLp.seoDesc": {
     "message": "See which process every order is on and how many days are left, at a glance. Orders likely to slip raise an alert early — time to move people, reschedule, or call the customer. Draw a route once, due dates come out automatically, setup in 10 minutes."
+  },
+  "flowtrackLp.priceH2a": {
+    "message": "Priced per factory."
+  },
+  "flowtrackLp.priceH2b": {
+    "message": "Workers free."
+  },
+  "flowtrackLp.priceSub": {
+    "message": "One subscription covers the whole shop floor — worker accounts are unlimited. Start free, upgrade when you need to."
+  },
+  "flowtrackLp.plan1Name": {
+    "message": "Free"
+  },
+  "flowtrackLp.plan2Name": {
+    "message": "Standard"
+  },
+  "flowtrackLp.plan3Name": {
+    "message": "Pro"
+  },
+  "flowtrackLp.planPerYear": {
+    "message": "/yr"
+  },
+  "flowtrackLp.planPerMo": {
+    "message": "/mo"
+  },
+  "flowtrackLp.plan2Annual": {
+    "message": "or $790/yr"
+  },
+  "flowtrackLp.plan3Annual": {
+    "message": "or $1,790/yr"
+  },
+  "flowtrackLp.annualBadge": {
+    "message": "2 months free"
+  },
+  "flowtrackLp.plan1Feat": {
+    "message": "1 route · ≤10 open orders · 1 admin"
+  },
+  "flowtrackLp.plan2Feat": {
+    "message": "Unlimited routes & orders · scan reporting · auto due dates · overdue alerts · 3 admins"
+  },
+  "flowtrackLp.plan3Feat": {
+    "message": "Everything in Standard · multi-line dashboard · role permissions · 10 admins · 1 collaboration integration (Teams/Slack/Lark/Google Chat)"
+  },
+  "flowtrackLp.plan1Cta": {
+    "message": "Start free"
+  },
+  "flowtrackLp.plan2Cta": {
+    "message": "Start Standard"
+  },
+  "flowtrackLp.plan3Cta": {
+    "message": "Start Pro"
+  },
+  "flowtrackLp.priceNote": {
+    "message": "Same price on renewal — no cheap first year. ERP integration (Kingdee/Yonyou) and on-site setup quoted per project → "
+  },
+  "flowtrackLp.priceContact": {
+    "message": "Contact us"
+  },
+  "flowtrackLp.priceNoteEn": {
+    "message": "Accounting/ERP integration (QuickBooks, Xero) from $990 one-time · Remote training $149/h · Prices exclude sales tax / VAT."
   }
 }
